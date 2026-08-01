@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Start on ESC River Rats Geretsried e.V.</title>
+		<link>https://esc-geretsried.github.io/esc-website-dev/</link>
+		<description>Recent content in Start on ESC River Rats Geretsried e.V.</description>
+		<generator>Hugo</generator>
+		<language>de-de</language>
+		
+		
+		
+		
+			<lastBuildDate>Sat, 01 Aug 2026 10:00:00 +0200</lastBuildDate>
+		
+			<atom:link href="https://esc-geretsried.github.io/esc-website-dev/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Neue Website entsteht</title>
+				<link>https://esc-geretsried.github.io/esc-website-dev/aktuelles/testbeitrag/</link>
+				<pubDate>Sat, 01 Aug 2026 10:00:00 +0200</pubDate>
+				<guid>https://esc-geretsried.github.io/esc-website-dev/aktuelles/testbeitrag/</guid>
+				<description>Die neue Website des ESC wird derzeit technisch aufgebaut und an die SharePoint-Redaktion angebunden.</description>
+			</item>
+	</channel>
+</rss>
