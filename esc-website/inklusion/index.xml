@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Inklusion on ESC River Rats Geretsried e.V.</title>
+		<link>https://esc-geretsried.github.io/esc-website-dev/inklusion/</link>
+		<description>Recent content in Inklusion on ESC River Rats Geretsried e.V.</description>
+		<generator>Hugo</generator>
+		<language>de-DE</language>
+		
+		
+		
+		
+			<atom:link href="https://esc-geretsried.github.io/esc-website-dev/inklusion/index.xml" rel="self" type="application/rss+xml" />
+	</channel>
+</rss>
