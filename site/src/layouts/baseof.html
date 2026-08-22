@@ -10,21 +10,20 @@
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 </head>
 <body>
-  <div class="flashbar" aria-label="Hinweis">
-    <div class="shell flashbar__inner">
-      <span class="flashbar__label">Dauerkarte</span>
-      <span class="flashbar__text">Dauerkarten Saison 2026/2027 – jetzt hier verbindlich</span>
-    </div>
-  </div>
+  <div class="flashbar"><div class="shell flashbar__inner"><span class="flashbar__label">Dauerkarte</span><span class="flashbar__text">Dauerkarten Saison 2026/2027 – jetzt hier verbindlich</span></div></div>
   <header class="site-header">
     <div class="shell header-row">
-      <a class="brand" href="{{ "/" | relURL }}" aria-label="ESC River Rats Geretsried">
-        <img src="{{ "images/river-rats-logo.png" | relURL }}" alt="River Rats">
-      </a>
-      <button class="menu-button" type="button" aria-label="Menü öffnen">MENÜ <span>≡</span></button>
+      <a class="brand" href="{{ "/" | relURL }}" aria-label="ESC River Rats Geretsried – Startseite"><img src="{{ "images/river-rats-logo.png" | relURL }}" alt="River Rats"></a>
+      <details class="site-menu">
+        <summary>MENÜ <span aria-hidden="true">≡</span></summary>
+        <nav aria-label="Hauptnavigation">
+          <a href="{{ "/" | relURL }}">Start</a><a href="{{ "/river-rats/" | relURL }}">River Rats</a><a href="{{ "/river-rats-damen/" | relURL }}">Damen</a><a href="{{ "/nachwuchs/" | relURL }}">Nachwuchs</a><a href="{{ "/eislaufschule/" | relURL }}">Eislaufschule</a><a href="{{ "/eiskunstlauf/" | relURL }}">Eiskunstlauf</a><a href="{{ "/inklusion/" | relURL }}">Inklusion</a><a href="{{ "/verein/" | relURL }}">Verein</a><a href="{{ "/verein/foerderverein/" | relURL }}">Förderverein</a><a href="{{ "/sponsoren/" | relURL }}">Sponsoren</a>
+        </nav>
+      </details>
     </div>
   </header>
   <main id="main-content">{{ block "main" . }}{{ end }}</main>
-  <footer class="site-footer"><div class="shell">Eishockey. Gemeinschaft. Geretsried.</div></footer>
+  {{ $home := site.Data.home }}
+  <footer class="site-footer"><div class="shell footer-inner"><strong>Eishockey. Gemeinschaft. Geretsried.</strong><p>ESC River Rats Geretsried e.V.</p><nav aria-label="Footer">{{ range $home.footer_links }}<a href="{{ .path | relURL }}">{{ .title }}</a>{{ end }}</nav></div></footer>
 </body>
 </html>
