@@ -33,7 +33,7 @@
       </div>
     </div>
   </section>
-{{ else if eq .Section "river-rats" }}
+{{ else if and (eq .Section "river-rats") (eq .RelPermalink ("/river-rats/" | relURL)) }}
   {{ $hd := site.Data.hockeydata }}
   <header class="page-head"><div class="shell"><p class="eyebrow">ESC River Rats Geretsried</p><h1>{{ .Title }}</h1><p>{{ .Params.description }}</p></div></header>
   <section class="content-section"><div class="shell"><div class="prose">{{ .Content }}</div></div></section>
