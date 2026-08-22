@@ -10,8 +10,19 @@
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 </head>
 <body>
+  <div class="flashbar" aria-label="Hinweis">
+    <div class="shell flashbar__inner">
+      <span class="flashbar__label">Dauerkarte</span>
+      <span class="flashbar__text">Dauerkarten Saison 2026/2027 – jetzt hier verbindlich</span>
+    </div>
+  </div>
   <header class="site-header">
-    <div class="shell"><strong>ESC River Rats Geretsried e.V.</strong></div>
+    <div class="shell header-row">
+      <a class="brand" href="{{ "/" | relURL }}" aria-label="ESC River Rats Geretsried">
+        <img src="{{ "images/river-rats-logo.png" | relURL }}" alt="River Rats">
+      </a>
+      <button class="menu-button" type="button" aria-label="Menü öffnen">MENÜ <span>≡</span></button>
+    </div>
   </header>
   <main id="main-content">{{ block "main" . }}{{ end }}</main>
   <footer class="site-footer"><div class="shell">Eishockey. Gemeinschaft. Geretsried.</div></footer>
