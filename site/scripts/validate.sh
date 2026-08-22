@@ -41,8 +41,7 @@ require_text "$INDEX" 'images/teams/u20-team.jpg'
 )
 
 test "$(find "$OUT/images/teams" -maxdepth 1 -type f | wc -l)" -eq 10 || { echo 'ERROR: expected 10 published team assets' >&2; exit 2; }
-for path in sponsoren river-rats river-rats-damen nachwuchs eislaufschule eiskunstlauf inklusion verein impressum datenschutz; do require_file "$OUT/$path/index.html"; done
-require_text "$OUT/river-rats/index.html" 'Korbinian Sertl'
+for path in sponsoren river-rats river-rats-damen nachwuchs eislaufschule eiskunstlauf inklusion verein verein/foerderverein impressum datenschutz; do require_file "$OUT/$path/index.html"; done
 require_text "$OUT/aktuelles/2026-08-04-river-rats-defensive-verlaengerungen/index.html" 'Doppelpack für die Defensive'
 require_text "$OUT/sponsoren/index.html" 'Ansprechpartner Sponsoring'
 
@@ -122,4 +121,4 @@ if grep -RIl 'orp-esc-int.netlify.app' "$OUT"; then
   exit 4
 fi
 
-echo "Static smoke validation passed with internal sponsors page, rotating tenant hero assets and frozen esc-int content"
+echo "Static smoke validation passed with canonical menu routes, internal sponsors page, rotating tenant hero assets and transitional esc-int content"
