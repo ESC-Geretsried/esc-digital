@@ -42,9 +42,14 @@ require_text "$INDEX" 'images/teams/u20-team.jpg'
 
 test "$(find "$OUT/images/teams" -maxdepth 1 -type f | wc -l)" -eq 10 || { echo 'ERROR: expected 10 published team assets' >&2; exit 2; }
 for path in sponsoren river-rats river-rats-damen nachwuchs eislaufschule eiskunstlauf inklusion verein verein/foerderverein impressum datenschutz; do require_file "$OUT/$path/index.html"; done
-for path in river-rats river-rats-damen nachwuchs eislaufschule eiskunstlauf inklusion verein verein/foerderverein; do
-  require_text "$OUT/$path/index.html" 'kanonische ESC-Seite'
-done
+require_text "$OUT/river-rats/index.html" '<h1>River Rats</h1>'
+require_text "$OUT/river-rats-damen/index.html" '<h1>River Rats Damen</h1>'
+require_text "$OUT/nachwuchs/index.html" '<h1>Nachwuchs</h1>'
+require_text "$OUT/eislaufschule/index.html" '<h1>Eislaufschule</h1>'
+require_text "$OUT/eiskunstlauf/index.html" '<h1>Eiskunstlauf</h1>'
+require_text "$OUT/inklusion/index.html" '<h1>Inklusion</h1>'
+require_text "$OUT/verein/index.html" '<h1>Verein</h1>'
+require_text "$OUT/verein/foerderverein/index.html" '<h1>Förderverein</h1>'
 require_text "$OUT/aktuelles/2026-08-04-river-rats-defensive-verlaengerungen/index.html" 'Doppelpack für die Defensive'
 require_text "$OUT/sponsoren/index.html" 'Ansprechpartner Sponsoring'
 
