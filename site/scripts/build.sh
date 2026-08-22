@@ -55,6 +55,7 @@ python3 "$SITE/scripts/render_imported_pages.py" "${HUGO_BASEURL:-/}"
 # HockeyData requires its domain-bound API key in the client-side widget
 # options. The key is never stored in Git; Pages injects it from Actions.
 python3 "$SITE/scripts/inject_hockeydata_key.py"
+bash "$SITE/scripts/validate_hockeydata.sh"
 
 test -f "$SITE/public/index.html"
 test -f "$SITE/public/sponsoren/index.html"
