@@ -12,9 +12,10 @@ rm -rf "$SITE/public"
 # authoritative. Git under content/ remains the source of truth.
 mkdir -p "$SITE/data"
 cp "$ROOT/content/sponsors/sponsors.json" "$SITE/data/sponsors.json"
+cp "$ROOT/content/sponsors/page.json" "$SITE/data/sponsor_page.json"
 cp "$ROOT/content/home/home.json" "$SITE/data/home.json"
 cleanup() {
-  rm -f "$SITE/data/sponsors.json" "$SITE/data/home.json"
+  rm -f "$SITE/data/sponsors.json" "$SITE/data/sponsor_page.json" "$SITE/data/home.json"
   rmdir "$SITE/data" 2>/dev/null || true
 }
 trap cleanup EXIT
