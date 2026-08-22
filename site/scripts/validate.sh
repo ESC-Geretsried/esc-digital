@@ -6,6 +6,7 @@ OUT="$ROOT/site/public"
 INDEX="$OUT/index.html"
 SPONSOR_DATA="$ROOT/content/sponsors/sponsors.json"
 SPONSOR_ASSETS="$ROOT/content/sponsors/assets"
+SPONSOR_MANIFEST="$ROOT/docs/operations/sponsor-assets.sha256"
 
 test -f "$INDEX" || { echo "ERROR: missing $INDEX" >&2; exit 2; }
 grep -qi '<!doctype html>' "$INDEX"
@@ -16,7 +17,7 @@ grep -q 'Unsere Partner' "$INDEX"
 
 (
   cd "$SPONSOR_ASSETS"
-  sha256sum -c SHA256SUMS
+  sha256sum -c "$SPONSOR_MANIFEST"
 )
 
 python3 - "$SPONSOR_DATA" "$INDEX" "$OUT/sponsors/assets" <<'PY'
