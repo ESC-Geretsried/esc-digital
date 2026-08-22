@@ -1,25 +1,19 @@
 {{ define "main" }}
-<section class="hero" aria-labelledby="hero-title">
-  <div class="hero-background" aria-hidden="true" data-hero-images="{{ "images/hero/hero-01-bewegung.jpeg" | relURL }}|{{ "images/hero/hero-02-team.jpeg" | relURL }}|{{ "images/hero/hero-03-treffer.jpeg" | relURL }}|{{ "images/hero/hero-04-stimmung.jpeg" | relURL }}|{{ "images/teams/damen-team.jpg" | relURL }}|{{ "images/teams/eiskunstlauf.jpeg" | relURL }}|{{ "images/teams/eislaufschule-2025-2026.png" | relURL }}|{{ "images/teams/inklusion.jpg" | relURL }}|{{ "images/teams/u7-team.jpg" | relURL }}|{{ "images/teams/u9-team.jpg" | relURL }}|{{ "images/teams/u13-team.jpg" | relURL }}|{{ "images/teams/u15-team.jpg" | relURL }}|{{ "images/teams/u17-team.jpg" | relURL }}|{{ "images/teams/u20-team.jpg" | relURL }}">
-    <div class="hero-background__layer hero-background__layer--active" style="background-image:url('{{ "images/hero/hero-01-bewegung.jpeg" | relURL }}')"></div>
+{{ $heroData := site.Data.home_heroes }}
+{{ $heroSlides := first $heroData.max_active (sort (where $heroData.slides "active" true) "order") }}
+{{ $firstHero := index $heroSlides 0 }}
+<section class="hero hero--photo-first" aria-labelledby="hero-title">
+  <div class="hero-background" aria-hidden="true">
+    <div class="hero-background__layer hero-background__layer--active" style="background-image:url('{{ $firstHero.image | relURL }}');background-position:{{ $firstHero.focus_desktop }}"></div>
     <div class="hero-background__layer"></div>
+    {{ range $heroSlides }}<i data-hero-source data-src="{{ .image | relURL }}" data-area="{{ .area }}" data-headline="{{ .headline }}" data-cta-label="{{ .cta_label }}" data-cta-path="{{ .cta_path | relURL }}" data-focus-desktop="{{ .focus_desktop }}" data-focus-mobile="{{ .focus_mobile }}"></i>{{ end }}
   </div>
   <div class="shell hero-inner">
-    <p class="eyebrow">{{ .Params.hero_eyebrow }}</p>
-    <h1 id="hero-title">
-      <span class="hero-line">{{ .Params.hero_title_line_1 }}</span>
-      <span class="hero-line hero-line--pair">{{ .Params.hero_title_line_2 }}</span>
-    </h1>
-    <p class="hero-copy">{{ .Params.hero_copy }}</p>
-    <div class="actions" aria-label="Hauptnavigation">
-      <a class="button button--gold" href="{{ "/river-rats/" | relURL }}">River Rats</a>
-      <a class="button button--outline" href="{{ "/nachwuchs/" | relURL }}">Nachwuchs entdecken</a>
+    <div class="hero-editorial">
+      <p class="eyebrow" data-hero-area>{{ $firstHero.area }}</p>
+      <h1 id="hero-title" data-hero-headline>{{ $firstHero.headline }}</h1>
+      <a class="button button--gold hero-cta" data-hero-cta href="{{ $firstHero.cta_path | relURL }}">{{ $firstHero.cta_label }}</a>
     </div>
-    <aside class="game-card" aria-label="Nächstes Heimspiel">
-      <span>Nächstes Heimspiel</span>
-      <strong>{{ .Params.next_game_title }}</strong>
-      <p>{{ .Params.next_game_copy }}</p>
-    </aside>
   </div>
 </section>
 
