@@ -38,8 +38,11 @@ cp "$ROOT"/images/teams/* "$SITE/public/images/teams/"
 mkdir -p "$SITE/public/sponsors/assets"
 find "$ROOT/content/sponsors/assets" -maxdepth 1 -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.svg' \) -exec cp {} "$SITE/public/sponsors/assets/" \;
 
+# Build the new internal sponsors page directly from structured tenant data.
+python3 "$SITE/scripts/render_sponsors_page.py" "${HUGO_BASEURL:-/}"
+
 # Render the frozen esc-int content snapshot inside the authoritative
-# esc-digital shell. The Hugo-generated /sponsoren/ page remains authoritative.
+# esc-digital shell. /sponsoren/ is explicitly excluded from the snapshot.
 python3 "$SITE/scripts/render_imported_pages.py" "${HUGO_BASEURL:-/}"
 
 test -f "$SITE/public/index.html"
@@ -50,4 +53,4 @@ test -f "$SITE/public/images/river-rats-logo.png"
 test -f "$SITE/public/images/hero/hero-01-bewegung.jpeg"
 test "$(find "$SITE/public/images/teams" -maxdepth 1 -type f | wc -l)" -eq 10
 test "$(find "$SITE/public/sponsors/assets" -maxdepth 1 -type f | wc -l)" -eq 37
-echo "Built ESC site with $(hugo version), frozen esc-int content, 14 rotating hero/team images and 37 canonical sponsor logos"
+echo "Built ESC site with $(hugo version), internal sponsors page, frozen esc-int content, 14 rotating hero/team images and 37 canonical sponsor logos"
