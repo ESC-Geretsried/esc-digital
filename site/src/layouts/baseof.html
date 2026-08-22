@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
+  <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell"><strong>ESC River Rats Geretsried e.V.</strong></div>
+  </header>
+  <main id="main-content">{{ block "main" . }}{{ end }}</main>
+  <footer class="site-footer"><div class="shell">Eishockey. Gemeinschaft. Geretsried.</div></footer>
+</body>
+</html>

@@ -1,0 +1,13 @@
+baseURL = "/"
+languageCode = "de-de"
+title = "ESC River Rats Geretsried"
+defaultContentLanguage = "de"
+contentDir = "../content"
+layoutDir = "src/layouts"
+assetDir = "src/assets"
+staticDir = "src/static"
+publishDir = "public"
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "ESC River Rats Geretsried e.V."

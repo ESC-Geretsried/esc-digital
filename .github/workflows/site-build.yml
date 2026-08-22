@@ -1,0 +1,30 @@
+name: Site build validation
+
+on:
+  pull_request:
+    paths:
+      - 'site/**'
+      - 'content/**'
+      - '.github/workflows/site-build.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Hugo
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y hugo
+          hugo version
+
+      - name: Build
+        run: bash site/scripts/build.sh
+
+      - name: Validate
+        run: bash site/scripts/validate.sh
