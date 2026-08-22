@@ -1,0 +1,33 @@
+{{ define "main" }}
+{{ $sponsorData := site.Data.sponsors }}
+<header class="page-hero page-hero--sponsors">
+  <div class="shell">
+    <p class="eyebrow">ESC River Rats Geretsried</p>
+    <h1>{{ .Title }}</h1>
+    <p>Partner und Unterstützer des ESC River Rats Geretsried.</p>
+  </div>
+</header>
+<section class="content-section sponsors-page">
+  <div class="shell">
+    <div class="sponsors-intro">{{ .Content }}</div>
+    <div class="sponsors-grid" aria-label="Sponsoren des ESC River Rats Geretsried">
+      {{ range (sort $sponsorData.sponsors "order") }}
+        {{ if .visible }}
+          {{ $logoURL := (printf "sponsors/assets/%s" (path.Base .logo)) | relURL }}
+          {{ if .url }}
+            <a class="sponsor-tile" href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }} – Partnerwebsite in neuem Tab öffnen">
+              <span class="sponsor-tile__logo"><img src="{{ $logoURL }}" alt="{{ .name }}" loading="lazy"></span>
+              <strong>{{ .name }}</strong>
+            </a>
+          {{ else }}
+            <div class="sponsor-tile sponsor-tile--static" aria-label="{{ .name }}">
+              <span class="sponsor-tile__logo"><img src="{{ $logoURL }}" alt="{{ .name }}" loading="lazy"></span>
+              <strong>{{ .name }}</strong>
+            </div>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
