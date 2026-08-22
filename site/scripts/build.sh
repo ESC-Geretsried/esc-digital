@@ -52,6 +52,11 @@ python3 "$SITE/scripts/render_sponsors_page.py" "${HUGO_BASEURL:-/}"
 # Render transitional esc-int pages without overwriting canonical ESC routes.
 python3 "$SITE/scripts/render_imported_pages.py" "${HUGO_BASEURL:-/}"
 
+# Render the River Rats HockeyData block deterministically from canonical
+# tenant configuration. This avoids relying on fragile transitional Hugo
+# section lookup while M2 is being consolidated.
+python3 "$SITE/scripts/render_hockeydata.py"
+
 # HockeyData requires its domain-bound API key in the client-side widget
 # options. The key is never stored in Git; Pages injects it from Actions.
 python3 "$SITE/scripts/inject_hockeydata_key.py"
