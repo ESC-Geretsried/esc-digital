@@ -11,24 +11,26 @@ TEAM_MANIFEST="$ROOT/docs/operations/esc-int-team-assets.sha256"
 HOME_DATA="$ROOT/content/home/home.json"
 PAGE_MANIFEST="$ROOT/docs/operations/esc-int-pages-manifest.json"
 
-test -f "$INDEX" || { echo "ERROR: missing $INDEX" >&2; exit 2; }
-grep -qi '<!doctype html>' "$INDEX"
-grep -q 'Leidenschaft\.' "$INDEX"
-grep -q 'Team\. Zukunft\.' "$INDEX"
-grep -q 'noindex,nofollow,noarchive' "$INDEX"
-grep -q 'Unsere Partner' "$INDEX"
-grep -q 'Aktuelles' "$INDEX"
-grep -q 'Doppelpack für die Defensive' "$INDEX"
-grep -q 'Goldener Puck für Alexandra Boico' "$INDEX"
-grep -q 'U20 gegen SG Bad Aibling/Inzell' "$INDEX"
-grep -q 'Nächste Termine' "$INDEX"
-grep -q 'Werde Teil der River Rats' "$INDEX"
-grep -q 'Mitmachen im Ehrenamt' "$INDEX"
-grep -q 'data-hero-images=' "$INDEX"
-grep -q 'images/teams/damen-team.jpg' "$INDEX"
-grep -q 'images/teams/u20-team.jpg' "$INDEX"
+require_file(){ test -f "$1" || { echo "ERROR: missing generated file $1" >&2; exit 2; }; }
+require_text(){ grep -q "$2" "$1" || { echo "ERROR: expected text '$2' missing from $1" >&2; exit 2; }; }
 
-# Local asset integrity.
+require_file "$INDEX"
+grep -qi '<!doctype html>' "$INDEX"
+require_text "$INDEX" 'Leidenschaft\.'
+require_text "$INDEX" 'Team\. Zukunft\.'
+require_text "$INDEX" 'noindex,nofollow,noarchive'
+require_text "$INDEX" 'Unsere Partner'
+require_text "$INDEX" 'Aktuelles'
+require_text "$INDEX" 'Doppelpack für die Defensive'
+require_text "$INDEX" 'Goldener Puck für Alexandra Boico'
+require_text "$INDEX" 'U20 gegen SG Bad Aibling/Inzell'
+require_text "$INDEX" 'Nächste Termine'
+require_text "$INDEX" 'Werde Teil der River Rats'
+require_text "$INDEX" 'Mitmachen im Ehrenamt'
+require_text "$INDEX" 'data-hero-images='
+require_text "$INDEX" 'images/teams/damen-team.jpg'
+require_text "$INDEX" 'images/teams/u20-team.jpg'
+
 (
   cd "$SPONSOR_ASSETS"
   sha256sum -c "$SPONSOR_MANIFEST"
@@ -38,20 +40,11 @@ grep -q 'images/teams/u20-team.jpg' "$INDEX"
   sha256sum -c "$TEAM_MANIFEST"
 )
 
-test "$(find "$OUT/images/teams" -maxdepth 1 -type f | wc -l)" -eq 10
-test -f "$OUT/sponsoren/index.html"
-test -f "$OUT/river-rats/index.html"
-test -f "$OUT/river-rats-damen/index.html"
-test -f "$OUT/nachwuchs/index.html"
-test -f "$OUT/eislaufschule/index.html"
-test -f "$OUT/eiskunstlauf/index.html"
-test -f "$OUT/inklusion/index.html"
-test -f "$OUT/verein/index.html"
-test -f "$OUT/impressum/index.html"
-test -f "$OUT/datenschutz/index.html"
-grep -q 'Korbinian Sertl' "$OUT/river-rats/index.html"
-grep -q 'Doppelpack für die Defensive' "$OUT/aktuelles/2026-08-04-river-rats-defensive-verlaengerungen/index.html"
-grep -q 'Ansprechpartner Sponsoring' "$OUT/sponsoren/index.html"
+test "$(find "$OUT/images/teams" -maxdepth 1 -type f | wc -l)" -eq 10 || { echo 'ERROR: expected 10 published team assets' >&2; exit 2; }
+for path in sponsoren river-rats river-rats-damen nachwuchs eislaufschule eiskunstlauf inklusion verein impressum datenschutz; do require_file "$OUT/$path/index.html"; done
+require_text "$OUT/river-rats/index.html" 'Korbinian Sertl'
+require_text "$OUT/aktuelles/2026-08-04-river-rats-defensive-verlaengerungen/index.html" 'Doppelpack für die Defensive'
+require_text "$OUT/sponsoren/index.html" 'Ansprechpartner Sponsoring'
 
 python3 - "$SPONSOR_DATA" "$HOME_DATA" "$PAGE_MANIFEST" "$INDEX" "$OUT/sponsors/assets" <<'PY'
 import json
