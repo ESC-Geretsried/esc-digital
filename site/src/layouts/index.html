@@ -1,15 +1,25 @@
 {{ define "main" }}
-<section class="hero">
-  <div class="shell hero__inner">
-    <p class="eyebrow">ESC River Rats Geretsried</p>
-    <h1>Leidenschaft. Team. Zukunft.</h1>
-    <p>{{ .Content }}</p>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="shell hero-grid">
+    <div class="hero-copy-block">
+      <p class="eyebrow">{{ .Params.hero_eyebrow }}</p>
+      <h1 id="hero-title"><span>{{ .Params.hero_title_line_1 }}</span><span>{{ .Params.hero_title_line_2 }}</span></h1>
+      <p class="hero-copy">{{ .Params.hero_copy }}</p>
+      <div class="actions">
+        <a class="button button--gold" href="#">River Rats</a>
+        <a class="button button--outline" href="#">Nachwuchs entdecken</a>
+      </div>
+    </div>
+    <aside class="game-card" aria-label="Nächstes Heimspiel">
+      <span>Nächstes Heimspiel</span>
+      <strong>{{ .Params.next_game_title }}</strong>
+      <p>{{ .Params.next_game_copy }}</p>
+    </aside>
   </div>
 </section>
-<section class="content-section">
+<section class="migration-note">
   <div class="shell">
-    <h2>M2 technische Source-Baseline</h2>
-    <p>Die finale Darstellung wird gegen die gesicherte Designreferenz und die freigegebenen ESC-Inhalte aufgebaut.</p>
+    <p><strong>M2:</strong> Hero/CI sind jetzt aus kanonischem Source erzeugt. News, Termine, Partner und Zielseiten bleiben bis zur verifizierten Inhaltsmigration bewusst unpubliziert.</p>
   </div>
 </section>
 {{ end }}
