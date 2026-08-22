@@ -33,6 +33,33 @@
       </div>
     </div>
   </section>
+{{ else if eq .Section "river-rats" }}
+  {{ $hd := site.Data.hockeydata }}
+  <header class="page-head"><div class="shell"><p class="eyebrow">ESC River Rats Geretsried</p><h1>{{ .Title }}</h1><p>{{ .Params.description }}</p></div></header>
+  <section class="content-section"><div class="shell"><div class="prose">{{ .Content }}</div></div></section>
+  <section class="hockeydata-section" aria-labelledby="river-rats-spielbetrieb">
+    <div class="shell">
+      <div class="hockeydata-intro"><div><h2 id="river-rats-spielbetrieb">Spielbetrieb 2026/27</h2><p>{{ $hd.active_phase.label }} · Datenquelle HockeyData/GamePitch</p></div></div>
+      <div class="hockeydata-grid">
+        <article class="hockeydata-card">
+          <h3>Nächstes Spiel / aktuelle Begegnungen</h3>
+          <div data-hd-widget="hockeydata.los.GameSlider" data-hd-widget-options='{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{{ $hd.active_phase.division_permalink }}","sport":"{{ $hd.sport }}","teamId":{{ $hd.team_id }},"gamesPerGroup":1,"showDivisionName":false}'></div>
+        </article>
+        <article class="hockeydata-card">
+          <h3>Tabelle</h3>
+          <div data-hd-widget="hockeydata.los.Standings" data-hd-widget-options='{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{{ $hd.active_phase.division_permalink }}","sport":"{{ $hd.sport }}","columnSet":"default"}'></div>
+        </article>
+        <article class="hockeydata-card hockeydata-card--wide">
+          <h3>Spielplan River Rats</h3>
+          <div data-hd-widget="hockeydata.los.Schedule" data-hd-widget-options='{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{{ $hd.active_phase.division_permalink }}","sport":"{{ $hd.sport }}","teamId":{{ $hd.team_id }}}'></div>
+        </article>
+      </div>
+      <p class="hockeydata-note">Ligaspiele und Ergebnisse werden aus HockeyData geladen. Vorbereitung, Freundschaftsspiele und weitere Zusatzspiele werden künftig ergänzend über den ORP Editor gepflegt.</p>
+    </div>
+  </section>
+  <link rel="stylesheet" href="https://api.hockeydata.net/css/?los_gameslider&los_schedule&los_standings">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://api.hockeydata.net/js/?los_icehockey"></script>
 {{ else }}
   <header class="page-head"><div class="shell"><p class="eyebrow">ESC River Rats Geretsried</p><h1>{{ .Title }}</h1></div></header>
   <section class="content-section"><div class="shell"><div class="prose">{{ .Content }}</div></div></section>
