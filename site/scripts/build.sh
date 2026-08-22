@@ -27,6 +27,12 @@ fi
 
 hugo "${HUGO_ARGS[@]}"
 
+# Structured JSON is build input/provenance, not public website content.
+# Hugo treats non-page files below content/ as publishable resources, so remove
+# these staged copies explicitly from output.
+rm -rf "$SITE/public/home"
+rm -f "$SITE/public/sponsors/sponsors.json" "$SITE/public/sponsors/page.json"
+
 # Visual assets are canonical tenant copies in Git. No runtime dependency on
 # esc-int or Netlify remains after the one-time import.
 mkdir -p "$SITE/public/images/hero" "$SITE/public/images/teams"
