@@ -23,11 +23,30 @@ jobs:
           sudo apt-get install -y hugo
           hugo version
 
-      - name: Build
+      - name: Build canonical root variant
         run: bash site/scripts/build.sh
 
-      - name: Validate
+      - name: Validate canonical root variant
         run: bash site/scripts/validate.sh
+
+      - name: Build GitHub Pages variant
+        env:
+          HUGO_BASEURL: https://esc-geretsried.github.io/esc-digital/
+        run: bash site/scripts/build.sh
+
+      - name: Validate GitHub Pages routing
+        run: |
+          bash site/scripts/validate.sh
+          grep -q 'href="/esc-digital/" aria-label="ESC River Rats Geretsried – Startseite"' site/public/index.html
+          grep -q 'href="/esc-digital/">Start</a>' site/public/index.html
+          if grep -q 'href="/" aria-label="ESC River Rats Geretsried – Startseite"' site/public/index.html; then
+            echo "ERROR: logo link escapes GitHub Pages project base path" >&2
+            exit 5
+          fi
+          if grep -q 'href="/">Start</a>' site/public/index.html; then
+            echo "ERROR: Start link escapes GitHub Pages project base path" >&2
+            exit 5
+          fi
 
       - name: Upload validated preview artifact
         uses: actions/upload-artifact@v4
