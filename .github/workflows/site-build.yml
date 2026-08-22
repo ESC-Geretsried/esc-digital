@@ -37,16 +37,41 @@ jobs:
       - name: Validate GitHub Pages routing
         run: |
           bash site/scripts/validate.sh
-          grep -q 'href="/esc-digital/" aria-label="ESC River Rats Geretsried – Startseite"' site/public/index.html
-          grep -q 'href="/esc-digital/">Start</a>' site/public/index.html
-          if grep -q 'href="/" aria-label="ESC River Rats Geretsried – Startseite"' site/public/index.html; then
-            echo "ERROR: logo link escapes GitHub Pages project base path" >&2
-            exit 5
-          fi
-          if grep -q 'href="/">Start</a>' site/public/index.html; then
-            echo "ERROR: Start link escapes GitHub Pages project base path" >&2
-            exit 5
-          fi
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          class Links(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.brand = None
+                  self.current = None
+                  self.start = None
+              def handle_starttag(self, tag, attrs):
+                  if tag != 'a':
+                      return
+                  attrs = dict(attrs)
+                  self.current = {'href': attrs.get('href'), 'aria': attrs.get('aria-label'), 'text': ''}
+                  if attrs.get('aria-label') == 'ESC River Rats Geretsried – Startseite':
+                      self.brand = attrs.get('href')
+              def handle_data(self, data):
+                  if self.current is not None:
+                      self.current['text'] += data
+              def handle_endtag(self, tag):
+                  if tag == 'a' and self.current is not None:
+                      if ' '.join(self.current['text'].split()) == 'Start':
+                          self.start = self.current['href']
+                      self.current = None
+
+          parser = Links()
+          parser.feed(Path('site/public/index.html').read_text(encoding='utf-8'))
+          expected = '/esc-digital/'
+          if parser.brand != expected:
+              raise SystemExit(f'ERROR: logo homepage link is {parser.brand!r}, expected {expected!r}')
+          if parser.start != expected:
+              raise SystemExit(f'ERROR: Start homepage link is {parser.start!r}, expected {expected!r}')
+          print('GitHub Pages homepage routing validated:', expected)
+          PY
 
       - name: Upload validated preview artifact
         uses: actions/upload-artifact@v4
