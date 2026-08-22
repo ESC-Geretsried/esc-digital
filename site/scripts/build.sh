@@ -14,8 +14,9 @@ mkdir -p "$SITE/data"
 cp "$ROOT/content/sponsors/sponsors.json" "$SITE/data/sponsors.json"
 cp "$ROOT/content/sponsors/page.json" "$SITE/data/sponsor_page.json"
 cp "$ROOT/content/home/home.json" "$SITE/data/home.json"
+cp "$ROOT/content/river-rats/hockeydata.json" "$SITE/data/hockeydata.json"
 cleanup() {
-  rm -f "$SITE/data/sponsors.json" "$SITE/data/sponsor_page.json" "$SITE/data/home.json"
+  rm -f "$SITE/data/sponsors.json" "$SITE/data/sponsor_page.json" "$SITE/data/home.json" "$SITE/data/hockeydata.json"
   rmdir "$SITE/data" 2>/dev/null || true
 }
 trap cleanup EXIT
@@ -32,6 +33,7 @@ hugo "${HUGO_ARGS[@]}"
 # these staged copies explicitly from output.
 rm -rf "$SITE/public/home"
 rm -f "$SITE/public/sponsors/sponsors.json" "$SITE/public/sponsors/page.json"
+rm -f "$SITE/public/river-rats/hockeydata.json"
 
 # Visual assets are canonical tenant copies in Git. No runtime dependency on
 # esc-int or Netlify remains after the one-time import.
@@ -47,9 +49,18 @@ find "$ROOT/content/sponsors/assets" -maxdepth 1 -type f \( -iname '*.jpg' -o -i
 # Build the new internal sponsors page directly from structured tenant data.
 python3 "$SITE/scripts/render_sponsors_page.py" "${HUGO_BASEURL:-/}"
 
-# Render the frozen esc-int content snapshot inside the authoritative
-# esc-digital shell. /sponsoren/ is explicitly excluded from the snapshot.
+# Render transitional esc-int pages without overwriting canonical ESC routes.
 python3 "$SITE/scripts/render_imported_pages.py" "${HUGO_BASEURL:-/}"
+
+# Render the River Rats HockeyData block deterministically from canonical
+# tenant configuration. This avoids relying on fragile transitional Hugo
+# section lookup while M2 is being consolidated.
+python3 "$SITE/scripts/render_hockeydata.py"
+
+# HockeyData requires its domain-bound API key in the client-side widget
+# options. The key is never stored in Git; Pages injects it from Actions.
+python3 "$SITE/scripts/inject_hockeydata_key.py"
+bash "$SITE/scripts/validate_hockeydata.sh"
 
 test -f "$SITE/public/index.html"
 test -f "$SITE/public/sponsoren/index.html"
@@ -59,4 +70,4 @@ test -f "$SITE/public/images/river-rats-logo.png"
 test -f "$SITE/public/images/hero/hero-01-bewegung.jpeg"
 test "$(find "$SITE/public/images/teams" -maxdepth 1 -type f | wc -l)" -eq 10
 test "$(find "$SITE/public/sponsors/assets" -maxdepth 1 -type f | wc -l)" -eq 37
-echo "Built ESC site with $(hugo version), internal sponsors page, frozen esc-int content, 14 rotating hero/team images and 37 canonical sponsor logos"
+echo "Built ESC site with $(hugo version), HockeyData widgets, internal sponsors page, transitional esc-int content, 14 rotating hero/team images and 37 canonical sponsor logos"
