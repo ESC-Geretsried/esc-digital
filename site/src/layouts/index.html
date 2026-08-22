@@ -19,9 +19,51 @@
     </aside>
   </div>
 </section>
+
+{{ $sponsorData := site.Data.sponsors }}
+<section class="partners" aria-labelledby="partners-title">
+  <div class="shell partners-heading">
+    <h2 id="partners-title">Unsere Partner</h2>
+    <a class="partners-all" href="{{ $sponsorData.all_sponsors_url }}" target="_blank" rel="noopener noreferrer">Alle Sponsoren <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="partner-band" aria-label="Partner des ESC River Rats Geretsried">
+    <div class="partner-band__track">
+      <div class="partner-band__items">
+        {{ range (sort $sponsorData.sponsors "order") }}
+          {{ if .visible }}
+            {{ $logoURL := (printf "sponsors/assets/%s" (path.Base .logo)) | relURL }}
+            {{ if .url }}
+              <a class="partner-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }} – Partnerwebsite in neuem Tab öffnen">
+                <img src="{{ $logoURL }}" alt="{{ .name }}" loading="lazy">
+                <span>{{ .name }}</span>
+              </a>
+            {{ else }}
+              <div class="partner-card partner-card--static" aria-label="{{ .name }}">
+                <img src="{{ $logoURL }}" alt="{{ .name }}" loading="lazy">
+                <span>{{ .name }}</span>
+              </div>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+      <div class="partner-band__items" aria-hidden="true">
+        {{ range (sort $sponsorData.sponsors "order") }}
+          {{ if .visible }}
+            {{ $logoURL := (printf "sponsors/assets/%s" (path.Base .logo)) | relURL }}
+            <div class="partner-card partner-card--static">
+              <img src="{{ $logoURL }}" alt="" loading="lazy">
+              <span>{{ .name }}</span>
+            </div>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="migration-note">
   <div class="shell">
-    <p><strong>M2:</strong> Hero/CI sind jetzt aus kanonischem Source erzeugt. News, Termine, Partner und Zielseiten bleiben bis zur verifizierten Inhaltsmigration bewusst unpubliziert.</p>
+    <p><strong>M2:</strong> Hero/CI und der freigegebene Sponsorbestand werden jetzt aus kanonischem ESC-Source erzeugt. News, Termine und weitere Zielseiten bleiben bis zur verifizierten Inhaltsmigration bewusst unpubliziert.</p>
   </div>
 </section>
 {{ end }}
