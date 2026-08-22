@@ -1,15 +1,21 @@
 {{ define "main" }}
 {{ $sponsorData := site.Data.sponsors }}
+{{ $page := site.Data.sponsor_page }}
 <header class="page-hero page-hero--sponsors">
   <div class="shell">
     <p class="eyebrow">ESC River Rats Geretsried</p>
-    <h1>{{ .Title }}</h1>
-    <p>Partner und Unterstützer des ESC River Rats Geretsried.</p>
+    <h1>{{ $page.title }}</h1>
+    <p>{{ $page.description }}</p>
   </div>
 </header>
 <section class="content-section sponsors-page">
   <div class="shell">
-    <div class="sponsors-intro">{{ .Content }}</div>
+    <div class="sponsors-intro">
+      <p>{{ $page.intro }}</p>
+      <p><strong>Ansprechpartner Sponsoring:</strong> {{ $page.contact.name }}<br>
+      <strong>E-Mail:</strong> <a href="mailto:{{ $page.contact.email }}">{{ $page.contact.email }}</a><br>
+      <strong>Telefon:</strong> <a href="tel:{{ replace $page.contact.phone " " "" }}">{{ $page.contact.phone }}</a></p>
+    </div>
     <div class="sponsors-grid" aria-label="Sponsoren des ESC River Rats Geretsried">
       {{ range (sort $sponsorData.sponsors "order") }}
         {{ if .visible }}
