@@ -55,6 +55,11 @@ python3 "$SITE/scripts/render_sponsors_page.py" "${HUGO_BASEURL:-/}"
 # Render transitional esc-int pages without overwriting canonical ESC routes.
 python3 "$SITE/scripts/render_imported_pages.py" "${HUGO_BASEURL:-/}"
 
+# Binding public-news rule: at the exact 24-month anniversary the article is
+# no longer emitted publicly. Source/import material is retained; only public
+# build output is removed here.
+python3 "$SITE/scripts/enforce_news_retention.py"
+
 # Render the River Rats HockeyData block deterministically from canonical
 # tenant configuration. This avoids relying on fragile transitional Hugo
 # section lookup while M2 is being consolidated.
@@ -74,4 +79,4 @@ test -f "$SITE/public/images/river-rats-logo.png"
 test -f "$SITE/public/images/hero/hero-01-bewegung.jpeg"
 test "$(find "$SITE/public/images/teams" -maxdepth 1 -type f | wc -l)" -eq 10
 test "$(find "$SITE/public/sponsors/assets" -maxdepth 1 -type f | wc -l)" -eq 37
-echo "Built ESC site with $(hugo version), curated homepage heroes, structured navigation, HockeyData widgets, M2 content policy gates, internal sponsors page, transitional esc-int content and 37 canonical sponsor logos"
+echo "Built ESC site with $(hugo version), 24-month public news retention, curated homepage heroes, structured navigation, HockeyData widgets, M2 content policy gates, internal sponsors page, transitional esc-int content and 37 canonical sponsor logos"
