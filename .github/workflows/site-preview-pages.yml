@@ -24,6 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_BASEURL: https://esc-geretsried.github.io/esc-digital/
+      HOCKEYDATA_API_KEY: ${{ secrets.HOCKEYDATA_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
