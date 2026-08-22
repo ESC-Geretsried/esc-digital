@@ -1,14 +1,16 @@
 {{ define "main" }}
 <section class="hero" aria-labelledby="hero-title">
-  <div class="shell hero-grid">
-    <div class="hero-copy-block">
-      <p class="eyebrow">{{ .Params.hero_eyebrow }}</p>
-      <h1 id="hero-title"><span>{{ .Params.hero_title_line_1 }}</span><span>{{ .Params.hero_title_line_2 }}</span></h1>
-      <p class="hero-copy">{{ .Params.hero_copy }}</p>
-      <div class="actions">
-        <a class="button button--gold" href="#">River Rats</a>
-        <a class="button button--outline" href="#">Nachwuchs entdecken</a>
-      </div>
+  <div class="hero-background" aria-hidden="true"></div>
+  <div class="shell hero-inner">
+    <p class="eyebrow">{{ .Params.hero_eyebrow }}</p>
+    <h1 id="hero-title">
+      <span class="hero-line">{{ .Params.hero_title_line_1 }}</span>
+      <span class="hero-line hero-line--pair">{{ .Params.hero_title_line_2 }}</span>
+    </h1>
+    <p class="hero-copy">{{ .Params.hero_copy }}</p>
+    <div class="actions" aria-label="Vorschau-Navigation">
+      <span class="button button--gold">River Rats</span>
+      <span class="button button--outline">Nachwuchs entdecken</span>
     </div>
     <aside class="game-card" aria-label="Nächstes Heimspiel">
       <span>Nächstes Heimspiel</span>
