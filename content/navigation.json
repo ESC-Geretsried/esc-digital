@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "main": [
+    {"label": "River Rats", "path": "/river-rats/", "order": 10, "visible": true},
+    {"label": "Nachwuchs", "path": "/nachwuchs/", "order": 20, "visible": true},
+    {"label": "Damen", "path": "/river-rats-damen/", "order": 30, "visible": true},
+    {"label": "Eiskunstlauf", "path": "/eiskunstlauf/", "order": 40, "visible": true},
+    {"label": "Inklusionssport", "path": "/inklusion/", "order": 50, "visible": true},
+    {"label": "Verein", "path": "/verein/", "order": 60, "visible": true}
+  ],
+  "actions": [
+    {"label": "Tickets", "path": "/tickets/", "order": 10, "visible": false},
+    {"label": "Mitglied werden", "path": "/mitgliedschaft/", "order": 20, "visible": false}
+  ],
+  "footer_groups": [
+    {
+      "label": "Verein",
+      "order": 10,
+      "links": [
+        {"label": "Mitglied werden", "path": "/mitgliedschaft/", "visible": false},
+        {"label": "Geschäftsstelle", "path": "/verein/", "visible": true},
+        {"label": "Förderverein", "path": "/verein/foerderverein/", "visible": true},
+        {"label": "Sponsoring", "path": "/sponsoren/", "visible": true},
+        {"label": "Mitmachen", "path": "/mitmachen/", "visible": false}
+      ]
+    },
+    {
+      "label": "Service",
+      "order": 20,
+      "links": [
+        {"label": "Tickets", "path": "/tickets/", "visible": false},
+        {"label": "Saisonkarten", "path": "/saisonkarten/", "visible": false},
+        {"label": "Eintrittspreise", "path": "/eintrittspreise/", "visible": false},
+        {"label": "Stadion", "path": "/stadion/", "visible": false},
+        {"label": "Dokumente", "path": "/downloads/", "visible": false}
+      ]
+    },
+    {
+      "label": "Sport",
+      "order": 30,
+      "links": [
+        {"label": "River Rats", "path": "/river-rats/", "visible": true},
+        {"label": "Nachwuchs", "path": "/nachwuchs/", "visible": true},
+        {"label": "Damen", "path": "/river-rats-damen/", "visible": true},
+        {"label": "Eiskunstlauf", "path": "/eiskunstlauf/", "visible": true},
+        {"label": "Inklusionssport", "path": "/inklusion/", "visible": true},
+        {"label": "Eislaufschule", "path": "/eislaufschule/", "visible": true}
+      ]
+    },
+    {
+      "label": "Rechtliches",
+      "order": 40,
+      "links": [
+        {"label": "Impressum", "path": "/impressum/", "visible": true},
+        {"label": "Datenschutz", "path": "/datenschutz/", "visible": true}
+      ]
+    }
+  ]
+}

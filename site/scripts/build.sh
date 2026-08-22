@@ -14,9 +14,11 @@ mkdir -p "$SITE/data"
 cp "$ROOT/content/sponsors/sponsors.json" "$SITE/data/sponsors.json"
 cp "$ROOT/content/sponsors/page.json" "$SITE/data/sponsor_page.json"
 cp "$ROOT/content/home/home.json" "$SITE/data/home.json"
+cp "$ROOT/content/home/heroes.json" "$SITE/data/home_heroes.json"
+cp "$ROOT/content/navigation.json" "$SITE/data/navigation.json"
 cp "$ROOT/content/river-rats/hockeydata.json" "$SITE/data/hockeydata.json"
 cleanup() {
-  rm -f "$SITE/data/sponsors.json" "$SITE/data/sponsor_page.json" "$SITE/data/home.json" "$SITE/data/hockeydata.json"
+  rm -f "$SITE/data/sponsors.json" "$SITE/data/sponsor_page.json" "$SITE/data/home.json" "$SITE/data/home_heroes.json" "$SITE/data/navigation.json" "$SITE/data/hockeydata.json"
   rmdir "$SITE/data" 2>/dev/null || true
 }
 trap cleanup EXIT
@@ -32,6 +34,7 @@ hugo "${HUGO_ARGS[@]}"
 # Hugo treats non-page files below content/ as publishable resources, so remove
 # these staged copies explicitly from output.
 rm -rf "$SITE/public/home"
+rm -f "$SITE/public/navigation.json"
 rm -f "$SITE/public/sponsors/sponsors.json" "$SITE/public/sponsors/page.json"
 rm -f "$SITE/public/river-rats/hockeydata.json"
 
@@ -61,6 +64,7 @@ python3 "$SITE/scripts/render_hockeydata.py"
 # options. The key is never stored in Git; Pages injects it from Actions.
 python3 "$SITE/scripts/inject_hockeydata_key.py"
 bash "$SITE/scripts/validate_hockeydata.sh"
+python3 "$SITE/scripts/validate_m2_content.py"
 
 test -f "$SITE/public/index.html"
 test -f "$SITE/public/sponsoren/index.html"
@@ -70,4 +74,4 @@ test -f "$SITE/public/images/river-rats-logo.png"
 test -f "$SITE/public/images/hero/hero-01-bewegung.jpeg"
 test "$(find "$SITE/public/images/teams" -maxdepth 1 -type f | wc -l)" -eq 10
 test "$(find "$SITE/public/sponsors/assets" -maxdepth 1 -type f | wc -l)" -eq 37
-echo "Built ESC site with $(hugo version), HockeyData widgets, internal sponsors page, transitional esc-int content, 14 rotating hero/team images and 37 canonical sponsor logos"
+echo "Built ESC site with $(hugo version), curated homepage heroes, structured navigation, HockeyData widgets, M2 content policy gates, internal sponsors page, transitional esc-int content and 37 canonical sponsor logos"

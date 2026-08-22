@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "max_active": 6,
+  "slides": [
+    {
+      "id": "river-rats-action",
+      "area": "River Rats",
+      "image": "images/hero/hero-01-bewegung.jpeg",
+      "headline": "Eishockey. Gemeinschaft. Geretsried.",
+      "cta_label": "River Rats",
+      "cta_path": "/river-rats/",
+      "focus_desktop": "58% 48%",
+      "focus_mobile": "58% 50%",
+      "active": true,
+      "order": 10
+    },
+    {
+      "id": "river-rats-team",
+      "area": "River Rats",
+      "image": "images/hero/hero-02-team.jpeg",
+      "headline": "Gemeinsam auf dem Eis.",
+      "cta_label": "Zur Mannschaft",
+      "cta_path": "/river-rats/",
+      "focus_desktop": "50% 50%",
+      "focus_mobile": "50% 50%",
+      "active": true,
+      "order": 20
+    },
+    {
+      "id": "nachwuchs",
+      "area": "Nachwuchs",
+      "image": "images/teams/u13-team.jpg",
+      "headline": "Die Zukunft der River Rats.",
+      "cta_label": "Nachwuchs",
+      "cta_path": "/nachwuchs/",
+      "focus_desktop": "50% 50%",
+      "focus_mobile": "50% 50%",
+      "active": true,
+      "order": 30
+    },
+    {
+      "id": "eislaufschule",
+      "area": "Eislaufschule",
+      "image": "images/teams/eislaufschule-2025-2026.png",
+      "headline": "Die ersten Schritte auf dem Eis.",
+      "cta_label": "Eislaufschule",
+      "cta_path": "/eislaufschule/",
+      "focus_desktop": "50% 45%",
+      "focus_mobile": "50% 45%",
+      "active": true,
+      "order": 40
+    },
+    {
+      "id": "eiskunstlauf",
+      "area": "Eiskunstlauf",
+      "image": "images/teams/eiskunstlauf.jpeg",
+      "headline": "Bewegung. Präzision. Ausdruck.",
+      "cta_label": "Eiskunstlauf",
+      "cta_path": "/eiskunstlauf/",
+      "focus_desktop": "50% 50%",
+      "focus_mobile": "50% 50%",
+      "active": true,
+      "order": 50
+    },
+    {
+      "id": "inklusion",
+      "area": "Inklusionssport",
+      "image": "images/teams/inklusion.jpg",
+      "headline": "Gemeinsam Sport erleben.",
+      "cta_label": "Inklusionssport",
+      "cta_path": "/inklusion/",
+      "focus_desktop": "50% 50%",
+      "focus_mobile": "50% 50%",
+      "active": true,
+      "order": 60
+    }
+  ]
+}

@@ -1,11 +1,25 @@
 (() => {
-  const root = document.querySelector('.hero-background[data-hero-images]');
+  const root = document.querySelector('.hero-background');
   if (!root) return;
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const images = (root.dataset.heroImages || '').split('|').filter(Boolean);
+  const sources = Array.from(root.querySelectorAll('[data-hero-source]')).map((node) => ({
+    src: node.dataset.src,
+    area: node.dataset.area || '',
+    headline: node.dataset.headline || '',
+    ctaLabel: node.dataset.ctaLabel || '',
+    ctaPath: node.dataset.ctaPath || '#',
+    focusDesktop: node.dataset.focusDesktop || '50% 50%',
+    focusMobile: node.dataset.focusMobile || node.dataset.focusDesktop || '50% 50%'
+  })).filter((item) => item.src);
+
   const layers = Array.from(root.querySelectorAll('.hero-background__layer'));
-  if (images.length < 2 || layers.length !== 2) return;
+  if (!sources.length || layers.length !== 2) return;
+
+  const area = document.querySelector('[data-hero-area]');
+  const headline = document.querySelector('[data-hero-headline]');
+  const cta = document.querySelector('[data-hero-cta]');
+  const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mobile = () => window.matchMedia && window.matchMedia('(max-width: 650px)').matches;
 
   let index = 0;
   let active = 0;
@@ -17,18 +31,37 @@
     img.src = src;
   };
 
-  preload(images[1]);
+  const applyMeta = (item) => {
+    if (area) area.textContent = item.area;
+    if (headline) headline.textContent = item.headline;
+    if (cta) {
+      cta.textContent = item.ctaLabel;
+      cta.href = item.ctaPath;
+    }
+  };
+
+  const setLayer = (layer, item) => {
+    layer.style.backgroundImage = `url("${item.src}")`;
+    layer.style.backgroundPosition = mobile() ? item.focusMobile : item.focusDesktop;
+  };
+
+  setLayer(layers[active], sources[0]);
+  applyMeta(sources[0]);
+  if (sources[1]) preload(sources[1].src);
+  if (reducedMotion || sources.length < 2) return;
 
   window.setInterval(() => {
-    index = (index + 1) % images.length;
+    index = (index + 1) % sources.length;
+    const item = sources[index];
     const nextLayer = 1 - active;
     const currentLayer = active;
 
-    layers[nextLayer].style.backgroundImage = `url("${images[index]}")`;
+    setLayer(layers[nextLayer], item);
     layers[nextLayer].classList.add('hero-background__layer--active');
     layers[currentLayer].classList.remove('hero-background__layer--active');
     active = nextLayer;
+    applyMeta(item);
 
-    preload(images[(index + 1) % images.length]);
+    preload(sources[(index + 1) % sources.length].src);
   }, intervalMs);
 })();
