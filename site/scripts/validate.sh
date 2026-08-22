@@ -16,8 +16,10 @@ require_text(){ grep -q "$2" "$1" || { echo "ERROR: expected text '$2' missing f
 
 require_file "$INDEX"
 grep -qi '<!doctype html>' "$INDEX"
-require_text "$INDEX" 'Leidenschaft\.'
-require_text "$INDEX" 'Team\. Zukunft\.'
+require_text "$INDEX" 'Eishockey\. Gemeinschaft\. Geretsried\.'
+require_text "$INDEX" 'data-hero-source'
+require_text "$INDEX" 'images/teams/eislaufschule-2025-2026.png'
+require_text "$INDEX" 'images/teams/inklusion.jpg'
 require_text "$INDEX" 'noindex,nofollow,noarchive'
 require_text "$INDEX" 'Unsere Partner'
 require_text "$INDEX" 'Aktuelles'
@@ -27,9 +29,6 @@ require_text "$INDEX" 'U20 gegen SG Bad Aibling/Inzell'
 require_text "$INDEX" 'Nächste Termine'
 require_text "$INDEX" 'Werde Teil der River Rats'
 require_text "$INDEX" 'Mitmachen im Ehrenamt'
-require_text "$INDEX" 'data-hero-images='
-require_text "$INDEX" 'images/teams/damen-team.jpg'
-require_text "$INDEX" 'images/teams/u20-team.jpg'
 
 (
   cd "$SPONSOR_ASSETS"
@@ -121,4 +120,4 @@ if grep -RIl 'orp-esc-int.netlify.app' "$OUT"; then
   exit 4
 fi
 
-echo "Static smoke validation passed with canonical menu routes, internal sponsors page, rotating tenant hero assets and transitional esc-int content"
+echo "Static smoke validation passed with structured navigation, curated photo-first heroes, canonical routes, internal sponsors page and transitional esc-int content"
