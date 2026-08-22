@@ -1,6 +1,9 @@
 {{ define "main" }}
 <section class="hero" aria-labelledby="hero-title">
-  <div class="hero-background" aria-hidden="true"></div>
+  <div class="hero-background" aria-hidden="true" data-hero-images="{{ "images/hero/hero-01-bewegung.jpeg" | relURL }}|{{ "images/hero/hero-02-team.jpeg" | relURL }}|{{ "images/hero/hero-03-treffer.jpeg" | relURL }}|{{ "images/hero/hero-04-stimmung.jpeg" | relURL }}|{{ "images/teams/damen-team.jpg" | relURL }}|{{ "images/teams/eiskunstlauf.jpeg" | relURL }}|{{ "images/teams/eislaufschule-2025-2026.png" | relURL }}|{{ "images/teams/inklusion.jpg" | relURL }}|{{ "images/teams/u7-team.jpg" | relURL }}|{{ "images/teams/u9-team.jpg" | relURL }}|{{ "images/teams/u13-team.jpg" | relURL }}|{{ "images/teams/u15-team.jpg" | relURL }}|{{ "images/teams/u17-team.jpg" | relURL }}|{{ "images/teams/u20-team.jpg" | relURL }}">
+    <div class="hero-background__layer hero-background__layer--active" style="background-image:url('{{ "images/hero/hero-01-bewegung.jpeg" | relURL }}')"></div>
+    <div class="hero-background__layer"></div>
+  </div>
   <div class="shell hero-inner">
     <p class="eyebrow">{{ .Params.hero_eyebrow }}</p>
     <h1 id="hero-title">
@@ -97,4 +100,5 @@
     </div>
   </div>
 </section>
+<script src="{{ "js/hero-rotation.js" | relURL }}" defer></script>
 {{ end }}
