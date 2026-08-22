@@ -1,0 +1,42 @@
+name: Sponsor asset import
+
+on:
+  push:
+    branches:
+      - m2/sponsor-assets-band
+    paths:
+      - '.github/workflows/sponsor-asset-import.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout import branch
+        uses: actions/checkout@v4
+        with:
+          ref: m2/sponsor-assets-band
+
+      - name: Import approved sponsor logos
+        run: bash site/scripts/import-approved-sponsor-assets.sh
+
+      - name: Verify tenant asset count
+        run: |
+          test "$(find content/sponsors/assets -maxdepth 1 -type f ! -name README.md ! -name SHA256SUMS | wc -l)" -eq 37
+          test "$(wc -l < content/sponsors/assets/SHA256SUMS)" -eq 37
+          git diff --check
+
+      - name: Commit canonical tenant copies
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/sponsors/sponsors.json content/sponsors/assets
+          if git diff --cached --quiet; then
+            echo 'No sponsor asset changes to commit.'
+            exit 0
+          fi
+          git commit -m 'content: import approved sponsor logo assets'
+          git push origin HEAD:m2/sponsor-assets-band
