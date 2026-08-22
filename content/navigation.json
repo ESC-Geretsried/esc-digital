@@ -9,7 +9,7 @@
     {"label": "Verein", "path": "/verein/", "order": 60, "visible": true}
   ],
   "actions": [
-    {"label": "Tickets", "path": "/tickets/", "order": 10, "visible": true},
+    {"label": "Tickets", "path": "/tickets/", "order": 10, "visible": false},
     {"label": "Mitglied werden", "path": "/mitgliedschaft/", "order": 20, "visible": false}
   ],
   "footer_groups": [
@@ -17,22 +17,22 @@
       "label": "Verein",
       "order": 10,
       "links": [
-        {"label": "Mitglied werden", "path": "/mitgliedschaft/", "visible": true},
+        {"label": "Mitglied werden", "path": "/mitgliedschaft/", "visible": false},
         {"label": "Geschäftsstelle", "path": "/verein/", "visible": true},
         {"label": "Förderverein", "path": "/verein/foerderverein/", "visible": true},
         {"label": "Sponsoring", "path": "/sponsoren/", "visible": true},
-        {"label": "Mitmachen", "path": "/mitmachen/", "visible": true}
+        {"label": "Mitmachen", "path": "/mitmachen/", "visible": false}
       ]
     },
     {
       "label": "Service",
       "order": 20,
       "links": [
-        {"label": "Tickets", "path": "/tickets/", "visible": true},
-        {"label": "Saisonkarten", "path": "/saisonkarten/", "visible": true},
-        {"label": "Eintrittspreise", "path": "/eintrittspreise/", "visible": true},
-        {"label": "Stadion", "path": "/stadion/", "visible": true},
-        {"label": "Dokumente", "path": "/downloads/", "visible": true}
+        {"label": "Tickets", "path": "/tickets/", "visible": false},
+        {"label": "Saisonkarten", "path": "/saisonkarten/", "visible": false},
+        {"label": "Eintrittspreise", "path": "/eintrittspreise/", "visible": false},
+        {"label": "Stadion", "path": "/stadion/", "visible": false},
+        {"label": "Dokumente", "path": "/downloads/", "visible": false}
       ]
     },
     {
