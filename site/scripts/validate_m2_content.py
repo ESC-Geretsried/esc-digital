@@ -34,8 +34,11 @@ for group in home.get("news_groups", []):
         if not match:
             raise SystemExit(f"ERROR: homepage news path lacks publication date: {item.get('path')}")
         published = date(*(int(v) for v in match.groups()))
-        if published < cutoff:
-            raise SystemExit(f"ERROR: news older than 24 months is publicly referenced: {item.get('path')}")
+        if published <= cutoff:
+            raise SystemExit(f"ERROR: news at or beyond 24 months is publicly referenced: {item.get('path')}")
+        target = public / item["path"].strip("/") / "index.html"
+        if not target.is_file():
+            raise SystemExit(f"ERROR: homepage references news not present in public build: {item.get('path')}")
 
 navigation = json.loads((root / "content" / "navigation.json").read_text(encoding="utf-8"))
 visible_paths = []
@@ -56,4 +59,4 @@ for path in sorted(set(visible_paths)):
     if not target.is_file():
         raise SystemExit(f"ERROR: visible navigation route missing from build: {path}")
 
-print(f"M2 content policy PASS: {len(active)} active heroes, news cutoff {cutoff.isoformat()}, {len(set(visible_paths))} visible internal routes")
+print(f"M2 content policy PASS: {len(active)} active heroes, exact news cutoff {cutoff.isoformat()}, {len(set(visible_paths))} visible internal routes")
