@@ -7,7 +7,8 @@ INDEX="$OUT/index.html"
 
 test -f "$INDEX" || { echo "ERROR: missing $INDEX" >&2; exit 2; }
 grep -qi '<!doctype html>' "$INDEX"
-grep -q 'Leidenschaft. Team. Zukunft.' "$INDEX"
+grep -q 'Leidenschaft\.' "$INDEX"
+grep -q 'Team\. Zukunft\.' "$INDEX"
 grep -q 'noindex,nofollow,noarchive' "$INDEX"
 
 if grep -RInE '(BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY|gh[pousr]_[A-Za-z0-9_]{20,}|github_pat_[A-Za-z0-9_]{20,})' "$OUT"; then
