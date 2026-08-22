@@ -7,7 +7,9 @@ INDEX="$OUT/index.html"
 SPONSOR_DATA="$ROOT/content/sponsors/sponsors.json"
 SPONSOR_ASSETS="$ROOT/content/sponsors/assets"
 SPONSOR_MANIFEST="$ROOT/docs/operations/sponsor-assets.sha256"
+TEAM_MANIFEST="$ROOT/docs/operations/esc-int-team-assets.sha256"
 HOME_DATA="$ROOT/content/home/home.json"
+PAGE_MANIFEST="$ROOT/docs/operations/esc-int-pages-manifest.json"
 
 test -f "$INDEX" || { echo "ERROR: missing $INDEX" >&2; exit 2; }
 grep -qi '<!doctype html>' "$INDEX"
@@ -22,21 +24,45 @@ grep -q 'U20 gegen SG Bad Aibling/Inzell' "$INDEX"
 grep -q 'Nächste Termine' "$INDEX"
 grep -q 'Werde Teil der River Rats' "$INDEX"
 grep -q 'Mitmachen im Ehrenamt' "$INDEX"
+grep -q 'data-hero-images=' "$INDEX"
+grep -q 'images/teams/damen-team.jpg' "$INDEX"
+grep -q 'images/teams/u20-team.jpg' "$INDEX"
 
+# Local asset integrity.
 (
   cd "$SPONSOR_ASSETS"
   sha256sum -c "$SPONSOR_MANIFEST"
 )
+(
+  cd "$ROOT"
+  sha256sum -c "$TEAM_MANIFEST"
+)
 
-python3 - "$SPONSOR_DATA" "$HOME_DATA" "$INDEX" "$OUT/sponsors/assets" <<'PY'
+test "$(find "$OUT/images/teams" -maxdepth 1 -type f | wc -l)" -eq 10
+test -f "$OUT/sponsoren/index.html"
+test -f "$OUT/river-rats/index.html"
+test -f "$OUT/river-rats-damen/index.html"
+test -f "$OUT/nachwuchs/index.html"
+test -f "$OUT/eislaufschule/index.html"
+test -f "$OUT/eiskunstlauf/index.html"
+test -f "$OUT/inklusion/index.html"
+test -f "$OUT/verein/index.html"
+test -f "$OUT/impressum/index.html"
+test -f "$OUT/datenschutz/index.html"
+grep -q 'Korbinian Sertl' "$OUT/river-rats/index.html"
+grep -q 'Doppelpack für die Defensive' "$OUT/aktuelles/2026-08-04-river-rats-defensive-verlaengerungen/index.html"
+grep -q 'Ansprechpartner Sponsoring' "$OUT/sponsoren/index.html"
+
+python3 - "$SPONSOR_DATA" "$HOME_DATA" "$PAGE_MANIFEST" "$INDEX" "$OUT/sponsors/assets" <<'PY'
 import json
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
 
-sponsor_path, home_path, index_path, public_assets = map(Path, sys.argv[1:])
+sponsor_path, home_path, page_manifest_path, index_path, public_assets = map(Path, sys.argv[1:])
 data = json.loads(sponsor_path.read_text(encoding='utf-8'))
 home = json.loads(home_path.read_text(encoding='utf-8'))
+page_manifest = json.loads(page_manifest_path.read_text(encoding='utf-8'))
 sponsors = data['sponsors']
 if len(sponsors) != 37:
     raise SystemExit(f'ERROR: expected 37 sponsors, got {len(sponsors)}')
@@ -60,6 +86,8 @@ if len(home.get('community', [])) != 4:
     raise SystemExit('ERROR: expected four esc-int community actions')
 if home.get('source', {}).get('repository') != 'open-reference-platform/esc-int':
     raise SystemExit('ERROR: homepage provenance missing esc-int source')
+if len(page_manifest.get('pages', [])) < 20:
+    raise SystemExit('ERROR: frozen esc-int page snapshot unexpectedly small')
 
 class PageHTML(HTMLParser):
     def __init__(self):
@@ -87,8 +115,8 @@ if len(kolbeck)!=1 or kolbeck[0]['href']!='https://spedition-kolbeck.de/' or kol
 if anchors_with_text('Krämmel'):
     raise SystemExit('ERROR: sponsor without verified URL must not be clickable')
 all_sponsors=anchors_with_text('Alle Sponsoren →')
-if len(all_sponsors)!=1 or all_sponsors[0]['href']!=data['all_sponsors_url'] or all_sponsors[0]['target']!='_blank':
-    raise SystemExit('ERROR: Alle Sponsoren link behavior is incorrect')
+if len(all_sponsors)!=1 or not all_sponsors[0]['href'].endswith('/sponsoren/') or all_sponsors[0]['target'] is not None:
+    raise SystemExit('ERROR: Alle Sponsoren must route internally without new tab')
 PY
 
 if grep -RInE '(BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY|gh[pousr]_[A-Za-z0-9_]{20,}|github_pat_[A-Za-z0-9_]{20,})' "$OUT"; then
@@ -96,4 +124,9 @@ if grep -RInE '(BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY|gh[pousr]_[A-Za-z0-9_]{20,
   exit 3
 fi
 
-echo "Static smoke validation passed with esc-int homepage modules and unchanged canonical sponsor band"
+if grep -RIl 'orp-esc-int.netlify.app' "$OUT"; then
+  echo "ERROR: Netlify runtime dependency leaked into generated output" >&2
+  exit 4
+fi
+
+echo "Static smoke validation passed with internal sponsors page, rotating tenant hero assets and frozen esc-int content"
