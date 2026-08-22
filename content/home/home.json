@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "source": {
+    "repository": "open-reference-platform/esc-int",
+    "ref": "main",
+    "snapshot_url": "https://orp-esc-int.netlify.app/",
+    "imported": "2026-08-22"
+  },
+  "news_groups": [
+    {
+      "id": "verein",
+      "title": "Verein",
+      "area_path": "/verein/",
+      "items": [
+        {
+          "title": "Nicht in erster Reihe, aber umso wichtiger – das Team hinter dem Team",
+          "path": "/aktuelles/2025-08-29-team-hinter-dem-team/"
+        }
+      ]
+    },
+    {
+      "id": "river-rats",
+      "title": "River Rats",
+      "area_path": "/river-rats/",
+      "items": [
+        {
+          "title": "Doppelpack für die Defensive – Englbrecht und Sanner verlängern",
+          "path": "/aktuelles/2026-08-04-river-rats-defensive-verlaengerungen/"
+        }
+      ]
+    },
+    {
+      "id": "damen",
+      "title": "Damen",
+      "area_path": "/river-rats-damen/",
+      "items": [
+        {
+          "title": "Goldener Puck für Alexandra Boico",
+          "path": "/aktuelles/2025-06-26-damen-goldener-puck/"
+        }
+      ]
+    },
+    {
+      "id": "nachwuchs",
+      "title": "Nachwuchs",
+      "area_path": "/nachwuchs/",
+      "items": [
+        {
+          "title": "U20 gegen SG Bad Aibling/Inzell",
+          "path": "/aktuelles/2026-02-09-u20-bad-aibling-inzell/"
+        },
+        {
+          "title": "Wir suchen Dich!",
+          "path": "/aktuelles/2025-09-11-wir-suchen-dich/"
+        }
+      ]
+    },
+    {
+      "id": "eiskunstlauf-inklusion",
+      "title": "Eiskunstlauf & Inklusion",
+      "area_path": "/eiskunstlauf/",
+      "secondary_area_path": "/inklusion/",
+      "items": [],
+      "empty_text": "Noch keine freigegebenen Meldungen."
+    }
+  ],
+  "events": [
+    {"title": "Termin aus der Redaktion", "text": "Details folgen nach Freigabe."},
+    {"title": "Termin aus der Redaktion", "text": "Details folgen nach Freigabe."},
+    {"title": "Termin aus der Redaktion", "text": "Details folgen nach Freigabe."}
+  ],
+  "events_note": "Termine werden von der Redaktion ergänzt.",
+  "community": [
+    {"title": "Mitglied werden", "text": "Den ESC und das Vereinsleben aktiv mittragen.", "path": "/verein/"},
+    {"title": "Mitmachen im Ehrenamt", "text": "Deine Erfahrung und Zeit für den Verein einbringen.", "path": "/verein/"},
+    {"title": "Förderverein", "text": "Nachwuchs und Eishockey gezielt unterstützen.", "path": "/verein/foerderverein/"},
+    {"title": "Partner werden", "text": "Als Unternehmen sichtbar an der Seite des ESC stehen.", "path": "/sponsoren/"}
+  ],
+  "footer_links": [
+    {"title": "Datenschutz", "path": "/datenschutz/"},
+    {"title": "Förderverein", "path": "/verein/foerderverein/"},
+    {"title": "Geschäftsstelle", "path": "/verein/"},
+    {"title": "Impressum", "path": "/impressum/"},
+    {"title": "Verein", "path": "/verein/"}
+  ]
+}
