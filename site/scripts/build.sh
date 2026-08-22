@@ -64,6 +64,7 @@ python3 "$SITE/scripts/render_hockeydata.py"
 # options. The key is never stored in Git; Pages injects it from Actions.
 python3 "$SITE/scripts/inject_hockeydata_key.py"
 bash "$SITE/scripts/validate_hockeydata.sh"
+python3 "$SITE/scripts/validate_m2_content.py"
 
 test -f "$SITE/public/index.html"
 test -f "$SITE/public/sponsoren/index.html"
@@ -73,4 +74,4 @@ test -f "$SITE/public/images/river-rats-logo.png"
 test -f "$SITE/public/images/hero/hero-01-bewegung.jpeg"
 test "$(find "$SITE/public/images/teams" -maxdepth 1 -type f | wc -l)" -eq 10
 test "$(find "$SITE/public/sponsors/assets" -maxdepth 1 -type f | wc -l)" -eq 37
-echo "Built ESC site with $(hugo version), curated homepage heroes, structured navigation, HockeyData widgets, internal sponsors page, transitional esc-int content and 37 canonical sponsor logos"
+echo "Built ESC site with $(hugo version), curated homepage heroes, structured navigation, HockeyData widgets, M2 content policy gates, internal sponsors page, transitional esc-int content and 37 canonical sponsor logos"
