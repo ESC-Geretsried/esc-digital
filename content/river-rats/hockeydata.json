@@ -1,0 +1,23 @@
+{
+  "provider": "hockeydata",
+  "sport": "icehockey",
+  "team_id": 13305,
+  "team_short": "RRG",
+  "season": "2026/27",
+  "season_division_id": 21585,
+  "season_permalink": "bevbylsen2627",
+  "active_phase": {
+    "label": "Bayernliga Vorrunde",
+    "division_id": 21620,
+    "division_permalink": "bevbyl_sen_vr",
+    "season_permalink": "bevbyl_sen_vr_2627",
+    "status": "active"
+  },
+  "editor_guidance": "Nur ändern, wenn HockeyData für eine neue Wettbewerbsphase wie Meisterrunde, Playoffs oder Abstiegsrunde eine neue Division/Gruppe ausweist. Team-ID nur nach Verifikation ändern.",
+  "manual_fixtures_enabled": true,
+  "manual_fixture_types": ["preseason", "friendly", "tournament", "other"],
+  "source": {
+    "documentation": "https://apidocs.hockeydata.net/",
+    "verified_at": "2026-08-22"
+  }
+}
