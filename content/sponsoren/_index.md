@@ -1,6 +1,8 @@
 ---
 title: "Sponsoren"
 description: "Partner und Unterstützer des ESC River Rats Geretsried."
+type: "sponsoren"
+layout: "list"
 ---
 
 Der ESC River Rats Geretsried wird von Partnern und Sponsoren aus der Region und darüber hinaus unterstützt.
