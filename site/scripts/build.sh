@@ -17,8 +17,9 @@ cp "$ROOT/content/home/home.json" "$SITE/data/home.json"
 cp "$ROOT/content/home/heroes.json" "$SITE/data/home_heroes.json"
 cp "$ROOT/content/navigation.json" "$SITE/data/navigation.json"
 cp "$ROOT/content/river-rats/hockeydata.json" "$SITE/data/hockeydata.json"
+cp "$ROOT/content/river-rats/team.json" "$SITE/data/river_rats_team.json"
 cleanup() {
-  rm -f "$SITE/data/sponsors.json" "$SITE/data/sponsor_page.json" "$SITE/data/home.json" "$SITE/data/home_heroes.json" "$SITE/data/navigation.json" "$SITE/data/hockeydata.json"
+  rm -f "$SITE/data/sponsors.json" "$SITE/data/sponsor_page.json" "$SITE/data/home.json" "$SITE/data/home_heroes.json" "$SITE/data/navigation.json" "$SITE/data/hockeydata.json" "$SITE/data/river_rats_team.json"
   rmdir "$SITE/data" 2>/dev/null || true
 }
 trap cleanup EXIT
@@ -36,7 +37,7 @@ hugo "${HUGO_ARGS[@]}"
 rm -rf "$SITE/public/home"
 rm -f "$SITE/public/navigation.json"
 rm -f "$SITE/public/sponsors/sponsors.json" "$SITE/public/sponsors/page.json"
-rm -f "$SITE/public/river-rats/hockeydata.json"
+rm -f "$SITE/public/river-rats/hockeydata.json" "$SITE/public/river-rats/team.json"
 
 # Visual assets are canonical tenant copies in Git. No runtime dependency on
 # esc-int or Netlify remains after the one-time import.
@@ -79,4 +80,4 @@ test -f "$SITE/public/images/river-rats-logo.png"
 test -f "$SITE/public/images/hero/hero-01-bewegung.jpeg"
 test "$(find "$SITE/public/images/teams" -maxdepth 1 -type f | wc -l)" -eq 10
 test "$(find "$SITE/public/sponsors/assets" -maxdepth 1 -type f | wc -l)" -eq 37
-echo "Built ESC site with $(hugo version), 24-month public news retention, curated homepage heroes, structured navigation, HockeyData widgets, M2 content policy gates, internal sponsors page, transitional esc-int content and 37 canonical sponsor logos"
+echo "Built ESC site with $(hugo version), 24-month public news retention, curated homepage heroes, structured navigation, HockeyData widgets, structured team profile, M2 content policy gates, internal sponsors page, transitional esc-int content and 37 canonical sponsor logos"
