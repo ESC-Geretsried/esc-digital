@@ -37,6 +37,7 @@ excluded_top_level = {
     'eiskunstlauf',
     'inklusion',
     'verein',
+    'mitgliedschaft',
 }
 count = 0
 
@@ -76,5 +77,47 @@ for src in sorted(imports.rglob('index.html')):
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page, encoding='utf-8')
     count += 1
+
+# The transitional snapshot may contain teaser cards for preview/test articles
+# that are not part of the approved public artifact. Never publish a teaser to
+# a missing local article. This operates only on generated output; imported
+# source material remains unchanged for provenance/recovery.
+news_index = public / 'aktuelles' / 'index.html'
+if news_index.is_file():
+    html = news_index.read_text(encoding='utf-8')
+    removed = 0
+
+    def target_exists(href: str) -> bool:
+        path = urlparse(href).path
+        normalized_prefix = prefix.rstrip('/')
+        if normalized_prefix and normalized_prefix != '/' and (path == normalized_prefix or path.startswith(normalized_prefix + '/')):
+            path = path[len(normalized_prefix):] or '/'
+        if not path.startswith('/aktuelles/'):
+            return True
+        rel = path.lstrip('/')
+        target = public / rel
+        if path.endswith('/') or not target.suffix:
+            target = target / 'index.html'
+        return target.is_file()
+
+    article_re = re.compile(r'<article\s+class=card>.*?</article>', flags=re.S)
+
+    def keep_or_drop(match: re.Match[str]) -> str:
+        nonlocal_removed = 0
+        article = match.group(0)
+        hrefs = re.findall(r'href=(?:"([^"]+)"|\'([^\']+)\'|([^\s>]+))', article)
+        flat = [next((part for part in groups if part), '') for groups in hrefs]
+        if any(href.startswith(prefix + 'aktuelles/') or href.startswith('/aktuelles/') for href in flat):
+            if any(not target_exists(href) for href in flat):
+                return ''
+        return article
+
+    before = len(article_re.findall(html))
+    html = article_re.sub(keep_or_drop, html)
+    after = len(article_re.findall(html))
+    removed = before - after
+    news_index.write_text(html, encoding='utf-8')
+    if removed:
+        print(f'Removed {removed} unresolved transitional news teaser(s) from generated output')
 
 print(f'Rendered {count} transitional esc-int pages without overwriting canonical ESC routes')
