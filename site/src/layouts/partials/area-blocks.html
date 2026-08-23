@@ -1,26 +1,26 @@
-<section class="area-section" id="uebersicht" aria-labelledby="area-overview-title">
+<section class="home-section" id="uebersicht" aria-labelledby="area-overview-title">
   <div class="shell">
     <p class="eyebrow eyebrow--gold">Bereich</p>
-    <h2 id="area-overview-title">{{ .Title }} im Überblick</h2>
-    {{ with .Params.description }}<p class="area-lead">{{ . }}</p>{{ end }}
-    {{ with .Content }}<div class="prose area-copy">{{ . }}</div>{{ end }}
+    <div class="section-heading"><h2 id="area-overview-title">{{ .Title }} im Überblick</h2></div>
+    {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+    {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
   </div>
 </section>
 
 {{ with .Params.people }}
   {{ if gt (len .) 0 }}
-  <section class="area-section area-section--soft" id="people" aria-labelledby="area-people-title">
+  <section class="home-section" id="people" aria-labelledby="area-people-title">
     <div class="shell">
       <p class="eyebrow eyebrow--gold">People</p>
-      <h2 id="area-people-title">Ansprechpartner & Rollen</h2>
-      <div class="people-grid">
+      <div class="section-heading"><h2 id="area-people-title">Ansprechpartner & Rollen</h2></div>
+      <div class="news-grid">
         {{ range . }}
-        <article class="person-card">
-          <p class="person-card__role">{{ .role }}</p>
+        <article class="news-group">
+          <p class="eyebrow eyebrow--gold">{{ .role }}</p>
           <h3>{{ .name }}</h3>
           {{ with .description }}<p>{{ . }}</p>{{ end }}
-          {{ with .email }}<a href="mailto:{{ . }}">{{ . }}</a>{{ end }}
-          {{ with .phone }}<a href="tel:{{ replaceRE "[^0-9+]" "" . }}">{{ . }}</a>{{ end }}
+          {{ with .email }}<p><a href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
+          {{ with .phone }}<p><a href="tel:{{ replaceRE "[^0-9+]" "" . }}">{{ . }}</a></p>{{ end }}
         </article>
         {{ end }}
       </div>
@@ -31,19 +31,19 @@
 
 {{ with .Params.events }}
   {{ if gt (len .) 0 }}
-  <section class="area-section" id="events" aria-labelledby="area-events-title">
+  <section class="home-section events" id="events" aria-labelledby="area-events-title">
     <div class="shell">
       <p class="eyebrow eyebrow--gold">Termine</p>
-      <h2 id="area-events-title">Aktuelle Termine</h2>
-      <div class="area-event-list">
+      <div class="section-heading"><h2 id="area-events-title">Aktuelle Termine</h2></div>
+      <div class="event-list">
         {{ range . }}
-        <article class="area-event-card">
+        <article class="event-card">
           {{ with .date }}<time datetime="{{ . }}">{{ . }}</time>{{ end }}
           <h3>{{ .title }}</h3>
           {{ with .time }}<p><strong>Zeit:</strong> {{ . }}</p>{{ end }}
           {{ with .location }}<p><strong>Ort:</strong> {{ . }}</p>{{ end }}
           {{ with .description }}<p>{{ . }}</p>{{ end }}
-          {{ with .url }}<a href="{{ . | relURL }}">Details →</a>{{ end }}
+          {{ with .url }}<p><a href="{{ . | relURL }}">Details →</a></p>{{ end }}
         </article>
         {{ end }}
       </div>
