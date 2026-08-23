@@ -10,10 +10,12 @@
   {{ $hero := resources.Get "css/hero-v2.css" | minify | fingerprint }}
   {{ $imported := resources.Get "css/imported.css" | minify | fingerprint }}
   {{ $hockeydata := resources.Get "css/hockeydata.css" | minify | fingerprint }}
+  {{ $membership := resources.Get "css/membership.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   <link rel="stylesheet" href="{{ $hero.RelPermalink }}" integrity="{{ $hero.Data.Integrity }}">
   <link rel="stylesheet" href="{{ $imported.RelPermalink }}" integrity="{{ $imported.Data.Integrity }}">
   <link rel="stylesheet" href="{{ $hockeydata.RelPermalink }}" integrity="{{ $hockeydata.Data.Integrity }}">
+  <link rel="stylesheet" href="{{ $membership.RelPermalink }}" integrity="{{ $membership.Data.Integrity }}">
 </head>
 <body>
   <div class="flashbar"><div class="shell flashbar__inner"><span class="flashbar__label">Dauerkarte</span><span class="flashbar__text">Dauerkarten Saison 2026/2027 – jetzt hier verbindlich</span></div></div>

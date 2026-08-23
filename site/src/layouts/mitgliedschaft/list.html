@@ -1,0 +1,81 @@
+{{ define "main" }}
+<section class="membership-hero">
+  <div class="shell membership-hero__inner">
+    <p class="eyebrow">ESC RIVER RATS GERETSRIED</p>
+    <h1>Werde Teil der River Rats.</h1>
+    <p>Mitgliedschaft bequem am Handy vorbereiten. Deine Angaben bleiben bis zum Drucken ausschließlich in deinem Browser.</p>
+    <div class="membership-steps" aria-label="Ablauf"><span>1 · Ausfüllen</span><span>2 · Prüfen</span><span>3 · Unterschreiben</span><span>4 · Per E-Mail oder Brief senden</span></div>
+  </div>
+</section>
+
+<section class="shell membership-shell">
+  <aside class="membership-factbox" aria-label="Wichtige Hinweise">
+    <strong>So ist der Antrag gültig</strong>
+    <p>Die aktuelle ESC-Satzung verlangt einen vollständig ausgefüllten und unterschriebenen schriftlichen Aufnahmeantrag. Er kann per Brief oder per E-Mail an die Geschäftsstelle eingereicht werden.</p>
+    <p><a href="https://www.esc-geretsried.de/static/f9c7dafb886e14f3dbbe2f87fbef3506/Satzung.pdf">Satzung öffnen</a> · <a href="https://www.esc-geretsried.de/static/61a58ee5555030d715fba4fb1f3a4935/250501_ESC-River-Rats-Geschaeftsordnung-v26.pdf">Geschäftsordnung öffnen</a></p>
+  </aside>
+
+  <form id="membership-form" class="membership-form" novalidate>
+    <fieldset>
+      <legend>1. Deine Mitgliedschaft</legend>
+      <div class="choice-grid">
+        <label class="choice"><input type="radio" name="membership_type" value="Einzelmitglied" required><span><strong>Einzelmitglied</strong><small>Eine Person</small></span></label>
+        <label class="choice"><input type="radio" name="membership_type" value="Familienmitgliedschaft"><span><strong>Familie</strong><small>Mehrere Familienmitglieder</small></span></label>
+        <label class="choice"><input type="radio" name="membership_type" value="Schnuppermitglied"><span><strong>Schnuppermitglied</strong><small>Für die laut Geschäftsordnung zulässigen Bereiche</small></span></label>
+      </div>
+      <div class="choice-grid compact">
+        <label class="choice"><input type="radio" name="status" value="Aktiv" required><span><strong>Aktiv</strong></span></label>
+        <label class="choice"><input type="radio" name="status" value="Passiv"><span><strong>Passiv</strong></span></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>2. Mitgliedsdaten</legend>
+      <div class="form-grid three"><label>Vorname<input name="first_name" autocomplete="given-name" required></label><label>Nachname<input name="last_name" autocomplete="family-name" required></label><label>Geburtsdatum<input type="date" name="birth_date" autocomplete="bday" required></label></div>
+      <div class="form-grid"><label>E-Mail<input type="email" name="email" autocomplete="email" inputmode="email" required></label><label>Telefon / Handy<input type="tel" name="phone" autocomplete="tel" inputmode="tel"></label></div>
+      <div class="form-grid three"><label class="span-2">Straße und Hausnummer<input name="street" autocomplete="street-address" required></label><label>PLZ<input name="postal_code" autocomplete="postal-code" inputmode="numeric" required></label><label class="span-2">Ort<input name="city" autocomplete="address-level2" required></label></div>
+      <fieldset class="nested"><legend>Abteilung</legend><div class="check-grid"><label><input type="checkbox" name="department" value="Eishockey"> Eishockey</label><label><input type="checkbox" name="department" value="Eiskunstlauf"> Eiskunstlauf</label><label><input type="checkbox" name="department" value="Inklusionssport"> Inklusionssport</label><label><input type="checkbox" name="department" value="Cheerleader"> Cheerleader</label></div></fieldset>
+      <fieldset class="nested"><legend>Ermäßigung / Nachweis, falls zutreffend</legend><div class="check-grid"><label><input type="checkbox" name="discount" value="in Ausbildung"> in Ausbildung</label><label><input type="checkbox" name="discount" value="erwerbslos"> erwerbslos</label><label><input type="checkbox" name="discount" value="Rentner/in"> Rentner/in</label><label><input type="checkbox" name="discount" value="Mensch mit Behinderung"> Mensch mit Behinderung</label></div><p class="hint">Ermäßigungen werden laut bestehendem ESC-Formular nur gegen Nachweis berücksichtigt.</p></fieldset>
+    </fieldset>
+
+    <fieldset id="family-section" hidden>
+      <legend>3. Weitere Familienmitglieder</legend>
+      <div id="family-members"></div>
+      <button class="button button-secondary" type="button" id="add-family">+ Familienmitglied hinzufügen</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>4. SEPA-Lastschriftmandat</legend>
+      <p class="hint">Gläubiger-ID des ESC: DE30ZZZ00001270905. Mandatsreferenz wird separat mitgeteilt.</p>
+      <label class="checkline"><input type="checkbox" name="sepa_recurring" required> Mandat gilt für wiederkehrende Zahlungen.</label>
+      <div class="form-grid"><label>Kontoinhaber Vorname<input name="account_first_name" autocomplete="cc-given-name" required></label><label>Kontoinhaber Nachname<input name="account_last_name" autocomplete="cc-family-name" required></label></div>
+      <div class="form-grid"><label>IBAN<input name="iban" inputmode="text" autocomplete="off" required placeholder="DE…"></label><label>BIC<input name="bic" inputmode="text" autocomplete="off"></label></div>
+      <label>Kreditinstitut<input name="bank_name"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>5. Erklärungen</legend>
+      <label class="checkline"><input type="checkbox" name="rules_ack" required> Ich habe Satzung und Geschäftsordnung zur Kenntnis genommen und erkenne die für die Mitgliedschaft geltenden Regelungen an.</label>
+      <label class="checkline"><input type="checkbox" name="privacy_ack" required> Ich habe die <a href="{{ "datenschutz/" | relURL }}">Datenschutzhinweise</a> zur Kenntnis genommen.</label>
+      <label class="checkline"><input type="checkbox" name="communication_consent"> Ich willige ein, dass meine E-Mail-Adresse und – soweit angegeben – Telefonnummer für die Vereinskommunikation genutzt werden.</label>
+      <label class="checkline"><input type="checkbox" name="photo_consent"> Ich willige in die im bisherigen offiziellen Aufnahmeantrag beschriebene Veröffentlichung von Bildern aus sportbezogenen oder gesellschaftlichen Vereinsveranstaltungen ein. Einzel-/Kleingruppenaufnahmen bleiben einwilligungsbedürftig.</label>
+    </fieldset>
+
+    <section class="membership-finish">
+      <p class="eyebrow">FAST GESCHAFFT</p><h2>Antrag prüfen und unterschreiben</h2>
+      <p>Der Button erzeugt keine Übermittlung. Er öffnet die druckoptimierte Antragsansicht; auf iPhone/Android kannst du darüber auch „Als PDF sichern“ verwenden. Danach unterschreiben und an die Geschäftsstelle senden.</p>
+      <div class="action-row"><button class="button" type="submit">Antrag prüfen &amp; drucken</button><a class="button button-secondary" href="mailto:geschaeftsstelle@esc-geretsried.de?subject=Beitrittserkl%C3%A4rung%20ESC%20River%20Rats%20Geretsried">E-Mail an Geschäftsstelle</a></div>
+      <p class="privacy-note">Keine Formulardaten werden durch diese Seite an einen Server übertragen.</p>
+    </section>
+  </form>
+
+  <section id="membership-print" class="membership-print" aria-live="polite" hidden>
+    <div class="print-head"><img src="{{ "images/river-rats-logo.png" | relURL }}" alt="River Rats"><div><strong>Beitrittserklärung</strong><br>ESC River Rats Geretsried e.V.<br>Jahnstraße 25 · 82538 Geretsried</div></div>
+    <div id="print-summary"></div>
+    <div class="signature-grid"><div>Ort, Datum</div><div>Unterschrift Mitglied / Erziehungsberechtigte</div><div>Ort, Datum</div><div>Unterschrift Kontoinhaber (SEPA)</div></div>
+    <div class="print-consents"><p>☐ Einwilligung Vereinskommunikation gemäß Auswahl im Online-Assistenten</p><p>☐ Einwilligung Bildverwendung gemäß Auswahl im Online-Assistenten</p></div>
+    <p><strong>Einreichung:</strong> unterschrieben per E-Mail an geschaeftsstelle@esc-geretsried.de oder per Brief an die Geschäftsstelle.</p>
+  </section>
+</section>
+<script src="{{ "js/membership.js" | relURL }}" defer></script>
+{{ end }}

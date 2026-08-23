@@ -10,14 +10,14 @@
   ],
   "actions": [
     {"label": "Tickets", "path": "/tickets/", "order": 10, "visible": false},
-    {"label": "Mitglied werden", "path": "/mitgliedschaft/", "order": 20, "visible": false}
+    {"label": "Mitglied werden", "path": "/mitgliedschaft/", "order": 20, "visible": true}
   ],
   "footer_groups": [
     {
       "label": "Verein",
       "order": 10,
       "links": [
-        {"label": "Mitglied werden", "path": "/mitgliedschaft/", "visible": false},
+        {"label": "Mitglied werden", "path": "/mitgliedschaft/", "visible": true},
         {"label": "Geschäftsstelle", "path": "/verein/", "visible": true},
         {"label": "Förderverein", "path": "/verein/foerderverein/", "visible": true},
         {"label": "Sponsoring", "path": "/sponsoren/", "visible": true},
