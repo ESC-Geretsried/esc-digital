@@ -7,6 +7,6 @@ layout: "list"
 
 Der ESC River Rats Geretsried wird von Partnern und Sponsoren aus der Region und darüber hinaus unterstützt.
 
-**Ansprechpartner Sponsoring:** Ralf Weber  
+**Ansprechpartner Sponsoring:** Matthias Remde  
 **E-Mail:** marketing@esc-geretsried.de  
 **Telefon:** 08171 6399028
