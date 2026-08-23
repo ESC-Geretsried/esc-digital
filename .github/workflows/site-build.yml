@@ -6,6 +6,7 @@ on:
       - 'site/**'
       - 'content/**'
       - '.github/workflows/site-build.yml'
+      - '.github/workflows/preview-publish.yml'
 
 permissions:
   contents: read
