@@ -27,7 +27,9 @@ jobs:
         run: bash site/scripts/build.sh
 
       - name: Validate canonical root variant
-        run: bash site/scripts/validate.sh
+        run: |
+          bash site/scripts/validate.sh
+          python3 site/scripts/golive_static_gate.py site/public
 
       - name: Build GitHub Pages variant
         env:
@@ -37,6 +39,7 @@ jobs:
       - name: Validate GitHub Pages routing
         run: |
           bash site/scripts/validate.sh
+          python3 site/scripts/golive_static_gate.py site/public --base-path /esc-digital/
           python3 - <<'PY'
           from html.parser import HTMLParser
           from pathlib import Path
