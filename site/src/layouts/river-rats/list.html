@@ -1,28 +1,16 @@
 {{ define "main" }}
-  {{ $hd := site.Data.hockeydata }}
-  <header class="page-head"><div class="shell"><p class="eyebrow">ESC River Rats Geretsried</p><h1>{{ .Title }}</h1><p>{{ .Params.description }}</p></div></header>
-  <section class="content-section"><div class="shell"><div class="prose">{{ .Content }}</div></div></section>
-  <section class="hockeydata-section" aria-labelledby="river-rats-spielbetrieb">
-    <div class="shell">
-      <div class="hockeydata-intro"><div><h2 id="river-rats-spielbetrieb">Spielbetrieb 2026/27</h2><p>{{ $hd.active_phase.label }} · Datenquelle HockeyData/GamePitch</p></div></div>
-      <div class="hockeydata-grid">
-        <article class="hockeydata-card">
-          <h3>Nächstes Spiel / aktuelle Begegnungen</h3>
-          <div data-hd-widget="hockeydata.los.GameSlider" data-hd-widget-options='{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{{ $hd.active_phase.division_permalink }}","sport":"{{ $hd.sport }}","teamId":{{ $hd.team_id }},"gamesPerGroup":1,"showDivisionName":false}'></div>
-        </article>
-        <article class="hockeydata-card">
-          <h3>Tabelle</h3>
-          <div data-hd-widget="hockeydata.los.Standings" data-hd-widget-options='{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{{ $hd.active_phase.division_permalink }}","sport":"{{ $hd.sport }}","columnSet":"default"}'></div>
-        </article>
-        <article class="hockeydata-card hockeydata-card--wide">
-          <h3>Spielplan River Rats</h3>
-          <div data-hd-widget="hockeydata.los.Schedule" data-hd-widget-options='{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{{ $hd.active_phase.division_permalink }}","sport":"{{ $hd.sport }}","teamId":{{ $hd.team_id }}}'></div>
-        </article>
-      </div>
-      <p class="hockeydata-note">Ligaspiele und Ergebnisse werden aus HockeyData geladen. Vorbereitung, Freundschaftsspiele und weitere Zusatzspiele werden künftig ergänzend über den ORP Editor gepflegt.</p>
-    </div>
-  </section>
-  <link rel="stylesheet" href="https://api.hockeydata.net/css/?los_gameslider&los_schedule&los_standings">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://api.hockeydata.net/js/?los_icehockey"></script>
+{{ $team := site.Data.river_rats_team }}
+{{ $hd := site.Data.hockeydata }}
+<section class="team-hero" style="background-image:url('{{ $team.hero_image | relURL }}')" aria-labelledby="team-title">
+  <div class="shell team-hero__content"><p class="eyebrow">{{ $team.eyebrow }}</p><h1 id="team-title">{{ $team.title }}</h1><p class="team-hero__tagline">{{ $team.tagline }}</p></div>
+</section>
+<nav class="team-local-nav" aria-label="Bereiche River Rats"><div class="shell team-local-nav__inner"><a href="#uebersicht">Übersicht</a><a href="#mannschaft">Mannschaft</a><a href="#news">News</a><a href="#tabelle">Tabelle</a><a href="#spielplan">Spielplan</a></div></nav>
+<section class="team-section" id="uebersicht"><div class="shell"><p class="eyebrow">Übersicht</p><h2>Mannschaft</h2><p class="team-overview">{{ $team.overview }}</p><p>Alle wichtigen Inhalte zur Mannschaft bleiben auf dieser Seite: Kader, aktuelle Meldungen und Spielbetrieb.</p></div></section>
+<section class="team-section team-section--soft" id="mannschaft"><div class="shell"><p class="eyebrow">Mannschaft</p><h2>Aktueller Kader</h2>
+{{ range slice "Tor" "Verteidigung" "Sturm" }}{{ $group := . }}<div class="roster-group"><h3>{{ $group }}</h3><div class="roster-grid">{{ range where $team.roster "group" $group }}<article class="player-card"><div class="player-card__image">{{ if .image }}<img src="{{ .image }}" alt="{{ .name }}" loading="lazy">{{ else }}<span>Foto folgt</span>{{ end }}</div><div class="player-card__body"><span class="player-card__number">#{{ .number }}</span><h4>{{ .name }}</h4><div class="player-meta"><span>{{ .nationality }}</span><span>Schläger: {{ .handedness }}</span></div></div></article>{{ end }}</div></div>{{ end }}
+<div class="roster-group"><h3>Team hinter dem Team</h3><div class="staff-grid">{{ range $team.staff }}<article class="staff-card"><strong>{{ .name }}</strong><span>{{ .role }}</span></article>{{ end }}</div></div><p class="team-source-note">Kaderdaten: aktuell veröffentlichter ESC-Stand. <a href="{{ $team.source.team_page }}">Offizielle Quellseite</a></p></div></section>
+<section class="team-section" id="news"><div class="shell"><p class="eyebrow">News</p><h2>Aktuelles von den River Rats</h2><div class="news-grid">{{ range $team.news }}<article class="team-news-card"><time datetime="{{ .date }}">{{ .date }}</time><h3><a href="{{ .path | relURL }}">{{ .title }}</a></h3><a href="{{ .path | relURL }}">Weiterlesen →</a></article>{{ end }}</div><p><a class="button" href="{{ "/aktuelles/" | relURL }}">Alle News</a></p></div></section>
+<section class="team-section team-section--soft" id="tabelle"><div class="shell"><p class="eyebrow">Spielbetrieb 2026/27</p><h2>Tabelle & nächste Spiele</h2><div class="team-hd-grid"><article class="team-hd-card"><h3>Nächstes Spiel</h3><div data-hd-widget="hockeydata.los.GameSlider" data-hd-widget-options='{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{{ $hd.active_phase.division_permalink }}","sport":"{{ $hd.sport }}","teamId":{{ $hd.team_id }},"gamesPerGroup":1,"showDivisionName":false}'></div></article><article class="team-hd-card"><h3>Tabelle</h3><div data-hd-widget="hockeydata.los.Standings" data-hd-widget-options='{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{{ $hd.active_phase.division_permalink }}","sport":"{{ $hd.sport }}","columnSet":"default"}'></div></article></div></div></section>
+<section class="team-section" id="spielplan"><div class="shell"><p class="eyebrow">Spielplan</p><h2>River Rats 2026/27</h2><div class="team-hd-card team-hd-card--wide"><div data-hd-widget="hockeydata.los.Schedule" data-hd-widget-options='{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{{ $hd.active_phase.division_permalink }}","sport":"{{ $hd.sport }}","teamId":{{ $hd.team_id }}}'></div></div><p class="team-source-note">Ligaspiele und Ergebnisse werden aus HockeyData geladen. Vorbereitung, Freundschaftsspiele und Zusatzspiele werden ergänzend über den ORP Editor gepflegt.</p></div></section>
+<link rel="stylesheet" href="https://api.hockeydata.net/css/?los_gameslider&los_schedule&los_standings"><script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><script src="https://api.hockeydata.net/js/?los_icehockey"></script>
 {{ end }}
