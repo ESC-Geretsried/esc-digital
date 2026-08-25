@@ -1,0 +1,15 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "river-rats",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-25T17:26:10Z",
+  "public_path": "/river-rats/",
+  "record_id": "orp:areas:66cf9a59-d22d-55f4-8eb2-91bab96e308f",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:areas:66cf9a59-d22d-55f4-8eb2-91bab96e308f",
+  "source_updated_at": "2026-08-23T20:34:29Z",
+  "status": "draft",
+  "summary": "Die River Rats sind die erste Mannschaft des ESC River Rats Geretsried.",
+  "title": "River Rats"
+}
