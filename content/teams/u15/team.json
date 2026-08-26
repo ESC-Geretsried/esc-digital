@@ -1,0 +1,210 @@
+{
+  "contact_source_text": "Kontakt: Trainer Michael Goldschmidt, Andreas Herrmann; Teamleiter Anna und Ronny Wolf, Sven Leinen; Email team.u15@esc-geretsried.de; Telefon 08171 6399020.",
+  "contacts": [
+    {
+      "role": "Trainer",
+      "value": "Michael Goldschmidt, Andreas Herrmann"
+    },
+    {
+      "role": "Teamleiter",
+      "value": "Anna und Ronny Wolf, Sven Leinen"
+    },
+    {
+      "role": "Email",
+      "value": "team.u15@esc-geretsried.de"
+    },
+    {
+      "role": "Telefon",
+      "value": "08171 6399020"
+    }
+  ],
+  "public_path": "/u15/",
+  "roster": [
+    {
+      "name": "Fischer Amelie",
+      "number": "31",
+      "position_code": "T",
+      "source_line": "T|31|Fischer Amelie"
+    },
+    {
+      "name": "Menzinger Magnus",
+      "number": "32",
+      "position_code": "T",
+      "source_line": "T|32|Menzinger Magnus"
+    },
+    {
+      "name": "Jesse Max",
+      "number": "30",
+      "position_code": "T",
+      "source_line": "T|30|Jesse Max"
+    },
+    {
+      "name": "Bickert Melanie",
+      "number": "3",
+      "position_code": "V",
+      "source_line": "V|3|Bickert Melanie"
+    },
+    {
+      "name": "Gmeiner Victoria",
+      "number": "4",
+      "position_code": "V",
+      "source_line": "V|4|Gmeiner Victoria"
+    },
+    {
+      "name": "Wirag Julian",
+      "number": "5",
+      "position_code": "V",
+      "source_line": "V|5|Wirag Julian"
+    },
+    {
+      "name": "Köster Heimdall",
+      "number": "6",
+      "position_code": "V",
+      "source_line": "V|6|Köster Heimdall"
+    },
+    {
+      "name": "Ciecor Felix",
+      "number": "7",
+      "position_code": "V",
+      "source_line": "V|7|Ciecor Felix"
+    },
+    {
+      "name": "Bunnemann Leopold",
+      "number": "8",
+      "position_code": "V",
+      "source_line": "V|8|Bunnemann Leopold"
+    },
+    {
+      "name": "Weinmann Lena",
+      "number": "14",
+      "position_code": "V",
+      "source_line": "V|14|Weinmann Lena"
+    },
+    {
+      "name": "Meinlschmidt Julius",
+      "number": "16",
+      "position_code": "V",
+      "source_line": "V|16|Meinlschmidt Julius"
+    },
+    {
+      "name": "Heyse Milo",
+      "number": "18",
+      "position_code": "V",
+      "source_line": "V|18|Heyse Milo"
+    },
+    {
+      "name": "Voegele Jakob",
+      "number": "24",
+      "position_code": "V",
+      "source_line": "V|24|Voegele Jakob"
+    },
+    {
+      "name": "Wolf Anton",
+      "number": "26",
+      "position_code": "V",
+      "source_line": "V|26|Wolf Anton"
+    },
+    {
+      "name": "Goldschmidt Lena",
+      "number": "27",
+      "position_code": "V",
+      "source_line": "V|27|Goldschmidt Lena"
+    },
+    {
+      "name": "Herrmann Niko",
+      "number": "9",
+      "position_code": "S",
+      "source_line": "S|9|Herrmann Niko"
+    },
+    {
+      "name": "Daisenberger Maximilian",
+      "number": "10",
+      "position_code": "S",
+      "source_line": "S|10|Daisenberger Maximilian"
+    },
+    {
+      "name": "Zubok Artem",
+      "number": "11",
+      "position_code": "S",
+      "source_line": "S|11|Zubok Artem"
+    },
+    {
+      "name": "Hofstätter Felix",
+      "number": "12",
+      "position_code": "S",
+      "source_line": "S|12|Hofstätter Felix"
+    },
+    {
+      "name": "Erisik Eren",
+      "number": "13",
+      "position_code": "S",
+      "source_line": "S|13|Erisik Eren"
+    },
+    {
+      "name": "Fritsch Moritz",
+      "number": "15",
+      "position_code": "S",
+      "source_line": "S|15|Fritsch Moritz"
+    },
+    {
+      "name": "Hirsch Moritz",
+      "number": "17",
+      "position_code": "S",
+      "source_line": "S|17|Hirsch Moritz"
+    },
+    {
+      "name": "Weinmann Maximilian",
+      "number": "19",
+      "position_code": "S",
+      "source_line": "S|19|Weinmann Maximilian"
+    },
+    {
+      "name": "Thalhammer Kilian",
+      "number": "20",
+      "position_code": "S",
+      "source_line": "S|20|Thalhammer Kilian"
+    },
+    {
+      "name": "Gündera Perez Camilo",
+      "number": "21",
+      "position_code": "S",
+      "source_line": "S|21|Gündera Perez Camilo"
+    },
+    {
+      "name": "Oponczewski Lorenz",
+      "number": "22",
+      "position_code": "S",
+      "source_line": "S|22|Oponczewski Lorenz"
+    },
+    {
+      "name": "Steinbacher Maximilian",
+      "number": "23",
+      "position_code": "S",
+      "source_line": "S|23|Steinbacher Maximilian"
+    },
+    {
+      "name": "Bentz Paul",
+      "number": "25",
+      "position_code": "S",
+      "source_line": "S|25|Bentz Paul"
+    },
+    {
+      "name": "Eiler Christian",
+      "number": "28",
+      "position_code": "S",
+      "source_line": "S|28|Eiler Christian"
+    }
+  ],
+  "schema_version": 1,
+  "season": "2025/2026",
+  "source": {
+    "provided_at": "2026-08-26",
+    "reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+    "rule": "Exact projection; no silent normalization, correction or inference.",
+    "status": "founder-provided"
+  },
+  "team_key": "u15",
+  "team_photo": "images/teams/u15-team.jpg",
+  "team_photo_alt": "Teamfoto U15 Saison 2025/2026",
+  "title": "U15"
+}

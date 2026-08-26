@@ -1,0 +1,20 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "comment": "Exact Founder contact group: Betreuer Christian Fordermair",
+  "display_name": "Christian Fordermair",
+  "email": "",
+  "last_reviewed_at": "2026-08-26T00:00:00Z",
+  "phone": "",
+  "photo_asset_key": "",
+  "record_id": "orp:founder:esc:staff:damen:betreuer:christian-fordermair",
+  "role": "Betreuer",
+  "sort_order": 20,
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:founder:esc:staff:damen:betreuer:christian-fordermair",
+  "source_reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+  "source_status": "founder-provided",
+  "source_updated_at": "2026-08-26T00:00:00Z",
+  "status": "draft",
+  "team_key": "damen"
+}

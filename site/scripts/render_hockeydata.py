@@ -43,7 +43,7 @@ def public_url(path):
 
 def player_card(row):
     image = str(row.get("image", "")).strip()
-    media = f'<img src="{escape(image, quote=True)}" alt="{escape(row["name"], quote=True)}" loading="lazy">' if image else '<span class="player-card__placeholder" aria-label="Kein verifiziertes Spielerfoto vorhanden">Kein Foto</span>'
+    media = f'<img src="{escape(public_url(image), quote=True)}" alt="{escape(row["name"], quote=True)}" loading="lazy">' if image else '<span class="player-card__placeholder" aria-label="Kein verifiziertes Spielerfoto vorhanden">Kein Foto</span>'
     return (
         '<article class="player-card"><div class="player-card__image">' + media + '</div>'
         '<div class="player-card__body"><span class="player-card__number">#' + escape(str(row.get("number", ""))) + '</span>'

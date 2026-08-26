@@ -30,6 +30,7 @@ require_fixed "$PAGE" 'id="ergebnisse"'
 require_fixed "$PAGE" 'Nächstes Spiel'
 BASE_PATH="$(python3 -c 'import sys; from urllib.parse import urlsplit; print(urlsplit(sys.argv[1]).path.rstrip("/"))' "${HUGO_BASEURL:-/}")"
 require_fixed "$PAGE" "src=\"$BASE_PATH/images/hero/hero-02-team.jpeg\""
+require_fixed "$PAGE" "src=\"$BASE_PATH/images/people/river-rats/players/korbinian-sertl.jpg\""
 require_fixed "$PAGE" "href=\"$BASE_PATH/aktuelles/\""
 require_fixed "$TEAM" '"team_photo": "images/hero/hero-02-team.jpeg"'
 require_fixed "$CFG" '"team_id": 13305'

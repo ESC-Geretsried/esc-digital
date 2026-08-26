@@ -1,0 +1,258 @@
+{
+  "contact_source_text": "Kontakt: Trainer Max Meisinger, Oliver Ott; Teamleiter Quentin Degroote, Christian Meyndt; Email team.u13@esc-geretsried.de; Telefon 08171 6399019.",
+  "contacts": [
+    {
+      "role": "Trainer",
+      "value": "Max Meisinger, Oliver Ott"
+    },
+    {
+      "role": "Teamleiter",
+      "value": "Quentin Degroote, Christian Meyndt"
+    },
+    {
+      "role": "Email",
+      "value": "team.u13@esc-geretsried.de"
+    },
+    {
+      "role": "Telefon",
+      "value": "08171 6399019"
+    }
+  ],
+  "public_path": "/u13/",
+  "roster": [
+    {
+      "name": "Janka, Kilian",
+      "number": "31",
+      "position_code": "T",
+      "source_line": "T|31|Janka, Kilian"
+    },
+    {
+      "name": "Wirag, Johannes",
+      "number": "29",
+      "position_code": "T",
+      "source_line": "T|29|Wirag, Johannes"
+    },
+    {
+      "name": "Wirag, Maximilian",
+      "number": "30",
+      "position_code": "T",
+      "source_line": "T|30|Wirag, Maximilian"
+    },
+    {
+      "name": "Balazi, Jakub",
+      "number": "2",
+      "position_code": "S",
+      "source_line": "S|2|Balazi, Jakub"
+    },
+    {
+      "name": "Bittner, Leopold",
+      "number": "21",
+      "position_code": "S",
+      "source_line": "S|21|Bittner, Leopold"
+    },
+    {
+      "name": "Born, Constantin",
+      "number": "36",
+      "position_code": "S",
+      "source_line": "S|36|Born, Constantin"
+    },
+    {
+      "name": "Born, Alexander",
+      "number": "37",
+      "position_code": "S",
+      "source_line": "S|37|Born, Alexander"
+    },
+    {
+      "name": "Cernomorec, Dennis",
+      "number": "13",
+      "position_code": "S",
+      "source_line": "S|13|Cernomorec, Dennis"
+    },
+    {
+      "name": "Cheeseman, Luke",
+      "number": "35",
+      "position_code": "S",
+      "source_line": "S|35|Cheeseman, Luke"
+    },
+    {
+      "name": "Degroote, Titouan",
+      "number": "3",
+      "position_code": "S",
+      "source_line": "S|3|Degroote, Titouan"
+    },
+    {
+      "name": "Dreimann, Louis",
+      "number": "14",
+      "position_code": "S",
+      "source_line": "S|14|Dreimann, Louis"
+    },
+    {
+      "name": "Fellner, Hugo",
+      "number": "34",
+      "position_code": "S",
+      "source_line": "S|34|Fellner, Hugo"
+    },
+    {
+      "name": "Geiger, Paul",
+      "number": "8",
+      "position_code": "S",
+      "source_line": "S|8|Geiger, Paul"
+    },
+    {
+      "name": "Gögler, Samuel",
+      "number": "33",
+      "position_code": "S",
+      "source_line": "S|33|Gögler, Samuel"
+    },
+    {
+      "name": "Günter Perez, Emilia",
+      "number": "25",
+      "position_code": "S",
+      "source_line": "S|25|Günter Perez, Emilia"
+    },
+    {
+      "name": "Hauptkorn, Emil",
+      "number": "12",
+      "position_code": "S",
+      "source_line": "S|12|Hauptkorn, Emil"
+    },
+    {
+      "name": "Haußmann, Laurin",
+      "number": "23",
+      "position_code": "S",
+      "source_line": "S|23|Haußmann, Laurin"
+    },
+    {
+      "name": "Hegner, Leo",
+      "number": "9",
+      "position_code": "S",
+      "source_line": "S|9|Hegner, Leo"
+    },
+    {
+      "name": "Heidt, Miroslav",
+      "number": "17",
+      "position_code": "S",
+      "source_line": "S|17|Heidt, Miroslav"
+    },
+    {
+      "name": "Henning, Theo",
+      "number": "25",
+      "position_code": "S",
+      "source_line": "S|25|Henning, Theo"
+    },
+    {
+      "name": "Jäger, Florian",
+      "number": "38",
+      "position_code": "S",
+      "source_line": "S|38|Jäger, Florian"
+    },
+    {
+      "name": "Kanzler, Vitus",
+      "number": "5",
+      "position_code": "S",
+      "source_line": "S|5|Kanzler, Vitus"
+    },
+    {
+      "name": "Kanzler, Josef",
+      "number": "19",
+      "position_code": "S",
+      "source_line": "S|19|Kanzler, Josef"
+    },
+    {
+      "name": "Köberle, Paul",
+      "number": "22",
+      "position_code": "S",
+      "source_line": "S|22|Köberle, Paul"
+    },
+    {
+      "name": "Korti, Kilian",
+      "number": "26",
+      "position_code": "S",
+      "source_line": "S|26|Korti, Kilian"
+    },
+    {
+      "name": "Kruck, Anton",
+      "number": "7",
+      "position_code": "S",
+      "source_line": "S|7|Kruck, Anton"
+    },
+    {
+      "name": "Kuhn, Bastian",
+      "number": "40",
+      "position_code": "S",
+      "source_line": "S|40|Kuhn, Bastian"
+    },
+    {
+      "name": "Kunz, Paul",
+      "number": "28",
+      "position_code": "S",
+      "source_line": "S|28|Kunz, Paul"
+    },
+    {
+      "name": "Meisinger, Valentin",
+      "number": "24",
+      "position_code": "S",
+      "source_line": "S|24|Meisinger, Valentin"
+    },
+    {
+      "name": "Melchert, Niklas",
+      "number": "10",
+      "position_code": "S",
+      "source_line": "S|10|Melchert, Niklas"
+    },
+    {
+      "name": "Meyndt, Alexander",
+      "number": "20",
+      "position_code": "S",
+      "source_line": "S|20|Meyndt, Alexander"
+    },
+    {
+      "name": "Neuhaus, Tizian",
+      "number": "16",
+      "position_code": "S",
+      "source_line": "S|16|Neuhaus, Tizian"
+    },
+    {
+      "name": "Oponczewski, Maria",
+      "number": "1",
+      "position_code": "S",
+      "source_line": "S|1|Oponczewski, Maria"
+    },
+    {
+      "name": "Schneider, Johanna",
+      "number": "4",
+      "position_code": "S",
+      "source_line": "S|4|Schneider, Johanna"
+    },
+    {
+      "name": "Schötz, Franz",
+      "number": "18",
+      "position_code": "S",
+      "source_line": "S|18|Schötz, Franz"
+    },
+    {
+      "name": "Spengler, Daniel",
+      "number": "27",
+      "position_code": "S",
+      "source_line": "S|27|Spengler, Daniel"
+    },
+    {
+      "name": "Steinmüller, Ronja",
+      "number": "32",
+      "position_code": "S",
+      "source_line": "S|32|Steinmüller, Ronja"
+    }
+  ],
+  "schema_version": 1,
+  "season": "2025/2026",
+  "source": {
+    "provided_at": "2026-08-26",
+    "reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+    "rule": "Exact projection; no silent normalization, correction or inference.",
+    "status": "founder-provided"
+  },
+  "team_key": "u13",
+  "team_photo": "images/teams/u13-team.jpg",
+  "team_photo_alt": "Teamfoto U13 Saison 2025/2026",
+  "title": "U13"
+}

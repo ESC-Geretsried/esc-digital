@@ -1,8 +1,11 @@
 ---
-title: "River Rats Damen"
-description: "Damenmannschaft des ESC River Rats Geretsried."
-content_status: "draft"
-source_status: "to_migrate"
+title: "Damen"
+description: "Mannschaft, Kader und Kontakte Damen · Saison 2025/2026"
+type: "team"
+layout: "list"
+team_key: "damen"
+content_status: "preview"
+source_status: "founder-provided"
 ---
 
-Diese Seite ist als kanonische ESC-Seite angelegt. Inhalte werden im nächsten M2-Schritt aus den freigegebenen ESC-Quellen strukturiert übernommen und redaktionell abgestimmt.
+Die Daten dieser Preview-Seite stammen aus der in Git gesicherten Founder-Quelle.

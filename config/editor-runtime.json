@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "tenant": "esc",
+  "content_provider": "git",
+  "content_root": "content/.orp-editor",
+  "canonical_website_content_root": "content",
+  "binary_asset_provider": "git-repository",
+  "identity_provider": "microsoft-entra",
+  "authorization_model": "entra-app-roles-and-server-side-scopes",
+  "required_content_and_media_dependencies": [
+    "git"
+  ],
+  "not_required_for_content_or_media": [
+    "sharepoint"
+  ],
+  "publishing_flow": "branch-pull-request-ci-preview",
+  "production_deployment": "separately-gated"
+}

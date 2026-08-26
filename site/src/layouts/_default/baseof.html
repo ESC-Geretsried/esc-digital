@@ -25,7 +25,11 @@
   <header class="site-header">
     <div class="shell header-row">
       <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="ESC River Rats Geretsried – Startseite"><img src="{{ "images/river-rats-logo.png" | relURL }}" alt="River Rats"></a>
-      <details class="site-menu">
+      <nav class="desktop-nav" aria-label="Hauptnavigation Desktop">
+        {{ range (sort $nav.main "order") }}{{ if .visible }}<a href="{{ .path | relURL }}">{{ .label }}</a>{{ end }}{{ end }}
+        {{ range (sort $nav.actions "order") }}{{ if .visible }}<a class="desktop-nav__action" href="{{ .path | relURL }}">{{ .label }}</a>{{ end }}{{ end }}
+      </nav>
+      <details class="site-menu" data-mobile-menu>
         <summary>MENÜ <span aria-hidden="true">≡</span></summary>
         <nav aria-label="Hauptnavigation">
           <a href="{{ site.Home.RelPermalink }}">Start</a>
@@ -49,5 +53,6 @@
       </div>
     </div>
   </footer>
+  <script src="{{ "js/navigation.js" | relURL }}" defer></script>
 </body>
 </html>

@@ -1,20 +1,11 @@
 ---
 title: "U17"
-description: "U17"
+description: "Mannschaft, Kader und Kontakte U17 · Saison 2025/2026"
 type: "team"
 layout: "list"
-content_status: "draft"
-source_status: "verified-intake"
+team_key: "u17"
+content_status: "preview"
+source_status: "founder-provided"
 ---
 
-Übersicht
-
-## Mannschaft / Kader
-
-## News
-
-## Spielplan
-
-## Tabelle
-
-## Ergebnisse
+Die Daten dieser Preview-Seite stammen aus der in Git gesicherten Founder-Quelle.

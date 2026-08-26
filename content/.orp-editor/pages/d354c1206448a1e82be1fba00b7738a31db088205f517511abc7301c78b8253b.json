@@ -1,9 +1,9 @@
 {
   "approval_owner": "ESC Redaktion",
   "area_key": "u11",
-  "body": "Übersicht\n\n## Mannschaft / Kader\n\n## News\n\n## Spielplan\n\n## Ergebnisse",
+  "body": "Saison 2025/2026\n\nKontakt: Trainer Daniel Kunz, Andreas Dornbach, Sascha Bergelt; Betreuer ein großes Team engagierter Eltern; Teamleiter Ramona Geiger, Tanja Serr; Email team.u11@esc-geretsried.de; Telefon 08171 6399018.\n\nKader (Pos | Nr | Name):\nS|10|Altenberger, Louis\nS|8|Becker, Levin\nT|7|Bergelt, Elias\nS|19|Dichtl, Christoph\nS|40|Dornbach, Fabian\nS|11|Feßlmeier, Lukas\nS|31|Fellner, Ruben\nS|28|Fischer, Theodora\nS|9|Geiger, Sarah\nT|22|Giebmanns, Sven\nS|12|Gündera Perez, Eliah\nT|25|Hagemann, Adam\nS|30|Harrison, Karl-Otto\nS|3|Hoffleisch, Jayden\nT|27|Kunz, Emil\nS|4|Kunz, Jonah\nS|24|Lanzinger, Julius\nS|15|Lorbacher, Linus\nS|23|Meisinger, Titus\nS|39|Ott, Elias\nS|21|Schäffler, Benedikt\nS|36|Schmid, Anton\nS|18|Schmid, Emil\nS|29|Schmidt, Damian\nS|13|Schmidts, Tobias\nS|20|Schneider, Emil\nS|5|Schöbel, Jenifer\nS|14|Serr, Rafael\nS|32|Sippel, Johanna\nS|6|Steinbacher, Leonhard\nS|16|Steinmüller, Hugo\nS|34|Stary, Xaver\nS|33|Stadler, Ludwig\nT|35|Striegl, Anton\nS|17|Spengler, Jonathan\nT|26|Tengg, Emil\nS|38|Vanik, Vivien\nS|37|Wirag, Katerina",
   "hero_asset_key": "",
-  "last_reviewed_at": "2026-08-26T18:18:00Z",
+  "last_reviewed_at": "2026-08-26T00:00:00Z",
   "page_key": "u11",
   "page_type": "team",
   "public_path": "/u11/",
@@ -11,9 +11,11 @@
   "source_owner": "ESC Redaktion",
   "source_provider": "orp-editor",
   "source_record_id": "orp:git-seed:esc:pages:u11",
-  "source_updated_at": "2026-08-26T18:18:00Z",
+  "source_reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+  "source_status": "founder-provided",
+  "source_updated_at": "2026-08-26T00:00:00Z",
   "status": "draft",
-  "summary": "",
+  "summary": "Kader und Kontakte · Saison 2025/2026",
   "team_key": "u11",
   "title": "U11"
 }

@@ -1,0 +1,256 @@
+{
+  "contact_source_text": "Kontakt: Trainer Patrik Czapla; Betreuer Christian Fordermair; Teamleiter Korinna Hildebrand, Sylvia Weinmann; Email team.damen@esc-geretsried.de; Telefon 08171 - 6399023.",
+  "contacts": [
+    {
+      "role": "Trainer",
+      "value": "Patrik Czapla"
+    },
+    {
+      "role": "Betreuer",
+      "value": "Christian Fordermair"
+    },
+    {
+      "role": "Teamleiter",
+      "value": "Korinna Hildebrand, Sylvia Weinmann"
+    },
+    {
+      "role": "Email",
+      "value": "team.damen@esc-geretsried.de"
+    },
+    {
+      "role": "Telefon",
+      "value": "08171 - 6399023"
+    }
+  ],
+  "public_path": "/river-rats-damen/",
+  "roster": [
+    {
+      "name": "Lilli Gania",
+      "number": "30",
+      "position_code": "T",
+      "source_line": "T|30|Lilli Gania"
+    },
+    {
+      "name": "Amelie Fischer",
+      "number": "31",
+      "position_code": "T",
+      "source_line": "T|31|Amelie Fischer"
+    },
+    {
+      "name": "Tamara Freudenstein",
+      "number": "35",
+      "position_code": "T",
+      "source_line": "T|35|Tamara Freudenstein"
+    },
+    {
+      "name": "Romy Kurth",
+      "number": "72",
+      "position_code": "T",
+      "source_line": "T|72|Romy Kurth"
+    },
+    {
+      "name": "Marlene Curth",
+      "number": "96",
+      "position_code": "T",
+      "source_line": "T|96|Marlene Curth"
+    },
+    {
+      "name": "Veronika Haase",
+      "number": "2",
+      "position_code": "S",
+      "source_line": "S|2|Veronika Haase"
+    },
+    {
+      "name": "Daniela Kolbeck",
+      "number": "3",
+      "position_code": "S",
+      "source_line": "S|3|Daniela Kolbeck"
+    },
+    {
+      "name": "Marlena Ostler",
+      "number": "5",
+      "position_code": "S",
+      "source_line": "S|5|Marlena Ostler"
+    },
+    {
+      "name": "Sandra Mayr",
+      "number": "7",
+      "position_code": "S",
+      "source_line": "S|7|Sandra Mayr"
+    },
+    {
+      "name": "Melanie Bickert",
+      "number": "8",
+      "position_code": "S",
+      "source_line": "S|8|Melanie Bickert"
+    },
+    {
+      "name": "Malin Herrmann",
+      "number": "9",
+      "position_code": "S",
+      "source_line": "S|9|Malin Herrmann"
+    },
+    {
+      "name": "Katharina Smida",
+      "number": "10",
+      "position_code": "S",
+      "source_line": "S|10|Katharina Smida"
+    },
+    {
+      "name": "Victoria Gmeiner",
+      "number": "11",
+      "position_code": "S",
+      "source_line": "S|11|Victoria Gmeiner"
+    },
+    {
+      "name": "Annika Meyer",
+      "number": "12",
+      "position_code": "S",
+      "source_line": "S|12|Annika Meyer"
+    },
+    {
+      "name": "Marlene Nusselt",
+      "number": "13",
+      "position_code": "S",
+      "source_line": "S|13|Marlene Nusselt"
+    },
+    {
+      "name": "Annalena Happach",
+      "number": "14",
+      "position_code": "S",
+      "source_line": "S|14|Annalena Happach"
+    },
+    {
+      "name": "Eva Hildebrand",
+      "number": "18",
+      "position_code": "S",
+      "source_line": "S|18|Eva Hildebrand"
+    },
+    {
+      "name": "Verena Huschen",
+      "number": "19",
+      "position_code": "S",
+      "source_line": "S|19|Verena Huschen"
+    },
+    {
+      "name": "Sandra Preisz",
+      "number": "20",
+      "position_code": "S",
+      "source_line": "S|20|Sandra Preisz"
+    },
+    {
+      "name": "Anna Schianchi",
+      "number": "21",
+      "position_code": "S",
+      "source_line": "S|21|Anna Schianchi"
+    },
+    {
+      "name": "Theresa Karbach",
+      "number": "22",
+      "position_code": "S",
+      "source_line": "S|22|Theresa Karbach"
+    },
+    {
+      "name": "Bianca Dobmeier",
+      "number": "23",
+      "position_code": "S",
+      "source_line": "S|23|Bianca Dobmeier"
+    },
+    {
+      "name": "Franziska Mayer",
+      "number": "24",
+      "position_code": "S",
+      "source_line": "S|24|Franziska Mayer"
+    },
+    {
+      "name": "Katja Butterweck",
+      "number": "25",
+      "position_code": "S",
+      "source_line": "S|25|Katja Butterweck"
+    },
+    {
+      "name": "Lucia Fordermair",
+      "number": "26",
+      "position_code": "S",
+      "source_line": "S|26|Lucia Fordermair"
+    },
+    {
+      "name": "Aileen Czapla",
+      "number": "27",
+      "position_code": "S",
+      "source_line": "S|27|Aileen Czapla"
+    },
+    {
+      "name": "Alina Schönwalter",
+      "number": "28",
+      "position_code": "S",
+      "source_line": "S|28|Alina Schönwalter"
+    },
+    {
+      "name": "Lena Wippler",
+      "number": "33",
+      "position_code": "S",
+      "source_line": "S|33|Lena Wippler"
+    },
+    {
+      "name": "Ann-Katrin Vogg",
+      "number": "34",
+      "position_code": "S",
+      "source_line": "S|34|Ann-Katrin Vogg"
+    },
+    {
+      "name": "Johanna Lauterbach",
+      "number": "36",
+      "position_code": "S",
+      "source_line": "S|36|Johanna Lauterbach"
+    },
+    {
+      "name": "Lena Weinmann",
+      "number": "46",
+      "position_code": "S",
+      "source_line": "S|46|Lena Weinmann"
+    },
+    {
+      "name": "Lena Goldschmidt",
+      "number": "67",
+      "position_code": "S",
+      "source_line": "S|67|Lena Goldschmidt"
+    },
+    {
+      "name": "Antonia Glogger",
+      "number": "71",
+      "position_code": "S",
+      "source_line": "S|71|Antonia Glogger"
+    },
+    {
+      "name": "Marie Schmitz",
+      "number": "77",
+      "position_code": "S",
+      "source_line": "S|77|Marie Schmitz"
+    },
+    {
+      "name": "Franziska Sigl",
+      "number": "80",
+      "position_code": "S",
+      "source_line": "S|80|Franziska Sigl"
+    },
+    {
+      "name": "Lilly Schaack",
+      "number": "97",
+      "position_code": "S",
+      "source_line": "S|97|Lilly Schaack"
+    }
+  ],
+  "schema_version": 1,
+  "season": "2025/2026",
+  "source": {
+    "provided_at": "2026-08-26",
+    "reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+    "rule": "Exact projection; no silent normalization, correction or inference.",
+    "status": "founder-provided"
+  },
+  "team_key": "damen",
+  "team_photo": "images/teams/damen-team.jpg",
+  "team_photo_alt": "Teamfoto Damen Saison 2025/2026",
+  "title": "Damen"
+}
