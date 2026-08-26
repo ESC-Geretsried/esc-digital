@@ -7,6 +7,7 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[2]
 editor = root / "content" / ".orp-editor"
 team_source = json.loads((root / "content" / "river-rats" / "team.json").read_text(encoding="utf-8"))
+renderer = (root / "site" / "scripts" / "render_hockeydata.py").read_text(encoding="utf-8")
 
 
 def records(kind):
@@ -33,6 +34,13 @@ if {row["display_name"] for row in staff} != {row["name"] for row in team_source
     raise SystemExit("ERROR: editor staff names differ from canonical River Rats team source")
 if {row["title"] for row in news} != {row["title"] for row in team_source["news"]}:
     raise SystemExit("ERROR: editor news titles differ from canonical River Rats team source")
+
+# Product rule: generic schema fields may remain, but team frontend must not render height or weight.
+if 'height_cm' in renderer or 'weight_kg' in renderer:
+    raise SystemExit("ERROR: height/weight fields referenced by River Rats frontend renderer")
+for required in ('row.get("group"', 'row.get("nationality"', 'row.get("handedness"'):
+    if required not in renderer:
+        raise SystemExit(f"ERROR: verified player metadata missing from frontend renderer: {required}")
 
 expected_news = {
     "Doppelpack für die Defensive – Englbrecht und Sanner verlängern": "Stephan Englbrecht und Martin Sanner verlängern bei den River Rats.",
@@ -80,4 +88,4 @@ for key in ("hero_image", "team_photo"):
     if not path.is_file():
         raise SystemExit(f"ERROR: existing Git image reference is missing: {team_source[key]}")
 
-print("River Rats editor initial state validated: 16 players, 9 staff, 4 news; HockeyData protected")
+print("River Rats editor initial state validated: 16 players, 9 staff, 4 news; HockeyData protected; height/weight frontend display disabled")
