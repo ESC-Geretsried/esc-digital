@@ -1,7 +1,7 @@
 {
   "title": "Saisonkarten-Verkauf gestartet",
-  "summary": "Der ESC informiert öffentlich über den Start des Saisonkartenverkaufs.",
-  "body": "Der ESC informiert öffentlich über den Start des Saisonkartenverkaufs. Der Beitrag bleibt als aktueller Servicehinweis für River-Rats-Fans im INT-Stand sichtbar.\n\nQuelle: https://www.esc-geretsried.de/river-rats/news/2026/07/24/saisonkarten-verkauf-gestartet/",
+  "summary": "Der Saisonkarten-Verkauf ist gestartet.",
+  "body": "Der Saisonkarten-Verkauf ist gestartet.",
   "area_key": "river-rats",
   "area_keys": "",
   "team_key": "river-rats",
@@ -19,7 +19,7 @@
   "source_provider": "orp-editor",
   "source_record_id": "orp:git-seed:esc:news:2026-07-24-river-rats-saisonkarten",
   "source_owner": "ESC Redaktion",
-  "source_updated_at": "2026-08-26T15:00:00Z",
-  "last_reviewed_at": "2026-08-26T15:00:00Z",
+  "source_updated_at": "2026-08-26T14:37:31Z",
+  "last_reviewed_at": "2026-08-26T14:37:31Z",
   "approval_owner": "ESC Redaktion"
 }
