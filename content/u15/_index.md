@@ -8,4 +8,4 @@ content_status: "preview"
 source_status: "founder-provided"
 ---
 
-Die Daten dieser Preview-Seite stammen aus der in Git gesicherten Founder-Quelle.
+Hier finden Sie Mannschaft, Kader und Kontakte der U15 für die Saison 2025/2026.

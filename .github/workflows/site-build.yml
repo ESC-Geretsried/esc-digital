@@ -5,7 +5,9 @@ on:
     paths:
       - 'site/**'
       - 'content/**'
+      - 'images/**'
       - 'docs/content-migration/**'
+      - 'docs/operations/**'
       - 'config/editor-runtime.json'
       - 'config/news-retention.json'
       - 'scripts/sync_founder_team_rosters.py'

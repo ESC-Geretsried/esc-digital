@@ -9,4 +9,4 @@ source_status: "migrated"
 
 Die River Rats sind die erste Mannschaft des ESC River Rats Geretsried und der zentrale Seniorenbereich des Vereins. Auf der Mannschaftsseite werden Übersicht, Teamfoto, Mannschaft/Kader, News sowie Spielplan, Tabelle und Ergebnisse gebündelt.
 
-Ligaspielplan, Tabelle, Ergebnisse und das nächste Ligaspiel stammen geschützt aus HockeyData/GamePitch. Vorbereitung, Freundschaftsspiele, Turniere und weitere Zusatztermine können ergänzend über den ORP Editor gepflegt werden.
+Ligaspielplan, Tabelle, Ergebnisse und das nächste Ligaspiel werden über HockeyData/GamePitch bereitgestellt. Vorbereitung, Freundschaftsspiele, Turniere und weitere Zusatztermine werden ergänzt, sobald sie feststehen.

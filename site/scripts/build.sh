@@ -51,13 +51,14 @@ rm -f "$SITE/public/river-rats/hockeydata.json" "$SITE/public/river-rats/team.js
 
 # Visual assets are canonical tenant copies in Git. No runtime dependency on
 # esc-int or Netlify remains after the one-time import.
-mkdir -p "$SITE/public/images/hero" "$SITE/public/images/teams" "$SITE/public/images/inklusion" "$SITE/public/images/people/river-rats/staff" "$SITE/public/images/people/river-rats/players"
+mkdir -p "$SITE/public/images/hero" "$SITE/public/images/teams" "$SITE/public/images/inklusion" "$SITE/public/images/people/river-rats/staff" "$SITE/public/images/people/river-rats/players" "$SITE/public/images/people/vereinsfuehrung"
 cp "$ROOT/images/river-rats-logo.png" "$SITE/public/images/river-rats-logo.png"
 cp "$ROOT"/images/hero/*.jpeg "$SITE/public/images/hero/"
 cp "$ROOT"/images/teams/* "$SITE/public/images/teams/"
 cp "$ROOT"/images/inklusion/*.png "$SITE/public/images/inklusion/"
 cp "$ROOT"/content/river-rats/assets/staff/*.jpg "$SITE/public/images/people/river-rats/staff/"
 cp "$ROOT"/content/river-rats/assets/players/*.jpg "$SITE/public/images/people/river-rats/players/"
+cp "$ROOT"/images/people/vereinsfuehrung/*.png "$SITE/public/images/people/vereinsfuehrung/"
 
 # Sponsor logos are canonical tenant copies under content/sponsors/assets.
 mkdir -p "$SITE/public/sponsors/assets"
@@ -90,6 +91,7 @@ test -f "$SITE/public/sponsoren/index.html"
 test -f "$SITE/public/river-rats/index.html"
 test -f "$SITE/public/nachwuchs/index.html"
 for path in river-rats-damen u20 u17 u15 u13 u11 u9 u7; do test -f "$SITE/public/$path/index.html"; done
+test -f "$SITE/public/verein/vereinsfuehrung/index.html"
 test -f "$SITE/public/images/river-rats-logo.png"
 test -f "$SITE/public/images/hero/hero-01-bewegung.jpeg"
 test -f "$SITE/public/images/people/river-rats/staff/thomas-gams.jpg"
@@ -99,5 +101,6 @@ test -f "$SITE/public/images/inklusion/rotary-club-wolfratshausen-isartal.png"
 test "$(find "$SITE/public/images/teams" -maxdepth 1 -type f | wc -l)" -eq 11
 test "$(find "$SITE/public/images/people/river-rats/staff" -maxdepth 1 -type f | wc -l)" -eq 9
 test "$(find "$SITE/public/images/people/river-rats/players" -maxdepth 1 -type f | wc -l)" -eq 11
+test "$(find "$SITE/public/images/people/vereinsfuehrung" -maxdepth 1 -type f | wc -l)" -eq 8
 test "$(find "$SITE/public/sponsors/assets" -maxdepth 1 -type f | wc -l)" -eq 37
 echo "Built ESC site with $(hugo version), 12-month public news retention, eight Founder-sourced team pages, curated homepage heroes, structured navigation, HockeyData widgets, structured River Rats profile with 11 verified local player and 9 staff photos, M2 content policy gates, internal sponsors page, transitional esc-int content and 37 canonical sponsor logos"

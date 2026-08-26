@@ -33,7 +33,7 @@
       <div class="founder-team-hero__copy">
         <p class="eyebrow">Mannschaft · Saison {{ $team.season }}</p>
         <h1>{{ $team.title }}</h1>
-        <p>Kader und Kontakte nach der in Git gesicherten Founder-Quelle.</p>
+        <p>Mannschaft, Kader und Kontakte für die Saison {{ $team.season }}.</p>
       </div>
       <figure class="founder-team-hero__photo"><img src="{{ $team.team_photo | relURL }}" alt="{{ $team.team_photo_alt }}"></figure>
     </div>
@@ -44,7 +44,6 @@
   <section class="team-section" id="uebersicht"><div class="shell founder-team-overview">
     <p class="eyebrow eyebrow--gold">Übersicht</p><h2>{{ $team.title }}</h2>
     <p>Saison {{ $team.season }} · {{ len $team.roster }} Kaderpositionen</p>
-    <p class="source-badge">Founder-provided · exakt aus der versionierten Git-Quelle projiziert</p>
   </div></section>
   <section class="team-section team-section--soft" id="teamfoto"><div class="shell">
     <p class="eyebrow eyebrow--gold">Teamfoto</p><h2>{{ $team.title }} {{ $team.season }}</h2>
@@ -57,7 +56,6 @@
       {{ range $team.roster }}<tr><td data-label="Position">{{ .position_code }}</td><td data-label="Nummer">{{ .number }}</td><td data-label="Name">{{ .name }}</td></tr>{{ end }}
       </tbody></table>
     </div>
-    <p class="team-source-note">Positionskürzel, Nummern, Reihenfolge und Namen werden unverändert aus der Founder-Quelle ausgegeben.</p>
   </div></section>
   <section class="team-section team-section--soft" id="kontakte"><div class="shell">
     <p class="eyebrow eyebrow--gold">Kontakte</p><h2>Ansprechpartner {{ $team.title }}</h2>

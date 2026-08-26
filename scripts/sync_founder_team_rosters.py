@@ -129,7 +129,7 @@ def markdown_bytes(team: dict) -> bytes:
         'source_status: "founder-provided"',
         "---",
         "",
-        "Die Daten dieser Preview-Seite stammen aus der in Git gesicherten Founder-Quelle.",
+        f'Hier finden Sie Mannschaft, Kader und Kontakte der {data["title"]} für die Saison {data["season"]}.',
         "",
     ]
     return "\n".join(front_matter).encode("utf-8")

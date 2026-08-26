@@ -1,0 +1,17 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "verein",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-27T00:00:00Z",
+  "public_path": "/verein/",
+  "record_id": "orp:esc-main:areas:verein",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:esc-main:areas:verein",
+  "source_reference": "docs/content-migration/founder-vereinsfuehrung-2026-08-27.md",
+  "source_status": "founder-provided",
+  "source_updated_at": "2026-08-27T00:00:00Z",
+  "status": "draft",
+  "summary": "Verein und Vereinsführung",
+  "title": "Verein"
+}
