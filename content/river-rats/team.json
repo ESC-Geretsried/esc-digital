@@ -33,15 +33,15 @@
     {"group":"Sturm","name":"Oliver Ott","number":"93","nationality":"DE","handedness":"Links","image":"https://www.esc-geretsried.de/static/3b05b79fac41dea9fb781e8519d1d810/f836f/1914-1.jpg"}
   ],
   "staff": [
-    {"name":"Thomas Gams","role":"Trainer"},
-    {"name":"Dr. Thomas Kauschke","role":"Mannschaftsarzt"},
-    {"name":"Bernhard Jorde","role":"Co-Trainer"},
-    {"name":"Alwin Albert","role":"Manager"},
-    {"name":"Helmut Hodolitsch","role":"Betreuer"},
-    {"name":"Helmut Hochstrasser","role":"Betreuer"},
-    {"name":"Nicol Jorde","role":"Physio"},
-    {"name":"Stefan Friedrich","role":"Physio"},
-    {"name":"Julia Adlwart","role":"Soziale Medien"}
+    {"name":"Thomas Gams","role":"Trainer","image":"images/people/river-rats/staff/thomas-gams.jpg"},
+    {"name":"Dr. Thomas Kauschke","role":"Mannschaftsarzt","image":"images/people/river-rats/staff/thomas-kauschke.jpg"},
+    {"name":"Bernhard Jorde","role":"Co-Trainer","image":"images/people/river-rats/staff/bernhard-jorde.jpg"},
+    {"name":"Alwin Albert","role":"Manager","image":"images/people/river-rats/staff/alwin-albert.jpg"},
+    {"name":"Helmut Hodolitsch","role":"Betreuer","image":"images/people/river-rats/staff/helmut-hodolitsch.jpg"},
+    {"name":"Helmut Hochstrasser","role":"Betreuer","image":"images/people/river-rats/staff/helmut-hochstrasser.jpg"},
+    {"name":"Nicol Jorde","role":"Physio","image":"images/people/river-rats/staff/nicol-jorde.jpg"},
+    {"name":"Stefan Friedrich","role":"Physio","image":"images/people/river-rats/staff/stefan-friedrich.jpg"},
+    {"name":"Julia Adlwart","role":"Soziale Medien","image":"images/people/river-rats/staff/julia-adlwart.jpg"}
   ],
   "news": [
     {"date":"2026-08-04","title":"Doppelpack für die Defensive – Englbrecht und Sanner verlängern","path":"/aktuelles/2026-08-04-river-rats-defensive-verlaengerungen/"},
