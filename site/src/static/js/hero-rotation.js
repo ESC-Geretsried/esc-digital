@@ -2,15 +2,20 @@
   const root = document.querySelector('.hero-background');
   if (!root) return;
 
-  const sources = Array.from(root.querySelectorAll('[data-hero-source]')).map((node) => ({
-    src: node.dataset.src,
-    area: node.dataset.area || '',
-    headline: node.dataset.headline || '',
-    ctaLabel: node.dataset.ctaLabel || '',
-    ctaPath: node.dataset.ctaPath || '#',
-    focusDesktop: node.dataset.focusDesktop || '50% 50%',
-    focusMobile: node.dataset.focusMobile || node.dataset.focusDesktop || '50% 50%'
-  })).filter((item) => item.src);
+  const dayIndex = Math.floor(Date.now() / 86400000);
+  const sources = Array.from(root.querySelectorAll('[data-hero-source]')).map((node) => {
+    const dailyImages = (node.dataset.dailyImages || '').split('|').map((value) => value.trim()).filter(Boolean);
+    const src = dailyImages.length ? dailyImages[dayIndex % dailyImages.length] : node.dataset.src;
+    return {
+      src,
+      area: node.dataset.area || '',
+      headline: node.dataset.headline || '',
+      ctaLabel: node.dataset.ctaLabel || '',
+      ctaPath: node.dataset.ctaPath || '#',
+      focusDesktop: node.dataset.focusDesktop || '50% 50%',
+      focusMobile: node.dataset.focusMobile || node.dataset.focusDesktop || '50% 50%'
+    };
+  }).filter((item) => item.src);
 
   const layers = Array.from(root.querySelectorAll('.hero-background__layer'));
   if (!sources.length || layers.length !== 2) return;
