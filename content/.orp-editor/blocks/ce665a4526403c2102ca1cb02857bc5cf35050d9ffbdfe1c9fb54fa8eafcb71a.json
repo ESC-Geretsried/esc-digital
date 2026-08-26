@@ -1,0 +1,18 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "damen",
+  "area_keys": "",
+  "block_key": "overview",
+  "block_type": "text",
+  "body": "Die Damen sind der Frauen-Eishockeybereich des ESC River Rats Geretsried.",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-26T17:12:39Z",
+  "record_id": "orp:blocks:5774f079-a697-585f-9bf9-f25d11860e3a",
+  "sort_order": 10,
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:blocks:5774f079-a697-585f-9bf9-f25d11860e3a",
+  "source_updated_at": "2026-08-26T17:12:39Z",
+  "status": "draft",
+  "title": "Übersicht"
+}

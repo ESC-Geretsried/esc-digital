@@ -1,0 +1,28 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "hero_asset_key": "",
+  "last_reviewed_at": "2026-08-26T17:12:39Z",
+  "league_schedule_embed_url": "",
+  "league_schedule_url": "https://deb-online.live/liga/lev/bev/u13/",
+  "league_table_embed_url": "",
+  "league_table_url": "https://deb-online.live/liga/lev/bev/u13/",
+  "navigation": [
+    "Spielplan",
+    "Tabelle"
+  ],
+  "navigation_group": "Sport",
+  "public_url": "https://www.esc-geretsried.de/u13/",
+  "record_id": "orp:esc-main:teams:u13",
+  "short_description": "Die U13 ist Teil des Nachwuchsbereichs des ESC River Rats Geretsried.",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:esc-main:teams:u13",
+  "source_updated_at": "2026-08-26T17:12:39Z",
+  "sports_provider": "",
+  "status": "draft",
+  "subtitle": "Nachwuchs-Eishockey beim ESC River Rats Geretsried.",
+  "team_key": "u13",
+  "team_photo_asset_key": "",
+  "title": "U13",
+  "type": "team"
+}

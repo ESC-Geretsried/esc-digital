@@ -1,0 +1,18 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "u17",
+  "area_keys": "",
+  "block_key": "overview",
+  "block_type": "text",
+  "body": "Die U17 ist Teil des Nachwuchsbereichs des ESC River Rats Geretsried.",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-26T17:12:39Z",
+  "record_id": "orp:blocks:06489db8-6252-51f0-824f-3c9c9e9d61e9",
+  "sort_order": 10,
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:blocks:06489db8-6252-51f0-824f-3c9c9e9d61e9",
+  "source_updated_at": "2026-08-26T17:12:39Z",
+  "status": "draft",
+  "title": "Übersicht"
+}

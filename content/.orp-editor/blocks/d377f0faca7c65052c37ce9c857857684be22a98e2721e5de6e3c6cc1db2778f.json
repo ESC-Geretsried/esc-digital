@@ -1,0 +1,18 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "u9",
+  "area_keys": "",
+  "block_key": "overview",
+  "block_type": "text",
+  "body": "Die U9 ist Teil des Nachwuchsbereichs des ESC River Rats Geretsried.",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-26T17:12:39Z",
+  "record_id": "orp:blocks:d874af41-dddc-50fd-8b52-0dfb82410235",
+  "sort_order": 10,
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:blocks:d874af41-dddc-50fd-8b52-0dfb82410235",
+  "source_updated_at": "2026-08-26T17:12:39Z",
+  "status": "draft",
+  "title": "Übersicht"
+}

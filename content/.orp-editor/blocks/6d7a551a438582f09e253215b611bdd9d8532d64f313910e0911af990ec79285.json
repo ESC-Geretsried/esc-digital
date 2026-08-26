@@ -1,0 +1,18 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "u7",
+  "area_keys": "",
+  "block_key": "overview",
+  "block_type": "text",
+  "body": "Die U7 ist Teil des Nachwuchsbereichs des ESC River Rats Geretsried.",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-26T17:12:39Z",
+  "record_id": "orp:blocks:81ef54dd-6959-5ad1-a7c9-2c22bf7081ac",
+  "sort_order": 10,
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:blocks:81ef54dd-6959-5ad1-a7c9-2c22bf7081ac",
+  "source_updated_at": "2026-08-26T17:12:39Z",
+  "status": "draft",
+  "title": "Übersicht"
+}

@@ -1,0 +1,15 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "nachwuchs",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-26T17:12:39Z",
+  "public_path": "/nachwuchs/",
+  "record_id": "orp:areas:dab538e4-6579-5ed2-b00a-c3fdaf71c759",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:areas:dab538e4-6579-5ed2-b00a-c3fdaf71c759",
+  "source_updated_at": "2026-08-26T17:12:39Z",
+  "status": "draft",
+  "summary": "Der Nachwuchs bündelt die Mannschaften U20, U17, U15, U13, U11, U9 und U7. Die Eislaufschule bleibt ein eigener Bereich.",
+  "title": "Nachwuchs"
+}

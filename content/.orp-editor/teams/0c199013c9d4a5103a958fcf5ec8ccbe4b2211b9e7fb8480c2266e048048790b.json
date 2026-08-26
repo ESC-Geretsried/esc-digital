@@ -1,0 +1,28 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "hero_asset_key": "",
+  "last_reviewed_at": "2026-08-26T17:12:39Z",
+  "league_schedule_embed_url": "",
+  "league_schedule_url": "https://deb-online.live/liga/lev/bev/u20/",
+  "league_table_embed_url": "",
+  "league_table_url": "https://deb-online.live/liga/lev/bev/u20/",
+  "navigation": [
+    "Spielplan",
+    "Tabelle"
+  ],
+  "navigation_group": "Sport",
+  "public_url": "https://www.esc-geretsried.de/u20/",
+  "record_id": "orp:esc-main:teams:u20",
+  "short_description": "Die U20 ist der älteste Nachwuchsbereich des ESC River Rats Geretsried.",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:esc-main:teams:u20",
+  "source_updated_at": "2026-08-26T17:12:39Z",
+  "sports_provider": "",
+  "status": "draft",
+  "subtitle": "Der älteste Nachwuchsbereich der River Rats.",
+  "team_key": "u20",
+  "team_photo_asset_key": "",
+  "title": "U20",
+  "type": "team"
+}

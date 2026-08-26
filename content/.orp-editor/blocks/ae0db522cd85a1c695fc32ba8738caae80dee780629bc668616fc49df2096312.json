@@ -1,0 +1,18 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "u13",
+  "area_keys": "",
+  "block_key": "official-sport-links",
+  "block_type": "links",
+  "body": "[Spielplan](https://deb-online.live/liga/lev/bev/u13/)\n\n[Ergebnisse](https://deb-online.live/liga/lev/bev/u13/)\n\n[Tabelle](https://deb-online.live/liga/lev/bev/u13/)",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-26T17:12:39Z",
+  "record_id": "orp:blocks:ac454d0f-54a4-5732-9d77-937fe97e2214",
+  "sort_order": 60,
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:blocks:ac454d0f-54a4-5732-9d77-937fe97e2214",
+  "source_updated_at": "2026-08-26T17:12:39Z",
+  "status": "draft",
+  "title": "Offizielle Spielbetriebsquelle"
+}
