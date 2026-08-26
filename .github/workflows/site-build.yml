@@ -24,6 +24,11 @@ jobs:
           sudo apt-get install -y hugo
           hugo version
 
+      - name: Validate River Rats editor state and homepage youth rotation
+        run: |
+          python3 site/scripts/validate_river_rats_editor.py
+          node site/scripts/test_hero_rotation.js
+
       - name: Build canonical root variant
         run: bash site/scripts/build.sh
 
