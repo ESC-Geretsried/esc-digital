@@ -1,0 +1,24 @@
+area,candidate_key,title,source,decision,status,notes
+river-rats,2025-09-28-auftakt-nach-mass,Auftakt nach Maß,ESC main content/import inventory,MIGRIEREN,ZU VERIFIZIEREN,"Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+river-rats,2025-10-06-derby,Derby-/Spielbericht-Kandidat,ESC main content/import inventory,MIGRIEREN,ZU VERIFIZIEREN,"Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+river-rats,2025-10-13-spielbericht,Spielbericht-Kandidat,ESC main content/import inventory,MIGRIEREN,ZU VERIFIZIEREN,"Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+river-rats,2025-10-20-spielbericht,Spielbericht-Kandidat,ESC main content/import inventory,MIGRIEREN,ZU VERIFIZIEREN,"Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+u13,2025-09-15-u13-spielberichte,U13 Spielberichte,ESC main content/import inventory,MIGRIEREN,ZU VERIFIZIEREN,"Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+u13,2025-09-23-riessersee,U13 gegen Riessersee,ESC main content/import inventory,MIGRIEREN,ZU VERIFIZIEREN,"Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+u13,2025-11-25-finalrunde,U13 Finalrunde,ESC main content/import inventory,MIGRIEREN,ZU VERIFIZIEREN,"Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+u13,2025-12-05-landshut,U13 gegen Landshut,ESC main content/import inventory,MIGRIEREN,ZU VERIFIZIEREN,"Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+eiskunstlauf,historical-set,Alle relevanten historischen Eiskunstlauf-News,Founder alte Eiskunstlauf-Seite,MIGRIEREN,FEHLT,"Lieferpaket gibt den Scope frei, enthält aber keine vollständige Einzelartikelliste; vor Implementierung enumerieren."
+homepage,all-historical,Sämtliche historische News dieses Bereichs,harte Founder-Grenze,NICHT MIGRIEREN,NICHT MIGRIEREN,Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen.
+damen,all-historical,Sämtliche historische News dieses Bereichs,harte Founder-Grenze,NICHT MIGRIEREN,NICHT MIGRIEREN,Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen.
+nachwuchs,all-historical,Sämtliche historische News dieses Bereichs,harte Founder-Grenze,NICHT MIGRIEREN,NICHT MIGRIEREN,Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen.
+u20,all-historical,Sämtliche historische News dieses Bereichs,harte Founder-Grenze,NICHT MIGRIEREN,NICHT MIGRIEREN,Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen.
+u17,all-historical,Sämtliche historische News dieses Bereichs,harte Founder-Grenze,NICHT MIGRIEREN,NICHT MIGRIEREN,Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen.
+u15,all-historical,Sämtliche historische News dieses Bereichs,harte Founder-Grenze,NICHT MIGRIEREN,NICHT MIGRIEREN,Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen.
+u11,all-historical,Sämtliche historische News dieses Bereichs,harte Founder-Grenze,NICHT MIGRIEREN,NICHT MIGRIEREN,Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen.
+u9,all-historical,Sämtliche historische News dieses Bereichs,harte Founder-Grenze,NICHT MIGRIEREN,NICHT MIGRIEREN,Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen.
+u7,all-historical,Sämtliche historische News dieses Bereichs,harte Founder-Grenze,NICHT MIGRIEREN,NICHT MIGRIEREN,Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen.
+eislaufschule,all-historical,Sämtliche historische News dieses Bereichs,harte Founder-Grenze,NICHT MIGRIEREN,NICHT MIGRIEREN,Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen.
+inklusion,all-historical,Sämtliche historische News dieses Bereichs,harte Founder-Grenze,NICHT MIGRIEREN,NICHT MIGRIEREN,Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen.
+verein,all-historical,Sämtliche historische News dieses Bereichs,harte Founder-Grenze,NICHT MIGRIEREN,NICHT MIGRIEREN,Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen.
+foerderverein,all-historical,Sämtliche historische News dieses Bereichs,harte Founder-Grenze,NICHT MIGRIEREN,NICHT MIGRIEREN,Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen.
+sponsoren,all-historical,Sämtliche historische News dieses Bereichs,harte Founder-Grenze,NICHT MIGRIEREN,NICHT MIGRIEREN,Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen.

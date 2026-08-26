@@ -1,0 +1,9 @@
+record_type,person,function,editor_mode,scope,source_scope_label,entra_action,status,issue_number,issue_url,title,finding,acceptance_target,evidence_status,implementation_status,automated_test_status,real_acceptance_status,resolution_status,gate
+acceptance_scope,Jens Neuhaus,IT / Global,Editor + Test,Global / IT,Global / IT,NONE,VERIFIZIERT,,,,,,,,,,,
+acceptance_scope,Hannes Köhler,IT / Global,Editor + Test,Global / IT,Global / IT,NONE,VERIFIZIERT,,,,,,,,,,,
+acceptance_scope,Kevin Olivo,Redaktion River Rats,Editor + Test,River Rats,River Rats,NONE,VERIFIZIERT,,,,,,,,,,,
+acceptance_scope,Tanja Serr,Redaktion Vereinsorganisation,Editor + Test,Vereinsorganisation,Vereinsorganisation,NONE,VERIFIZIERT,,,,,,,,,,,
+acceptance_scope,Dieter Krampert,Redaktion Förderverein,Editor + Test,Förderverein,Förderverein,NONE,VERIFIZIERT,,,,,,,,,,,
+acceptance_scope,Matthias Remde,Leitung Marketing,Editor + Test,Marketing / Sponsoring,Marketing bzw. Spnosoring,NONE,VERIFIZIERT,,,,,,,,,,,
+acceptance_defect,Hannes Köhler,,,Global / IT,,NONE,ZU VERIFIZIEREN,34,https://github.com/ESC-Geretsried/esc-digital/issues/34,Fehlende Berechtigung,Nicht berechtigter Account erreicht eine interne/ungeeignete Fehlerdarstellung.,Verständliche Access-Denied-Meldung; keine technische/interne Endnutzeransicht; generische Fehler-/Access-Denied-Seite zulässig; OAuth2-Anmelde-URL nach Möglichkeit nicht als sichtbarer Endzustand.,VERIFIZIERT,NOT ASSERTED,NOT ASSERTED,DEFECT OPEN,OFFEN,GO-LIVE-BLOCKER — EDITOR PILOT
+acceptance_defect,Hannes Köhler,,,Global / IT,,NONE,ZU VERIFIZIEREN,35,https://github.com/ESC-Geretsried/esc-digital/issues/35,Mannschaften bearbeiten,"Fehlermeldung erscheint und verschwindet wieder; Kommentar nennt denselben Befund zusätzlich bei News, Seiten, Staff/Betreuer und Spieler.",Fehlerfeedback muss für reale Nutzer stabil und verständlich sichtbar bleiben.,VERIFIZIERT,IMPLEMENTED,PASS,DEFECT OPEN,OFFEN,GO-LIVE-BLOCKER — EDITOR PILOT

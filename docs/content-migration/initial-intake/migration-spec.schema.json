@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ESC content migration intake",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "readiness",
+    "mutation_guards",
+    "repositories",
+    "delivery_package",
+    "pr33_relation",
+    "resolved_decisions",
+    "pages",
+    "teams",
+    "sport_data",
+    "media_downloads",
+    "sponsors",
+    "news",
+    "legal",
+    "acceptance",
+    "open_points"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.1.0"
+    },
+    "readiness": {
+      "type": "object",
+      "required": [
+        "initial_seed",
+        "editor_acceptance",
+        "final_golive"
+      ],
+      "properties": {
+        "initial_seed": {
+          "type": "object",
+          "required": [
+            "ready",
+            "blockers"
+          ],
+          "properties": {
+            "ready": {
+              "const": true
+            },
+            "blockers": {
+              "type": "array",
+              "maxItems": 0
+            }
+          }
+        },
+        "editor_acceptance": {
+          "type": "object",
+          "required": [
+            "ready",
+            "blockers"
+          ],
+          "properties": {
+            "ready": {
+              "const": false
+            },
+            "blockers": {
+              "type": "array",
+              "minItems": 2
+            }
+          }
+        },
+        "final_golive": {
+          "type": "object",
+          "required": [
+            "ready",
+            "blockers"
+          ],
+          "properties": {
+            "ready": {
+              "const": false
+            },
+            "blockers": {
+              "type": "array",
+              "minItems": 4
+            }
+          }
+        }
+      }
+    },
+    "resolved_decisions": {
+      "type": "array",
+      "minItems": 5
+    },
+    "pages": {
+      "type": "array",
+      "minItems": 19
+    },
+    "teams": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9
+    },
+    "sponsors": {
+      "type": "array",
+      "minItems": 47,
+      "maxItems": 47
+    },
+    "acceptance": {
+      "type": "array",
+      "minItems": 8
+    },
+    "open_points": {
+      "type": "array",
+      "minItems": 10
+    },
+    "status_classes": {
+      "type": "array",
+      "contains": {
+        "const": "NICHT MIGRIEREN"
+      }
+    }
+  },
+  "additionalProperties": true
+}
