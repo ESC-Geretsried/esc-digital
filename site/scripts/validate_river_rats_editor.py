@@ -34,6 +34,17 @@ if {row["display_name"] for row in staff} != {row["name"] for row in team_source
 if {row["title"] for row in news} != {row["title"] for row in team_source["news"]}:
     raise SystemExit("ERROR: editor news titles differ from canonical River Rats team source")
 
+expected_news = {
+    "Doppelpack für die Defensive – Englbrecht und Sanner verlängern": "Stephan Englbrecht und Martin Sanner verlängern bei den River Rats.",
+    "Saisonkarten-Verkauf gestartet": "Der Saisonkarten-Verkauf ist gestartet.",
+    "Internationale Erfahrung für die River Rats": "Gunārs Skvorcovs verstärkt die River Rats.",
+    "13 Jahre und kein Ende in Sicht – Ondrej Horvath bleibt": "Ondrej Horvath bleibt in Geretsried.",
+}
+for row in news:
+    expected = expected_news[row["title"]]
+    if row.get("summary") != expected or row.get("body") != expected:
+        raise SystemExit(f"ERROR: editor news is not source-pure: {row['title']}")
+
 for row in players + staff + news:
     for protected in ("api_binding", "league_binding", "division_binding", "hockeydata_config", "gamepitch_binding"):
         if protected in row:
@@ -47,9 +58,22 @@ if team_record.get("hero_asset_key") or team_record.get("team_photo_asset_key"):
 
 page_files = list((editor / "pages").glob("*.json"))
 page = next(json.loads(path.read_text(encoding="utf-8")) for path in page_files if json.loads(path.read_text(encoding="utf-8")).get("team_key") == "river-rats")
-for phrase in ("Teamfoto", "Mannschaft/Kader", "HockeyData/GamePitch", "Freundschaftsspiele"):
-    if phrase not in page.get("body", ""):
-        raise SystemExit(f"ERROR: River Rats editor page body missing {phrase!r}")
+source_overview = "Die River Rats sind die erste Mannschaft des ESC River Rats Geretsried."
+block_record = json.loads((editor / "blocks" / "dff167f4537681950a1930c4bdcf2791b789b4d15b472ab586596bf5bf86c778.json").read_text(encoding="utf-8"))
+if page.get("body") != source_overview or page.get("summary") != source_overview:
+    raise SystemExit("ERROR: River Rats Page content is not source-pure")
+if block_record.get("body") != source_overview or team_record.get("short_description") != source_overview:
+    raise SystemExit("ERROR: River Rats overview/team content is not source-pure")
+
+forbidden_public_phrases = (
+    "für die int-migration", "im int-stand", "quelle:", "orp editor",
+    "zentraler seniorenbereich", "geschützte hockeydata-spielbetriebsintegration",
+)
+for row in news + [page, block_record, team_record]:
+    visible = " ".join(str(row.get(field, "")) for field in ("title", "summary", "body", "short_description")).casefold()
+    for phrase in forbidden_public_phrases:
+        if phrase in visible:
+            raise SystemExit(f"ERROR: technical/migration wording leaked into visible editor content: {phrase}")
 
 for key in ("hero_image", "team_photo"):
     path = root / team_source[key]
