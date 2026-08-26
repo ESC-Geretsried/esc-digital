@@ -1,0 +1,243 @@
+{
+  "base_main_sha": "942426e1a6a3a8bf6e35cd99ecf06feab668b420",
+  "intake_head_sha": "bc817f887f42f4c1f8cfa3b68a2d65bd895b0f1a",
+  "intake_pr": 36,
+  "issue": 37,
+  "omissions": [
+    {
+      "reason": "PR #33 owns the River Rats implementation and HockeyData integration.",
+      "scope": "river-rats"
+    },
+    {
+      "reason": "All enumerated U13 candidates remain ZU VERIFIZIEREN in PR #36.",
+      "scope": "u13-news"
+    },
+    {
+      "reason": "The complete per-article inventory is FEHLT in PR #36.",
+      "scope": "eiskunstlauf-news"
+    },
+    {
+      "reason": "Current people, roster and contact facts require verification.",
+      "scope": "people-and-contacts"
+    },
+    {
+      "reason": "No approved Binary Assets V1 keys or complete deterministic binary mappings are available for this seed.",
+      "scope": "media-and-downloads"
+    },
+    {
+      "reason": "Remaining page rows are ZU VERIFIZIEREN, FEHLT or WIDERSPRUCH, or require separate legal/functional approval.",
+      "scope": "other-pages"
+    }
+  ],
+  "record_counts": {
+    "areas": 9,
+    "blocks": 15,
+    "pages": 9,
+    "teams": 8
+  },
+  "reviewed_at": "2026-08-26T17:12:39Z",
+  "schema_version": 1,
+  "scopes": {
+    "damen": {
+      "asset_keys_seeded": false,
+      "historical_news_seeded": false,
+      "manual_schedule_allowed": true,
+      "official_sport_source_url": "https://deb-online.live/liga/lev/bev/frauen/",
+      "public_path": "/damen/",
+      "subtitle": "Frauen-Eishockey beim ESC River Rats Geretsried.",
+      "summary": "Die Damen sind der Frauen-Eishockeybereich des ESC River Rats Geretsried.",
+      "team_record": true,
+      "title": "Damen"
+    },
+    "nachwuchs": {
+      "asset_keys_seeded": false,
+      "historical_news_seeded": false,
+      "manual_schedule_allowed": false,
+      "official_sport_source_url": "",
+      "public_path": "/nachwuchs/",
+      "subtitle": "",
+      "summary": "Der Nachwuchs bündelt die Mannschaften U20, U17, U15, U13, U11, U9 und U7. Die Eislaufschule bleibt ein eigener Bereich.",
+      "team_record": false,
+      "title": "Nachwuchs"
+    },
+    "u11": {
+      "asset_keys_seeded": false,
+      "historical_news_seeded": false,
+      "manual_schedule_allowed": true,
+      "official_sport_source_url": "",
+      "public_path": "/u11/",
+      "subtitle": "Nachwuchs-Eishockey beim ESC River Rats Geretsried.",
+      "summary": "Die U11 ist Teil des Nachwuchsbereichs des ESC River Rats Geretsried.",
+      "team_record": true,
+      "title": "U11"
+    },
+    "u13": {
+      "asset_keys_seeded": false,
+      "historical_news_seeded": false,
+      "manual_schedule_allowed": true,
+      "official_sport_source_url": "https://deb-online.live/liga/lev/bev/u13/",
+      "public_path": "/u13/",
+      "subtitle": "Nachwuchs-Eishockey beim ESC River Rats Geretsried.",
+      "summary": "Die U13 ist Teil des Nachwuchsbereichs des ESC River Rats Geretsried.",
+      "team_record": true,
+      "title": "U13"
+    },
+    "u15": {
+      "asset_keys_seeded": false,
+      "historical_news_seeded": false,
+      "manual_schedule_allowed": true,
+      "official_sport_source_url": "https://deb-online.live/liga/lev/bev/u15/",
+      "public_path": "/u15/",
+      "subtitle": "Nachwuchs-Eishockey beim ESC River Rats Geretsried.",
+      "summary": "Die U15 ist Teil des Nachwuchsbereichs des ESC River Rats Geretsried.",
+      "team_record": true,
+      "title": "U15"
+    },
+    "u17": {
+      "asset_keys_seeded": false,
+      "historical_news_seeded": false,
+      "manual_schedule_allowed": true,
+      "official_sport_source_url": "https://deb-online.live/liga/lev/bev/u17/",
+      "public_path": "/u17/",
+      "subtitle": "Nachwuchs-Eishockey beim ESC River Rats Geretsried.",
+      "summary": "Die U17 ist Teil des Nachwuchsbereichs des ESC River Rats Geretsried.",
+      "team_record": true,
+      "title": "U17"
+    },
+    "u20": {
+      "asset_keys_seeded": false,
+      "historical_news_seeded": false,
+      "manual_schedule_allowed": true,
+      "official_sport_source_url": "https://deb-online.live/liga/lev/bev/u20/",
+      "public_path": "/u20/",
+      "subtitle": "Der älteste Nachwuchsbereich der River Rats.",
+      "summary": "Die U20 ist der älteste Nachwuchsbereich des ESC River Rats Geretsried.",
+      "team_record": true,
+      "title": "U20"
+    },
+    "u7": {
+      "asset_keys_seeded": false,
+      "historical_news_seeded": false,
+      "manual_schedule_allowed": true,
+      "official_sport_source_url": "",
+      "public_path": "/u7/",
+      "subtitle": "Der Einstieg in den Nachwuchsbereich der River Rats.",
+      "summary": "Die U7 ist Teil des Nachwuchsbereichs des ESC River Rats Geretsried.",
+      "team_record": true,
+      "title": "U7"
+    },
+    "u9": {
+      "asset_keys_seeded": false,
+      "historical_news_seeded": false,
+      "manual_schedule_allowed": true,
+      "official_sport_source_url": "",
+      "public_path": "/u9/",
+      "subtitle": "Nachwuchs-Eishockey beim ESC River Rats Geretsried.",
+      "summary": "Die U9 ist Teil des Nachwuchsbereichs des ESC River Rats Geretsried.",
+      "team_record": true,
+      "title": "U9"
+    }
+  },
+  "sources": [
+    {
+      "path": "docs/content-migration/initial-intake/migration-spec.v1.json",
+      "ref": "bc817f887f42f4c1f8cfa3b68a2d65bd895b0f1a",
+      "scope_keys": [
+        "damen",
+        "nachwuchs",
+        "u20",
+        "u17",
+        "u15",
+        "u13",
+        "u11",
+        "u9",
+        "u7"
+      ],
+      "sha256": "d66565648502bbd957da81e99dddad9cf940c1660c950d05d8c1e755874eeef5"
+    },
+    {
+      "path": "content/navigation.json",
+      "ref": "942426e1a6a3a8bf6e35cd99ecf06feab668b420",
+      "scope_keys": [
+        "damen",
+        "u20",
+        "u17",
+        "u15",
+        "u13",
+        "u11",
+        "u9",
+        "u7"
+      ],
+      "sha256": "11bfb6cff1090749155a15d1b8f4edd934a5c08d8d7b72ba2225fbd23a17565e"
+    },
+    {
+      "path": "imports/esc-int-pages/river-rats-damen/index.html",
+      "ref": "942426e1a6a3a8bf6e35cd99ecf06feab668b420",
+      "scope_keys": [
+        "damen"
+      ],
+      "sha256": "17d55063113b57e8da638bc35665b0a8a351b1b8794e8335f01287aaf26ad668"
+    },
+    {
+      "path": "imports/esc-int-pages/u20/index.html",
+      "ref": "942426e1a6a3a8bf6e35cd99ecf06feab668b420",
+      "scope_keys": [
+        "u20"
+      ],
+      "sha256": "b5808e662416b0faadb0df540673e1e43be0aa4cff50f610c4d4592a8ed589a4"
+    },
+    {
+      "path": "imports/esc-int-pages/u17/index.html",
+      "ref": "942426e1a6a3a8bf6e35cd99ecf06feab668b420",
+      "scope_keys": [
+        "u17"
+      ],
+      "sha256": "ce62ee5f726bef1105c661a62cbe435251af697c7aef85340aed3ed4b37138b1"
+    },
+    {
+      "path": "imports/esc-int-pages/u15/index.html",
+      "ref": "942426e1a6a3a8bf6e35cd99ecf06feab668b420",
+      "scope_keys": [
+        "u15"
+      ],
+      "sha256": "acf40fa00d6ba2a4708131972795154a7703c26a4d2a472ed84088e541f57cbd"
+    },
+    {
+      "path": "imports/esc-int-pages/u13/index.html",
+      "ref": "942426e1a6a3a8bf6e35cd99ecf06feab668b420",
+      "scope_keys": [
+        "u13"
+      ],
+      "sha256": "20c0b7fbb6276b5530f1c51ec59a9499baeee427b5151fd71e2fec6f15576796"
+    },
+    {
+      "path": "imports/esc-int-pages/u11/index.html",
+      "ref": "942426e1a6a3a8bf6e35cd99ecf06feab668b420",
+      "scope_keys": [
+        "u11"
+      ],
+      "sha256": "179064de6f5de0ae27c5cb7b2041521e6a469b54bf582b2fa3039c75bc2837e1"
+    },
+    {
+      "path": "imports/esc-int-pages/u9/index.html",
+      "ref": "942426e1a6a3a8bf6e35cd99ecf06feab668b420",
+      "scope_keys": [
+        "u9"
+      ],
+      "sha256": "e48b09d7a50bac75a12a1c775861cb7a31619c76c29406e433df8ade1d812516"
+    },
+    {
+      "path": "imports/esc-int-pages/u7/index.html",
+      "ref": "942426e1a6a3a8bf6e35cd99ecf06feab668b420",
+      "scope_keys": [
+        "u7"
+      ],
+      "sha256": "b79dcd3583eecadf5995a6f046a6c3d6f98f1c31756d683d41431722087111e6"
+    }
+  ],
+  "u11_reconciliation": {
+    "performed": false,
+    "reason": "The exact U11 binary is not present in canonical Git and PR #33 owns the supported homepage rotation implementation; no hotlink, asset key or binary was invented.",
+    "verified_source_name": "Geretsried_25-266.jpg"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "damen",
+  "area_keys": "",
+  "block_key": "official-sport-links",
+  "block_type": "links",
+  "body": "[Spielplan](https://deb-online.live/liga/lev/bev/frauen/)\n\n[Ergebnisse](https://deb-online.live/liga/lev/bev/frauen/)\n\n[Tabelle](https://deb-online.live/liga/lev/bev/frauen/)",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-26T17:12:39Z",
+  "record_id": "orp:blocks:5d1f780c-11d6-5489-acf9-980434deaa25",
+  "sort_order": 60,
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:blocks:5d1f780c-11d6-5489-acf9-980434deaa25",
+  "source_updated_at": "2026-08-26T17:12:39Z",
+  "status": "draft",
+  "title": "Offizielle Spielbetriebsquelle"
+}

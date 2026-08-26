@@ -1,0 +1,15 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "u13",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-26T17:12:39Z",
+  "public_path": "/u13/",
+  "record_id": "orp:areas:aebf8a88-1d8b-5421-b37b-976268c5fcd8",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:areas:aebf8a88-1d8b-5421-b37b-976268c5fcd8",
+  "source_updated_at": "2026-08-26T17:12:39Z",
+  "status": "draft",
+  "summary": "Die U13 ist Teil des Nachwuchsbereichs des ESC River Rats Geretsried.",
+  "title": "U13"
+}

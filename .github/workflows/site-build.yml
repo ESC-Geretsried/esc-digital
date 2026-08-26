@@ -5,6 +5,9 @@ on:
     paths:
       - 'site/**'
       - 'content/**'
+      - 'scripts/validate_esc_content_migration_intake.py'
+      - 'scripts/validate_esc_initial_content_seed.py'
+      - 'docs/content-migration/initial-intake/**'
       - '.github/workflows/site-build.yml'
       - '.github/workflows/preview-publish.yml'
 
@@ -17,6 +20,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Validate content migration intake and initial seed
+        run: |
+          python3 scripts/validate_esc_content_migration_intake.py
+          python3 scripts/validate_esc_initial_content_seed.py
 
       - name: Install Hugo
         run: |

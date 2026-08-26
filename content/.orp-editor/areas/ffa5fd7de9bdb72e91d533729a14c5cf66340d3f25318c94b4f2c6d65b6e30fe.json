@@ -1,0 +1,15 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "u15",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-26T17:12:39Z",
+  "public_path": "/u15/",
+  "record_id": "orp:areas:dacecb00-16ea-56a3-a038-99c58e740fb7",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:areas:dacecb00-16ea-56a3-a038-99c58e740fb7",
+  "source_updated_at": "2026-08-26T17:12:39Z",
+  "status": "draft",
+  "summary": "Die U15 ist Teil des Nachwuchsbereichs des ESC River Rats Geretsried.",
+  "title": "U15"
+}

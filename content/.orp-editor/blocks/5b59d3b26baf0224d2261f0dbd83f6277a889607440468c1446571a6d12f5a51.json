@@ -1,0 +1,18 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "nachwuchs",
+  "area_keys": "",
+  "block_key": "team-links",
+  "block_type": "links",
+  "body": "[U20](/u20/)\n\n[U17](/u17/)\n\n[U15](/u15/)\n\n[U13](/u13/)\n\n[U11](/u11/)\n\n[U9](/u9/)\n\n[U7](/u7/)\n\n[Eislaufschule](/eislaufschule/)",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-26T17:12:39Z",
+  "record_id": "orp:blocks:4b4e9c96-a419-5311-ae4c-7cb842f22695",
+  "sort_order": 20,
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:blocks:4b4e9c96-a419-5311-ae4c-7cb842f22695",
+  "source_updated_at": "2026-08-26T17:12:39Z",
+  "status": "draft",
+  "title": "Mannschaften"
+}
