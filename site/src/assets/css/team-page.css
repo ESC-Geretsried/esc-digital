@@ -133,4 +133,7 @@
   }
 }
 
+.staff-card{padding:0;overflow:hidden}.staff-card__image{aspect-ratio:2/3;background:#e9edf2;display:grid;place-items:center;color:#657184;font-weight:800}.staff-card__image img{display:block;width:100%;height:100%;object-fit:cover}.staff-card__body{display:flex;flex-direction:column;padding:1rem}
+
+@media(max-width:700px){.staff-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.staff-card__body{padding:.85rem}}
 @media(max-width:430px){.roster-grid{grid-template-columns:1fr 1fr}.player-card h4{font-size:1rem}.player-meta{font-size:.78rem}.team-hd-card{padding:.75rem .5rem}.team-hd-card img{max-width:44px!important;max-height:44px!important}.team-hd-card table{font-size:.76rem}}

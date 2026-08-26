@@ -1,11 +1,42 @@
 #!/usr/bin/env python3
 from pathlib import Path
 from datetime import date
+from hashlib import sha256
 import json
 import re
 
 root = Path(__file__).resolve().parents[2]
 public = root / "site" / "public"
+
+team = json.loads((root / "content" / "river-rats" / "team.json").read_text(encoding="utf-8"))
+staff_manifest = json.loads((root / "content" / "river-rats" / "staff-photos.json").read_text(encoding="utf-8"))
+staff_photos = staff_manifest.get("photos", [])
+if staff_manifest.get("team_id") != "river-rats" or len(staff_photos) != 9:
+    raise SystemExit("ERROR: River Rats staff photo manifest must contain exactly 9 records")
+if {row["name"] for row in staff_photos} != {row["name"] for row in team.get("staff", [])}:
+    raise SystemExit("ERROR: River Rats staff photo manifest differs from canonical staff names")
+manifest_by_name = {row["name"]: row for row in staff_photos}
+if len(manifest_by_name) != len(staff_photos):
+    raise SystemExit("ERROR: duplicate River Rats staff photo manifest name")
+for staff in team["staff"]:
+    photo = manifest_by_name[staff["name"]]
+    if staff.get("image") != photo.get("public_path"):
+        raise SystemExit(f"ERROR: team image differs from staff photo manifest: {staff['name']}")
+    source_page = str(photo.get("source_page", ""))
+    source_image = str(photo.get("source_image", ""))
+    if not source_page.startswith("https://www.esc-geretsried.de/") or not source_image.startswith("https://www.esc-geretsried.de/static/"):
+        raise SystemExit(f"ERROR: staff photo provenance is not an official ESC source: {staff['name']}")
+    asset = root / photo["asset"]
+    published = public / photo["public_path"]
+    if not asset.is_file() or not published.is_file():
+        raise SystemExit(f"ERROR: local or published staff photo missing: {staff['name']}")
+    expected_hash = photo.get("sha256")
+    if sha256(asset.read_bytes()).hexdigest() != expected_hash or sha256(published.read_bytes()).hexdigest() != expected_hash:
+        raise SystemExit(f"ERROR: staff photo checksum mismatch: {staff['name']}")
+
+published_staff = list((public / "images" / "people" / "river-rats" / "staff").glob("*.jpg"))
+if len(published_staff) != 9:
+    raise SystemExit(f"ERROR: expected 9 published River Rats staff photos, got {len(published_staff)}")
 
 heroes = json.loads((root / "content" / "home" / "heroes.json").read_text(encoding="utf-8"))
 active = sorted((s for s in heroes["slides"] if s.get("active")), key=lambda s: s.get("order", 0))
@@ -59,4 +90,4 @@ for path in sorted(set(visible_paths)):
     if not target.is_file():
         raise SystemExit(f"ERROR: visible navigation route missing from build: {path}")
 
-print(f"M2 content policy PASS: {len(active)} active heroes, exact news cutoff {cutoff.isoformat()}, {len(set(visible_paths))} visible internal routes")
+print(f"M2 content policy PASS: {len(active)} active heroes, 9 verified local River Rats staff photos, exact news cutoff {cutoff.isoformat()}, {len(set(visible_paths))} visible internal routes")

@@ -59,10 +59,21 @@ for group in ("Tor", "Verteidigung", "Sturm"):
     cards = "".join(player_card(row) for row in team["roster"] if row.get("group") == group)
     roster_html.append(f'<div class="roster-group"><h3>{escape(group)}</h3><div class="roster-grid">{cards}</div></div>')
 
-staff_html = "".join(
-    f'<article class="staff-card"><strong>{escape(row["name"])}</strong><span>{escape(row["role"])}</span></article>'
-    for row in team["staff"]
-)
+def staff_card(row):
+    image = str(row.get("image", "")).strip()
+    media = (
+        f'<div class="staff-card__image"><img src="{escape(public_url(image), quote=True)}" '
+        f'alt="{escape(row["name"], quote=True)}" loading="lazy"></div>'
+        if image
+        else '<div class="staff-card__image"><span aria-label="Kein verifiziertes Staff-Foto vorhanden">Kein Foto</span></div>'
+    )
+    return (
+        '<article class="staff-card">' + media + '<div class="staff-card__body">'
+        f'<strong>{escape(row["name"])}</strong><span>{escape(row["role"])}</span></div></article>'
+    )
+
+
+staff_html = "".join(staff_card(row) for row in team["staff"])
 news_html = "".join(
     f'<article class="team-news-card"><time datetime="{escape(row["date"], quote=True)}">{escape(row["date"])}</time>'
     f'<h3><a href="{escape(public_url(row["path"]), quote=True)}">{escape(row["title"])}</a></h3>'

@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "team_id": "river-rats",
+  "verified_at": "2026-08-26",
+  "verification_rule": "The official ESC source names the person in the same content card as the image, or the official ESC article title and body identify the person shown by its named lead image.",
+  "photos": [
+    {
+      "name": "Thomas Gams",
+      "asset": "content/river-rats/assets/staff/thomas-gams.jpg",
+      "public_path": "images/people/river-rats/staff/thomas-gams.jpg",
+      "sha256": "54752e6cccd460dc7b19ace52c27c59edd118ceaab7589b5e1f90c1a820beaab",
+      "source_page": "https://www.esc-geretsried.de/verein/news/2026/05/08/neues-gesicht-an-der-bande-thomas-gams-uebernimmt-cheftrainerposten-bei-den-river-rats/",
+      "source_image": "https://www.esc-geretsried.de/static/4c52666d19075ea3118daf59aef40f77/2a8be/Gams.jpg",
+      "evidence": "Official ESC article titled for Thomas Gams; its lead image is named Gams.jpg and precedes the text identifying him as the new River Rats head coach."
+    },
+    {
+      "name": "Dr. Thomas Kauschke",
+      "asset": "content/river-rats/assets/staff/thomas-kauschke.jpg",
+      "public_path": "images/people/river-rats/staff/thomas-kauschke.jpg",
+      "sha256": "9575323ab44a6e3fe398bd2a71f8f08e2ea743b1bae4da1216d38a6ddf071ce6",
+      "source_page": "https://www.esc-geretsried.de/river-rats/mannschaft/",
+      "source_image": "https://www.esc-geretsried.de/static/869f70b649d0293b3dc093928f3512be/2244e/2041.jpg",
+      "evidence": "Official ESC team card pairs the image with Dr. Thomas Kauschke and Mannschaftsarzt."
+    },
+    {
+      "name": "Bernhard Jorde",
+      "asset": "content/river-rats/assets/staff/bernhard-jorde.jpg",
+      "public_path": "images/people/river-rats/staff/bernhard-jorde.jpg",
+      "sha256": "3dc3ee6774919c9ed05d7546baa88b8d6085017e08be79d07df70e9826a6f06f",
+      "source_page": "https://www.esc-geretsried.de/river-rats/mannschaft/",
+      "source_image": "https://www.esc-geretsried.de/static/2c898f634b3929565e123e27542050ff/2244e/2033.jpg",
+      "evidence": "Official ESC team card pairs the image with Bernhard Jorde and Co-Trainer."
+    },
+    {
+      "name": "Alwin Albert",
+      "asset": "content/river-rats/assets/staff/alwin-albert.jpg",
+      "public_path": "images/people/river-rats/staff/alwin-albert.jpg",
+      "sha256": "b4eae4bbacadd0e50c7b287b65a9dd8966f4b7f5f645eaa39d1f076ec982c087",
+      "source_page": "https://www.esc-geretsried.de/river-rats/mannschaft/",
+      "source_image": "https://www.esc-geretsried.de/static/1162f3765c0b2e44c1d6a485917a029c/2244e/2043.jpg",
+      "evidence": "Official ESC team card pairs the image with Alwin Albert and Manager."
+    },
+    {
+      "name": "Helmut Hodolitsch",
+      "asset": "content/river-rats/assets/staff/helmut-hodolitsch.jpg",
+      "public_path": "images/people/river-rats/staff/helmut-hodolitsch.jpg",
+      "sha256": "c907d4cf33f4813e810e93e8044e6cf25ff827e001b0e71a1d3f5ebedca70b80",
+      "source_page": "https://www.esc-geretsried.de/river-rats/mannschaft/",
+      "source_image": "https://www.esc-geretsried.de/static/ac71cf17c555063ce82cd20ec67ed726/2244e/2016-Hodolitsch.jpg",
+      "evidence": "Official ESC team card pairs the image with Helmut Hodolitsch and Betreuer."
+    },
+    {
+      "name": "Helmut Hochstrasser",
+      "asset": "content/river-rats/assets/staff/helmut-hochstrasser.jpg",
+      "public_path": "images/people/river-rats/staff/helmut-hochstrasser.jpg",
+      "sha256": "472db8e1f9872fc31d3d1391973c3399cd6e8fe0e238a861790c61c697af7e21",
+      "source_page": "https://www.esc-geretsried.de/river-rats/mannschaft/",
+      "source_image": "https://www.esc-geretsried.de/static/d7c6fc1685651a79b1a8a2424cabb522/2244e/2013-Hochstrasser.jpg",
+      "evidence": "Official ESC team card pairs the image with Helmut Hochstrasser and Betreuer."
+    },
+    {
+      "name": "Nicol Jorde",
+      "asset": "content/river-rats/assets/staff/nicol-jorde.jpg",
+      "public_path": "images/people/river-rats/staff/nicol-jorde.jpg",
+      "sha256": "02e1ad14f98c2eb3538492c9b4b66b534eae13c993b891cee21c7ad1f8a3c71a",
+      "source_page": "https://www.esc-geretsried.de/river-rats/mannschaft/",
+      "source_image": "https://www.esc-geretsried.de/static/74624cc58b9234bb27234c0e26977e96/2244e/2037.jpg",
+      "evidence": "Official ESC team card pairs the image with Nicol Jorde and Physio."
+    },
+    {
+      "name": "Stefan Friedrich",
+      "asset": "content/river-rats/assets/staff/stefan-friedrich.jpg",
+      "public_path": "images/people/river-rats/staff/stefan-friedrich.jpg",
+      "sha256": "79e5873c91196fcdb4603bf97e591e75295b90909cb0328e881987b6f4046e16",
+      "source_page": "https://www.esc-geretsried.de/river-rats/mannschaft/",
+      "source_image": "https://www.esc-geretsried.de/static/53998cd35089050ad6d81e8242aa12c8/2244e/2039.jpg",
+      "evidence": "Official ESC team card pairs the image with Stefan Friedrich and Physio."
+    },
+    {
+      "name": "Julia Adlwart",
+      "asset": "content/river-rats/assets/staff/julia-adlwart.jpg",
+      "public_path": "images/people/river-rats/staff/julia-adlwart.jpg",
+      "sha256": "3cf97b8c0e962a7eb4f7ad305a1f99525510e253903f9532f562c60407de1f1f",
+      "source_page": "https://www.esc-geretsried.de/river-rats/mannschaft/",
+      "source_image": "https://www.esc-geretsried.de/static/da7fcba7217f131f20982769633ff8b8/2244e/2035.jpg",
+      "evidence": "Official ESC team card pairs the image with Julia Adlwart and Soziale Medien."
+    }
+  ]
+}

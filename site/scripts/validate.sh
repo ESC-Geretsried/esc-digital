@@ -29,6 +29,7 @@ require_text "$INDEX" 'U20 gegen SG Bad Aibling/Inzell'
 require_text "$INDEX" 'Nächste Termine'
 require_text "$INDEX" 'Werde Teil der River Rats'
 require_text "$INDEX" 'Mitmachen im Ehrenamt'
+require_text "$INDEX" 'team-page\.min\.'
 
 (
   cd "$SPONSOR_ASSETS"
@@ -40,6 +41,7 @@ require_text "$INDEX" 'Mitmachen im Ehrenamt'
 )
 
 test "$(find "$OUT/images/teams" -maxdepth 1 -type f | wc -l)" -eq 11 || { echo 'ERROR: expected 11 published team assets' >&2; exit 2; }
+test "$(find "$OUT/images/people/river-rats/staff" -maxdepth 1 -type f | wc -l)" -eq 9 || { echo 'ERROR: expected 9 published River Rats staff photos' >&2; exit 2; }
 for path in sponsoren river-rats river-rats-damen nachwuchs eislaufschule eiskunstlauf inklusion verein verein/foerderverein impressum datenschutz; do require_file "$OUT/$path/index.html"; done
 require_text "$OUT/aktuelles/2026-08-04-river-rats-defensive-verlaengerungen/index.html" 'Doppelpack für die Defensive'
 require_text "$OUT/sponsoren/index.html" 'Ansprechpartner Sponsoring'
