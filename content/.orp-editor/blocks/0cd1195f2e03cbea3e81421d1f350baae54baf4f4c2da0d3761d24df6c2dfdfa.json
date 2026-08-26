@@ -1,0 +1,18 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "nachwuchs",
+  "area_keys": "",
+  "block_key": "overview",
+  "block_type": "text",
+  "body": "Der Nachwuchsbereich bündelt die Mannschaften U20 bis U7.\n\nMannschaften\nU20\nU17\nU15\nU13\nU11\nU9\nU7\n\nEinstieg ins Eislaufen\nDie Eislaufschule ist das Einstiegs- und Anfängerangebot des ESC. Sie ist keine Mannschaft und bleibt als eigener Bereich geführt.",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-26T17:58:00Z",
+  "record_id": "orp:git-seed:esc:blocks:nachwuchs-overview",
+  "sort_order": 10,
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:git-seed:esc:blocks:nachwuchs-overview",
+  "source_updated_at": "2026-08-26T17:58:00Z",
+  "status": "draft",
+  "title": "Übersicht"
+}
