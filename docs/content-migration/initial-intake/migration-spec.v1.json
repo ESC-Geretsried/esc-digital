@@ -1,8 +1,35 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "generated_at": "2026-08-26",
   "purpose": "content-migration intake only",
-  "implementation_ready": false,
+  "readiness": {
+    "initial_seed": {
+      "ready": true,
+      "blockers": [],
+      "safeguards": [
+        "Seed only verified/source-derived content",
+        "Do not invent missing content, links or assets",
+        "Omit unresolved sections/assets/links or keep them draft/unpublished where explicitly authorized"
+      ]
+    },
+    "editor_acceptance": {
+      "ready": false,
+      "blockers": [
+        "ESC issue #34 — access-denied end-user presentation",
+        "ESC issue #35 — transient error feedback across Mannschaften, News, Seiten, Staff/Betreuer and Spieler"
+      ]
+    },
+    "final_golive": {
+      "ready": false,
+      "blockers": [
+        "ESC issues #34 and #35 real editor acceptance",
+        "Impressum current factual/legal verification",
+        "Datenschutz technical target applicability and professional/legal approval",
+        "Bestellseite purpose/data flow/form/privacy specification",
+        "Complete Eiskunstlauf historical-news inventory"
+      ]
+    }
+  },
   "mutation_guards": {
     "prod": "NONE",
     "preview": "NONE",
@@ -46,12 +73,62 @@
     "unique_images": 47,
     "unique_sponsors": 47
   },
+  "pr33_relation": {
+    "pr_number": 33,
+    "head_sha": "f163825748e05bdc25b2272920360ea75ee3b4e4",
+    "state": "OPEN DRAFT",
+    "candidate": true,
+    "hq_reviewed": true,
+    "merged": false,
+    "visual_acceptance_pending": true,
+    "contains": [
+      "River-Rats new team page",
+      "River-Rats editor initial state",
+      "HockeyData protection",
+      "Homepage hero preservation",
+      "Europe/Berlin youth rotation",
+      "content-purity fix"
+    ],
+    "duplication_policy": "PR #36 specifies only; it must not duplicate PR #33 implementation. U11 verification post-dates the PR #33 exclusion and requires a later approved implementation reconciliation, not a change in this intake worker."
+  },
   "status_classes": [
     "FEHLT",
     "NICHT MIGRIEREN",
     "VERIFIZIERT",
     "WIDERSPRUCH",
     "ZU VERIFIZIEREN"
+  ],
+  "resolved_decisions": [
+    {
+      "key": "HQ-R01",
+      "area": "River Rats",
+      "decision": "Kanonische Teamstruktur gilt; zusätzlicher Founder-/Excel-Tab ist nur Inhalts-/Migrationsinput und erzeugt keinen zusätzlichen Navigationstab.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "key": "HQ-R02",
+      "area": "Förderverein",
+      "decision": "Eigene Hauptseite, eigener Redaktionsbereich und Scope unter /foerderverein/; /verein/foerderverein/ bleibt nur Legacy-Migrationsquelle.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "key": "HQ-R03",
+      "area": "U11",
+      "decision": "Aktualisierte Excel-Referenz plus alte U11-Seite sind ausreichender Nachweis; U11-Teamfoto ist verifiziert.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "key": "HQ-R04",
+      "area": "Damen",
+      "decision": "Founder-bestätigtes Damenfoto ist verifiziert; rename_planned=true; Bildinhalt unverändert; Provenance erhalten.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "key": "HQ-R05",
+      "area": "News",
+      "decision": "Historische News ausschließlich River Rats, Eiskunstlauf und U13; alle anderen historischen News NICHT MIGRIEREN.",
+      "status": "VERIFIZIERT"
+    }
   ],
   "pages": [
     {
@@ -132,9 +209,9 @@
       ],
       "missing": [],
       "verify": [
-        "Founder-Wunsch zusätzlicher Eintrittspreise-Tab gegen kanonische Teamnavigation entscheiden"
+        "Zusätzlicher Excel-Tab-Inhalt nur innerhalb der kanonischen Struktur oder als getrennte Unterseite/Aktion behandeln"
       ],
-      "status": "WIDERSPRUCH"
+      "status": "VERIFIZIERT"
     },
     {
       "key": "river-rats-eintrittspreise",
@@ -153,10 +230,10 @@
       "news": "Keine historische Newsmigration",
       "social_video": [],
       "migrate": [
-        "Nur nach HQ-Entscheidung als Unterseite oder Aktion"
+        "Als Inhaltsquelle inventarisieren; bei Umsetzung nur innerhalb der kanonischen Teamstruktur oder als getrennte Unterseite/Aktion"
       ],
       "exclude": [
-        "Ohne Freigabe nicht als zusätzlicher Team-Tab einbauen"
+        "Nicht als zusätzlicher Team-Tab einbauen"
       ],
       "missing": [],
       "verify": [
@@ -730,9 +807,9 @@
       ],
       "missing": [],
       "verify": [
-        "Personen/Kontakte/Downloads vor Go-Live; aktuellen Git-Pfad später kontrolliert ablösen"
+        "Personen/Kontakte/Downloads vor Go-Live; Legacy-Quellpfad später kontrolliert auf den kanonischen Zielpfad migrieren"
       ],
-      "status": "WIDERSPRUCH"
+      "status": "ZU VERIFIZIEREN"
     },
     {
       "key": "sponsoren",
@@ -857,8 +934,8 @@
       ],
       "historical_news": "MIGRIEREN",
       "sport_data_mode": "HockeyData plus manuelle Zusatztermine",
-      "status": "WIDERSPRUCH",
-      "notes": "Zusatz-Tab-Wunsch offen; kanonische Struktur nicht stillschweigend erweitern."
+      "status": "VERIFIZIERT",
+      "notes": "Kanonische Teamstruktur ist bindend; zusätzlicher Excel-Tab ist nur Inhalts-/Migrationsinput."
     },
     {
       "team_key": "damen",
@@ -1249,7 +1326,10 @@
       "canonical_name": "esc-geretsried-damen-teamfoto-2025-2026.jpg",
       "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
       "verified": true,
+      "rename_planned": true,
+      "content_change_allowed": false,
       "status": "VERIFIZIERT",
+      "verification_evidence": "Founder explicit confirmation",
       "notes": "Founder ausdrücklich als korrekt bestätigt; irreführender Dateiname; rename planned."
     },
     {
@@ -1260,7 +1340,10 @@
       "canonical_name": "Geretsried_25-262.jpg",
       "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
       "verified": true,
+      "rename_planned": false,
+      "content_change_allowed": false,
       "status": "VERIFIZIERT",
+      "verification_evidence": "Founder Excel area mapping",
       "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
     },
     {
@@ -1271,7 +1354,10 @@
       "canonical_name": "Geretsried_25-263.jpg",
       "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
       "verified": true,
+      "rename_planned": false,
+      "content_change_allowed": false,
       "status": "VERIFIZIERT",
+      "verification_evidence": "Founder Excel area mapping",
       "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
     },
     {
@@ -1282,7 +1368,10 @@
       "canonical_name": "Geretsried_25-264.jpg",
       "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
       "verified": true,
+      "rename_planned": false,
+      "content_change_allowed": false,
       "status": "VERIFIZIERT",
+      "verification_evidence": "Founder Excel area mapping",
       "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
     },
     {
@@ -1293,7 +1382,10 @@
       "canonical_name": "Geretsried_25-265.jpg",
       "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
       "verified": true,
+      "rename_planned": false,
+      "content_change_allowed": false,
       "status": "VERIFIZIERT",
+      "verification_evidence": "Founder Excel area mapping",
       "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
     },
     {
@@ -1304,7 +1396,10 @@
       "canonical_name": "Geretsried_25-266.jpg",
       "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
       "verified": true,
+      "rename_planned": false,
+      "content_change_allowed": false,
       "status": "VERIFIZIERT",
+      "verification_evidence": "updated Founder Excel plus matching old U11 page",
       "notes": "Aktualisierte Excel und alte U11-Seite ordnen Geretsried_25-266 eindeutig U11 zu; für Homepage-Rotation freigegeben."
     },
     {
@@ -1315,7 +1410,10 @@
       "canonical_name": "u9-neu.jpg",
       "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
       "verified": true,
+      "rename_planned": false,
+      "content_change_allowed": false,
       "status": "VERIFIZIERT",
+      "verification_evidence": "Founder Excel area mapping",
       "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
     },
     {
@@ -1326,7 +1424,10 @@
       "canonical_name": "U7-neu.jpg",
       "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
       "verified": true,
+      "rename_planned": false,
+      "content_change_allowed": false,
       "status": "VERIFIZIERT",
+      "verification_evidence": "Founder Excel area mapping",
       "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
     },
     {
@@ -1337,7 +1438,10 @@
       "canonical_name": "Teamfoto.1.png",
       "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
       "verified": true,
+      "rename_planned": false,
+      "content_change_allowed": false,
       "status": "VERIFIZIERT",
+      "verification_evidence": "Founder Excel area mapping",
       "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
     },
     {
@@ -1348,7 +1452,10 @@
       "canonical_name": "Geretsried_25-269.jpg",
       "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
       "verified": true,
+      "rename_planned": false,
+      "content_change_allowed": false,
       "status": "VERIFIZIERT",
+      "verification_evidence": "Founder Excel area mapping",
       "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
     },
     {
@@ -1359,7 +1466,10 @@
       "canonical_name": "Bild_Inklusion.jpg",
       "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
       "verified": true,
+      "rename_planned": false,
+      "content_change_allowed": false,
       "status": "VERIFIZIERT",
+      "verification_evidence": "Founder Excel area mapping",
       "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
     },
     {
@@ -1429,6 +1539,9 @@
       "source_link": "https://www.edeka-heininger-dietz.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1442,6 +1555,9 @@
       "source_link": "https://www.ehgartner.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1455,6 +1571,9 @@
       "source_link": "https://www.esb.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1468,6 +1587,9 @@
       "source_link": "https://www.spktw.de/",
       "link_verified": false,
       "logo_verified": true,
+      "seed_handling": "HOLD LINK; OMIT SPONSOR OR PREPARE UNPUBLISHED/LINKLESS ONLY IF EXPLICITLY AUTHORIZED",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "DO NOT PUBLISH UNVERIFIED LINK",
       "notes": "Destination could not be independently confirmed during intake.",
       "status": "ZU VERIFIZIEREN"
     },
@@ -1481,6 +1603,9 @@
       "source_link": "https://www.institutional-investment.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1494,6 +1619,9 @@
       "source_link": "https://www.ep.de/friedl",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1507,6 +1635,9 @@
       "source_link": "https://agrobs.de/",
       "link_verified": false,
       "logo_verified": true,
+      "seed_handling": "HOLD LINK; OMIT SPONSOR OR PREPARE UNPUBLISHED/LINKLESS ONLY IF EXPLICITLY AUTHORIZED",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "DO NOT PUBLISH UNVERIFIED LINK",
       "notes": "Destination could not be independently confirmed during intake.",
       "status": "ZU VERIFIZIEREN"
     },
@@ -1520,6 +1651,9 @@
       "source_link": "https://www.bartsch-immo.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1533,6 +1667,9 @@
       "source_link": "https://panafoamtec.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked. Same embedded image/link occurs again at DOCX paragraph 168; deduplicated to one sponsor row.",
       "status": "VERIFIZIERT"
     },
@@ -1546,6 +1683,9 @@
       "source_link": "https://planisware.com/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1559,6 +1699,9 @@
       "source_link": "https://www.autohaus-jorde.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1572,6 +1715,9 @@
       "source_link": "https://www.kraemmel.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1585,6 +1731,9 @@
       "source_link": "https://www.loisachtaler-haustechnik.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1598,6 +1747,9 @@
       "source_link": "https://www.energiedirect-bayern.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1611,6 +1763,9 @@
       "source_link": "https://lrauto.de/",
       "link_verified": false,
       "logo_verified": true,
+      "seed_handling": "HOLD LINK; OMIT SPONSOR OR PREPARE UNPUBLISHED/LINKLESS ONLY IF EXPLICITLY AUTHORIZED",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "DO NOT PUBLISH UNVERIFIED LINK",
       "notes": "Destination could not be independently confirmed during intake.",
       "status": "ZU VERIFIZIEREN"
     },
@@ -1624,6 +1779,9 @@
       "source_link": "https://polz.lvm.de/",
       "link_verified": false,
       "logo_verified": true,
+      "seed_handling": "HOLD LINK; OMIT SPONSOR OR PREPARE UNPUBLISHED/LINKLESS ONLY IF EXPLICITLY AUTHORIZED",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "DO NOT PUBLISH UNVERIFIED LINK",
       "notes": "Destination could not be independently confirmed during intake.",
       "status": "ZU VERIFIZIEREN"
     },
@@ -1637,6 +1795,9 @@
       "source_link": "https://www.hockey-sports.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1650,6 +1811,9 @@
       "source_link": "https://www.pennig.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1663,6 +1827,9 @@
       "source_link": "https://www.gecko-fastener.com/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1676,6 +1843,9 @@
       "source_link": "https://www.konrad-autoteile.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1689,6 +1859,9 @@
       "source_link": "https://speck-kolbenpumpen.com/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1702,6 +1875,9 @@
       "source_link": "https://gls-group.eu/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1715,6 +1891,9 @@
       "source_link": "https://www.fueger-industriearmaturen.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1728,6 +1907,9 @@
       "source_link": "https://fenster-tueren-sonnenschutz.com/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1741,6 +1923,9 @@
       "source_link": "https://www.rileg.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1754,6 +1939,9 @@
       "source_link": "https://www.facebook.com/fischerjohanngmbhschrottundmetallhandel/",
       "link_verified": false,
       "logo_verified": true,
+      "seed_handling": "HOLD LINK; OMIT SPONSOR OR PREPARE UNPUBLISHED/LINKLESS ONLY IF EXPLICITLY AUTHORIZED",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "DO NOT PUBLISH UNVERIFIED LINK",
       "notes": "Destination could not be independently confirmed during intake.",
       "status": "ZU VERIFIZIEREN"
     },
@@ -1767,6 +1955,9 @@
       "source_link": "https://www.lugkg.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1780,6 +1971,9 @@
       "source_link": "https://www.pwdienstleistungen.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1793,6 +1987,9 @@
       "source_link": "https://www.mazda-autohaus-graf-muensing.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1806,6 +2003,9 @@
       "source_link": "https://www.dielack.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1819,6 +2019,9 @@
       "source_link": "https://gustavo-gusto.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1832,6 +2035,9 @@
       "source_link": "http://www.oberhauser-egling.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1845,6 +2051,9 @@
       "source_link": "https://www.holzer-tiefbau.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1858,6 +2067,9 @@
       "source_link": "https://spedition-kolbeck.de/",
       "link_verified": false,
       "logo_verified": true,
+      "seed_handling": "HOLD LINK; OMIT SPONSOR OR PREPARE UNPUBLISHED/LINKLESS ONLY IF EXPLICITLY AUTHORIZED",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "DO NOT PUBLISH UNVERIFIED LINK",
       "notes": "Destination could not be independently confirmed during intake.",
       "status": "ZU VERIFIZIEREN"
     },
@@ -1871,6 +2083,9 @@
       "source_link": "https://www.esc-geretsried.de/",
       "link_verified": false,
       "logo_verified": true,
+      "seed_handling": "HOLD LINK; OMIT SPONSOR OR PREPARE UNPUBLISHED/LINKLESS ONLY IF EXPLICITLY AUTHORIZED",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "DO NOT PUBLISH UNVERIFIED LINK",
       "notes": "DOCX relationship points to ESC homepage; no replacement URL guessed.",
       "status": "WIDERSPRUCH"
     },
@@ -1884,6 +2099,9 @@
       "source_link": "https://quantum-systems.com/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1897,6 +2115,9 @@
       "source_link": "https://raiwa24.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1910,6 +2131,9 @@
       "source_link": "https://www.stoeger.com/de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1923,6 +2147,9 @@
       "source_link": "http://www.zeitungsverlag-oberbayern.de/",
       "link_verified": false,
       "logo_verified": true,
+      "seed_handling": "HOLD LINK; OMIT SPONSOR OR PREPARE UNPUBLISHED/LINKLESS ONLY IF EXPLICITLY AUTHORIZED",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "DO NOT PUBLISH UNVERIFIED LINK",
       "notes": "Destination could not be independently confirmed during intake.",
       "status": "ZU VERIFIZIEREN"
     },
@@ -1936,6 +2163,9 @@
       "source_link": "https://www.rudolf.de/",
       "link_verified": false,
       "logo_verified": true,
+      "seed_handling": "HOLD LINK; OMIT SPONSOR OR PREPARE UNPUBLISHED/LINKLESS ONLY IF EXPLICITLY AUTHORIZED",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "DO NOT PUBLISH UNVERIFIED LINK",
       "notes": "Destination could not be independently confirmed during intake.",
       "status": "ZU VERIFIZIEREN"
     },
@@ -1949,6 +2179,9 @@
       "source_link": "https://www.schurz-zimmerei.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1962,6 +2195,9 @@
       "source_link": "https://17er.com/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1975,6 +2211,9 @@
       "source_link": "https://www.lerche-werbemittel.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -1988,6 +2227,9 @@
       "source_link": "https://www.kanzlei-buchner.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     },
@@ -2001,6 +2243,9 @@
       "source_link": "https://www.facebook.com/SportsPubZumAltenOl",
       "link_verified": false,
       "logo_verified": true,
+      "seed_handling": "HOLD LINK; OMIT SPONSOR OR PREPARE UNPUBLISHED/LINKLESS ONLY IF EXPLICITLY AUTHORIZED",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "DO NOT PUBLISH UNVERIFIED LINK",
       "notes": "Destination could not be independently confirmed during intake.",
       "status": "ZU VERIFIZIEREN"
     },
@@ -2014,6 +2259,9 @@
       "source_link": "https://www.nissan-matl-koenigsdorf.de/",
       "link_verified": false,
       "logo_verified": true,
+      "seed_handling": "HOLD LINK; OMIT SPONSOR OR PREPARE UNPUBLISHED/LINKLESS ONLY IF EXPLICITLY AUTHORIZED",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "DO NOT PUBLISH UNVERIFIED LINK",
       "notes": "Destination could not be independently confirmed during intake.",
       "status": "ZU VERIFIZIEREN"
     },
@@ -2027,6 +2275,9 @@
       "source_link": "https://www.stileffekt.de/",
       "link_verified": true,
       "logo_verified": true,
+      "seed_handling": "VERIFIED CANDIDATE; PUBLICATION STILL REQUIRES IMPLEMENTATION APPROVAL",
+      "publication_decision": "NOT MADE BY INTAKE",
+      "link_fail_safe": "USE ONLY THE VERIFIED DOCX RELATIONSHIP TARGET",
       "notes": "Founder relationship target and destination context checked.",
       "status": "VERIFIZIERT"
     }
@@ -2403,6 +2654,7 @@
   ],
   "acceptance": [
     {
+      "record_type": "acceptance_scope",
       "person": "Jens Neuhaus",
       "function": "IT / Global",
       "editor_mode": "Editor + Test",
@@ -2412,6 +2664,7 @@
       "status": "VERIFIZIERT"
     },
     {
+      "record_type": "acceptance_scope",
       "person": "Hannes Köhler",
       "function": "IT / Global",
       "editor_mode": "Editor + Test",
@@ -2421,6 +2674,7 @@
       "status": "VERIFIZIERT"
     },
     {
+      "record_type": "acceptance_scope",
       "person": "Kevin Olivo",
       "function": "Redaktion River Rats",
       "editor_mode": "Editor + Test",
@@ -2430,6 +2684,7 @@
       "status": "VERIFIZIERT"
     },
     {
+      "record_type": "acceptance_scope",
       "person": "Tanja Serr",
       "function": "Redaktion Vereinsorganisation",
       "editor_mode": "Editor + Test",
@@ -2439,6 +2694,7 @@
       "status": "VERIFIZIERT"
     },
     {
+      "record_type": "acceptance_scope",
       "person": "Dieter Krampert",
       "function": "Redaktion Förderverein",
       "editor_mode": "Editor + Test",
@@ -2448,6 +2704,7 @@
       "status": "VERIFIZIERT"
     },
     {
+      "record_type": "acceptance_scope",
       "person": "Matthias Remde",
       "function": "Leitung Marketing",
       "editor_mode": "Editor + Test",
@@ -2455,116 +2712,200 @@
       "source_scope_label": "Marketing bzw. Spnosoring",
       "entra_action": "NONE",
       "status": "VERIFIZIERT"
+    },
+    {
+      "record_type": "acceptance_defect",
+      "person": "Hannes Köhler",
+      "scope": "Global / IT",
+      "issue_number": 34,
+      "issue_url": "https://github.com/ESC-Geretsried/esc-digital/issues/34",
+      "title": "Fehlende Berechtigung",
+      "finding": "Nicht berechtigter Account erreicht eine interne/ungeeignete Fehlerdarstellung.",
+      "acceptance_target": "Verständliche Access-Denied-Meldung; keine technische/interne Endnutzeransicht; generische Fehler-/Access-Denied-Seite zulässig; OAuth2-Anmelde-URL nach Möglichkeit nicht als sichtbarer Endzustand.",
+      "evidence_status": "VERIFIZIERT",
+      "implementation_status": "NOT ASSERTED",
+      "automated_test_status": "NOT ASSERTED",
+      "real_acceptance_status": "DEFECT OPEN",
+      "resolution_status": "OFFEN",
+      "gate": "GO-LIVE-BLOCKER — EDITOR PILOT",
+      "entra_action": "NONE",
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "record_type": "acceptance_defect",
+      "person": "Hannes Köhler",
+      "scope": "Global / IT",
+      "issue_number": 35,
+      "issue_url": "https://github.com/ESC-Geretsried/esc-digital/issues/35",
+      "title": "Mannschaften bearbeiten",
+      "finding": "Fehlermeldung erscheint und verschwindet wieder; Kommentar nennt denselben Befund zusätzlich bei News, Seiten, Staff/Betreuer und Spieler.",
+      "acceptance_target": "Fehlerfeedback muss für reale Nutzer stabil und verständlich sichtbar bleiben.",
+      "evidence_status": "VERIFIZIERT",
+      "implementation_status": "IMPLEMENTED",
+      "automated_test_status": "PASS",
+      "real_acceptance_status": "DEFECT OPEN",
+      "resolution_status": "OFFEN",
+      "gate": "GO-LIVE-BLOCKER — EDITOR PILOT",
+      "entra_action": "NONE",
+      "status": "ZU VERIFIZIEREN"
     }
   ],
   "open_points": [
     {
-      "key": "OP-001",
-      "area": "River Rats",
-      "finding": "Founder-Excel verlangt optionalen Eintrittspreise-Tab; kanonische Teamstruktur enthält diesen Tab nicht.",
-      "classification": "WIDERSPRUCH",
-      "blocking": true,
-      "owner": "ORP Virtual HQ / Founder",
-      "resolution": "Als Unterseite/Aktion oder explizite Erweiterung entscheiden."
-    },
-    {
       "key": "OP-002",
       "area": "River Rats Bestellung",
-      "finding": "Geforderte neue Preview-Seite hat keine spezifizierten Datenflüsse, Formular-/Datenschutz- oder Integrationsanforderungen.",
+      "finding": "Zweck, Datenfluss, Formularfunktion, Datenschutzrelevanz und technische Zielanforderungen der geforderten Bestellseite sind nicht belastbar spezifiziert.",
       "classification": "FEHLT",
-      "blocking": true,
+      "gate_class": "BLOCKS FINAL GO-LIVE",
+      "blocks_initial_technical_seed": false,
+      "blocks_editor_acceptance": false,
+      "blocks_final_golive": true,
+      "can_remain_to_verify_during_initial_seed": true,
       "owner": "ORP Virtual HQ / Founder",
-      "resolution": "Separaten fachlich-technischen Auftrag erstellen."
-    },
-    {
-      "key": "OP-003",
-      "area": "Förderverein",
-      "finding": "ESC main führt Förderverein unter /verein/foerderverein/; kanonisches Ziel ist eigene Hauptseite /foerderverein/ und eigener Scope.",
-      "classification": "WIDERSPRUCH",
-      "blocking": true,
-      "owner": "ORP Virtual HQ",
-      "resolution": "Zielroute im Implementierungsauftrag bestätigen und kontrollierte Migration planen."
-    },
-    {
-      "key": "OP-004",
-      "area": "U11",
-      "finding": "PR #33 schloss U11 mangels belastbarer Referenz aus; aktualisierte Excel und alte U11-Seite belegen Geretsried_25-266 eindeutig.",
-      "classification": "VERIFIZIERT",
-      "blocking": false,
-      "owner": "Implementation worker after approval",
-      "resolution": "U11 bei genehmigter Umsetzung in tägliche Nachwuchsrotation aufnehmen."
+      "resolution": "Separaten fachlich-technischen Auftrag erstellen; Seite im Initial Seed auslassen."
     },
     {
       "key": "OP-005",
       "area": "Sponsoren",
       "finding": "Founder-DOCX verlinkt Josef Mayr Bauunternehmen auf die ESC-Homepage statt auf ein belegtes Sponsorenziel.",
       "classification": "WIDERSPRUCH",
-      "blocking": true,
+      "gate_class": "CAN REMAIN TO VERIFY DURING INITIAL SEED",
+      "blocks_initial_technical_seed": false,
+      "blocks_editor_acceptance": false,
+      "blocks_final_golive": false,
+      "can_remain_to_verify_during_initial_seed": true,
       "owner": "Founder / Marketing",
-      "resolution": "Korrekte URL liefern oder Link bewusst leer lassen."
+      "resolution": "Keine Ersatz-URL raten; Sponsor/Link bis zur Fachentscheidung unveröffentlicht lassen oder nur nach expliziter Freigabe linklos vorbereiten."
     },
     {
       "key": "OP-006",
       "area": "Sponsoren",
       "finding": "Alte Sponsoring-Seite, aktuelle Git-Inhalte und Acceptance-Kontext ergeben keinen eindeutig freigegebenen öffentlichen Ansprechpartner.",
       "classification": "WIDERSPRUCH",
-      "blocking": true,
+      "gate_class": "CAN REMAIN TO VERIFY DURING INITIAL SEED",
+      "blocks_initial_technical_seed": false,
+      "blocks_editor_acceptance": false,
+      "blocks_final_golive": false,
+      "can_remain_to_verify_during_initial_seed": true,
       "owner": "Founder / Marketing",
-      "resolution": "Öffentliche Kontaktperson und Kontaktdaten bestätigen."
+      "resolution": "Öffentliche Kontaktperson bestätigen oder Kontaktabschnitt bis dahin auslassen."
     },
     {
       "key": "OP-007",
       "area": "Eiskunstlauf News",
       "finding": "Historische Migration ist freigegeben, vollständige Einzelartikelliste ist im Lieferpaket nicht enthalten.",
       "classification": "FEHLT",
-      "blocking": true,
+      "gate_class": "BLOCKS FINAL GO-LIVE",
+      "blocks_initial_technical_seed": false,
+      "blocks_editor_acceptance": false,
+      "blocks_final_golive": true,
+      "can_remain_to_verify_during_initial_seed": true,
       "owner": "Content review",
-      "resolution": "Alle Kandidaten mit URL, Datum, Text, Medien und Rechten enumerieren."
+      "resolution": "Alle Kandidaten mit URL, Datum, Text, Medien und Rechten enumerieren; Initial Seed darf den ungeklärten Satz auslassen."
     },
     {
       "key": "OP-008",
       "area": "Social",
       "finding": "Excel liefert Handles, keine unabhängig verifizierten vollständigen offiziellen URLs.",
       "classification": "ZU VERIFIZIEREN",
-      "blocking": true,
+      "gate_class": "CAN REMAIN TO VERIFY DURING INITIAL SEED",
+      "blocks_initial_technical_seed": false,
+      "blocks_editor_acceptance": false,
+      "blocks_final_golive": false,
+      "can_remain_to_verify_during_initial_seed": true,
       "owner": "Founder / area editors",
-      "resolution": "Offizielle URLs bestätigen."
+      "resolution": "Offizielle URLs bestätigen; bis dahin keine Social-URL veröffentlichen."
     },
     {
       "key": "OP-009",
       "area": "Impressum",
       "finding": "Founder-Quelle ist vorhanden; Register-, Vertretungs-, Kontakt- und Credit-Angaben sind zeit-/personenabhängig.",
       "classification": "ZU VERIFIZIEREN",
-      "blocking": true,
+      "gate_class": "BLOCKS FINAL GO-LIVE",
+      "blocks_initial_technical_seed": false,
+      "blocks_editor_acceptance": false,
+      "blocks_final_golive": true,
+      "can_remain_to_verify_during_initial_seed": true,
       "owner": "Verein / legal review",
-      "resolution": "Unmittelbar vor Go-Live fachlich und rechtlich bestätigen."
+      "resolution": "Source-derived Draft/INT zulässig; unmittelbar vor PROD-Go-Live fachlich und rechtlich bestätigen."
     },
     {
       "key": "OP-010",
       "area": "Datenschutz",
       "finding": "Bestehender Text ist nur Referenz; Zielbetrieb und alle technisch abhängigen Aussagen sind noch nicht vollständig abgeglichen.",
       "classification": "ZU VERIFIZIEREN",
-      "blocking": true,
+      "gate_class": "BLOCKS FINAL GO-LIVE",
+      "blocks_initial_technical_seed": false,
+      "blocks_editor_acceptance": false,
+      "blocks_final_golive": true,
+      "can_remain_to_verify_during_initial_seed": true,
       "owner": "Technical owner / legal review",
-      "resolution": "Zieldatenflüsse inventarisieren und fachlich-rechtlich freigeben."
+      "resolution": "Source-derived Draft/INT zulässig; Zieldatenflüsse inventarisieren und vor PROD-Go-Live fachlich/rechtlich freigeben."
     },
     {
       "key": "OP-011",
       "area": "Verein",
-      "finding": "Founder verlangt Markus Hätinen nicht aufzuführen; übrige Rollen/Namen und Downloads bleiben zeitabhängig.",
+      "finding": "Founder verlangt Markus Hätinen nicht aufzuführen; übrige Rollen/Namen bleiben zeitabhängig.",
       "classification": "ZU VERIFIZIEREN",
-      "blocking": true,
+      "gate_class": "CAN REMAIN TO VERIFY DURING INITIAL SEED",
+      "blocks_initial_technical_seed": false,
+      "blocks_editor_acceptance": false,
+      "blocks_final_golive": false,
+      "can_remain_to_verify_during_initial_seed": true,
       "owner": "Vereinsorganisation",
-      "resolution": "Aktuelle freigegebene Rollen-/Downloadliste bestätigen."
+      "resolution": "Nur verifizierte Rollen/Namen seeden; ungeklärte Einträge auslassen."
     },
     {
-      "key": "OP-012",
-      "area": "Founder Excel",
-      "finding": "Zeile Referenzen!20 ist dem Bereich Sponsoren zugeordnet, enthält fachlich aber Geschäftsstelleninhalt.",
-      "classification": "WIDERSPRUCH",
-      "blocking": false,
-      "owner": "Specification review",
-      "resolution": "Im Intake Geschäftsstelle zugeordnet; HQ bestätigt Mapping."
+      "key": "OP-013",
+      "area": "Sponsoren",
+      "finding": "Zehn weitere DOCX-Zieladressen konnten im Intake nicht unabhängig bestätigt werden.",
+      "classification": "ZU VERIFIZIEREN",
+      "gate_class": "CAN REMAIN TO VERIFY DURING INITIAL SEED",
+      "blocks_initial_technical_seed": false,
+      "blocks_editor_acceptance": false,
+      "blocks_final_golive": false,
+      "can_remain_to_verify_during_initial_seed": true,
+      "owner": "Founder / Marketing",
+      "resolution": "Keine URL ersetzen oder raten; betroffene Links bis zur Verifikation zurückhalten."
+    },
+    {
+      "key": "OP-014",
+      "area": "Downloads",
+      "finding": "Aktualität, Zuordnung sowie Nutzungs-/Veröffentlichungsfähigkeit der referenzierten Downloads sind noch zu prüfen.",
+      "classification": "ZU VERIFIZIEREN",
+      "gate_class": "CAN REMAIN TO VERIFY DURING INITIAL SEED",
+      "blocks_initial_technical_seed": false,
+      "blocks_editor_acceptance": false,
+      "blocks_final_golive": false,
+      "can_remain_to_verify_during_initial_seed": true,
+      "owner": "Bereichsredaktion / asset review",
+      "resolution": "Nur verifizierte Downloads seeden/veröffentlichen; ungeklärte Downloads auslassen."
+    },
+    {
+      "key": "OP-034",
+      "area": "Editor Acceptance",
+      "finding": "Issue #34: Nicht berechtigter Account erreicht eine interne/ungeeignete Fehlerdarstellung.",
+      "classification": "ZU VERIFIZIEREN",
+      "gate_class": "BLOCKS EDITOR ACCEPTANCE",
+      "blocks_initial_technical_seed": false,
+      "blocks_editor_acceptance": true,
+      "blocks_final_golive": true,
+      "can_remain_to_verify_during_initial_seed": false,
+      "owner": "Editor implementation / acceptance",
+      "resolution": "Verständliche, nicht-technische Access-Denied-Endansicht real abnehmen; Issue offen lassen."
+    },
+    {
+      "key": "OP-035",
+      "area": "Editor Acceptance",
+      "finding": "Issue #35: Fehlerfeedback verschwindet bei Mannschaften; laut Kommentar ebenso bei News, Seiten, Staff/Betreuer und Spielern.",
+      "classification": "ZU VERIFIZIEREN",
+      "gate_class": "BLOCKS EDITOR ACCEPTANCE",
+      "blocks_initial_technical_seed": false,
+      "blocks_editor_acceptance": true,
+      "blocks_final_golive": true,
+      "can_remain_to_verify_during_initial_seed": false,
+      "owner": "Editor implementation / acceptance",
+      "resolution": "IMPLEMENTED / AUTOMATED TESTS PASS getrennt von REAL ACCEPTANCE DEFECT OPEN führen; Issue offen lassen."
     }
   ]
 }

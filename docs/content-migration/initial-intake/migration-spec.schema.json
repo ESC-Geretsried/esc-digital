@@ -4,10 +4,12 @@
   "type": "object",
   "required": [
     "schema_version",
-    "implementation_ready",
+    "readiness",
     "mutation_guards",
     "repositories",
     "delivery_package",
+    "pr33_relation",
+    "resolved_decisions",
     "pages",
     "teams",
     "sport_data",
@@ -19,8 +21,70 @@
     "open_points"
   ],
   "properties": {
-    "implementation_ready": {
-      "const": false
+    "schema_version": {
+      "const": "1.1.0"
+    },
+    "readiness": {
+      "type": "object",
+      "required": [
+        "initial_seed",
+        "editor_acceptance",
+        "final_golive"
+      ],
+      "properties": {
+        "initial_seed": {
+          "type": "object",
+          "required": [
+            "ready",
+            "blockers"
+          ],
+          "properties": {
+            "ready": {
+              "const": true
+            },
+            "blockers": {
+              "type": "array",
+              "maxItems": 0
+            }
+          }
+        },
+        "editor_acceptance": {
+          "type": "object",
+          "required": [
+            "ready",
+            "blockers"
+          ],
+          "properties": {
+            "ready": {
+              "const": false
+            },
+            "blockers": {
+              "type": "array",
+              "minItems": 2
+            }
+          }
+        },
+        "final_golive": {
+          "type": "object",
+          "required": [
+            "ready",
+            "blockers"
+          ],
+          "properties": {
+            "ready": {
+              "const": false
+            },
+            "blockers": {
+              "type": "array",
+              "minItems": 4
+            }
+          }
+        }
+      }
+    },
+    "resolved_decisions": {
+      "type": "array",
+      "minItems": 5
     },
     "pages": {
       "type": "array",
@@ -28,12 +92,21 @@
     },
     "teams": {
       "type": "array",
-      "minItems": 9
+      "minItems": 9,
+      "maxItems": 9
     },
     "sponsors": {
       "type": "array",
       "minItems": 47,
       "maxItems": 47
+    },
+    "acceptance": {
+      "type": "array",
+      "minItems": 8
+    },
+    "open_points": {
+      "type": "array",
+      "minItems": 10
     },
     "status_classes": {
       "type": "array",
