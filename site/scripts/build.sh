@@ -81,6 +81,6 @@ test -f "$SITE/public/images/river-rats-logo.png"
 test -f "$SITE/public/images/hero/hero-01-bewegung.jpeg"
 test -f "$SITE/public/images/inklusion/d-wagner-immobilien.png"
 test -f "$SITE/public/images/inklusion/rotary-club-wolfratshausen-isartal.png"
-test "$(find "$SITE/public/images/teams" -maxdepth 1 -type f | wc -l)" -eq 10
+test "$(find "$SITE/public/images/teams" -maxdepth 1 -type f | wc -l)" -eq 11
 test "$(find "$SITE/public/sponsors/assets" -maxdepth 1 -type f | wc -l)" -eq 37
 echo "Built ESC site with $(hugo version), 24-month public news retention, curated homepage heroes, structured navigation, HockeyData widgets, structured team profile, M2 content policy gates, internal sponsors page, transitional esc-int content and 37 canonical sponsor logos"

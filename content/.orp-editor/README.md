@@ -103,9 +103,11 @@ bindings, legal text, invented asset keys or unauthorized historical news.
 Eiskunstlauf historical news remains omitted because the intake marks its
 individual inventory incomplete.
 
-U11 photo reconciliation is not applied on this branch because the homepage
-rotation implementation that can consume it is still owned by unmerged draft
-PR #33. The verified evidence remains in PR #36 (`Geretsried_25-266.jpg`) for a
-later integration step after branch reconciliation.
+U11 photo reconciliation is implemented on the consolidated preview branch.
+The verified source is PR #36 / migration intake `Geretsried_25-266.jpg`.
+The canonical tenant copy is `images/teams/u11-team.jpg` with SHA-256
+`5b7c979a8f2c4aa7b738a9e859353f6a0252e762a11e76b5755d710bd1779c3a`.
+U11 is protected as a canonical route, displays the verified team photo directly
+after the overview, and participates in the Europe/Berlin daily youth hero rotation.
 
 Any later refresh requires a new source-digest check and reviewed mapping diff.

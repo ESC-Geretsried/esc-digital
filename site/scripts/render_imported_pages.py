@@ -33,6 +33,7 @@ excluded_top_level = {
     'river-rats',
     'river-rats-damen',
     'nachwuchs',
+    'u11',
     'eislaufschule',
     'eiskunstlauf',
     'inklusion',

@@ -39,7 +39,7 @@ require_text "$INDEX" 'Mitmachen im Ehrenamt'
   sha256sum -c "$TEAM_MANIFEST"
 )
 
-test "$(find "$OUT/images/teams" -maxdepth 1 -type f | wc -l)" -eq 10 || { echo 'ERROR: expected 10 published team assets' >&2; exit 2; }
+test "$(find "$OUT/images/teams" -maxdepth 1 -type f | wc -l)" -eq 11 || { echo 'ERROR: expected 11 published team assets' >&2; exit 2; }
 for path in sponsoren river-rats river-rats-damen nachwuchs eislaufschule eiskunstlauf inklusion verein verein/foerderverein impressum datenschutz; do require_file "$OUT/$path/index.html"; done
 require_text "$OUT/aktuelles/2026-08-04-river-rats-defensive-verlaengerungen/index.html" 'Doppelpack für die Defensive'
 require_text "$OUT/sponsoren/index.html" 'Ansprechpartner Sponsoring'

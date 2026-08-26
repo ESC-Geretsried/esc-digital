@@ -7,6 +7,18 @@
   </div>
 </section>
 
+{{ with .Params.team_photo }}
+<section class="home-section home-section--soft" id="teamfoto" aria-labelledby="area-teamfoto-title">
+  <div class="shell">
+    <p class="eyebrow eyebrow--gold">Teamfoto</p>
+    <div class="section-heading"><h2 id="area-teamfoto-title">{{ $.Title }}</h2></div>
+    <figure class="team-photo">
+      <img src="{{ . | relURL }}" alt="{{ $.Params.team_photo_alt | default (printf "Teamfoto %s" $.Title) }}" loading="lazy">
+    </figure>
+  </div>
+</section>
+{{ end }}
+
 {{ with .Params.people }}
   {{ if gt (len .) 0 }}
   <section class="home-section" id="people" aria-labelledby="area-people-title">

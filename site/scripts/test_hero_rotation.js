@@ -18,12 +18,12 @@ assert.equal(dailyImageFor(['a', 'b'], new Date('2026-03-28T22:30:00Z')), dailyI
 assert.deepEqual(youth.daily_images, [
   'images/teams/u7-team.jpg',
   'images/teams/u9-team.jpg',
+  'images/teams/u11-team.jpg',
   'images/teams/u13-team.jpg',
   'images/teams/u15-team.jpg',
   'images/teams/u17-team.jpg',
   'images/teams/u20-team.jpg'
 ]);
-assert.ok(!youth.daily_images.some((image) => image.includes('u11')));
 for (const image of youth.daily_images) assert.ok(fs.existsSync(path.join(root, image)), `missing approved youth image: ${image}`);
 
 assert.equal(heroes.slides.length, 6);
