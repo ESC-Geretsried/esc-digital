@@ -27,8 +27,9 @@ Players without such a reference remain visible with a neutral no-photo state.
 Staff exposes verified name and role only.
 
 IST at this PR: 16 players and nine staff records are the canonical River Rats
-roster projection. Ten of the 16 player rows contain a verified published image
-reference; six do not. The existing Git team photo remains the team-photo source.
+roster projection. Eleven of the 16 player rows contain a verified published
+image reference; five do not. The existing Git team photo remains the team-photo
+source.
 
 PRODUCT DECISION: team frontends do not display body height or weight. Generic
 editor schema fields such as `height_cm` and `weight_kg` are retained and are not
@@ -44,8 +45,8 @@ components. Preserve provider neutrality and avoid schema-breaking deletion.
 EVIDENCE: `content/river-rats/team.json` on this PR, with source metadata and the
 existing 16-player / nine-staff editor validation. Missing data DELTA: no
 verified player photo reference exists for Benedikt Goldschmidt, Michael
-Kristic, Anton Egle, Sebastian Heininger, Gunārs Skvorcovs or Oliver Ott beyond
-what the canonical file records; no replacement image may be inferred.
+Kristic, Anton Egle, Sebastian Heininger or Gunārs Skvorcovs in the canonical
+file; no replacement image may be inferred.
 
 Bound source digests (SHA-256) from the initial PR #33 seed:
 
