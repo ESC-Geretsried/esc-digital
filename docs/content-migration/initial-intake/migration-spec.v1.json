@@ -1,0 +1,2570 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-08-26",
+  "purpose": "content-migration intake only",
+  "implementation_ready": false,
+  "mutation_guards": {
+    "prod": "NONE",
+    "preview": "NONE",
+    "secrets": "NONE",
+    "provider": "NONE",
+    "content": "NONE",
+    "editor_records": "NONE",
+    "assets": "NONE",
+    "merge": "NO"
+  },
+  "repositories": {
+    "esc": {
+      "name": "ESC-Geretsried/esc-digital",
+      "base_branch": "main",
+      "base_sha": "942426e1a6a3a8bf6e35cd99ecf06feab668b420",
+      "reviewed_prs": [
+        33
+      ]
+    },
+    "orp": {
+      "name": "open-reference-platform/platform",
+      "base_branch": "main",
+      "base_sha": "74bf59dd92cd5c84bc8f8eea5ba7bcd6af9a7184",
+      "reviewed_prs": [
+        163,
+        164,
+        167,
+        168
+      ]
+    }
+  },
+  "delivery_package": {
+    "excel": "Return_ORP_ESC_Initialbefuellung_Referenzen_Lieferstand.xlsx",
+    "excel_sha256": "04139f5335de9ae1a454ff5678eb97d3cc3ef975dc1cb892982f8e7b0bd0713b",
+    "excel_sheets": 8,
+    "parsed": true,
+    "sponsor_docx": "Sponsoren Fotos und Link.docx",
+    "docx_sha256": "15da1c3d3522c322bf15a56c6857143515ed12bc4e0e8b4473602a3a5fe811ff",
+    "hyperlinks_extracted_from_relationships": true,
+    "image_occurrences": 48,
+    "unique_images": 47,
+    "unique_sponsors": 47
+  },
+  "status_classes": [
+    "FEHLT",
+    "NICHT MIGRIEREN",
+    "VERIFIZIERT",
+    "WIDERSPRUCH",
+    "ZU VERIFIZIEREN"
+  ],
+  "pages": [
+    {
+      "key": "homepage",
+      "name": "Homepage",
+      "path": "/",
+      "scope": "homepage",
+      "sources": [
+        "https://preview.esc-geretsried.de/",
+        "content/home/heroes.json",
+        "content/home/home.json"
+      ],
+      "texts": [
+        "Bestehende Preview-Komposition aus Hero, News und Terminen beibehalten"
+      ],
+      "images": [
+        "Rollierender Hero; Nachwuchsbild täglich; ausschließlich verifizierte Teamfotos; U11 nach Verifizierung aufnehmen"
+      ],
+      "downloads": [],
+      "sport": [
+        "Kein nächstes Spiel auf der Homepage"
+      ],
+      "news": "Nur neue redaktionelle News; keine historische Homepage-Newsmigration",
+      "social_video": [
+        "Nur verifizierte offizielle Social-URLs; keine beliebigen iframes/scripts"
+      ],
+      "migrate": [
+        "Bestehende Preview-Optik und Rotation als Zielreferenz"
+      ],
+      "exclude": [
+        "Nächstes Spiel",
+        "neue Homepage-Struktur"
+      ],
+      "missing": [],
+      "verify": [
+        "Preview vor Umsetzung visuell gegen aktuellen Stand prüfen"
+      ],
+      "status": "VERIFIZIERT"
+    },
+    {
+      "key": "river-rats",
+      "name": "River Rats",
+      "path": "/river-rats/",
+      "scope": "river-rats",
+      "sources": [
+        "https://orp-esc-int.netlify.app/river-rats/",
+        "https://preview.esc-geretsried.de/river-rats/",
+        "content/river-rats/team.json",
+        "content/river-rats/hockeydata.json",
+        "ESC PR #33"
+      ],
+      "texts": [
+        "Übersicht",
+        "Trainer/Betreuer/Kontakte/Kader aus Altbestand"
+      ],
+      "images": [
+        "Hero",
+        "Teamfoto"
+      ],
+      "downloads": [],
+      "sport": [
+        "HockeyData: nächstes Ligaspiel, Spielplan, Ergebnisse, Tabelle",
+        "Manuell: Vorbereitung, Freundschaft, Turniere"
+      ],
+      "news": "Historische News migrieren; Kandidaten einzeln in news.csv",
+      "social_video": [
+        "Instagram-Handle riverrats_geretsried erst als vollständige offizielle URL verwenden, wenn verifiziert"
+      ],
+      "migrate": [
+        "Kanonische Teamstruktur",
+        "historische News",
+        "geschützte Providerbindung unverändert referenzieren"
+      ],
+      "exclude": [
+        "Altes Layout",
+        "Provider/API/League Binding ändern",
+        "Homepage-Spielkarte"
+      ],
+      "missing": [],
+      "verify": [
+        "Founder-Wunsch zusätzlicher Eintrittspreise-Tab gegen kanonische Teamnavigation entscheiden"
+      ],
+      "status": "WIDERSPRUCH"
+    },
+    {
+      "key": "river-rats-eintrittspreise",
+      "name": "River Rats Eintrittspreise",
+      "path": "/river-rats/eintrittspreise/",
+      "scope": "river-rats",
+      "sources": [
+        "https://www.esc-geretsried.de/river-rats/eintrittspreise/"
+      ],
+      "texts": [
+        "Vorhandene Eintrittspreise als Quellinventar"
+      ],
+      "images": [],
+      "downloads": [],
+      "sport": [],
+      "news": "Keine historische Newsmigration",
+      "social_video": [],
+      "migrate": [
+        "Nur nach HQ-Entscheidung als Unterseite oder Aktion"
+      ],
+      "exclude": [
+        "Ohne Freigabe nicht als zusätzlicher Team-Tab einbauen"
+      ],
+      "missing": [],
+      "verify": [
+        "Zielposition und Aktualität der Preise"
+      ],
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "key": "river-rats-bestellung",
+      "name": "River Rats Saisonkarten-Bestellung",
+      "path": "/river-rats/bestellung/",
+      "scope": "river-rats",
+      "sources": [
+        "https://esc-geretsried.github.io/bestellung/"
+      ],
+      "texts": [
+        "Founder verlangt eine Preview-Seite mit funktionaler/inhaltlicher Entsprechung"
+      ],
+      "images": [],
+      "downloads": [],
+      "sport": [],
+      "news": "Keine historische Newsmigration",
+      "social_video": [],
+      "migrate": [
+        "Nur nach gesonderter Review als neue Seite spezifizieren/implementieren"
+      ],
+      "exclude": [
+        "Keine ungeprüfte Kopie von Scripts, Formularen oder externen Integrationen"
+      ],
+      "missing": [
+        "Formular-, Datenschutz-, Datenfluss- und technische Zielanforderungen fehlen"
+      ],
+      "verify": [
+        "Umfang und Datenschutz vor Implementierung"
+      ],
+      "status": "FEHLT"
+    },
+    {
+      "key": "damen",
+      "name": "Damen",
+      "path": "/damen/",
+      "scope": "damen",
+      "sources": [
+        "https://www.esc-geretsried.de/eishockey/damen/",
+        "imports/esc-int-pages/river-rats-damen/index.html"
+      ],
+      "texts": [
+        "Übersicht; Trainer/Betreuer/Kontakte/Kader aus altem Mannschafts-Tab"
+      ],
+      "images": [
+        "Founder-bestätigtes Damen-Teamfoto; kontrolliert kanonisch umbenennen"
+      ],
+      "downloads": [],
+      "sport": [
+        "Offizieller DEB/BEV-Portal-Link für Spielplan, Tabelle, Ergebnisse; optional manuell"
+      ],
+      "news": "Historische News ausdrücklich nicht migrieren",
+      "social_video": [
+        "Instagram-Handle esc_riverrats_damen erst nach URL-Verifizierung"
+      ],
+      "migrate": [
+        "Kanonische Teamstruktur und Bestandsinventar"
+      ],
+      "exclude": [
+        "Historische Damen-News",
+        "automatisch erfundene Tabelle"
+      ],
+      "missing": [],
+      "verify": [
+        "Kader-/Kontaktstand unmittelbar vor Umsetzung"
+      ],
+      "status": "VERIFIZIERT"
+    },
+    {
+      "key": "nachwuchs",
+      "name": "Nachwuchs",
+      "path": "/nachwuchs/",
+      "scope": "nachwuchs",
+      "sources": [
+        "Excel Referenzen!D6"
+      ],
+      "texts": [
+        "Founder-Text: Nachwuchs bündelt U20 bis U7; Eislaufschule bleibt eigener Bereich; alle Bezeichnungen verlinken"
+      ],
+      "images": [],
+      "downloads": [],
+      "sport": [],
+      "news": "Historische allgemeine Nachwuchs-News nicht migrieren",
+      "social_video": [
+        "Instagram-Handle riverrats_nachwuchs erst nach URL-Verifizierung"
+      ],
+      "migrate": [
+        "Übersichts- und Linktext"
+      ],
+      "exclude": [
+        "Historische Nachwuchs-News",
+        "Eislaufschule als Mannschaft behandeln"
+      ],
+      "missing": [],
+      "verify": [],
+      "status": "VERIFIZIERT",
+      "founder_text": "Der Nachwuchsbereich bündelt die Mannschaften U20 bis U7.\n\nMannschaften\nU20\nU17\nU15\nU13\nU11\nU9\nU7\n\nEinstieg ins Eislaufen\nDie Eislaufschule ist das Einstiegs- und Anfängerangebot des ESC. Sie ist keine Mannschaft und bleibt als eigener Bereich geführt."
+    },
+    {
+      "key": "u20",
+      "name": "U20",
+      "path": "/u20/",
+      "scope": "u20",
+      "sources": [
+        "https://www.esc-geretsried.de/eishockey/junioren-u20/",
+        "Excel Aufbau Teamseiten alte Website"
+      ],
+      "texts": [
+        "Übersicht; Trainer/Betreuer/Kontakte/Kader und sonstige relevante Bestandsinhalte"
+      ],
+      "images": [
+        "Hero",
+        "Teamfoto direkt nach Übersicht"
+      ],
+      "downloads": [],
+      "sport": [
+        "Offizieller DEB/BEV-Portal-Link für Spielplan, Tabelle, Ergebnisse; optional manuell"
+      ],
+      "news": "Historische News nicht migrieren",
+      "social_video": [],
+      "migrate": [
+        "Kanonische Teamstruktur",
+        "Bestandsinhalte in neue Struktur überführen"
+      ],
+      "exclude": [
+        "Altes Layout",
+        "automatisch erfundene Tabelle",
+        "Historische News"
+      ],
+      "missing": [],
+      "verify": [
+        "Trainer-/Betreuer-/Kaderstand vor Umsetzung",
+        "Live-Erreichbarkeit der Founder-Seite"
+      ],
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "key": "u17",
+      "name": "U17",
+      "path": "/u17/",
+      "scope": "u17",
+      "sources": [
+        "https://www.esc-geretsried.de/eishockey/jugend-u17/",
+        "Excel Aufbau Teamseiten alte Website"
+      ],
+      "texts": [
+        "Übersicht; Trainer/Betreuer/Kontakte/Kader und sonstige relevante Bestandsinhalte"
+      ],
+      "images": [
+        "Hero",
+        "Teamfoto direkt nach Übersicht"
+      ],
+      "downloads": [],
+      "sport": [
+        "Offizieller DEB/BEV-Portal-Link für Spielplan, Tabelle, Ergebnisse; optional manuell"
+      ],
+      "news": "Historische News nicht migrieren",
+      "social_video": [],
+      "migrate": [
+        "Kanonische Teamstruktur",
+        "Bestandsinhalte in neue Struktur überführen"
+      ],
+      "exclude": [
+        "Altes Layout",
+        "automatisch erfundene Tabelle",
+        "Historische News"
+      ],
+      "missing": [],
+      "verify": [
+        "Trainer-/Betreuer-/Kaderstand vor Umsetzung",
+        ""
+      ],
+      "status": "VERIFIZIERT"
+    },
+    {
+      "key": "u15",
+      "name": "U15",
+      "path": "/u15/",
+      "scope": "u15",
+      "sources": [
+        "https://www.esc-geretsried.de/eishockey/schueler-u15/",
+        "Excel Aufbau Teamseiten alte Website"
+      ],
+      "texts": [
+        "Übersicht; Trainer/Betreuer/Kontakte/Kader und sonstige relevante Bestandsinhalte"
+      ],
+      "images": [
+        "Hero",
+        "Teamfoto direkt nach Übersicht"
+      ],
+      "downloads": [],
+      "sport": [
+        "Offizieller DEB/BEV-Portal-Link für Spielplan, Tabelle, Ergebnisse; optional manuell"
+      ],
+      "news": "Historische News nicht migrieren",
+      "social_video": [],
+      "migrate": [
+        "Kanonische Teamstruktur",
+        "Bestandsinhalte in neue Struktur überführen"
+      ],
+      "exclude": [
+        "Altes Layout",
+        "automatisch erfundene Tabelle",
+        "Historische News"
+      ],
+      "missing": [],
+      "verify": [
+        "Trainer-/Betreuer-/Kaderstand vor Umsetzung",
+        ""
+      ],
+      "status": "VERIFIZIERT"
+    },
+    {
+      "key": "u13",
+      "name": "U13",
+      "path": "/u13/",
+      "scope": "u13",
+      "sources": [
+        "https://www.esc-geretsried.de/eishockey/knaben-u13/",
+        "Excel Aufbau Teamseiten alte Website"
+      ],
+      "texts": [
+        "Übersicht; Trainer/Betreuer/Kontakte/Kader und sonstige relevante Bestandsinhalte"
+      ],
+      "images": [
+        "Hero",
+        "Teamfoto direkt nach Übersicht"
+      ],
+      "downloads": [],
+      "sport": [
+        "Offizieller DEB/BEV-Portal-Link für Spielplan, Tabelle, Ergebnisse; optional manuell"
+      ],
+      "news": "Historische U13-News migrieren; Kandidaten einzeln inventarisiert",
+      "social_video": [],
+      "migrate": [
+        "Kanonische Teamstruktur",
+        "Bestandsinhalte in neue Struktur überführen"
+      ],
+      "exclude": [
+        "Altes Layout",
+        "automatisch erfundene Tabelle",
+        "nicht belegte News"
+      ],
+      "missing": [],
+      "verify": [
+        "Trainer-/Betreuer-/Kaderstand vor Umsetzung",
+        "Live-Erreichbarkeit der Founder-Seite"
+      ],
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "key": "u11",
+      "name": "U11",
+      "path": "/u11/",
+      "scope": "u11",
+      "sources": [
+        "https://www.esc-geretsried.de/eishockey/kleinschueler-u11/",
+        "Excel Aufbau Teamseiten alte Website"
+      ],
+      "texts": [
+        "Übersicht; Trainer/Betreuer/Kontakte/Kader und sonstige relevante Bestandsinhalte"
+      ],
+      "images": [
+        "Hero",
+        "Teamfoto direkt nach Übersicht"
+      ],
+      "downloads": [],
+      "sport": [
+        "Spielplan und Ergebnisse manuell; kein Liga-Provider; keine Tabelle"
+      ],
+      "news": "Historische News nicht migrieren",
+      "social_video": [],
+      "migrate": [
+        "Kanonische Teamstruktur",
+        "Bestandsinhalte in neue Struktur überführen"
+      ],
+      "exclude": [
+        "Altes Layout",
+        "Tabelle",
+        "Historische News"
+      ],
+      "missing": [],
+      "verify": [
+        "Trainer-/Betreuer-/Kaderstand vor Umsetzung",
+        ""
+      ],
+      "status": "VERIFIZIERT"
+    },
+    {
+      "key": "u9",
+      "name": "U9",
+      "path": "/u9/",
+      "scope": "u9",
+      "sources": [
+        "https://www.esc-geretsried.de/eishockey/kleinstschueler-u9/",
+        "Excel Aufbau Teamseiten alte Website"
+      ],
+      "texts": [
+        "Übersicht; Trainer/Betreuer/Kontakte/Kader und sonstige relevante Bestandsinhalte"
+      ],
+      "images": [
+        "Hero",
+        "Teamfoto direkt nach Übersicht"
+      ],
+      "downloads": [],
+      "sport": [
+        "Spielplan und Ergebnisse manuell; kein Liga-Provider; keine Tabelle"
+      ],
+      "news": "Historische News nicht migrieren",
+      "social_video": [],
+      "migrate": [
+        "Kanonische Teamstruktur",
+        "Bestandsinhalte in neue Struktur überführen"
+      ],
+      "exclude": [
+        "Altes Layout",
+        "Tabelle",
+        "Historische News"
+      ],
+      "missing": [],
+      "verify": [
+        "Trainer-/Betreuer-/Kaderstand vor Umsetzung",
+        ""
+      ],
+      "status": "VERIFIZIERT"
+    },
+    {
+      "key": "u7",
+      "name": "U7",
+      "path": "/u7/",
+      "scope": "u7",
+      "sources": [
+        "https://www.esc-geretsried.de/eishockey/bambini-u7/",
+        "Excel Aufbau Teamseiten alte Website"
+      ],
+      "texts": [
+        "Übersicht; Trainer/Betreuer/Kontakte/Kader und sonstige relevante Bestandsinhalte"
+      ],
+      "images": [
+        "Hero",
+        "Teamfoto direkt nach Übersicht"
+      ],
+      "downloads": [],
+      "sport": [
+        "Spielplan und Ergebnisse manuell; kein Liga-Provider; keine Tabelle"
+      ],
+      "news": "Historische News nicht migrieren",
+      "social_video": [],
+      "migrate": [
+        "Kanonische Teamstruktur",
+        "Bestandsinhalte in neue Struktur überführen"
+      ],
+      "exclude": [
+        "Altes Layout",
+        "Tabelle",
+        "Historische News"
+      ],
+      "missing": [],
+      "verify": [
+        "Trainer-/Betreuer-/Kaderstand vor Umsetzung",
+        ""
+      ],
+      "status": "VERIFIZIERT"
+    },
+    {
+      "key": "eislaufschule",
+      "name": "Eislaufschule",
+      "path": "/eislaufschule/",
+      "scope": "eislaufschule",
+      "sources": [
+        "https://www.esc-geretsried.de/eislaufschule/",
+        "imports/esc-int-pages/eislaufschule/index.html"
+      ],
+      "texts": [
+        "Abschnitt Die Eislaufschule; Kontakte; Trainingszeiten"
+      ],
+      "images": [
+        "Founder-Teamfoto"
+      ],
+      "downloads": [
+        "Eigene Downloads"
+      ],
+      "sport": [],
+      "news": "Historische News nicht migrieren",
+      "social_video": [],
+      "migrate": [
+        "Inhalt, Kontakte, Downloads"
+      ],
+      "exclude": [
+        "Historische News",
+        "als Mannschaft behandeln"
+      ],
+      "missing": [],
+      "verify": [
+        "Live-Quelle und zeitabhängige Kontakte/Trainingszeiten"
+      ],
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "key": "eiskunstlauf",
+      "name": "Eiskunstlauf",
+      "path": "/eiskunstlauf/",
+      "scope": "eiskunstlauf",
+      "sources": [
+        "https://www.esc-geretsried.de/eiskunstlauf/",
+        "imports/esc-int-pages/eiskunstlauf/index.html"
+      ],
+      "texts": [
+        "Abschnitt Wir sind; Kontakte; wichtige Hinweise"
+      ],
+      "images": [
+        "Founder-Teamfoto"
+      ],
+      "downloads": [
+        "Eigene Downloads"
+      ],
+      "sport": [],
+      "news": "Alle relevanten historischen Eiskunstlauf-News migrieren; Einzelinventar vor Implementierung vervollständigen",
+      "social_video": [
+        "Instagram-Handle esc_riverrats_eiskunstlauf erst nach URL-Verifizierung"
+      ],
+      "migrate": [
+        "Inhalte, Kontakte, Downloads, historische News"
+      ],
+      "exclude": [
+        "Unbelegte News"
+      ],
+      "missing": [
+        "Vollständige Einzel-News-Liste fehlt im Lieferpaket"
+      ],
+      "verify": [
+        "Historische News-Kandidaten vollständig enumerieren"
+      ],
+      "status": "FEHLT"
+    },
+    {
+      "key": "inklusion",
+      "name": "Inklusion",
+      "path": "/inklusion/",
+      "scope": "inklusion",
+      "sources": [
+        "https://preview.esc-geretsried.de/inklusion/"
+      ],
+      "texts": [
+        "Bestehende Preview-Inhalte"
+      ],
+      "images": [
+        "Founder-Bild_Inklusion.jpg"
+      ],
+      "downloads": [],
+      "sport": [],
+      "news": "Historische News nicht migrieren",
+      "social_video": [],
+      "migrate": [
+        "Preview-Inhalt und Bild"
+      ],
+      "exclude": [
+        "Historische News"
+      ],
+      "missing": [],
+      "verify": [
+        "Preview-Livequelle"
+      ],
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "key": "verein",
+      "name": "Verein",
+      "path": "/verein/",
+      "scope": "verein",
+      "sources": [
+        "Excel Aufbau NEUE Vereinsseite",
+        "https://www.esc-geretsried.de/verein/vereinsfuehrung/",
+        "https://de.wikipedia.org/wiki/Eishockey_in_Geretsried"
+      ],
+      "texts": [
+        "Verbindliche neue Vereinsstruktur: Über uns, Vereinsführung, Geschäftsstelle, Leitbild, Historie, Mitgliedsantrag, Downloads",
+        "Founder-Über-uns-Text"
+      ],
+      "images": [
+        "Leitbild nur als gelieferte Referenz"
+      ],
+      "downloads": [
+        "Leitbild",
+        "Satzung",
+        "Arbeitsstundennachweis",
+        "Bankverbindung",
+        "Mitglied werden",
+        "Geschäftsordnung",
+        "Beitragsordnung"
+      ],
+      "sport": [],
+      "news": "Historische Vereins-News nicht migrieren",
+      "social_video": [],
+      "migrate": [
+        "Vereinsstruktur und freigegebene Bestandsangaben"
+      ],
+      "exclude": [
+        "Historische Vereins-News",
+        "Markus Hätinen gemäß Founder-Vorgabe"
+      ],
+      "missing": [],
+      "verify": [
+        "Alle Rollen/Namen zeitnah; Wikipedia-Inhalte redaktionell prüfen"
+      ],
+      "status": "ZU VERIFIZIEREN",
+      "hero_copy": "ESC River Rats Geretsried\n\nVerein\nESC River Rats Geretsried e.V.",
+      "founder_text": "Eissport ist für uns mehr als Sport. Er verbindet Menschen.\nDie River Rats sind in Geretsried zu Hause. Als gemeinnütziger Verein fördern wir Eishockey, Eiskunstlauf und Inklusionssport – vom ersten Schritt auf dem Eis bis zum Leistungsbereich.\nKinder sollen bei uns mit Freude und ohne unnötigen Leistungsdruck das Eislaufen und den Sport im Team kennenlernen. Jugendliche unterstützen wir nicht nur in ihrer sportlichen Entwicklung: Fairness, gegenseitige Unterstützung, Charakter und die Bereitschaft, Verantwortung zu übernehmen, gehören für uns genauso dazu.\nAuch Erwachsene finden bei uns ihren Platz – vom Hobby- bis zum Leistungssport. Unser Verein soll Menschen über Alters-, Berufs- und soziale Gruppen hinweg zusammenbringen und ihnen eine sportliche Heimat bieten.\nDabei tragen wir Verantwortung über den Sport hinaus. Fairness, Solidarität und Gerechtigkeit bestimmen unser Miteinander. Rassismus, Diskriminierung, sexueller Missbrauch und Gewalt haben bei uns keinen Platz.\nWir wirtschaften solide und nachhaltig. Sportlichen Erfolg wollen wir nicht kurzfristig erkaufen, sondern unseren Verein und seine Angebote langfristig entwickeln. Dazu gehört für uns auch der Einsatz für gute Sportstätten und eine verlässliche Zusammenarbeit mit unseren Partnern.\nAls River Rats sind wir eng mit Geretsried und unserer Region Oberbayern verbunden. Wir wollen dazu beitragen, dass Geretsried eine lebendige Sportstadt bleibt – und ein Verein sein, in dem Menschen gerne zusammenkommen, gemeinsam Sport treiben und füreinander einstehen.",
+      "member_admin_source": "Excel Aufbau NEUE Vereinsseite!A23:B23 (URL contains a Founder-supplied tenant parameter; value intentionally not duplicated in this intake)"
+    },
+    {
+      "key": "geschaeftsstelle",
+      "name": "Geschäftsstelle",
+      "path": "/verein/geschaeftsstelle/",
+      "scope": "verein",
+      "sources": [
+        "Excel Referenzen!A20:F20",
+        "imports/esc-int-pages/verein/index.html"
+      ],
+      "texts": [
+        "Wir sind für Sie da; Founder-gelieferte Geschäftsstellenangaben"
+      ],
+      "images": [],
+      "downloads": [],
+      "sport": [],
+      "news": "Historische News nicht migrieren",
+      "social_video": [],
+      "migrate": [
+        "Geschäftsstelleninhalt im Verein-Scope"
+      ],
+      "exclude": [
+        "Historische News"
+      ],
+      "missing": [],
+      "verify": [
+        "Person, Kontakt, Öffnungszeiten vor Go-Live"
+      ],
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "key": "foerderverein",
+      "name": "Förderverein",
+      "path": "/foerderverein/",
+      "scope": "foerderverein",
+      "sources": [
+        "https://www.esc-geretsried.de/verein/foerderverein/",
+        "content/verein/foerderverein/_index.md"
+      ],
+      "texts": [
+        "Text, Kontakt, Vorstand, Aufgaben"
+      ],
+      "images": [],
+      "downloads": [
+        "Aufnahmeantrag",
+        "Satzung"
+      ],
+      "sport": [],
+      "news": "Historische News nicht migrieren",
+      "social_video": [],
+      "migrate": [
+        "Eigene Hauptseite und eigener Editor-Scope"
+      ],
+      "exclude": [
+        "Unterseite von Verein",
+        "Historische News"
+      ],
+      "missing": [],
+      "verify": [
+        "Personen/Kontakte/Downloads vor Go-Live; aktuellen Git-Pfad später kontrolliert ablösen"
+      ],
+      "status": "WIDERSPRUCH"
+    },
+    {
+      "key": "sponsoren",
+      "name": "Sponsoren",
+      "path": "/sponsoren/",
+      "scope": "sponsoren",
+      "sources": [
+        "https://preview.esc-geretsried.de/sponsoren/",
+        "https://www.esc-geretsried.de/sponsoring/",
+        "Sponsoren Fotos und Link.docx"
+      ],
+      "texts": [
+        "Sponsoring-Bestandstext nach Kontaktprüfung"
+      ],
+      "images": [
+        "47 eindeutige Founder-Logos; keine Ersetzung/Verbesserung"
+      ],
+      "downloads": [],
+      "sport": [],
+      "news": "Historische News nicht migrieren",
+      "social_video": [],
+      "migrate": [
+        "Eigener Marketing-/Sponsoring-Scope; Sponsoren einzeln aus sponsors.csv"
+      ],
+      "exclude": [
+        "Historische News",
+        "geratene URLs",
+        "Logo-Austausch"
+      ],
+      "missing": [],
+      "verify": [
+        "Josef-Mayr-Link; öffentliche Kontaktperson; mehrere nicht live bestätigte Links"
+      ],
+      "status": "WIDERSPRUCH"
+    },
+    {
+      "key": "impressum",
+      "name": "Impressum",
+      "path": "/impressum/",
+      "scope": "legal",
+      "sources": [
+        "https://www.esc-geretsried.de/impressum/",
+        "imports/esc-int-pages/impressum/index.html"
+      ],
+      "texts": [
+        "Anbieter, Anschrift, Register, Vertretung, Kontakte, redaktionelle/technische Credits ausschließlich aus der Founder-Quelle"
+      ],
+      "images": [],
+      "downloads": [],
+      "sport": [],
+      "news": "Keine News",
+      "social_video": [],
+      "migrate": [
+        "Go-Live-Pflichtseite"
+      ],
+      "exclude": [
+        "Juristische Angaben erfinden"
+      ],
+      "missing": [],
+      "verify": [
+        "Alle personen-/zeitabhängigen und rechtlichen Angaben unmittelbar vor Go-Live"
+      ],
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "key": "datenschutz",
+      "name": "Datenschutz",
+      "path": "/datenschutz/",
+      "scope": "legal",
+      "sources": [
+        "https://www.esc-geretsried.de/datenschutzerklaerung/",
+        "imports/esc-int-pages/datenschutz/index.html"
+      ],
+      "texts": [
+        "Bestehender Text nur als Migrations-/Referenzbasis; Kategorien A-I in legal.csv"
+      ],
+      "images": [],
+      "downloads": [],
+      "sport": [],
+      "news": "Keine News",
+      "social_video": [],
+      "migrate": [
+        "Go-Live-Pflichtseite nach technisch-fachlicher und rechtlicher Freigabe"
+      ],
+      "exclude": [
+        "Unverändert als gültigen Zieltext annehmen",
+        "Rechtsberatung erfinden"
+      ],
+      "missing": [
+        "Zielsystem-Datenflüsse, Hosting, Cookies, Tracking, Social/Video, Formulare/externe Dienste und Rechtsfreigabe"
+      ],
+      "verify": [
+        "Jeden technisch abhängigen Abschnitt gegen Zielbetrieb prüfen"
+      ],
+      "status": "ZU VERIFIZIEREN"
+    }
+  ],
+  "teams": [
+    {
+      "team_key": "river-rats",
+      "display_name": "River Rats",
+      "source": "content/river-rats/team.json; ESC PR #33",
+      "source_semantics": "MIGRATIONSINVENTAR; kein Layoutvertrag",
+      "target_sections": [
+        "Hero",
+        "ÜBERSICHT",
+        "TEAMFOTO",
+        "MANNSCHAFT / KADER",
+        "NEWS",
+        "SPIELPLAN",
+        "TABELLE",
+        "ERGEBNISSE"
+      ],
+      "team_photo_position": "direkt nach ÜBERSICHT",
+      "table_allowed": true,
+      "inventory_to_carry": [
+        "Trainer",
+        "Betreuer",
+        "Kontakte",
+        "Kader",
+        "sonstige relevante vorhandene Inhalte"
+      ],
+      "historical_news": "MIGRIEREN",
+      "sport_data_mode": "HockeyData plus manuelle Zusatztermine",
+      "status": "WIDERSPRUCH",
+      "notes": "Zusatz-Tab-Wunsch offen; kanonische Struktur nicht stillschweigend erweitern."
+    },
+    {
+      "team_key": "damen",
+      "display_name": "Damen",
+      "source": "https://www.esc-geretsried.de/eishockey/damen/",
+      "source_semantics": "MIGRATIONSINVENTAR; kein Layoutvertrag",
+      "target_sections": [
+        "Hero",
+        "ÜBERSICHT",
+        "TEAMFOTO",
+        "MANNSCHAFT / KADER",
+        "NEWS",
+        "SPIELPLAN",
+        "TABELLE",
+        "ERGEBNISSE"
+      ],
+      "team_photo_position": "direkt nach ÜBERSICHT",
+      "table_allowed": true,
+      "inventory_to_carry": [
+        "Trainer",
+        "Betreuer",
+        "Kontakte",
+        "Kader",
+        "sonstige relevante vorhandene Inhalte"
+      ],
+      "historical_news": "NICHT MIGRIEREN",
+      "sport_data_mode": "offizielle externe Links oder manuell",
+      "status": "VERIFIZIERT",
+      "notes": "Keine automatische Tabelle erfinden."
+    },
+    {
+      "team_key": "u20",
+      "display_name": "U20",
+      "source": "https://www.esc-geretsried.de/eishockey/junioren-u20/",
+      "source_semantics": "MIGRATIONSINVENTAR; kein Layoutvertrag",
+      "target_sections": [
+        "Hero",
+        "ÜBERSICHT",
+        "TEAMFOTO",
+        "MANNSCHAFT / KADER",
+        "NEWS",
+        "SPIELPLAN",
+        "TABELLE",
+        "ERGEBNISSE"
+      ],
+      "team_photo_position": "direkt nach ÜBERSICHT",
+      "table_allowed": true,
+      "inventory_to_carry": [
+        "Trainer",
+        "Betreuer",
+        "Kontakte",
+        "Kader",
+        "sonstige relevante vorhandene Inhalte"
+      ],
+      "historical_news": "NICHT MIGRIEREN",
+      "sport_data_mode": "offizielle externe Links oder manuell",
+      "status": "VERIFIZIERT",
+      "notes": "Keine automatische Tabelle erfinden."
+    },
+    {
+      "team_key": "u17",
+      "display_name": "U17",
+      "source": "https://www.esc-geretsried.de/eishockey/jugend-u17/",
+      "source_semantics": "MIGRATIONSINVENTAR; kein Layoutvertrag",
+      "target_sections": [
+        "Hero",
+        "ÜBERSICHT",
+        "TEAMFOTO",
+        "MANNSCHAFT / KADER",
+        "NEWS",
+        "SPIELPLAN",
+        "TABELLE",
+        "ERGEBNISSE"
+      ],
+      "team_photo_position": "direkt nach ÜBERSICHT",
+      "table_allowed": true,
+      "inventory_to_carry": [
+        "Trainer",
+        "Betreuer",
+        "Kontakte",
+        "Kader",
+        "sonstige relevante vorhandene Inhalte"
+      ],
+      "historical_news": "NICHT MIGRIEREN",
+      "sport_data_mode": "offizielle externe Links oder manuell",
+      "status": "VERIFIZIERT",
+      "notes": "Keine automatische Tabelle erfinden."
+    },
+    {
+      "team_key": "u15",
+      "display_name": "U15",
+      "source": "https://www.esc-geretsried.de/eishockey/schueler-u15/",
+      "source_semantics": "MIGRATIONSINVENTAR; kein Layoutvertrag",
+      "target_sections": [
+        "Hero",
+        "ÜBERSICHT",
+        "TEAMFOTO",
+        "MANNSCHAFT / KADER",
+        "NEWS",
+        "SPIELPLAN",
+        "TABELLE",
+        "ERGEBNISSE"
+      ],
+      "team_photo_position": "direkt nach ÜBERSICHT",
+      "table_allowed": true,
+      "inventory_to_carry": [
+        "Trainer",
+        "Betreuer",
+        "Kontakte",
+        "Kader",
+        "sonstige relevante vorhandene Inhalte"
+      ],
+      "historical_news": "NICHT MIGRIEREN",
+      "sport_data_mode": "offizielle externe Links oder manuell",
+      "status": "VERIFIZIERT",
+      "notes": "Keine automatische Tabelle erfinden."
+    },
+    {
+      "team_key": "u13",
+      "display_name": "U13",
+      "source": "https://www.esc-geretsried.de/eishockey/knaben-u13/",
+      "source_semantics": "MIGRATIONSINVENTAR; kein Layoutvertrag",
+      "target_sections": [
+        "Hero",
+        "ÜBERSICHT",
+        "TEAMFOTO",
+        "MANNSCHAFT / KADER",
+        "NEWS",
+        "SPIELPLAN",
+        "TABELLE",
+        "ERGEBNISSE"
+      ],
+      "team_photo_position": "direkt nach ÜBERSICHT",
+      "table_allowed": true,
+      "inventory_to_carry": [
+        "Trainer",
+        "Betreuer",
+        "Kontakte",
+        "Kader",
+        "sonstige relevante vorhandene Inhalte"
+      ],
+      "historical_news": "MIGRIEREN",
+      "sport_data_mode": "offizielle externe Links oder manuell",
+      "status": "VERIFIZIERT",
+      "notes": "Keine automatische Tabelle erfinden."
+    },
+    {
+      "team_key": "u11",
+      "display_name": "U11",
+      "source": "https://www.esc-geretsried.de/eishockey/kleinschueler-u11/",
+      "source_semantics": "MIGRATIONSINVENTAR; kein Layoutvertrag",
+      "target_sections": [
+        "Hero",
+        "ÜBERSICHT",
+        "TEAMFOTO",
+        "MANNSCHAFT / KADER",
+        "NEWS",
+        "SPIELPLAN",
+        "ERGEBNISSE"
+      ],
+      "team_photo_position": "direkt nach ÜBERSICHT",
+      "table_allowed": false,
+      "inventory_to_carry": [
+        "Trainer",
+        "Betreuer",
+        "Kontakte",
+        "Kader",
+        "sonstige relevante vorhandene Inhalte"
+      ],
+      "historical_news": "NICHT MIGRIEREN",
+      "sport_data_mode": "manuell; kein Provider",
+      "status": "VERIFIZIERT",
+      "notes": "Keine Tabelle."
+    },
+    {
+      "team_key": "u9",
+      "display_name": "U9",
+      "source": "https://www.esc-geretsried.de/eishockey/kleinstschueler-u9/",
+      "source_semantics": "MIGRATIONSINVENTAR; kein Layoutvertrag",
+      "target_sections": [
+        "Hero",
+        "ÜBERSICHT",
+        "TEAMFOTO",
+        "MANNSCHAFT / KADER",
+        "NEWS",
+        "SPIELPLAN",
+        "ERGEBNISSE"
+      ],
+      "team_photo_position": "direkt nach ÜBERSICHT",
+      "table_allowed": false,
+      "inventory_to_carry": [
+        "Trainer",
+        "Betreuer",
+        "Kontakte",
+        "Kader",
+        "sonstige relevante vorhandene Inhalte"
+      ],
+      "historical_news": "NICHT MIGRIEREN",
+      "sport_data_mode": "manuell; kein Provider",
+      "status": "VERIFIZIERT",
+      "notes": "Keine Tabelle."
+    },
+    {
+      "team_key": "u7",
+      "display_name": "U7",
+      "source": "https://www.esc-geretsried.de/eishockey/bambini-u7/",
+      "source_semantics": "MIGRATIONSINVENTAR; kein Layoutvertrag",
+      "target_sections": [
+        "Hero",
+        "ÜBERSICHT",
+        "TEAMFOTO",
+        "MANNSCHAFT / KADER",
+        "NEWS",
+        "SPIELPLAN",
+        "ERGEBNISSE"
+      ],
+      "team_photo_position": "direkt nach ÜBERSICHT",
+      "table_allowed": false,
+      "inventory_to_carry": [
+        "Trainer",
+        "Betreuer",
+        "Kontakte",
+        "Kader",
+        "sonstige relevante vorhandene Inhalte"
+      ],
+      "historical_news": "NICHT MIGRIEREN",
+      "sport_data_mode": "manuell; kein Provider",
+      "status": "VERIFIZIERT",
+      "notes": "Keine Tabelle."
+    }
+  ],
+  "sport_data": [
+    {
+      "team_key": "river-rats",
+      "provider_class": "HockeyData",
+      "schedule_source": "HockeyData",
+      "table_source": "HockeyData",
+      "results_source": "HockeyData",
+      "next_league_game_source": "HockeyData",
+      "manual_extras": true,
+      "provider_required": true,
+      "binding_protected": true,
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Einzige aktuelle HockeyData/GamePitch-Mannschaft; Vorbereitung/Freundschaft/Turniere manuell trennen."
+    },
+    {
+      "team_key": "damen",
+      "provider_class": "official-external-or-manual",
+      "schedule_source": "https://deb-online.live/liga/lev/bev/frauen/",
+      "table_source": "https://deb-online.live/liga/lev/bev/frauen/",
+      "results_source": "https://deb-online.live/liga/lev/bev/frauen/",
+      "next_league_game_source": "",
+      "manual_extras": true,
+      "provider_required": false,
+      "binding_protected": false,
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Gemeinsamer offizieller Portal-Link zulässig; leerer Link darf manuelle Pflege bedeuten; keine automatische Tabelle."
+    },
+    {
+      "team_key": "u20",
+      "provider_class": "official-external-or-manual",
+      "schedule_source": "https://deb-online.live/liga/lev/bev/u20/",
+      "table_source": "https://deb-online.live/liga/lev/bev/u20/",
+      "results_source": "https://deb-online.live/liga/lev/bev/u20/",
+      "next_league_game_source": "",
+      "manual_extras": true,
+      "provider_required": false,
+      "binding_protected": false,
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Gemeinsamer offizieller Portal-Link zulässig; leerer Link darf manuelle Pflege bedeuten; keine automatische Tabelle."
+    },
+    {
+      "team_key": "u17",
+      "provider_class": "official-external-or-manual",
+      "schedule_source": "https://deb-online.live/liga/lev/bev/u17/",
+      "table_source": "https://deb-online.live/liga/lev/bev/u17/",
+      "results_source": "https://deb-online.live/liga/lev/bev/u17/",
+      "next_league_game_source": "",
+      "manual_extras": true,
+      "provider_required": false,
+      "binding_protected": false,
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Gemeinsamer offizieller Portal-Link zulässig; leerer Link darf manuelle Pflege bedeuten; keine automatische Tabelle."
+    },
+    {
+      "team_key": "u15",
+      "provider_class": "official-external-or-manual",
+      "schedule_source": "https://deb-online.live/liga/lev/bev/u15/",
+      "table_source": "https://deb-online.live/liga/lev/bev/u15/",
+      "results_source": "https://deb-online.live/liga/lev/bev/u15/",
+      "next_league_game_source": "",
+      "manual_extras": true,
+      "provider_required": false,
+      "binding_protected": false,
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Gemeinsamer offizieller Portal-Link zulässig; leerer Link darf manuelle Pflege bedeuten; keine automatische Tabelle."
+    },
+    {
+      "team_key": "u13",
+      "provider_class": "official-external-or-manual",
+      "schedule_source": "https://deb-online.live/liga/lev/bev/u13/",
+      "table_source": "https://deb-online.live/liga/lev/bev/u13/",
+      "results_source": "https://deb-online.live/liga/lev/bev/u13/",
+      "next_league_game_source": "",
+      "manual_extras": true,
+      "provider_required": false,
+      "binding_protected": false,
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Gemeinsamer offizieller Portal-Link zulässig; leerer Link darf manuelle Pflege bedeuten; keine automatische Tabelle."
+    },
+    {
+      "team_key": "u11",
+      "provider_class": "manual",
+      "schedule_source": "manual",
+      "table_source": "NICHT VORHANDEN",
+      "results_source": "manual",
+      "next_league_game_source": "",
+      "manual_extras": true,
+      "provider_required": false,
+      "binding_protected": false,
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Kein Liga-Provider; keine Tabelle; Spiele/Turniere/Ergebnisse manuell."
+    },
+    {
+      "team_key": "u9",
+      "provider_class": "manual",
+      "schedule_source": "manual",
+      "table_source": "NICHT VORHANDEN",
+      "results_source": "manual",
+      "next_league_game_source": "",
+      "manual_extras": true,
+      "provider_required": false,
+      "binding_protected": false,
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Kein Liga-Provider; keine Tabelle; Spiele/Turniere/Ergebnisse manuell."
+    },
+    {
+      "team_key": "u7",
+      "provider_class": "manual",
+      "schedule_source": "manual",
+      "table_source": "NICHT VORHANDEN",
+      "results_source": "manual",
+      "next_league_game_source": "",
+      "manual_extras": true,
+      "provider_required": false,
+      "binding_protected": false,
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Kein Liga-Provider; keine Tabelle; Spiele/Turniere/Ergebnisse manuell."
+    }
+  ],
+  "media_downloads": [
+    {
+      "media_key": "homepage-hero-rotation",
+      "area": "Homepage",
+      "kind": "hero-rotation",
+      "source": "content/home/heroes.json",
+      "canonical_name": "existing rotation",
+      "provenance": "ESC main + Founder Excel",
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Optik erhalten; tägliches Nachwuchsbild; kein nächstes Spiel."
+    },
+    {
+      "media_key": "river-rats-teamfoto",
+      "area": "River Rats",
+      "kind": "team-photo",
+      "source": "ESC PR #33 / current assets",
+      "canonical_name": "",
+      "provenance": "Git candidate; Founder sheet has no exact URL",
+      "verified": false,
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Eindeutige Teamfoto-Zuordnung vor Umsetzung erforderlich."
+    },
+    {
+      "media_key": "damen-teamfoto",
+      "area": "Damen",
+      "kind": "team-photo-or-hero",
+      "source": "https://www.esc-geretsried.de/static/175140edcd3d858ee584e34bb99491d8/14b42/ESC-Geretsried-RiverRats-Teamfoto-2025-2026-Print.jpg",
+      "canonical_name": "esc-geretsried-damen-teamfoto-2025-2026.jpg",
+      "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Founder ausdrücklich als korrekt bestätigt; irreführender Dateiname; rename planned."
+    },
+    {
+      "media_key": "u20-teamfoto",
+      "area": "U20",
+      "kind": "team-photo-or-hero",
+      "source": "https://www.esc-geretsried.de/static/443a6fd0826882768e809773fdc3e515/14b42/Geretsried_25-262.jpg",
+      "canonical_name": "Geretsried_25-262.jpg",
+      "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
+    },
+    {
+      "media_key": "u17-teamfoto",
+      "area": "U17",
+      "kind": "team-photo-or-hero",
+      "source": "https://www.esc-geretsried.de/static/02228555ac3f480223d31b13b0548b6d/14b42/Geretsried_25-263.jpg",
+      "canonical_name": "Geretsried_25-263.jpg",
+      "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
+    },
+    {
+      "media_key": "u15-teamfoto",
+      "area": "U15",
+      "kind": "team-photo-or-hero",
+      "source": "https://www.esc-geretsried.de/static/a36a25d6d4e91a476022b0b540499d58/14b42/Geretsried_25-264.jpg",
+      "canonical_name": "Geretsried_25-264.jpg",
+      "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
+    },
+    {
+      "media_key": "u13-teamfoto",
+      "area": "U13",
+      "kind": "team-photo-or-hero",
+      "source": "https://www.esc-geretsried.de/static/c33108d38f0aa860ea9c06f362fdfa06/14b42/Geretsried_25-265.jpg",
+      "canonical_name": "Geretsried_25-265.jpg",
+      "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
+    },
+    {
+      "media_key": "u11-teamfoto",
+      "area": "U11",
+      "kind": "team-photo-or-hero",
+      "source": "https://www.esc-geretsried.de/static/4e7ec68ae5aca4fdd6ed26d26115c74d/14b42/Geretsried_25-266.jpg",
+      "canonical_name": "Geretsried_25-266.jpg",
+      "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Aktualisierte Excel und alte U11-Seite ordnen Geretsried_25-266 eindeutig U11 zu; für Homepage-Rotation freigegeben."
+    },
+    {
+      "media_key": "u9-teamfoto",
+      "area": "U9",
+      "kind": "team-photo-or-hero",
+      "source": "https://www.esc-geretsried.de/static/acd60fcced000defb7f0d8b4ee856ea5/14b42/u9-neu.jpg",
+      "canonical_name": "u9-neu.jpg",
+      "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
+    },
+    {
+      "media_key": "u7-teamfoto",
+      "area": "U7",
+      "kind": "team-photo-or-hero",
+      "source": "https://www.esc-geretsried.de/static/866b8ed673c85f30c9079ba86e6ce941/14b42/U7-neu.jpg",
+      "canonical_name": "U7-neu.jpg",
+      "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
+    },
+    {
+      "media_key": "eislaufschule-teamfoto",
+      "area": "Eislaufschule",
+      "kind": "team-photo-or-hero",
+      "source": "https://www.esc-geretsried.de/static/99dcab9d6a71e812272247d94e111422/ee604/Teamfoto.1.png",
+      "canonical_name": "Teamfoto.1.png",
+      "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
+    },
+    {
+      "media_key": "eiskunstlauf-teamfoto",
+      "area": "Eiskunstlauf",
+      "kind": "team-photo-or-hero",
+      "source": "https://www.esc-geretsried.de/static/69471a42e16b7a03d1190d51a413fcb0/14b42/Geretsried_25-269.jpg",
+      "canonical_name": "Geretsried_25-269.jpg",
+      "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
+    },
+    {
+      "media_key": "inklusion-teamfoto",
+      "area": "Inklusion",
+      "kind": "team-photo-or-hero",
+      "source": "https://www.esc-geretsried.de/static/c70b582919bfe856caeb07e44f322581/5fd6b/Bild_Inklusion.jpg",
+      "canonical_name": "Bild_Inklusion.jpg",
+      "provenance": "Founder Excel Medien_Downloads; Bildinhalt unverändert",
+      "verified": true,
+      "status": "VERIFIZIERT",
+      "notes": "Founder-Referenz mit Bereichszuordnung; vor Assetablage Hash/Metadaten erfassen."
+    },
+    {
+      "media_key": "eislaufschule-downloads",
+      "area": "Eislaufschule",
+      "kind": "download",
+      "source": "alte Bereichsseite",
+      "canonical_name": "eigene Downloads",
+      "provenance": "Founder-Referenz; BinaryAssetProvider-Regeln beachten",
+      "verified": false,
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Datei, Aktualität, Rechte und Zielmetadaten vor Implementierung prüfen; kein Binary in diesem PR."
+    },
+    {
+      "media_key": "eiskunstlauf-downloads",
+      "area": "Eiskunstlauf",
+      "kind": "download",
+      "source": "alte Bereichsseite",
+      "canonical_name": "eigene Downloads",
+      "provenance": "Founder-Referenz; BinaryAssetProvider-Regeln beachten",
+      "verified": false,
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Datei, Aktualität, Rechte und Zielmetadaten vor Implementierung prüfen; kein Binary in diesem PR."
+    },
+    {
+      "media_key": "foerderverein-aufnahmeantrag",
+      "area": "Förderverein",
+      "kind": "download",
+      "source": "alte Förderverein-Seite",
+      "canonical_name": "Aufnahmeantrag",
+      "provenance": "Founder-Referenz; BinaryAssetProvider-Regeln beachten",
+      "verified": false,
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Datei, Aktualität, Rechte und Zielmetadaten vor Implementierung prüfen; kein Binary in diesem PR."
+    },
+    {
+      "media_key": "foerderverein-satzung",
+      "area": "Förderverein",
+      "kind": "download",
+      "source": "alte Förderverein-Seite",
+      "canonical_name": "Satzung",
+      "provenance": "Founder-Referenz; BinaryAssetProvider-Regeln beachten",
+      "verified": false,
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Datei, Aktualität, Rechte und Zielmetadaten vor Implementierung prüfen; kein Binary in diesem PR."
+    },
+    {
+      "media_key": "verein-downloadpaket",
+      "area": "Verein",
+      "kind": "download",
+      "source": "Excel Aufbau NEUE Vereinsseite",
+      "canonical_name": "Leitbild; Satzung; Arbeitsstundennachweis; Bankverbindung; Mitglied werden; Geschäftsordnung; Beitragsordnung",
+      "provenance": "Founder-Referenz; BinaryAssetProvider-Regeln beachten",
+      "verified": false,
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Datei, Aktualität, Rechte und Zielmetadaten vor Implementierung prüfen; kein Binary in diesem PR."
+    }
+  ],
+  "sponsors": [
+    {
+      "sponsor_key": "edeka-heininger",
+      "display_name": "Edeka Heininger",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-2",
+      "source_image": "word/media/image1.jpeg",
+      "source_image_sha256": "2749ffeb6f5739b8c8976bbf8700522af08cb372e70bd7bd606f08b351179f95",
+      "source_link": "https://www.edeka-heininger-dietz.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "ehgartner-entsorgung",
+      "display_name": "Ehgartner Entsorgung",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-6",
+      "source_image": "word/media/image2.jpeg",
+      "source_image_sha256": "793d912ae96601387ce9841d45d2915935afc5e31f8cc6873da1c29845b66057",
+      "source_link": "https://www.ehgartner.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "energie-suedbayern-gmbh",
+      "display_name": "Energie Südbayern GmbH",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-10",
+      "source_image": "word/media/image3.png",
+      "source_image_sha256": "a0617b2f3c1c3b10775c8456504129522b72bef58bfa8ff212130e69e3fb6ca4",
+      "source_link": "https://www.esb.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "sparkasse",
+      "display_name": "Sparkasse",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-14",
+      "source_image": "word/media/image4.jpeg",
+      "source_image_sha256": "ffc7ddd1d4d5205488af5189f4c1646d83a033c47334a3e90c29cf4021b169fc",
+      "source_link": "https://www.spktw.de/",
+      "link_verified": false,
+      "logo_verified": true,
+      "notes": "Destination could not be independently confirmed during intake.",
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "sponsor_key": "ipe-d-a-ch",
+      "display_name": "IPE D.A.CH",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-18",
+      "source_image": "word/media/image5.jpeg",
+      "source_image_sha256": "2a016739e53c68773ade4a563785326ca549194325e53dc6e27b0350aa8d2706",
+      "source_link": "https://www.institutional-investment.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "elektro-friedl-gmbh",
+      "display_name": "Elektro Friedl GmbH",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-22",
+      "source_image": "word/media/image6.jpeg",
+      "source_image_sha256": "ab656e454d01f57ecb03e1a70975c0c42bc305fd7f63403982605ee17c08eafe",
+      "source_link": "https://www.ep.de/friedl",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "agrobs",
+      "display_name": "Agrobs",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-26",
+      "source_image": "word/media/image7.jpeg",
+      "source_image_sha256": "070ea096deba1e5768fe72bc89d611d7bea3151c8e3089e95e6f7ceedff81ccb",
+      "source_link": "https://agrobs.de/",
+      "link_verified": false,
+      "logo_verified": true,
+      "notes": "Destination could not be independently confirmed during intake.",
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "sponsor_key": "bartsch-immobilien-gmbh",
+      "display_name": "Bartsch Immobilien GmbH",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-30",
+      "source_image": "word/media/image8.jpeg",
+      "source_image_sha256": "0548588a41f91f7db9e8f70735cc2b29b9ae425f997540ee3155fdf98088c50f",
+      "source_link": "https://www.bartsch-immo.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "pana",
+      "display_name": "Pana",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-34",
+      "source_image": "word/media/image9.jpeg",
+      "source_image_sha256": "8a97da084fd6c9dec272adbca0e720633fa044ec159528b86d08b2ff13010719",
+      "source_link": "https://panafoamtec.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked. Same embedded image/link occurs again at DOCX paragraph 168; deduplicated to one sponsor row.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "planisware-deutschland-gmbh",
+      "display_name": "Planisware Deutschland GmbH",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-38",
+      "source_image": "word/media/image10.png",
+      "source_image_sha256": "bfac84420368a7b7051212e352ba162cd348504861ff6ce14237f163c629f9ca",
+      "source_link": "https://planisware.com/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "autohaus-jorde",
+      "display_name": "Autohaus Jorde",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-42",
+      "source_image": "word/media/image11.jpeg",
+      "source_image_sha256": "bdb6d970fec95274b90e89e9381265e28c719c92d2150aef2142f397646cad4c",
+      "source_link": "https://www.autohaus-jorde.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "kraemmel",
+      "display_name": "Krämmel",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-46",
+      "source_image": "word/media/image12.jpeg",
+      "source_image_sha256": "acc5d32dfa4a77db85759e7c5c4d9bdf17757ac8df36951ed5adba580b91dc23",
+      "source_link": "https://www.kraemmel.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "lhs",
+      "display_name": "LHS",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-50",
+      "source_image": "word/media/image13.jpeg",
+      "source_image_sha256": "f12a488295760be79fc1151605ce32aaa0d461ba29251d6253f28a01ae9b7d13",
+      "source_link": "https://www.loisachtaler-haustechnik.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "bronberger-kessler",
+      "display_name": "Bronberger & Kessler",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-54",
+      "source_image": "word/media/image14.jpeg",
+      "source_image_sha256": "f289f0a5287a2fcb7c4e4523fc22f4c073f2ddbc28d985f0d0efc78a86211234",
+      "source_link": "https://www.energiedirect-bayern.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "l-r-automobile",
+      "display_name": "L & R Automobile",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-58",
+      "source_image": "word/media/image15.jpeg",
+      "source_image_sha256": "816fbc19f5867c00add55d495efffb0f76ede019b8803479bba6bda3dac33c07",
+      "source_link": "https://lrauto.de/",
+      "link_verified": false,
+      "logo_verified": true,
+      "notes": "Destination could not be independently confirmed during intake.",
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "sponsor_key": "lvm-versicherung",
+      "display_name": "LVM Versicherung",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-62",
+      "source_image": "word/media/image16.jpeg",
+      "source_image_sha256": "4230cd3c4e583fdd9ed0004ffa21b5ae9e797ab358293c3826ff55038ce35105",
+      "source_link": "https://polz.lvm.de/",
+      "link_verified": false,
+      "logo_verified": true,
+      "notes": "Destination could not be independently confirmed during intake.",
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "sponsor_key": "hockey-sports-ott",
+      "display_name": "Hockey Sports Ott",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-66",
+      "source_image": "word/media/image17.jpeg",
+      "source_image_sha256": "4b597739f089bbdd5d52b57ab875f9dd9f8884e103254a95fb22a22b3cac472a",
+      "source_link": "https://www.hockey-sports.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "autohaus-pennig",
+      "display_name": "Autohaus Pennig",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-70",
+      "source_image": "word/media/image18.jpeg",
+      "source_image_sha256": "56dc5403ccb74694b138020a6a6cc6db332a67cbc61f7606f8166b041f1fd8a6",
+      "source_link": "https://www.pennig.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "gecko-fastener",
+      "display_name": "Gecko Fastener",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-74",
+      "source_image": "word/media/image19.jpeg",
+      "source_image_sha256": "bfb1d0b296f1a82a85868b96a6ec45c1ad2554fe5251ec1eb9c4c847bc0df6be",
+      "source_link": "https://www.gecko-fastener.com/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "konrad-gmbh",
+      "display_name": "Konrad GmbH",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-78",
+      "source_image": "word/media/image20.jpeg",
+      "source_image_sha256": "1546aa3e124a6c4b564b0ce29c2dfd22460f7ab5f521ef0bcc186284d13c2152",
+      "source_link": "https://www.konrad-autoteile.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "speck-pumpen",
+      "display_name": "Speck Pumpen",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-82",
+      "source_image": "word/media/image21.jpeg",
+      "source_image_sha256": "9362fe07858c4e528b4a7d2a947321c5333a415498c08b206f35ce9e3467affd",
+      "source_link": "https://speck-kolbenpumpen.com/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "gls",
+      "display_name": "GLS",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-86",
+      "source_image": "word/media/image22.png",
+      "source_image_sha256": "fb2e20227a9fea50bcbda80de44654b012b6c971e138a6f59a0a01c9775a9824",
+      "source_link": "https://gls-group.eu/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "fueger-fachhandel-gmbh",
+      "display_name": "Füger Fachhandel GmbH",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-90",
+      "source_image": "word/media/image23.jpeg",
+      "source_image_sha256": "4f895306bc12164ed85b6bbae994ab1d317a3a35acd87373ab8c9188ec14c117",
+      "source_link": "https://www.fueger-industriearmaturen.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "fts-bauelemente",
+      "display_name": "FTS Bauelemente",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-94",
+      "source_image": "word/media/image24.jpeg",
+      "source_image_sha256": "276b263e3c057a6f9209fdb6e5e7edaf410d57723387792929f577839ccc1cd8",
+      "source_link": "https://fenster-tueren-sonnenschutz.com/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "raiffeisenbank-isar-loisachtal-eg",
+      "display_name": "Raiffeisenbank Isar-Loisachtal eG",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-98",
+      "source_image": "word/media/image25.jpeg",
+      "source_image_sha256": "cca7d12c9896a081227b11a9f1c2fe7f937a165061e091457a273117fd6a75ab",
+      "source_link": "https://www.rileg.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "fischer-johann-gmbh",
+      "display_name": "Fischer Johann GmbH",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-102",
+      "source_image": "word/media/image26.jpeg",
+      "source_image_sha256": "541df404d16f2dd1958dcd8be6a825f34bf603dca376e201dca62f5b6522fe26",
+      "source_link": "https://www.facebook.com/fischerjohanngmbhschrottundmetallhandel/",
+      "link_verified": false,
+      "logo_verified": true,
+      "notes": "Destination could not be independently confirmed during intake.",
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "sponsor_key": "lug-gmbh-co-kg",
+      "display_name": "Lug GmbH&Co KG",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-106",
+      "source_image": "word/media/image27.jpeg",
+      "source_image_sha256": "b4f5cb51fddd555167b035a4db81bd39dc6ac2d80d035fa31b936b7e8df606ef",
+      "source_link": "https://www.lugkg.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "pw-dienstleistungen",
+      "display_name": "PW Dienstleistungen",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-110",
+      "source_image": "word/media/image28.jpeg",
+      "source_image_sha256": "32b715086d19017d62da3679737f614936f4d203e48362ab31da776aa140e2d4",
+      "source_link": "https://www.pwdienstleistungen.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "auto-graf",
+      "display_name": "Auto Graf",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-114",
+      "source_image": "word/media/image29.jpeg",
+      "source_image_sha256": "1c9fdaf12f8357747d80ffb025022ce24f04b524f46becc81fef0d12ace92db7",
+      "source_link": "https://www.mazda-autohaus-graf-muensing.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "dielack",
+      "display_name": "dieLack!",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-118",
+      "source_image": "word/media/image30.png",
+      "source_image_sha256": "640f3ce3db93d459b7b1dd2db388a28e926a8becaa8ca8fa0df0370276f051a7",
+      "source_link": "https://www.dielack.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "franco-fresco-gmbh-co-kg",
+      "display_name": "Franco Fresco GmbH & Co. KG",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-122",
+      "source_image": "word/media/image31.jpeg",
+      "source_image_sha256": "f459c018e064265c899c18057a4e4a8c16f100dc1e06d8f243eea956f3688d4c",
+      "source_link": "https://gustavo-gusto.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "hotel-zur-post",
+      "display_name": "Hotel zur Post",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-126",
+      "source_image": "word/media/image32.jpeg",
+      "source_image_sha256": "786491c56eb78651a673c85b45223a5800554f7cafccc4ae574b52adab83f64a",
+      "source_link": "http://www.oberhauser-egling.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "holzer-tiefbau",
+      "display_name": "Holzer Tiefbau",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-130",
+      "source_image": "word/media/image33.png",
+      "source_image_sha256": "88f7d162d25e315f8eee3af956847f46b0101fcf4713b479b9207077e64e449f",
+      "source_link": "https://www.holzer-tiefbau.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "kolbeck-hightech-logistik-gmbh",
+      "display_name": "Kolbeck Hightech-Logistik GmbH.",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-134",
+      "source_image": "word/media/image34.jpeg",
+      "source_image_sha256": "91ef2f0192c432eb05728f513f1cf334a0071fa7e466f1d1a5fae9219b7d98cf",
+      "source_link": "https://spedition-kolbeck.de/",
+      "link_verified": false,
+      "logo_verified": true,
+      "notes": "Destination could not be independently confirmed during intake.",
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "sponsor_key": "josef-mayr-bauunternehmen",
+      "display_name": "Josef Mayr Bauunternehmen",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-138",
+      "source_image": "word/media/image35.jpeg",
+      "source_image_sha256": "e1285bbfd2c841e710ab70244e0a10213b9c3826176c7d260d6de44306e7955d",
+      "source_link": "https://www.esc-geretsried.de/",
+      "link_verified": false,
+      "logo_verified": true,
+      "notes": "DOCX relationship points to ESC homepage; no replacement URL guessed.",
+      "status": "WIDERSPRUCH"
+    },
+    {
+      "sponsor_key": "quantum-systems",
+      "display_name": "Quantum Systems",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-142",
+      "source_image": "word/media/image36.png",
+      "source_image_sha256": "7d5fc653dbf8f4667601ed41de2ec35849b32bacae706186d012f19f2aa52628",
+      "source_link": "https://quantum-systems.com/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "raiffeisen-ware-oberland",
+      "display_name": "Raiffeisen Ware Oberland",
+      "name_source": "DOCX visible caption",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-146",
+      "source_image": "word/media/image37.png",
+      "source_image_sha256": "5032be21e77d71b3ce2fa8ed1a454df8ab839420c2215f67d4ddcca2fc7c7e64",
+      "source_link": "https://raiwa24.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "stoeger-automation",
+      "display_name": "Stöger Automation",
+      "name_source": "embedded logo text; visually transcribed",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-150",
+      "source_image": "word/media/image38.jpeg",
+      "source_image_sha256": "ead35a347c0cf8505d865a0615a0fc0a2f3299741ddce84b91bbe6bae7e7c43f",
+      "source_link": "https://www.stoeger.com/de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "merkur-zeitungsverlag-oberbayern",
+      "display_name": "Merkur.de / Zeitungsverlag Oberbayern",
+      "name_source": "embedded logo text; visually transcribed",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-153",
+      "source_image": "word/media/image39.jpeg",
+      "source_image_sha256": "c94cab86138d63f6634dfb9bc8775eaea370802aec925cc927f5ae40ff44b472",
+      "source_link": "http://www.zeitungsverlag-oberbayern.de/",
+      "link_verified": false,
+      "logo_verified": true,
+      "notes": "Destination could not be independently confirmed during intake.",
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "sponsor_key": "rudolf-better-chemistry",
+      "display_name": "Rudolf Better Chemistry",
+      "name_source": "embedded logo text; visually transcribed",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-156",
+      "source_image": "word/media/image40.jpeg",
+      "source_image_sha256": "e54b7a00dc855315398d0ddccdf4990b606ea9edc408fd6730dd098b248069d6",
+      "source_link": "https://www.rudolf.de/",
+      "link_verified": false,
+      "logo_verified": true,
+      "notes": "Destination could not be independently confirmed during intake.",
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "sponsor_key": "zimmerei-thomas-schurz",
+      "display_name": "Zimmerei Thomas Schurz",
+      "name_source": "embedded logo text; visually transcribed",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-159",
+      "source_image": "word/media/image41.jpeg",
+      "source_image_sha256": "c34a5bad8f8ca6847a9f9ef2ecacc49ee3ff3e5ce9f1e1a0afad0e94db81b4fb",
+      "source_link": "https://www.schurz-zimmerei.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "17er-oberlandenergie",
+      "display_name": "17er Oberlandenergie",
+      "name_source": "embedded logo text; visually transcribed",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-162",
+      "source_image": "word/media/image42.jpeg",
+      "source_image_sha256": "d8254cc82c2babfb9590fa9f588c08b51cf1f1f1e8489d4fd3c45b92970ca3ac",
+      "source_link": "https://17er.com/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "lerche",
+      "display_name": "Lerche",
+      "name_source": "embedded logo text; visually transcribed",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-165",
+      "source_image": "word/media/image43.jpeg",
+      "source_image_sha256": "8b782694a60c80bb24047074caff996cf6cae13446c8ad05a13da2237a7ebc05",
+      "source_link": "https://www.lerche-werbemittel.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "buchner-und-kollegen",
+      "display_name": "Buchner & Kollegen",
+      "name_source": "embedded logo text; visually transcribed",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-171",
+      "source_image": "word/media/image44.png",
+      "source_image_sha256": "70c537160b5ecaa98c8bd1090f9b96611e82d51fe6cc8d713c2c37b3d24e1421",
+      "source_link": "https://www.kanzlei-buchner.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "sponsor_key": "sportspub-altes-oel",
+      "display_name": "Sportspub „Altes Öl“",
+      "name_source": "embedded logo text; visually transcribed",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-174",
+      "source_image": "word/media/image45.jpeg",
+      "source_image_sha256": "f1cdbcc35c0b838d9f82a45a2c3bb47d609a5a671edf260ec95eda90a9683e8d",
+      "source_link": "https://www.facebook.com/SportsPubZumAltenOl",
+      "link_verified": false,
+      "logo_verified": true,
+      "notes": "Destination could not be independently confirmed during intake.",
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "sponsor_key": "autohaus-walter-matl",
+      "display_name": "Autohaus Walter Matl",
+      "name_source": "embedded logo text; visually transcribed",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-177",
+      "source_image": "word/media/image46.png",
+      "source_image_sha256": "50cacc25b69f917d6f33ac2385c772027f35a4000d351afb23b7f6f2d8e3574a",
+      "source_link": "https://www.nissan-matl-koenigsdorf.de/",
+      "link_verified": false,
+      "logo_verified": true,
+      "notes": "Destination could not be independently confirmed during intake.",
+      "status": "ZU VERIFIZIEREN"
+    },
+    {
+      "sponsor_key": "stileffekt",
+      "display_name": "Stileffekt",
+      "name_source": "embedded logo text; visually transcribed",
+      "source_page": "Sponsoren Fotos und Link.docx#paragraph-180",
+      "source_image": "word/media/image47.jpeg",
+      "source_image_sha256": "5b74f104df6f55aeb7c0120b62be00aa428c9cbcbb149607289daaa437af16a8",
+      "source_link": "https://www.stileffekt.de/",
+      "link_verified": true,
+      "logo_verified": true,
+      "notes": "Founder relationship target and destination context checked.",
+      "status": "VERIFIZIERT"
+    }
+  ],
+  "news": [
+    {
+      "area": "river-rats",
+      "candidate_key": "2025-09-28-auftakt-nach-mass",
+      "title": "Auftakt nach Maß",
+      "source": "ESC main content/import inventory",
+      "decision": "MIGRIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+    },
+    {
+      "area": "river-rats",
+      "candidate_key": "2025-10-06-derby",
+      "title": "Derby-/Spielbericht-Kandidat",
+      "source": "ESC main content/import inventory",
+      "decision": "MIGRIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+    },
+    {
+      "area": "river-rats",
+      "candidate_key": "2025-10-13-spielbericht",
+      "title": "Spielbericht-Kandidat",
+      "source": "ESC main content/import inventory",
+      "decision": "MIGRIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+    },
+    {
+      "area": "river-rats",
+      "candidate_key": "2025-10-20-spielbericht",
+      "title": "Spielbericht-Kandidat",
+      "source": "ESC main content/import inventory",
+      "decision": "MIGRIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+    },
+    {
+      "area": "u13",
+      "candidate_key": "2025-09-15-u13-spielberichte",
+      "title": "U13 Spielberichte",
+      "source": "ESC main content/import inventory",
+      "decision": "MIGRIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+    },
+    {
+      "area": "u13",
+      "candidate_key": "2025-09-23-riessersee",
+      "title": "U13 gegen Riessersee",
+      "source": "ESC main content/import inventory",
+      "decision": "MIGRIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+    },
+    {
+      "area": "u13",
+      "candidate_key": "2025-11-25-finalrunde",
+      "title": "U13 Finalrunde",
+      "source": "ESC main content/import inventory",
+      "decision": "MIGRIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+    },
+    {
+      "area": "u13",
+      "candidate_key": "2025-12-05-landshut",
+      "title": "U13 gegen Landshut",
+      "source": "ESC main content/import inventory",
+      "decision": "MIGRIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Volltext, Datum, Medien, Rechte und Bereichszuordnung vor Content-Implementierung prüfen."
+    },
+    {
+      "area": "eiskunstlauf",
+      "candidate_key": "historical-set",
+      "title": "Alle relevanten historischen Eiskunstlauf-News",
+      "source": "Founder alte Eiskunstlauf-Seite",
+      "decision": "MIGRIEREN",
+      "status": "FEHLT",
+      "notes": "Lieferpaket gibt den Scope frei, enthält aber keine vollständige Einzelartikelliste; vor Implementierung enumerieren."
+    },
+    {
+      "area": "homepage",
+      "candidate_key": "all-historical",
+      "title": "Sämtliche historische News dieses Bereichs",
+      "source": "harte Founder-Grenze",
+      "decision": "NICHT MIGRIEREN",
+      "status": "NICHT MIGRIEREN",
+      "notes": "Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen."
+    },
+    {
+      "area": "damen",
+      "candidate_key": "all-historical",
+      "title": "Sämtliche historische News dieses Bereichs",
+      "source": "harte Founder-Grenze",
+      "decision": "NICHT MIGRIEREN",
+      "status": "NICHT MIGRIEREN",
+      "notes": "Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen."
+    },
+    {
+      "area": "nachwuchs",
+      "candidate_key": "all-historical",
+      "title": "Sämtliche historische News dieses Bereichs",
+      "source": "harte Founder-Grenze",
+      "decision": "NICHT MIGRIEREN",
+      "status": "NICHT MIGRIEREN",
+      "notes": "Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen."
+    },
+    {
+      "area": "u20",
+      "candidate_key": "all-historical",
+      "title": "Sämtliche historische News dieses Bereichs",
+      "source": "harte Founder-Grenze",
+      "decision": "NICHT MIGRIEREN",
+      "status": "NICHT MIGRIEREN",
+      "notes": "Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen."
+    },
+    {
+      "area": "u17",
+      "candidate_key": "all-historical",
+      "title": "Sämtliche historische News dieses Bereichs",
+      "source": "harte Founder-Grenze",
+      "decision": "NICHT MIGRIEREN",
+      "status": "NICHT MIGRIEREN",
+      "notes": "Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen."
+    },
+    {
+      "area": "u15",
+      "candidate_key": "all-historical",
+      "title": "Sämtliche historische News dieses Bereichs",
+      "source": "harte Founder-Grenze",
+      "decision": "NICHT MIGRIEREN",
+      "status": "NICHT MIGRIEREN",
+      "notes": "Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen."
+    },
+    {
+      "area": "u11",
+      "candidate_key": "all-historical",
+      "title": "Sämtliche historische News dieses Bereichs",
+      "source": "harte Founder-Grenze",
+      "decision": "NICHT MIGRIEREN",
+      "status": "NICHT MIGRIEREN",
+      "notes": "Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen."
+    },
+    {
+      "area": "u9",
+      "candidate_key": "all-historical",
+      "title": "Sämtliche historische News dieses Bereichs",
+      "source": "harte Founder-Grenze",
+      "decision": "NICHT MIGRIEREN",
+      "status": "NICHT MIGRIEREN",
+      "notes": "Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen."
+    },
+    {
+      "area": "u7",
+      "candidate_key": "all-historical",
+      "title": "Sämtliche historische News dieses Bereichs",
+      "source": "harte Founder-Grenze",
+      "decision": "NICHT MIGRIEREN",
+      "status": "NICHT MIGRIEREN",
+      "notes": "Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen."
+    },
+    {
+      "area": "eislaufschule",
+      "candidate_key": "all-historical",
+      "title": "Sämtliche historische News dieses Bereichs",
+      "source": "harte Founder-Grenze",
+      "decision": "NICHT MIGRIEREN",
+      "status": "NICHT MIGRIEREN",
+      "notes": "Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen."
+    },
+    {
+      "area": "inklusion",
+      "candidate_key": "all-historical",
+      "title": "Sämtliche historische News dieses Bereichs",
+      "source": "harte Founder-Grenze",
+      "decision": "NICHT MIGRIEREN",
+      "status": "NICHT MIGRIEREN",
+      "notes": "Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen."
+    },
+    {
+      "area": "verein",
+      "candidate_key": "all-historical",
+      "title": "Sämtliche historische News dieses Bereichs",
+      "source": "harte Founder-Grenze",
+      "decision": "NICHT MIGRIEREN",
+      "status": "NICHT MIGRIEREN",
+      "notes": "Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen."
+    },
+    {
+      "area": "foerderverein",
+      "candidate_key": "all-historical",
+      "title": "Sämtliche historische News dieses Bereichs",
+      "source": "harte Founder-Grenze",
+      "decision": "NICHT MIGRIEREN",
+      "status": "NICHT MIGRIEREN",
+      "notes": "Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen."
+    },
+    {
+      "area": "sponsoren",
+      "candidate_key": "all-historical",
+      "title": "Sämtliche historische News dieses Bereichs",
+      "source": "harte Founder-Grenze",
+      "decision": "NICHT MIGRIEREN",
+      "status": "NICHT MIGRIEREN",
+      "notes": "Auch gefundene Alt-News nicht übernehmen; neue News können später redaktionell entstehen."
+    }
+  ],
+  "legal": [
+    {
+      "page": "impressum",
+      "category": "Anbieter/Organisation",
+      "source": "https://www.esc-geretsried.de/impressum/",
+      "source_derived": true,
+      "applicability": "SOURCE-DERIVED; ZU VERIFIZIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Name, Anschrift und Vereinsbezug übernehmen, aber vor Go-Live gegen Register/Vereinsfreigabe prüfen."
+    },
+    {
+      "page": "impressum",
+      "category": "Registerangaben",
+      "source": "https://www.esc-geretsried.de/impressum/",
+      "source_derived": true,
+      "applicability": "SOURCE-DERIVED; TARGET STILL APPLICABLE; ZU VERIFIZIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Amtsgericht München, Vereinsregister/VR-Angabe nur nach aktueller Bestätigung."
+    },
+    {
+      "page": "impressum",
+      "category": "Vertretungsberechtigte/Personen/Kontakt",
+      "source": "https://www.esc-geretsried.de/impressum/",
+      "source_derived": true,
+      "applicability": "SOURCE-DERIVED; ZU VERIFIZIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Personen- und zeitabhängig; keine zusätzliche PII recherchieren."
+    },
+    {
+      "page": "impressum",
+      "category": "Redaktion/technische Credits",
+      "source": "https://www.esc-geretsried.de/impressum/",
+      "source_derived": true,
+      "applicability": "SOURCE-DERIVED; OBSOLETE CANDIDATE; ZU VERIFIZIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Nur übernehmen, soweit im Zielbetrieb sachlich korrekt."
+    },
+    {
+      "page": "datenschutz",
+      "category": "A) Organisationsbezogene Aussagen",
+      "source": "https://www.esc-geretsried.de/datenschutzerklaerung/; imports/esc-int-pages/datenschutz/index.html",
+      "source_derived": true,
+      "applicability": "SOURCE-DERIVED; TARGET STILL APPLICABLE; ZU VERIFIZIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Vereinsbezug und Verantwortlichkeit gegen aktuellen Stand prüfen."
+    },
+    {
+      "page": "datenschutz",
+      "category": "B) Kontakt-/Verantwortlichenangaben",
+      "source": "https://www.esc-geretsried.de/datenschutzerklaerung/; imports/esc-int-pages/datenschutz/index.html",
+      "source_derived": true,
+      "applicability": "SOURCE-DERIVED; ZU VERIFIZIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Personen, Anschrift und Datenschutzkontakt zeitnah bestätigen."
+    },
+    {
+      "page": "datenschutz",
+      "category": "C) Hosting-/Provider-Aussagen",
+      "source": "https://www.esc-geretsried.de/datenschutzerklaerung/; imports/esc-int-pages/datenschutz/index.html",
+      "source_derived": true,
+      "applicability": "SOURCE-DERIVED; OBSOLETE CANDIDATE; ZU VERIFIZIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Nur gegen tatsächlichen Zielbetrieb formulieren; Providerneutralität wahren."
+    },
+    {
+      "page": "datenschutz",
+      "category": "D) Cookies",
+      "source": "https://www.esc-geretsried.de/datenschutzerklaerung/; imports/esc-int-pages/datenschutz/index.html",
+      "source_derived": true,
+      "applicability": "SOURCE-DERIVED; ZU VERIFIZIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Tatsächliche Ziel-Cookies/Consent-Konfiguration inventarisieren."
+    },
+    {
+      "page": "datenschutz",
+      "category": "E) Analytics/Tracking",
+      "source": "https://www.esc-geretsried.de/datenschutzerklaerung/; imports/esc-int-pages/datenschutz/index.html",
+      "source_derived": true,
+      "applicability": "SOURCE-DERIVED; OBSOLETE CANDIDATE; ZU VERIFIZIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "MVP sagt keine Analytics; Zielbetrieb technisch prüfen."
+    },
+    {
+      "page": "datenschutz",
+      "category": "F) Social Media",
+      "source": "https://www.esc-geretsried.de/datenschutzerklaerung/; imports/esc-int-pages/datenschutz/index.html",
+      "source_derived": true,
+      "applicability": "SOURCE-DERIVED; ZU VERIFIZIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Externe Links vs. Plugins und Datenflüsse unterscheiden."
+    },
+    {
+      "page": "datenschutz",
+      "category": "G) YouTube/Video",
+      "source": "https://www.esc-geretsried.de/datenschutzerklaerung/; imports/esc-int-pages/datenschutz/index.html",
+      "source_derived": true,
+      "applicability": "SOURCE-DERIVED; ZU VERIFIZIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "V1 nur strukturierte externe Links; keine beliebigen iframes/scripts."
+    },
+    {
+      "page": "datenschutz",
+      "category": "H) Formulare/Spenden/sonstige externe Dienste",
+      "source": "https://www.esc-geretsried.de/datenschutzerklaerung/; imports/esc-int-pages/datenschutz/index.html",
+      "source_derived": true,
+      "applicability": "SOURCE-DERIVED; OBSOLETE CANDIDATE; ZU VERIFIZIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Insbesondere geplante Bestellseite und künftige Formulare getrennt prüfen."
+    },
+    {
+      "page": "datenschutz",
+      "category": "I) Betroffenenrechte/gesetzliche Standardabschnitte",
+      "source": "https://www.esc-geretsried.de/datenschutzerklaerung/; imports/esc-int-pages/datenschutz/index.html",
+      "source_derived": true,
+      "applicability": "SOURCE-DERIVED; TARGET STILL APPLICABLE; ZU VERIFIZIEREN",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Keine Rechtsberatung; fachlich-rechtliche Freigabe erforderlich."
+    }
+  ],
+  "social_video": [
+    {
+      "kind": "Instagram",
+      "area": "Global / River Rats",
+      "source_value": "riverrats_geretsried",
+      "resolved_url": "",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Founder-gelieferter Handle; keine URL raten."
+    },
+    {
+      "kind": "Instagram",
+      "area": "Nachwuchs",
+      "source_value": "riverrats_nachwuchs",
+      "resolved_url": "",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Founder-gelieferter Handle; keine URL raten."
+    },
+    {
+      "kind": "Instagram",
+      "area": "Eiskunstlauf",
+      "source_value": "esc_riverrats_eiskunstlauf",
+      "resolved_url": "",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Founder-gelieferter Handle; keine URL raten."
+    },
+    {
+      "kind": "Instagram",
+      "area": "Damen",
+      "source_value": "esc_riverrats_damen",
+      "resolved_url": "",
+      "status": "ZU VERIFIZIEREN",
+      "notes": "Founder-gelieferter Handle; keine URL raten."
+    },
+    {
+      "kind": "YouTube/Video",
+      "area": "Global",
+      "source_value": "",
+      "resolved_url": "",
+      "status": "FEHLT",
+      "notes": "Kein Binary-Upload; V1 strukturierte externe Links; keine beliebigen iframes/scripts."
+    }
+  ],
+  "acceptance": [
+    {
+      "person": "Jens Neuhaus",
+      "function": "IT / Global",
+      "editor_mode": "Editor + Test",
+      "scope": "Global / IT",
+      "source_scope_label": "Global / IT",
+      "entra_action": "NONE",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "person": "Hannes Köhler",
+      "function": "IT / Global",
+      "editor_mode": "Editor + Test",
+      "scope": "Global / IT",
+      "source_scope_label": "Global / IT",
+      "entra_action": "NONE",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "person": "Kevin Olivo",
+      "function": "Redaktion River Rats",
+      "editor_mode": "Editor + Test",
+      "scope": "River Rats",
+      "source_scope_label": "River Rats",
+      "entra_action": "NONE",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "person": "Tanja Serr",
+      "function": "Redaktion Vereinsorganisation",
+      "editor_mode": "Editor + Test",
+      "scope": "Vereinsorganisation",
+      "source_scope_label": "Vereinsorganisation",
+      "entra_action": "NONE",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "person": "Dieter Krampert",
+      "function": "Redaktion Förderverein",
+      "editor_mode": "Editor + Test",
+      "scope": "Förderverein",
+      "source_scope_label": "Förderverein",
+      "entra_action": "NONE",
+      "status": "VERIFIZIERT"
+    },
+    {
+      "person": "Matthias Remde",
+      "function": "Leitung Marketing",
+      "editor_mode": "Editor + Test",
+      "scope": "Marketing / Sponsoring",
+      "source_scope_label": "Marketing bzw. Spnosoring",
+      "entra_action": "NONE",
+      "status": "VERIFIZIERT"
+    }
+  ],
+  "open_points": [
+    {
+      "key": "OP-001",
+      "area": "River Rats",
+      "finding": "Founder-Excel verlangt optionalen Eintrittspreise-Tab; kanonische Teamstruktur enthält diesen Tab nicht.",
+      "classification": "WIDERSPRUCH",
+      "blocking": true,
+      "owner": "ORP Virtual HQ / Founder",
+      "resolution": "Als Unterseite/Aktion oder explizite Erweiterung entscheiden."
+    },
+    {
+      "key": "OP-002",
+      "area": "River Rats Bestellung",
+      "finding": "Geforderte neue Preview-Seite hat keine spezifizierten Datenflüsse, Formular-/Datenschutz- oder Integrationsanforderungen.",
+      "classification": "FEHLT",
+      "blocking": true,
+      "owner": "ORP Virtual HQ / Founder",
+      "resolution": "Separaten fachlich-technischen Auftrag erstellen."
+    },
+    {
+      "key": "OP-003",
+      "area": "Förderverein",
+      "finding": "ESC main führt Förderverein unter /verein/foerderverein/; kanonisches Ziel ist eigene Hauptseite /foerderverein/ und eigener Scope.",
+      "classification": "WIDERSPRUCH",
+      "blocking": true,
+      "owner": "ORP Virtual HQ",
+      "resolution": "Zielroute im Implementierungsauftrag bestätigen und kontrollierte Migration planen."
+    },
+    {
+      "key": "OP-004",
+      "area": "U11",
+      "finding": "PR #33 schloss U11 mangels belastbarer Referenz aus; aktualisierte Excel und alte U11-Seite belegen Geretsried_25-266 eindeutig.",
+      "classification": "VERIFIZIERT",
+      "blocking": false,
+      "owner": "Implementation worker after approval",
+      "resolution": "U11 bei genehmigter Umsetzung in tägliche Nachwuchsrotation aufnehmen."
+    },
+    {
+      "key": "OP-005",
+      "area": "Sponsoren",
+      "finding": "Founder-DOCX verlinkt Josef Mayr Bauunternehmen auf die ESC-Homepage statt auf ein belegtes Sponsorenziel.",
+      "classification": "WIDERSPRUCH",
+      "blocking": true,
+      "owner": "Founder / Marketing",
+      "resolution": "Korrekte URL liefern oder Link bewusst leer lassen."
+    },
+    {
+      "key": "OP-006",
+      "area": "Sponsoren",
+      "finding": "Alte Sponsoring-Seite, aktuelle Git-Inhalte und Acceptance-Kontext ergeben keinen eindeutig freigegebenen öffentlichen Ansprechpartner.",
+      "classification": "WIDERSPRUCH",
+      "blocking": true,
+      "owner": "Founder / Marketing",
+      "resolution": "Öffentliche Kontaktperson und Kontaktdaten bestätigen."
+    },
+    {
+      "key": "OP-007",
+      "area": "Eiskunstlauf News",
+      "finding": "Historische Migration ist freigegeben, vollständige Einzelartikelliste ist im Lieferpaket nicht enthalten.",
+      "classification": "FEHLT",
+      "blocking": true,
+      "owner": "Content review",
+      "resolution": "Alle Kandidaten mit URL, Datum, Text, Medien und Rechten enumerieren."
+    },
+    {
+      "key": "OP-008",
+      "area": "Social",
+      "finding": "Excel liefert Handles, keine unabhängig verifizierten vollständigen offiziellen URLs.",
+      "classification": "ZU VERIFIZIEREN",
+      "blocking": true,
+      "owner": "Founder / area editors",
+      "resolution": "Offizielle URLs bestätigen."
+    },
+    {
+      "key": "OP-009",
+      "area": "Impressum",
+      "finding": "Founder-Quelle ist vorhanden; Register-, Vertretungs-, Kontakt- und Credit-Angaben sind zeit-/personenabhängig.",
+      "classification": "ZU VERIFIZIEREN",
+      "blocking": true,
+      "owner": "Verein / legal review",
+      "resolution": "Unmittelbar vor Go-Live fachlich und rechtlich bestätigen."
+    },
+    {
+      "key": "OP-010",
+      "area": "Datenschutz",
+      "finding": "Bestehender Text ist nur Referenz; Zielbetrieb und alle technisch abhängigen Aussagen sind noch nicht vollständig abgeglichen.",
+      "classification": "ZU VERIFIZIEREN",
+      "blocking": true,
+      "owner": "Technical owner / legal review",
+      "resolution": "Zieldatenflüsse inventarisieren und fachlich-rechtlich freigeben."
+    },
+    {
+      "key": "OP-011",
+      "area": "Verein",
+      "finding": "Founder verlangt Markus Hätinen nicht aufzuführen; übrige Rollen/Namen und Downloads bleiben zeitabhängig.",
+      "classification": "ZU VERIFIZIEREN",
+      "blocking": true,
+      "owner": "Vereinsorganisation",
+      "resolution": "Aktuelle freigegebene Rollen-/Downloadliste bestätigen."
+    },
+    {
+      "key": "OP-012",
+      "area": "Founder Excel",
+      "finding": "Zeile Referenzen!20 ist dem Bereich Sponsoren zugeordnet, enthält fachlich aber Geschäftsstelleninhalt.",
+      "classification": "WIDERSPRUCH",
+      "blocking": false,
+      "owner": "Specification review",
+      "resolution": "Im Intake Geschäftsstelle zugeordnet; HQ bestätigt Mapping."
+    }
+  ]
+}

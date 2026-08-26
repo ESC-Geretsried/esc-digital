@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ESC content migration intake",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "implementation_ready",
+    "mutation_guards",
+    "repositories",
+    "delivery_package",
+    "pages",
+    "teams",
+    "sport_data",
+    "media_downloads",
+    "sponsors",
+    "news",
+    "legal",
+    "acceptance",
+    "open_points"
+  ],
+  "properties": {
+    "implementation_ready": {
+      "const": false
+    },
+    "pages": {
+      "type": "array",
+      "minItems": 19
+    },
+    "teams": {
+      "type": "array",
+      "minItems": 9
+    },
+    "sponsors": {
+      "type": "array",
+      "minItems": 47,
+      "maxItems": 47
+    },
+    "status_classes": {
+      "type": "array",
+      "contains": {
+        "const": "NICHT MIGRIEREN"
+      }
+    }
+  },
+  "additionalProperties": true
+}
