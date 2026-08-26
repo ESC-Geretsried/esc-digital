@@ -1,0 +1,18 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "u11",
+  "area_keys": "",
+  "block_key": "overview",
+  "block_type": "text",
+  "body": "Übersicht\n\n## Mannschaft / Kader\n\n## News\n\n## Spielplan\n\n## Ergebnisse",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-26T18:18:00Z",
+  "record_id": "orp:git-seed:esc:blocks:u11-overview",
+  "sort_order": 10,
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:git-seed:esc:blocks:u11-overview",
+  "source_updated_at": "2026-08-26T18:18:00Z",
+  "status": "draft",
+  "title": "Übersicht"
+}
