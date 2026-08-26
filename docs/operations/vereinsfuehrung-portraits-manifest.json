@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "manifest_id": "esc-vereinsfuehrung-portraits-2026-08-27",
+  "scope": "Internal provenance for ESC Vereinsfuehrung portrait assets",
+  "captured_at": "2026-08-27",
+  "source": {
+    "type": "founder-provided conversation uploads",
+    "conversation_id": "6a8f1f82-1084-83eb-9941-15bcdcbfb661",
+    "mapping_authority": "Founder-confirmed ordinal mapping",
+    "mapping_document": "docs/content-migration/founder-vereinsfuehrung-2026-08-27.md",
+    "mapping_source_commit": "ac59873c1cd049ddcd00a0aab02412442a99917a",
+    "identification_method": "Exact supplied order only; no facial identification or inferred remapping was performed."
+  },
+  "deduplication": {
+    "algorithm": "sha256",
+    "scope": "All repository image assets present at ingestion",
+    "result": "No identical existing asset found for any of the eight uploads"
+  },
+  "current_record_exclusion": {
+    "person": "Markus Hätinen",
+    "rule": "Must not be carried forward as a current Vereinsfuehrung record"
+  },
+  "assets": [
+    {
+      "ordinal": 1,
+      "person": "Thomas Gania",
+      "role": "Präsident",
+      "path": "images/people/vereinsfuehrung/thomas-gania.png",
+      "media_type": "image/png",
+      "width_px": 399,
+      "height_px": 598,
+      "bytes": 154682,
+      "sha256": "d5c9d40e819a71593b737ed8791c2b79875b9377adae7ed5424b1cadf4f8a1f6"
+    },
+    {
+      "ordinal": 2,
+      "person": "Markus Janka",
+      "role": "Erster Vorstand",
+      "path": "images/people/vereinsfuehrung/markus-janka.png",
+      "media_type": "image/png",
+      "width_px": 400,
+      "height_px": 600,
+      "bytes": 86089,
+      "sha256": "a2cda5d839c922fbd0e379f90042a6d80199dff67ab8e7e1cadf4d4f6e4bc739"
+    },
+    {
+      "ordinal": 3,
+      "person": "Jens Neuhaus",
+      "role": "Zweiter Vorstand",
+      "path": "images/people/vereinsfuehrung/jens-neuhaus.png",
+      "media_type": "image/png",
+      "width_px": 399,
+      "height_px": 600,
+      "bytes": 79872,
+      "sha256": "e9d851b648e5883411797d849eabac671d38f79b299942c6a91831769d595818"
+    },
+    {
+      "ordinal": 4,
+      "person": "Stefan Heindl",
+      "role": "Vorstand Finanzen",
+      "path": "images/people/vereinsfuehrung/stefan-heindl.png",
+      "media_type": "image/png",
+      "width_px": 400,
+      "height_px": 600,
+      "bytes": 68947,
+      "sha256": "7b7ef21dee574dc54e684b0a7ab0286f2c6b4a1bab33723fb7d370e9bab30f4a"
+    },
+    {
+      "ordinal": 5,
+      "person": "Sabrina Kruck",
+      "role": "Geschäftsstellenleiterin",
+      "path": "images/people/vereinsfuehrung/sabrina-kruck.png",
+      "media_type": "image/png",
+      "width_px": 400,
+      "height_px": 600,
+      "bytes": 198853,
+      "sha256": "e6181223443098ce2533373465c6da9b438b3396cbd8947b93bdcd5a4d598e7a"
+    },
+    {
+      "ordinal": 6,
+      "person": "Ulla Köhler",
+      "role": "Schriftführerin",
+      "path": "images/people/vereinsfuehrung/ulla-koehler.png",
+      "media_type": "image/png",
+      "width_px": 400,
+      "height_px": 600,
+      "bytes": 179451,
+      "sha256": "96923d92a805e03391942c17d40d2285952d2206491177e1dcb7bd825d583b90"
+    },
+    {
+      "ordinal": 7,
+      "person": "Melanie Vollbrecht",
+      "role": "Inklusionssport",
+      "path": "images/people/vereinsfuehrung/melanie-vollbrecht.png",
+      "media_type": "image/png",
+      "width_px": 400,
+      "height_px": 600,
+      "bytes": 180306,
+      "sha256": "543e0e218b1f81fb83b33c11a4009c9206111a02559159c1454f3f22c6756f2d"
+    },
+    {
+      "ordinal": 8,
+      "person": "Romy Schiek",
+      "role": "Eiskunstlauf",
+      "path": "images/people/vereinsfuehrung/romy-schiek.png",
+      "media_type": "image/png",
+      "width_px": 399,
+      "height_px": 598,
+      "bytes": 155481,
+      "sha256": "ca3bd21d79905f80a3ba1155d6ac4e6c928153b0e72458ae6c5d2bf456d2fa91"
+    }
+  ]
+}
