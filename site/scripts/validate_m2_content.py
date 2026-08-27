@@ -133,7 +133,8 @@ explicit_as_of = os.environ.get("NEWS_RETENTION_AS_OF", "").strip()
 today = datetime.strptime(explicit_as_of, "%Y-%m-%d").date() if explicit_as_of else datetime.now(ZoneInfo(policy["policy_timezone"])).date()
 homepage_html = (public / "index.html").read_text(encoding="utf-8")
 announcement_text = "DAUERKARTE   Dauerkarten Saison 2026/2027 – jetzt hier verbindlich bestellen"
-if announcement_text not in unescape(homepage_html).replace("\xa0", " "):
+decoded_homepage_html = unescape(unescape(homepage_html)).replace("\xa0", " ")
+if announcement_text not in decoded_homepage_html:
     raise SystemExit("ERROR: exact first AnnouncementTicker text missing from Homepage")
 announcement_link = r'href=(?:"|)https://esc-geretsried\.github\.io/bestellung/(?:"|) target=(?:"|)_blank(?:"|) rel="noopener noreferrer"'
 if not re.search(announcement_link, homepage_html):
