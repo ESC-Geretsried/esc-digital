@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-reference-platform.org/schemas/owml/site-v1.schema.json",
+  "title": "ORP Website Modeling Language site model v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["owml_version", "tenant", "patterns", "pages"],
+  "properties": {
+    "owml_version": {"const": "1.0.0"},
+    "tenant": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+    "patterns": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/pattern"}
+    },
+    "pages": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/page"}
+    }
+  },
+  "$defs": {
+    "identifier": {"type": "string", "pattern": "^[a-z][a-z0-9.-]*$"},
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "slot", "required"],
+      "properties": {
+        "id": {"$ref": "#/$defs/identifier"},
+        "type": {"$ref": "#/$defs/identifier"},
+        "slot": {"$ref": "#/$defs/identifier"},
+        "required": {"type": "boolean"},
+        "anchor": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+        "binding": {"type": "string"},
+        "condition": {"type": "string"},
+        "fallback": {"enum": ["stable-empty", "omit", "not-applicable", "none"]},
+        "editor_mutable": {"type": "boolean"}
+      }
+    },
+    "pattern": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "nodes", "invariants"],
+      "properties": {
+        "id": {"$ref": "#/$defs/identifier"},
+        "title": {"type": "string", "minLength": 1},
+        "description": {"type": "string"},
+        "nodes": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/node"}},
+        "invariants": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "page": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "route", "pattern", "source", "publication"],
+      "properties": {
+        "id": {"$ref": "#/$defs/identifier"},
+        "route": {"type": "string", "pattern": "^/.*/$|^/$"},
+        "pattern": {"$ref": "#/$defs/identifier"},
+        "source": {"type": "string", "minLength": 1},
+        "publication": {"enum": ["active", "source-only", "redirect"]},
+        "redirect_to": {"type": "string", "pattern": "^/.*/$|^/$"},
+        "variant": {"type": "string"},
+        "disabled_nodes": {"type": "array", "items": {"$ref": "#/$defs/identifier"}},
+        "notes": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

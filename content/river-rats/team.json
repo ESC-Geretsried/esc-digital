@@ -13,7 +13,7 @@
     "hockeydata_reference": "https://preview.esc-geretsried.de/river-rats/",
     "verified_at": "2026-08-26"
   },
-  "sections": ["uebersicht", "teamfoto", "mannschaft", "news", "spielplan", "tabelle", "ergebnisse"],
+  "sections": ["uebersicht", "teamfoto", "kader", "news", "spielplan", "tabelle", "ergebnisse"],
   "roster": [
     {"group":"Tor","name":"Korbinian Sertl","number":"31","nationality":"DE","handedness":"Links","image":"images/people/river-rats/players/korbinian-sertl.jpg","source_image":"https://www.esc-geretsried.de/static/641714204ffa478f05d023a4078dbf4c/f836f/1938-1.jpg"},
     {"group":"Tor","name":"Maximilian Freytag","number":"30","nationality":"DE","handedness":"Links","image":"images/people/river-rats/players/maximilian-freytag.jpg","source_image":"https://www.esc-geretsried.de/static/122b21b8813dbce6c5b2a15a8d65dd14/f836f/1950-1.jpg"},

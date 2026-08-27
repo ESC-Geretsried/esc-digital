@@ -1,0 +1,28 @@
+{
+  "owml_version": "1.0.0",
+  "unknown_node_policy": "fail-closed",
+  "nodes": [
+    {"type":"site-header","bindings":["navigation","navigation.main","navigation.actions"],"landmark":"header","renderer":"site/src/layouts/_default/baseof.html"},
+    {"type":"site-footer","bindings":["navigation","navigation.footer_groups"],"landmark":"footer","renderer":"site/src/layouts/_default/baseof.html"},
+    {"type":"hero","bindings":["home.heroes","page.hero","team.next_game","team.team_photo"],"landmark":"h1","renderer":"site/src/layouts/_default/list.html"},
+    {"type":"local-navigation","bindings":["pattern.anchors"],"landmark":"nav","renderer":"site/src/layouts/_default/list.html"},
+    {"type":"content","bindings":["page.body","page.description","team.summary"],"landmark":"section","renderer":"site/src/layouts/partials/area-blocks.html"},
+    {"type":"team-photo","bindings":["team.team_photo","team.team_photo_alt"],"landmark":"section","renderer":"site/src/layouts/_default/list.html"},
+    {"type":"roster","bindings":["team.roster"],"landmark":"section","renderer":"site/src/layouts/_default/list.html"},
+    {"type":"news-feed","bindings":["news","home.news_groups","team.news"],"landmark":"section","renderer":"site/src/layouts/_default/list.html"},
+    {"type":"schedule","bindings":["team.schedule","team.official_schedule_url","hockeydata.schedule"],"landmark":"section","renderer":"site/src/layouts/_default/list.html"},
+    {"type":"standings","bindings":["team.standings","team.official_table_url","hockeydata.standings"],"landmark":"section","renderer":"site/src/layouts/_default/list.html"},
+    {"type":"results","bindings":["team.results","team.official_results_url","hockeydata.results"],"landmark":"section","renderer":"site/src/layouts/_default/list.html"},
+    {"type":"contacts","bindings":["page.contacts","team.contacts"],"landmark":"section","renderer":"site/src/layouts/_default/list.html"},
+    {"type":"sponsor-grid","bindings":["sponsors"],"landmark":"section","renderer":"site/src/layouts/sponsoren/list.html"},
+    {"type":"event-list","bindings":["events","home.events"],"landmark":"section","renderer":"site/src/layouts/partials/area-blocks.html"},
+    {"type":"board-grid","bindings":["page.people"],"landmark":"section","renderer":"site/src/layouts/partials/area-blocks.html"},
+    {"type":"membership-form","bindings":["membership.form"],"landmark":"form","renderer":"site/src/layouts/mitgliedschaft/list.html"},
+    {"type":"donation-info","bindings":["page.body","downloads"],"landmark":"section","renderer":"site/src/layouts/_default/list.html"},
+    {"type":"article-header","bindings":["article.title","article.date","article.image"],"landmark":"h1","renderer":"site/scripts/render_imported_pages.py"},
+    {"type":"article-body","bindings":["article.body"],"landmark":"article","renderer":"site/scripts/render_imported_pages.py"},
+    {"type":"area-cards","bindings":["areas","home.community"],"landmark":"section","renderer":"site/src/layouts/index.html"},
+    {"type":"legal-content","bindings":["page.body"],"landmark":"section","renderer":"site/scripts/render_imported_pages.py"},
+    {"type":"downloads","bindings":["downloads"],"landmark":"section","renderer":"site/scripts/render_imported_pages.py"}
+  ]
+}

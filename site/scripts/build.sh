@@ -6,6 +6,11 @@ SITE="$ROOT/site"
 
 command -v hugo >/dev/null 2>&1 || { echo "ERROR: hugo is required" >&2; exit 2; }
 
+# OWML is the fail-closed website architecture contract. Generated views must
+# already match Git before any renderer or publishing adapter is invoked.
+python3 "$ROOT/scripts/owml.py" validate
+python3 "$ROOT/scripts/owml.py" generate --check
+
 rm -rf "$SITE/public"
 
 # Stage canonical tenant data for Hugo without making the generated/staged copy
@@ -47,6 +52,7 @@ rm -rf "$SITE/public/home"
 rm -rf "$SITE/public/teams"
 rm -f "$SITE/public/navigation.json"
 rm -f "$SITE/public/sponsors/sponsors.json" "$SITE/public/sponsors/page.json"
+rm -f "$SITE/public/sponsors/index.html"
 rm -f "$SITE/public/river-rats/hockeydata.json" "$SITE/public/river-rats/team.json"
 
 # Visual assets are canonical tenant copies in Git. No runtime dependency on
@@ -83,6 +89,11 @@ python3 "$SITE/scripts/render_hockeydata.py"
 # HockeyData requires its domain-bound API key in the client-side widget
 # options. The key is never stored in Git; Pages injects it from Actions.
 python3 "$SITE/scripts/inject_hockeydata_key.py"
+
+# Bind every final emitted route to exactly one canonical OWML instance.
+# Unknown, missing or structurally drifting pages stop publication.
+python3 "$ROOT/scripts/owml.py" bind-runtime --public "$SITE/public"
+python3 "$ROOT/scripts/owml.py" drift --public "$SITE/public"
 bash "$SITE/scripts/validate_hockeydata.sh"
 python3 "$SITE/scripts/validate_m2_content.py"
 
