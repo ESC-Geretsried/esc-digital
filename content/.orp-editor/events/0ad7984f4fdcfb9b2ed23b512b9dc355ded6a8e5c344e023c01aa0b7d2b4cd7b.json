@@ -1,0 +1,23 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "river-rats",
+  "area_keys": "",
+  "cta_url": "",
+  "description": "",
+  "ends_at": "",
+  "event_key": "ww",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-27T10:52:08Z",
+  "media_asset_key": "",
+  "record_id": "orp:events:d488a04a-c6b9-5a69-b753-0111fc961499",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:events:d488a04a-c6b9-5a69-b753-0111fc961499",
+  "source_updated_at": "2026-08-27T10:52:08Z",
+  "source_updated_by": "entra-sha256:7f94bdefa3376e7199aed8df300c4e779231f42a6955385671772b3caa5fd0d4",
+  "starts_at": "2026-08-30T08:00:00Z",
+  "status": "draft",
+  "team_keys": "",
+  "title": "Weißwurst Essen",
+  "venue_key": "ICE Stüberl"
+}
