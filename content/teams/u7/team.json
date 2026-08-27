@@ -1,0 +1,252 @@
+{
+  "contact_source_text": "Kontakt: Trainer Florian Strobl, Bernhard Bergaentzle, Max von Ehrenstein, Michael Stowasser; Teamleiter Mario Hildebrandt, Enikö Csiszar; Email team.u7@esc-geretsried.de; Telefon 08171 6399029.",
+  "contacts": [
+    {
+      "role": "Trainer",
+      "value": "Florian Strobl, Bernhard Bergaentzle, Max von Ehrenstein, Michael Stowasser"
+    },
+    {
+      "role": "Teamleiter",
+      "value": "Mario Hildebrandt, Enikö Csiszar"
+    },
+    {
+      "role": "Email",
+      "value": "team.u7@esc-geretsried.de"
+    },
+    {
+      "role": "Telefon",
+      "value": "08171 6399029"
+    }
+  ],
+  "public_path": "/u7/",
+  "roster": [
+    {
+      "name": "Alberty Charlotte",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Alberty Charlotte"
+    },
+    {
+      "name": "Bergaentzle Sebastian",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Bergaentzle Sebastian"
+    },
+    {
+      "name": "Budic Des-Karolin",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Budic Des-Karolin"
+    },
+    {
+      "name": "Byrne Jonas",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Byrne Jonas"
+    },
+    {
+      "name": "Csiszar David",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Csiszar David"
+    },
+    {
+      "name": "Frischherz Kaia",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Frischherz Kaia"
+    },
+    {
+      "name": "Gschwendtner Martin",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Gschwendtner Martin"
+    },
+    {
+      "name": "Gyepes Leia",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Gyepes Leia"
+    },
+    {
+      "name": "Hauser Vinzent",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Hauser Vinzent"
+    },
+    {
+      "name": "Hildebrandt Alexander",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Hildebrandt Alexander"
+    },
+    {
+      "name": "Horsch Valentin",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Horsch Valentin"
+    },
+    {
+      "name": "Huber Johannes",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Huber Johannes"
+    },
+    {
+      "name": "Jorde Anton",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Jorde Anton"
+    },
+    {
+      "name": "Kliment Lilly",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Kliment Lilly"
+    },
+    {
+      "name": "König Jakob",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|König Jakob"
+    },
+    {
+      "name": "Kubalik Julian",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Kubalik Julian"
+    },
+    {
+      "name": "Leirich Eleonora",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Leirich Eleonora"
+    },
+    {
+      "name": "Olinowetz Jonas",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Olinowetz Jonas"
+    },
+    {
+      "name": "Rost Nicolas",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Rost Nicolas"
+    },
+    {
+      "name": "Sagdiev Marcel",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Sagdiev Marcel"
+    },
+    {
+      "name": "Sandoval Amelie",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Sandoval Amelie"
+    },
+    {
+      "name": "Schmid Lukas",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Schmid Lukas"
+    },
+    {
+      "name": "Schöner Alexander",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Schöner Alexander"
+    },
+    {
+      "name": "Sinz Emilian",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Sinz Emilian"
+    },
+    {
+      "name": "Spengler Levi",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Spengler Levi"
+    },
+    {
+      "name": "Sternheimer Luca",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Sternheimer Luca"
+    },
+    {
+      "name": "Sternkopf Leon",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Sternkopf Leon"
+    },
+    {
+      "name": "Stowasser Fabian",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Stowasser Fabian"
+    },
+    {
+      "name": "Strobl Lukas",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Strobl Lukas"
+    },
+    {
+      "name": "Veitenhansl Lukas",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Veitenhansl Lukas"
+    },
+    {
+      "name": "von Ehrenstein Julian",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|von Ehrenstein Julian"
+    },
+    {
+      "name": "Vorndran Paul",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Vorndran Paul"
+    },
+    {
+      "name": "Weinbuchner Maximilian",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Weinbuchner Maximilian"
+    },
+    {
+      "name": "Weißhaupt Josephine",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Weißhaupt Josephine"
+    },
+    {
+      "name": "Wieser Kilian",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Wieser Kilian"
+    },
+    {
+      "name": "Zielinski Linnea",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Zielinski Linnea"
+    }
+  ],
+  "schema_version": 1,
+  "season": "2025/2026",
+  "source": {
+    "provided_at": "2026-08-26",
+    "reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+    "rule": "Exact projection; no silent normalization, correction or inference.",
+    "status": "founder-provided"
+  },
+  "team_key": "u7",
+  "team_photo": "images/teams/u7-team.jpg",
+  "team_photo_alt": "Teamfoto U7 Saison 2025/2026",
+  "title": "U7"
+}

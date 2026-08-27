@@ -6,7 +6,7 @@
   <div class="hero-background" aria-hidden="true">
     <div class="hero-background__layer hero-background__layer--active" style="background-image:url('{{ $firstHero.image | relURL }}');background-position:{{ $firstHero.focus_desktop }}"></div>
     <div class="hero-background__layer"></div>
-    {{ range $heroSlides }}<i data-hero-source data-src="{{ .image | relURL }}" data-area="{{ .area }}" data-headline="{{ .headline }}" data-cta-label="{{ .cta_label }}" data-cta-path="{{ .cta_path | relURL }}" data-focus-desktop="{{ .focus_desktop }}" data-focus-mobile="{{ .focus_mobile }}"></i>{{ end }}
+    {{ range $heroSlides }}<i data-hero-source data-src="{{ .image | relURL }}" data-area="{{ .area }}" data-headline="{{ .headline }}" data-cta-label="{{ .cta_label }}" data-cta-path="{{ .cta_path | relURL }}" data-focus-desktop="{{ .focus_desktop }}" data-focus-mobile="{{ .focus_mobile }}"{{ with .daily_images }} data-daily-images="{{ delimit . "|" }}"{{ end }}></i>{{ end }}
   </div>
   <div class="shell hero-inner">
     <div class="hero-editorial">
@@ -18,7 +18,7 @@
 </section>
 
 {{ $sponsorData := site.Data.sponsors }}
-<section class="partners" aria-labelledby="partners-title">
+<section class="partners" id="partner" aria-labelledby="partners-title">
   <div class="shell partners-heading">
     <h2 id="partners-title">Unsere Partner</h2>
     <a class="partners-all" href="{{ "/sponsoren/" | relURL }}">Alle Sponsoren <span aria-hidden="true">→</span></a>
@@ -50,7 +50,7 @@
 </section>
 
 {{ $home := site.Data.home }}
-<section class="home-section latest" aria-labelledby="latest-title">
+<section class="home-section latest" id="aktuelles" aria-labelledby="latest-title">
   <div class="shell">
     <header class="section-heading"><h2 id="latest-title">Aktuelles</h2></header>
     <div class="news-grid">
@@ -72,7 +72,7 @@
   </div>
 </section>
 
-<section class="home-section events" aria-labelledby="events-title">
+<section class="home-section events" id="termine" aria-labelledby="events-title">
   <div class="shell">
     <p class="eyebrow eyebrow--gold">Vereinsleben</p>
     <header class="section-heading"><h2 id="events-title">Nächste Termine</h2></header>
@@ -83,7 +83,7 @@
   </div>
 </section>
 
-<section class="community" aria-labelledby="community-title">
+<section class="community" id="angebote" aria-labelledby="community-title">
   <div class="shell">
     <p class="eyebrow eyebrow--gold">Gemeinschaft</p>
     <header class="section-heading section-heading--dark"><h2 id="community-title">Werde Teil der River Rats</h2></header>

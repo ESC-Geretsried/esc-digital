@@ -1,0 +1,21 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "u17",
+  "body": "Saison 2025/2026\n\nKontakt: Trainer Sabrina Kruck, Markus Hätinen; Teamleiter Maren Senger; Email team.u17@esc-geretsried.de; Telefon 08171 6399021.\n\nKader (Pos | Nr | Name):\nS|2|Klemt, Jonas\nS|3|Roppel, Ruben\nS|5|Bickert, Lukas\nS|7|Senger, Georg\nS|8|Fritsch, Justus\nS|24|Schauer, Janik\nS|10|Gmeiner, Victoria\nS|11|Balbiani-Anthony, Leonardo\nS|12|Exner, Nicklas\nS|14|Finn, Herrman\nS|15|Deisling, Max Leon\nS|16|Czapla, Dominik\nS|18|Wirag, Valentin\nS|19|Bunnemanbn, Adrian\nS|20|Gmeiner, Valentin\nS|21|Maul, Nelson\nS|23|Kruck, Maximilian\nS|24|Kain, Florian\nT|30|Wolf, Arne\nT|22|Gania, Lilli\nT|51|Freudenstein, Tamara",
+  "hero_asset_key": "",
+  "last_reviewed_at": "2026-08-26T00:00:00Z",
+  "page_key": "u17",
+  "page_type": "team",
+  "public_path": "/u17/",
+  "record_id": "orp:git-seed:esc:pages:u17",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:git-seed:esc:pages:u17",
+  "source_reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+  "source_status": "founder-provided",
+  "source_updated_at": "2026-08-26T00:00:00Z",
+  "status": "draft",
+  "summary": "Kader und Kontakte · Saison 2025/2026",
+  "team_key": "u17",
+  "title": "U17"
+}

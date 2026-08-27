@@ -1,0 +1,34 @@
+{
+  "owml_version": "1.0.0",
+  "profile": "esc-reference-v1",
+  "system_of_record": "git",
+  "required_inputs": [
+    "owml/v1/schema/owml-site.schema.json",
+    "owml/v1/node-catalog.json",
+    "owml/v1/patterns.json",
+    "owml/v1/pages.json",
+    "owml/v1/editor-policy.json",
+    "owml/v1/pilots/u15.observed.json",
+    "scripts/owml.py",
+    "site/scripts/build.sh",
+    "site/scripts/validate.sh"
+  ],
+  "regenerable_outputs": [
+    "owml/v1/generated/patterns.md",
+    "owml/v1/generated/site.d2",
+    "owml/v1/generated/site.svg",
+    "owml/v1/generated/u15-observed-target.d2",
+    "owml/v1/generated/u15-observed-target.svg",
+    "owml/v1/generated/runtime-routes.json",
+    "owml/v1/generated/test-manifest.json"
+  ],
+  "rebuild_gate": [
+    "python3 scripts/owml.py validate",
+    "python3 scripts/owml.py generate --check",
+    "bash site/scripts/build.sh",
+    "bash site/scripts/validate.sh"
+  ],
+  "expected_deployment": "NONE",
+  "png_required": false,
+  "secrets_stored_in_git": false
+}

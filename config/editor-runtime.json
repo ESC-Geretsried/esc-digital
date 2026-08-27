@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "tenant": "esc",
+  "content_provider": "git",
+  "content_root": "content/.orp-editor",
+  "canonical_website_content_root": "content",
+  "canonical_website_structure_root": "owml/v1",
+  "website_modeling_language": "OWML 1.0.0",
+  "website_structure_lock": true,
+  "normal_editor_scope": "content-and-approved-slots-only",
+  "structure_change_workflow": "architecture-decision-owml-git-review-ci",
+  "unknown_owml_node_policy": "fail-closed",
+  "binary_asset_provider": "git-repository",
+  "identity_provider": "microsoft-entra",
+  "authorization_model": "entra-app-roles-and-server-side-scopes",
+  "required_content_and_media_dependencies": [
+    "git"
+  ],
+  "not_required_for_content_or_media": [
+    "sharepoint"
+  ],
+  "publishing_flow": "branch-pull-request-ci-preview",
+  "production_deployment": "separately-gated"
+}

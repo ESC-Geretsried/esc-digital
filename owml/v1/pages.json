@@ -1,0 +1,383 @@
+{
+  "owml_version": "1.0.0",
+  "pages": [
+    {
+      "id": "esc.home",
+      "pattern": "homepage",
+      "publication": "active",
+      "route": "/",
+      "source": "content/_index.md"
+    },
+    {
+      "id": "esc.aktuelles",
+      "pattern": "news-index",
+      "publication": "active",
+      "route": "/aktuelles/",
+      "source": "imports/esc-int-pages/aktuelles/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2025-06-26-damen-goldener-puck",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2025-06-26-damen-goldener-puck/",
+      "source": "imports/esc-int-pages/aktuelles/2025-06-26-damen-goldener-puck/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2025-08-29-team-hinter-dem-team",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2025-08-29-team-hinter-dem-team/",
+      "source": "imports/esc-int-pages/aktuelles/2025-08-29-team-hinter-dem-team/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2025-09-11-wir-suchen-dich",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2025-09-11-wir-suchen-dich/",
+      "source": "imports/esc-int-pages/aktuelles/2025-09-11-wir-suchen-dich/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2025-09-15-u13-spielberichte",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2025-09-15-u13-spielberichte/",
+      "source": "imports/esc-int-pages/aktuelles/2025-09-15-u13-spielberichte/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2025-09-23-u13-riessersee",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2025-09-23-u13-riessersee/",
+      "source": "imports/esc-int-pages/aktuelles/2025-09-23-u13-riessersee/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2025-10-03-u17-bad-aibling",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2025-10-03-u17-bad-aibling/",
+      "source": "imports/esc-int-pages/aktuelles/2025-10-03-u17-bad-aibling/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2025-11-25-u13-finalrunde",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2025-11-25-u13-finalrunde/",
+      "source": "imports/esc-int-pages/aktuelles/2025-11-25-u13-finalrunde/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2025-12-05-u13-landshut",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2025-12-05-u13-landshut/",
+      "source": "imports/esc-int-pages/aktuelles/2025-12-05-u13-landshut/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2025-12-12-u20-memmingen",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2025-12-12-u20-memmingen/",
+      "source": "imports/esc-int-pages/aktuelles/2025-12-12-u20-memmingen/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2026-01-28-u11-lechbruck-peiting",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2026-01-28-u11-lechbruck-peiting/",
+      "source": "imports/esc-int-pages/aktuelles/2026-01-28-u11-lechbruck-peiting/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2026-01-28-u11-peiting",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2026-01-28-u11-peiting/",
+      "source": "imports/esc-int-pages/aktuelles/2026-01-28-u11-peiting/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2026-02-02-u9-ratso-cup",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2026-02-02-u9-ratso-cup/",
+      "source": "imports/esc-int-pages/aktuelles/2026-02-02-u9-ratso-cup/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2026-02-09-u20-bad-aibling-inzell",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2026-02-09-u20-bad-aibling-inzell/",
+      "source": "imports/esc-int-pages/aktuelles/2026-02-09-u20-bad-aibling-inzell/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2026-02-09-u20-koenigsbrunn",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2026-02-09-u20-koenigsbrunn/",
+      "source": "imports/esc-int-pages/aktuelles/2026-02-09-u20-koenigsbrunn/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2026-02-19-u11-kaufbeuren",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2026-02-19-u11-kaufbeuren/",
+      "source": "imports/esc-int-pages/aktuelles/2026-02-19-u11-kaufbeuren/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2026-02-25-u11-landsberg",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2026-02-25-u11-landsberg/",
+      "source": "imports/esc-int-pages/aktuelles/2026-02-25-u11-landsberg/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2026-02-25-u9-kobi-cup",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2026-02-25-u9-kobi-cup/",
+      "source": "imports/esc-int-pages/aktuelles/2026-02-25-u9-kobi-cup/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2026-03-17-u20-stuttgarter-ec",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2026-03-17-u20-stuttgarter-ec/",
+      "source": "imports/esc-int-pages/aktuelles/2026-03-17-u20-stuttgarter-ec/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2026-03-17-u9-dornbirn",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2026-03-17-u9-dornbirn/",
+      "source": "imports/esc-int-pages/aktuelles/2026-03-17-u9-dornbirn/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2026-03-17-u9-peiting",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2026-03-17-u9-peiting/",
+      "source": "imports/esc-int-pages/aktuelles/2026-03-17-u9-peiting/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2026-07-10-river-rats-horvath",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2026-07-10-river-rats-horvath/",
+      "source": "imports/esc-int-pages/aktuelles/2026-07-10-river-rats-horvath/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2026-07-23-river-rats-skvorcovs",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2026-07-23-river-rats-skvorcovs/",
+      "source": "imports/esc-int-pages/aktuelles/2026-07-23-river-rats-skvorcovs/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2026-07-24-river-rats-saisonkarten",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2026-07-24-river-rats-saisonkarten/",
+      "source": "imports/esc-int-pages/aktuelles/2026-07-24-river-rats-saisonkarten/index.html"
+    },
+    {
+      "id": "esc.aktuelles.2026-08-04-river-rats-defensive-verlaengerungen",
+      "pattern": "article",
+      "publication": "active",
+      "route": "/aktuelles/2026-08-04-river-rats-defensive-verlaengerungen/",
+      "source": "imports/esc-int-pages/aktuelles/2026-08-04-river-rats-defensive-verlaengerungen/index.html"
+    },
+    {
+      "id": "esc.datenschutz",
+      "pattern": "legal",
+      "publication": "active",
+      "route": "/datenschutz/",
+      "source": "imports/esc-int-pages/datenschutz/index.html"
+    },
+    {
+      "id": "esc.dauerkarten",
+      "pattern": "service",
+      "publication": "active",
+      "route": "/dauerkarten/",
+      "source": "imports/esc-int-pages/dauerkarten/index.html"
+    },
+    {
+      "id": "esc.eiskunstlauf",
+      "pattern": "figure-skating",
+      "publication": "active",
+      "route": "/eiskunstlauf/",
+      "source": "content/eiskunstlauf/_index.md"
+    },
+    {
+      "id": "esc.eislaufschule",
+      "pattern": "skating-school",
+      "publication": "active",
+      "route": "/eislaufschule/",
+      "source": "content/eislaufschule/_index.md"
+    },
+    {
+      "id": "esc.foerderverein",
+      "pattern": "donation-supporters",
+      "publication": "active",
+      "route": "/foerderverein/",
+      "source": "content/verein/foerderverein/_index.md"
+    },
+    {
+      "id": "esc.impressum",
+      "pattern": "legal",
+      "publication": "active",
+      "route": "/impressum/",
+      "source": "imports/esc-int-pages/impressum/index.html"
+    },
+    {
+      "id": "esc.inklusion",
+      "pattern": "inclusion",
+      "publication": "active",
+      "route": "/inklusion/",
+      "source": "content/inklusion/_index.md"
+    },
+    {
+      "id": "esc.mitgliedschaft",
+      "pattern": "membership",
+      "publication": "active",
+      "route": "/mitgliedschaft/",
+      "source": "content/mitgliedschaft/_index.md"
+    },
+    {
+      "id": "esc.nachwuchs",
+      "pattern": "youth-index",
+      "publication": "active",
+      "route": "/nachwuchs/",
+      "source": "content/nachwuchs/_index.md"
+    },
+    {
+      "id": "esc.river-rats-damen",
+      "pattern": "team-page",
+      "publication": "active",
+      "route": "/river-rats-damen/",
+      "source": "content/river-rats-damen/_index.md",
+      "variant": "official-link-or-manual-sports-data"
+    },
+    {
+      "id": "esc.river-rats-herren",
+      "pattern": "team-page",
+      "publication": "redirect",
+      "redirect_to": "/river-rats/",
+      "route": "/river-rats-herren/",
+      "source": "imports/esc-int-pages/river-rats-herren/index.html",
+      "variant": "official-link-or-manual-sports-data"
+    },
+    {
+      "id": "esc.river-rats",
+      "pattern": "team-page",
+      "publication": "active",
+      "route": "/river-rats/",
+      "source": "content/river-rats/_index.md",
+      "variant": "protected-hockeydata-plus-editorial-supplements"
+    },
+    {
+      "id": "esc.sponsoren",
+      "pattern": "sponsor",
+      "publication": "active",
+      "route": "/sponsoren/",
+      "source": "content/sponsoren/_index.md"
+    },
+    {
+      "disabled_nodes": [
+        "standings"
+      ],
+      "id": "esc.u11",
+      "pattern": "team-page",
+      "publication": "active",
+      "route": "/u11/",
+      "source": "content/u11/_index.md",
+      "variant": "manual-youth-without-standings"
+    },
+    {
+      "id": "esc.u13",
+      "pattern": "team-page",
+      "publication": "active",
+      "route": "/u13/",
+      "source": "content/u13/_index.md",
+      "variant": "official-link-or-manual-sports-data"
+    },
+    {
+      "id": "esc.u15",
+      "notes": [
+        "Target follows INV-002; missing sports facts use stable empty states."
+      ],
+      "pattern": "team-page",
+      "publication": "active",
+      "route": "/u15/",
+      "source": "content/u15/_index.md",
+      "variant": "official-link-or-manual-sports-data"
+    },
+    {
+      "id": "esc.u17",
+      "pattern": "team-page",
+      "publication": "active",
+      "route": "/u17/",
+      "source": "content/u17/_index.md",
+      "variant": "official-link-or-manual-sports-data"
+    },
+    {
+      "id": "esc.u20",
+      "pattern": "team-page",
+      "publication": "active",
+      "route": "/u20/",
+      "source": "content/u20/_index.md",
+      "variant": "official-link-or-manual-sports-data"
+    },
+    {
+      "disabled_nodes": [
+        "standings"
+      ],
+      "id": "esc.u7",
+      "pattern": "team-page",
+      "publication": "active",
+      "route": "/u7/",
+      "source": "content/u7/_index.md",
+      "variant": "manual-youth-without-standings"
+    },
+    {
+      "disabled_nodes": [
+        "standings"
+      ],
+      "id": "esc.u9",
+      "pattern": "team-page",
+      "publication": "active",
+      "route": "/u9/",
+      "source": "content/u9/_index.md",
+      "variant": "manual-youth-without-standings"
+    },
+    {
+      "id": "esc.verein",
+      "pattern": "club",
+      "publication": "active",
+      "route": "/verein/",
+      "source": "content/verein/_index.md"
+    },
+    {
+      "id": "esc.verein.foerderverein",
+      "notes": [
+        "Legacy route remains covered; canonical independent target is /foerderverein/."
+      ],
+      "pattern": "donation-supporters",
+      "publication": "redirect",
+      "redirect_to": "/foerderverein/",
+      "route": "/verein/foerderverein/",
+      "source": "content/verein/foerderverein/_index.md"
+    },
+    {
+      "id": "esc.verein.geschaeftsstelle",
+      "pattern": "contact-office",
+      "publication": "active",
+      "route": "/verein/geschaeftsstelle/",
+      "source": "imports/esc-int-pages/verein/geschaeftsstelle/index.html"
+    },
+    {
+      "id": "esc.verein.vereinsfuehrung",
+      "pattern": "board",
+      "publication": "active",
+      "route": "/verein/vereinsfuehrung/",
+      "source": "content/verein/vereinsfuehrung/_index.md"
+    }
+  ],
+  "tenant": "esc"
+}

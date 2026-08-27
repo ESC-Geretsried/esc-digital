@@ -7,20 +7,36 @@
   </div>
 </section>
 
+{{ with .Params.team_photo }}
+<section class="home-section home-section--soft" id="teamfoto" aria-labelledby="area-teamfoto-title">
+  <div class="shell">
+    <p class="eyebrow eyebrow--gold">Teamfoto</p>
+    <div class="section-heading"><h2 id="area-teamfoto-title">{{ $.Title }}</h2></div>
+    <figure class="team-photo">
+      <img src="{{ . | relURL }}" alt="{{ $.Params.team_photo_alt | default (printf "Teamfoto %s" $.Title) }}" loading="lazy">
+    </figure>
+  </div>
+</section>
+{{ end }}
+
 {{ with .Params.people }}
   {{ if gt (len .) 0 }}
   <section class="home-section" id="people" aria-labelledby="area-people-title">
     <div class="shell">
-      <p class="eyebrow eyebrow--gold">People</p>
-      <div class="section-heading"><h2 id="area-people-title">Ansprechpartner & Rollen</h2></div>
-      <div class="news-grid">
+      <p class="eyebrow eyebrow--gold">Vereinsführung</p>
+      <div class="section-heading"><h2 id="area-people-title">Verantwortliche Personen</h2></div>
+      <div class="leadership-grid">
         {{ range . }}
-        <article class="news-group">
-          <p class="eyebrow eyebrow--gold">{{ .role }}</p>
-          <h3>{{ .name }}</h3>
-          {{ with .description }}<p>{{ . }}</p>{{ end }}
-          {{ with .email }}<p><a href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
-          {{ with .phone }}<p><a href="tel:{{ replaceRE "[^0-9+]" "" . }}">{{ . }}</a></p>{{ end }}
+        {{ $person := . }}
+        <article class="leadership-card">
+          {{ with $person.image }}<div class="leadership-card__image"><img src="{{ . | relURL }}" alt="Porträt von {{ $person.name }}" loading="lazy"></div>{{ end }}
+          <div class="leadership-card__body">
+            <p class="eyebrow eyebrow--gold">{{ .role }}</p>
+            <h3>{{ .name }}</h3>
+            {{ with .description }}<p>{{ . }}</p>{{ end }}
+            {{ with .email }}<p><a href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
+            {{ with .phone }}<p><a href="tel:{{ replaceRE "[^0-9+]" "" . }}">{{ . }}</a></p>{{ end }}
+          </div>
         </article>
         {{ end }}
       </div>

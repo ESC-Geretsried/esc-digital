@@ -1,0 +1,6 @@
+key,area,decision,status
+HQ-R01,River Rats,Kanonische Teamstruktur gilt; zusätzlicher Founder-/Excel-Tab ist nur Inhalts-/Migrationsinput und erzeugt keinen zusätzlichen Navigationstab.,VERIFIZIERT
+HQ-R02,Förderverein,"Eigene Hauptseite, eigener Redaktionsbereich und Scope unter /foerderverein/; /verein/foerderverein/ bleibt nur Legacy-Migrationsquelle.",VERIFIZIERT
+HQ-R03,U11,Aktualisierte Excel-Referenz plus alte U11-Seite sind ausreichender Nachweis; U11-Teamfoto ist verifiziert.,VERIFIZIERT
+HQ-R04,Damen,Founder-bestätigtes Damenfoto ist verifiziert; rename_planned=true; Bildinhalt unverändert; Provenance erhalten.,VERIFIZIERT
+HQ-R05,News,"Historische News ausschließlich River Rats, Eiskunstlauf und U13; alle anderen historischen News NICHT MIGRIEREN.",VERIFIZIERT

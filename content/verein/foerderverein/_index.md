@@ -3,6 +3,9 @@ title: "Förderverein"
 description: "Förderverein des ESC River Rats Geretsried."
 content_status: "draft"
 source_status: "to_migrate"
+url: "/foerderverein/"
+aliases:
+  - "/verein/foerderverein/"
 ---
 
-Diese Seite ist als kanonische ESC-Seite angelegt. Inhalte werden im nächsten M2-Schritt aus den freigegebenen ESC-Quellen strukturiert übernommen und redaktionell abgestimmt.
+Informationen und Kontaktmöglichkeiten zum Förderverein werden hier veröffentlicht.

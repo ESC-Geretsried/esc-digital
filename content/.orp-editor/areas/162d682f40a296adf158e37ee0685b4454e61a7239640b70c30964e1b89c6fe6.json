@@ -1,0 +1,17 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "u15",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-26T00:00:00Z",
+  "public_path": "/u15/",
+  "record_id": "orp:git-seed:esc:areas:u15",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:git-seed:esc:areas:u15",
+  "source_reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+  "source_status": "founder-provided",
+  "source_updated_at": "2026-08-26T00:00:00Z",
+  "status": "draft",
+  "summary": "U15 · Saison 2025/2026",
+  "title": "U15"
+}

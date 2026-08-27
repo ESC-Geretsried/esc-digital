@@ -1,1 +1,143 @@
-.team-hero{position:relative;min-height:68vh;display:flex;align-items:flex-end;background:#071a31 center/cover no-repeat;color:#fff;isolation:isolate}.team-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,22,42,.2),rgba(6,22,42,.88));z-index:-1}.team-hero__content{padding:clamp(5rem,11vw,9rem) 0 3rem}.team-hero .eyebrow{color:#d6a13b}.team-hero h1{font-size:clamp(3.2rem,12vw,7.4rem);line-height:.88;margin:.15em 0}.team-hero__tagline{font-size:clamp(1.25rem,4vw,2rem);margin:0}.team-local-nav{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #dce1e7;overflow-x:auto}.team-local-nav__inner{display:flex;gap:0;min-width:max-content}.team-local-nav a{display:block;padding:1rem 1.15rem;font-weight:850;text-transform:uppercase;text-decoration:none;color:#0b2b52}.team-local-nav a:focus,.team-local-nav a:hover{background:#f1f4f7}.team-section{padding:clamp(3rem,8vw,6rem) 0;scroll-margin-top:4rem}.team-section--soft{background:#f5f7fa}.team-section h2{font-size:clamp(2rem,6vw,3.6rem);margin:0 0 1.25rem;color:#0b2b52}.team-overview{font-size:clamp(1.1rem,3vw,1.45rem);max-width:760px}.roster-group{margin-top:2.5rem}.roster-group h3{font-size:1.45rem;text-transform:uppercase;color:#0b2b52}.roster-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}.player-card{background:#fff;border:1px solid #d9e0e8;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(7,26,49,.07)}.player-card__image{aspect-ratio:4/5;background:#e9edf2;display:grid;place-items:center;color:#657184;font-weight:800}.player-card__image img{width:100%;height:100%;object-fit:cover}.player-card__body{padding:1rem}.player-card__number{font-size:.85rem;font-weight:850;color:#a46d08;text-transform:uppercase}.player-card h4{font-size:1.15rem;margin:.2rem 0 .5rem}.player-meta{display:flex;flex-wrap:wrap;gap:.35rem .7rem;font-size:.88rem;color:#5f6a79}.staff-grid,.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.staff-card,.team-news-card{background:#fff;border:1px solid #d9e0e8;border-radius:14px;padding:1.15rem}.staff-card strong,.team-news-card h3{display:block;margin-bottom:.3rem;color:#0b2b52}.team-news-card a{text-decoration:none}.team-news-card time{font-size:.85rem;color:#687383}.team-hd-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.team-hd-card{background:#fff;border-top:4px solid #b47b16;padding:1.2rem;min-height:180px;min-width:0;overflow-x:auto}.team-hd-card--wide{grid-column:1/-1}.team-hd-card img{max-width:100%;height:auto}.team-hd-card table,.team-hd-card .-hd-util-intellitable{width:100%!important}.team-source-note{margin-top:2rem;font-size:.88rem;color:#687383}.team-source-note a{color:inherit}@media(max-width:900px){.roster-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:700px){.team-hero{min-height:64vh}.roster-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.staff-grid,.news-grid,.team-hd-grid{grid-template-columns:1fr}.team-hd-card{padding:.9rem .7rem;min-height:0}.team-hd-card--wide{grid-column:auto}.team-hd-card img{max-width:56px!important;max-height:56px!important;object-fit:contain}.team-hd-card table{font-size:.82rem}.team-hd-card th,.team-hd-card td{padding:.35rem .25rem!important;white-space:nowrap}.team-local-nav a{padding:.85rem .9rem;font-size:.9rem}.player-card__body{padding:.85rem}}@media(max-width:430px){.roster-grid{grid-template-columns:1fr 1fr}.player-card h4{font-size:1rem}.player-meta{font-size:.78rem}.team-hd-card{padding:.75rem .5rem}.team-hd-card img{max-width:44px!important;max-height:44px!important}.team-hd-card table{font-size:.76rem}}
+.team-hero{position:relative;min-height:68vh;display:flex;align-items:flex-end;background:#071a31 center/cover no-repeat;color:#fff;isolation:isolate}.team-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,22,42,.2),rgba(6,22,42,.88));z-index:-1}.team-hero__content{padding:clamp(5rem,11vw,9rem) 0 3rem}.team-hero .eyebrow{color:#d6a13b}.team-hero h1{font-size:clamp(3.2rem,12vw,7.4rem);line-height:.88;margin:.15em 0}.team-hero__tagline{font-size:clamp(1.25rem,4vw,2rem);margin:0}.team-hero__next{margin-top:1.4rem;max-width:640px;background:rgba(7,26,49,.78);backdrop-filter:blur(10px);border-top:4px solid #d6a13b;padding:1rem 1.1rem;overflow-x:auto}.team-hero__next>strong{display:block;margin-bottom:.45rem;text-transform:uppercase;letter-spacing:.05em;color:#fff}.team-local-nav{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #dce1e7;overflow-x:auto}.team-local-nav__inner{display:flex;gap:0;min-width:max-content}.team-local-nav a{display:block;padding:1rem 1.15rem;font-weight:850;text-transform:uppercase;text-decoration:none;color:#0b2b52}.team-local-nav a:focus,.team-local-nav a:hover{background:#f1f4f7}.team-section{padding:clamp(3rem,8vw,6rem) 0;scroll-margin-top:4rem}.team-section--soft{background:#f5f7fa}.team-section h2{font-size:clamp(2rem,6vw,3.6rem);margin:0 0 1.25rem;color:#0b2b52}.team-overview{font-size:clamp(1.1rem,3vw,1.45rem);max-width:760px}.team-photo{margin:0}.team-photo img{display:block;width:100%;max-height:760px;object-fit:cover;border-radius:18px}.roster-group{margin-top:2.5rem}.roster-group h3{font-size:1.45rem;text-transform:uppercase;color:#0b2b52}.roster-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}.player-card{background:#fff;border:1px solid #d9e0e8;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(7,26,49,.07)}.player-card__image{aspect-ratio:4/5;background:#e9edf2;display:grid;place-items:center;color:#657184;font-weight:800}.player-card__image img{width:100%;height:100%;object-fit:cover}.player-card__body{padding:1rem}.player-card__number{font-size:.85rem;font-weight:850;color:#a46d08;text-transform:uppercase}.player-card h4{font-size:1.15rem;margin:.2rem 0 .5rem}.player-meta{display:flex;flex-wrap:wrap;gap:.35rem .7rem;font-size:.88rem;color:#5f6a79}.staff-grid,.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.staff-card,.team-news-card{background:#fff;border:1px solid #d9e0e8;border-radius:14px;padding:1.15rem}.staff-card strong,.team-news-card h3{display:block;margin-bottom:.3rem;color:#0b2b52}.team-news-card a{text-decoration:none}.team-news-card time{font-size:.85rem;color:#687383}.team-hd-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.team-hd-card{background:#fff;border-top:4px solid #b47b16;padding:1.2rem;min-height:180px;min-width:0;overflow-x:auto}.team-hd-card--wide{grid-column:1/-1}.team-hd-card img{max-width:100%;height:auto}.team-hd-card table,.team-hd-card .-hd-util-intellitable{width:100%!important}.team-source-note{margin-top:2rem;font-size:.88rem;color:#687383}.team-source-note a{color:inherit}@media(max-width:900px){.roster-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:700px){.team-hero{min-height:64vh}.team-hero__next{max-width:none}.roster-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.staff-grid,.news-grid,.team-hd-grid{grid-template-columns:1fr}.team-hd-card{padding:.9rem .7rem;min-height:0}.team-hd-card--wide{grid-column:auto}.team-hd-card img{max-width:56px!important;max-height:56px!important;object-fit:contain}.team-hd-card table{font-size:.82rem}.team-hd-card th,.team-hd-card td{padding:.35rem .25rem!important;white-space:nowrap}.team-local-nav a{padding:.85rem .9rem;font-size:.9rem}.player-card__body{padding:.85rem}}
+/* River Rats HockeyData mobile acceptance:
+   - GameSlider prioritizes date/time and matchup over decorative logos/empty score.
+   - Schedule/Results may wrap instead of requiring horizontal scrolling.
+   - Standings intentionally remain untouched. */
+@media(max-width:700px){
+  .team-hero__next{
+    overflow:hidden;
+    padding:1rem;
+  }
+
+  .team-hero__next .-hd-los-game-slider{
+    width:100%!important;
+    max-width:100%!important;
+  }
+
+  .team-hero__next .-hd-los-game-slider-info{
+    clear:both;
+    display:block;
+    margin:.2rem 0 .85rem;
+    font-size:1.05rem;
+    line-height:1.35;
+    font-weight:850;
+    color:#fff;
+  }
+
+  .team-hero__next .-hd-los-game-slider-team-name-home,
+  .team-hero__next .-hd-los-game-slider-team-name-away{
+    width:39%!important;
+    max-width:39%!important;
+    white-space:normal!important;
+    line-height:1.25;
+    font-size:.9rem;
+    font-weight:800;
+  }
+
+  .team-hero__next .-hd-los-game-slider-team-logo-home,
+  .team-hero__next .-hd-los-game-slider-team-logo-away{
+    width:39%!important;
+    max-width:39%!important;
+  }
+
+  .team-hero__next .-hd-los-game-slider-team-logo-home img,
+  .team-hero__next .-hd-los-game-slider-team-logo-away img{
+    width:auto!important;
+    height:auto!important;
+    max-width:42px!important;
+    max-height:42px!important;
+    object-fit:contain;
+  }
+
+  .team-hero__next .-hd-los-game-slider-score{
+    font-size:.82rem!important;
+    line-height:1.2;
+    opacity:.58;
+    font-weight:700;
+  }
+
+  .team-hero__next .-hd-los-game-slider-score-info{
+    font-size:.78rem;
+    opacity:.78;
+  }
+
+  #spielplan .team-hd-card,
+  #ergebnisse .team-hd-card{
+    overflow:visible;
+  }
+
+  #spielplan .-hd-util-intellitable-data,
+  #ergebnisse .-hd-util-intellitable-data{
+    overflow:visible!important;
+    width:100%!important;
+  }
+
+  #spielplan .-hd-los-schedule-table,
+  #ergebnisse .-hd-los-schedule-table,
+  #spielplan .-hd-util-intellitable-data table,
+  #ergebnisse .-hd-util-intellitable-data table{
+    width:100%!important;
+    max-width:100%!important;
+    table-layout:fixed!important;
+  }
+
+  #spielplan .-hd-util-intellitable th,
+  #spielplan .-hd-util-intellitable td,
+  #ergebnisse .-hd-util-intellitable th,
+  #ergebnisse .-hd-util-intellitable td{
+    white-space:normal!important;
+    overflow-wrap:anywhere;
+    padding:.55rem .3rem!important;
+    font-size:.78rem;
+    line-height:1.25;
+  }
+
+  #spielplan .-hd-los-schedule-team-logo,
+  #spielplan .-hd-los-schedule-home-team-logo,
+  #spielplan .-hd-los-schedule-away-team-logo,
+  #ergebnisse .-hd-los-schedule-team-logo,
+  #ergebnisse .-hd-los-schedule-home-team-logo,
+  #ergebnisse .-hd-los-schedule-away-team-logo{
+    display:none!important;
+  }
+
+  #spielplan .-hd-los-schedule-home-team-name,
+  #spielplan .-hd-los-schedule-away-team-name,
+  #ergebnisse .-hd-los-schedule-home-team-name,
+  #ergebnisse .-hd-los-schedule-away-team-name{
+    font-weight:800;
+  }
+
+  #spielplan .-hd-los-schedule-scheduled-date,
+  #spielplan .-hd-los-schedule-scheduled-time,
+  #spielplan .-hd-util-intellitable-date-value,
+  #spielplan .-hd-util-intellitable-time-value,
+  #ergebnisse .-hd-los-schedule-scheduled-date,
+  #ergebnisse .-hd-los-schedule-scheduled-time,
+  #ergebnisse .-hd-util-intellitable-date-value,
+  #ergebnisse .-hd-util-intellitable-time-value{
+    font-weight:800;
+    color:#0b2b52;
+  }
+
+  #ergebnisse .-hd-los-schedule-score,
+  #ergebnisse .-hd-los-schedule-home-team-score,
+  #ergebnisse .-hd-los-schedule-away-team-score{
+    font-weight:900;
+    font-size:.9rem;
+  }
+
+  #spielplan .-hd-util-intellitable-scroll-help,
+  #ergebnisse .-hd-util-intellitable-scroll-help{
+    display:none!important;
+  }
+}
+
+.staff-card{padding:0;overflow:hidden}.staff-card__image{aspect-ratio:2/3;background:#e9edf2;display:grid;place-items:center;color:#657184;font-weight:800}.staff-card__image img{display:block;width:100%;height:100%;object-fit:cover}.staff-card__body{display:flex;flex-direction:column;padding:1rem}
+
+.founder-team-hero{background:#071f36;color:#fff;padding:clamp(2rem,5vw,4rem) 0}.founder-team-hero__grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);align-items:center;gap:clamp(1.5rem,4vw,3.5rem)}.founder-team-hero__copy h1{margin:.1em 0;font-size:clamp(3rem,9vw,6rem);line-height:.9}.founder-team-hero__copy>p:last-child{max-width:34rem;font-size:1.08rem;line-height:1.55}.founder-team-hero__photo{margin:0;border:1px solid rgba(255,255,255,.18);background:#102f4c;box-shadow:0 24px 60px rgba(0,0,0,.24)}.founder-team-hero__photo img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}.founder-team-overview>p:not(.eyebrow){max-width:760px;font-size:1.12rem}.founder-team-overview>.source-badge{width:max-content;max-width:100%;padding:.65rem .85rem;border-left:4px solid #b77b19;background:#f3f5f7;font-size:.86rem!important}.founder-roster{border-radius:14px;border:1px solid #d9e0e8;overflow:hidden}.founder-roster:focus{outline:3px solid #d4a443;outline-offset:3px}.founder-roster table{width:100%;border-collapse:collapse;background:#fff}.founder-roster th,.founder-roster td{padding:.85rem 1rem;text-align:left;border-bottom:1px solid #e1e6ec}.founder-roster th{background:#071f36;color:#fff;text-transform:uppercase;font-size:.78rem;letter-spacing:.05em}.founder-roster td:first-child,.founder-roster td:nth-child(2){width:5rem;font-weight:850;color:#8b5c0c}.founder-roster tr:last-child td{border-bottom:0}.founder-contact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.founder-contact-card{display:flex;min-width:0;flex-direction:column;gap:.45rem;padding:1.1rem;border-top:4px solid #b77b19;background:#fff}.founder-contact-card strong{color:#071f36;text-transform:uppercase;font-size:.78rem}.founder-contact-card span,.founder-contact-card a{overflow-wrap:anywhere;color:#14283f;line-height:1.45}
+
+@media(max-width:700px){.staff-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.staff-card__body{padding:.85rem}}
+@media(max-width:760px){.founder-team-hero__grid{grid-template-columns:1fr}.founder-team-hero__copy{order:2}.founder-team-hero__photo{order:1}.founder-team-hero__photo img{aspect-ratio:16/9}.founder-contact-grid{grid-template-columns:1fr 1fr}.founder-roster th,.founder-roster td{padding:.7rem .65rem}.founder-roster td:first-child,.founder-roster td:nth-child(2){width:3.7rem}}
+@media(max-width:430px){.roster-grid{grid-template-columns:1fr 1fr}.player-card h4{font-size:1rem}.player-meta{font-size:.78rem}.team-hd-card{padding:.75rem .5rem}.team-hd-card img{max-width:44px!important;max-height:44px!important}.team-hd-card table{font-size:.76rem}.founder-contact-grid{grid-template-columns:1fr}.founder-roster{border-radius:10px}.founder-roster th,.founder-roster td{padding:.62rem .5rem;font-size:.84rem}.founder-roster td:first-child,.founder-roster td:nth-child(2){width:3.15rem}.founder-team-hero__copy h1{font-size:2.8rem}}
+.founder-team-overview>p.source-badge{max-width:100%}

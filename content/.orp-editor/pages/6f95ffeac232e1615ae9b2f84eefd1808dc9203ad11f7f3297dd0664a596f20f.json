@@ -1,0 +1,21 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "u15",
+  "body": "Saison 2025/2026\n\nKontakt: Trainer Michael Goldschmidt, Andreas Herrmann; Teamleiter Anna und Ronny Wolf, Sven Leinen; Email team.u15@esc-geretsried.de; Telefon 08171 6399020.\n\nKader (Pos | Nr | Name):\nT|31|Fischer Amelie\nT|32|Menzinger Magnus\nT|30|Jesse Max\nV|3|Bickert Melanie\nV|4|Gmeiner Victoria\nV|5|Wirag Julian\nV|6|Köster Heimdall\nV|7|Ciecor Felix\nV|8|Bunnemann Leopold\nV|14|Weinmann Lena\nV|16|Meinlschmidt Julius\nV|18|Heyse Milo\nV|24|Voegele Jakob\nV|26|Wolf Anton\nV|27|Goldschmidt Lena\nS|9|Herrmann Niko\nS|10|Daisenberger Maximilian\nS|11|Zubok Artem\nS|12|Hofstätter Felix\nS|13|Erisik Eren\nS|15|Fritsch Moritz\nS|17|Hirsch Moritz\nS|19|Weinmann Maximilian\nS|20|Thalhammer Kilian\nS|21|Gündera Perez Camilo\nS|22|Oponczewski Lorenz\nS|23|Steinbacher Maximilian\nS|25|Bentz Paul\nS|28|Eiler Christian",
+  "hero_asset_key": "",
+  "last_reviewed_at": "2026-08-26T00:00:00Z",
+  "page_key": "u15",
+  "page_type": "team",
+  "public_path": "/u15/",
+  "record_id": "orp:git-seed:esc:pages:u15",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:git-seed:esc:pages:u15",
+  "source_reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+  "source_status": "founder-provided",
+  "source_updated_at": "2026-08-26T00:00:00Z",
+  "status": "draft",
+  "summary": "Kader und Kontakte · Saison 2025/2026",
+  "team_key": "u15",
+  "title": "U15"
+}

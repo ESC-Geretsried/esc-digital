@@ -9,4 +9,4 @@ next_game_title: "Termin folgt"
 next_game_copy: "Spielplan wird aus der Redaktion ergänzt."
 ---
 
-Homepage-Baseline für den M2-Designvergleich. Dynamische News-, Termin-, Partner- und redaktionelle Daten werden erst aus verifizierten Quellen übernommen.
+Aktuelle Meldungen, Termine und Angebote des ESC River Rats Geretsried e.V.

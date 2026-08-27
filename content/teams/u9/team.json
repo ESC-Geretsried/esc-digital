@@ -1,0 +1,288 @@
+{
+  "contact_source_text": "Kontakt: Trainer Andreas Bittner, Ondrej Horvath, John Ries; Teamleiter Andrea Sippel, Patricia Goldmann; Email team.u9@esc-geretsried.de; Telefon 08171 6399017.",
+  "contacts": [
+    {
+      "role": "Trainer",
+      "value": "Andreas Bittner, Ondrej Horvath, John Ries"
+    },
+    {
+      "role": "Teamleiter",
+      "value": "Andrea Sippel, Patricia Goldmann"
+    },
+    {
+      "role": "Email",
+      "value": "team.u9@esc-geretsried.de"
+    },
+    {
+      "role": "Telefon",
+      "value": "08171 6399017"
+    }
+  ],
+  "public_path": "/u9/",
+  "roster": [
+    {
+      "name": "Max Berchtold",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Max Berchtold"
+    },
+    {
+      "name": "Korbinian Bergaentzle",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Korbinian Bergaentzle"
+    },
+    {
+      "name": "Anton Bittner",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Anton Bittner"
+    },
+    {
+      "name": "Benedikt Boche",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Benedikt Boche"
+    },
+    {
+      "name": "Benedikt Brandl",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Benedikt Brandl"
+    },
+    {
+      "name": "Lara Dahlhoff",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Lara Dahlhoff"
+    },
+    {
+      "name": "Cosmo Drahorad",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Cosmo Drahorad"
+    },
+    {
+      "name": "Milo Drahorad",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Milo Drahorad"
+    },
+    {
+      "name": "Maximilian Eiler",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Maximilian Eiler"
+    },
+    {
+      "name": "Anton Eisele",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Anton Eisele"
+    },
+    {
+      "name": "Theo Ettner",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Theo Ettner"
+    },
+    {
+      "name": "Maximilian Fröbel",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Maximilian Fröbel"
+    },
+    {
+      "name": "Demian Fröhlich",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Demian Fröhlich"
+    },
+    {
+      "name": "Raphael Goldmann",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Raphael Goldmann"
+    },
+    {
+      "name": "Lisa Greiner",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Lisa Greiner"
+    },
+    {
+      "name": "Max Greiner",
+      "number": "99",
+      "position_code": "T",
+      "source_line": "T|99|Max Greiner"
+    },
+    {
+      "name": "Daniel Hagemann",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Daniel Hagemann"
+    },
+    {
+      "name": "Leo Hammer",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Leo Hammer"
+    },
+    {
+      "name": "Jonas Hammerl",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Jonas Hammerl"
+    },
+    {
+      "name": "Luis Hauser",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Luis Hauser"
+    },
+    {
+      "name": "Collin Hoffleisch",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Collin Hoffleisch"
+    },
+    {
+      "name": "Alex Horvath",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Alex Horvath"
+    },
+    {
+      "name": "Korbinian Huber",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Korbinian Huber"
+    },
+    {
+      "name": "Benedikt Killi",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Benedikt Killi"
+    },
+    {
+      "name": "Anton Kirner",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Anton Kirner"
+    },
+    {
+      "name": "Korbinian Korti",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Korbinian Korti"
+    },
+    {
+      "name": "Lukas Look",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Lukas Look"
+    },
+    {
+      "name": "Louis Melchert",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Louis Melchert"
+    },
+    {
+      "name": "Maximilian Mill",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Maximilian Mill"
+    },
+    {
+      "name": "Pavel Podgurschii",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Pavel Podgurschii"
+    },
+    {
+      "name": "Frido Schneider",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Frido Schneider"
+    },
+    {
+      "name": "Nick Schuhbeck",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Nick Schuhbeck"
+    },
+    {
+      "name": "Leon Seiwert",
+      "number": "98",
+      "position_code": "S",
+      "source_line": "S|98|Leon Seiwert"
+    },
+    {
+      "name": "Leo Sinz",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Leo Sinz"
+    },
+    {
+      "name": "Anian Sippel",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Anian Sippel"
+    },
+    {
+      "name": "Elisabeth Spengler",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Elisabeth Spengler"
+    },
+    {
+      "name": "Xaver Stammler",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Xaver Stammler"
+    },
+    {
+      "name": "Eliano Sydow",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Eliano Sydow"
+    },
+    {
+      "name": "Maximilian Thalhammer",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Maximilian Thalhammer"
+    },
+    {
+      "name": "Philip von Toll",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Philip von Toll"
+    },
+    {
+      "name": "Korbinian Veitenhansl",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Korbinian Veitenhansl"
+    },
+    {
+      "name": "Xaver Weißhaupt",
+      "number": "99",
+      "position_code": "S",
+      "source_line": "S|99|Xaver Weißhaupt"
+    }
+  ],
+  "schema_version": 1,
+  "season": "2025/2026",
+  "source": {
+    "provided_at": "2026-08-26",
+    "reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+    "rule": "Exact projection; no silent normalization, correction or inference.",
+    "status": "founder-provided"
+  },
+  "team_key": "u9",
+  "team_photo": "images/teams/u9-team.jpg",
+  "team_photo_alt": "Teamfoto U9 Saison 2025/2026",
+  "title": "U9"
+}

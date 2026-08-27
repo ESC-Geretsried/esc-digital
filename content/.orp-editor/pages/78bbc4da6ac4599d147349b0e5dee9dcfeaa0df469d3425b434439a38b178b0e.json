@@ -1,0 +1,21 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "u9",
+  "body": "Saison 2025/2026\n\nKontakt: Trainer Andreas Bittner, Ondrej Horvath, John Ries; Teamleiter Andrea Sippel, Patricia Goldmann; Email team.u9@esc-geretsried.de; Telefon 08171 6399017.\n\nKader (Pos | Nr | Name):\nS|99|Max Berchtold\nS|99|Korbinian Bergaentzle\nS|99|Anton Bittner\nS|99|Benedikt Boche\nS|99|Benedikt Brandl\nS|99|Lara Dahlhoff\nS|99|Cosmo Drahorad\nS|99|Milo Drahorad\nS|99|Maximilian Eiler\nS|99|Anton Eisele\nS|99|Theo Ettner\nS|99|Maximilian Fröbel\nS|99|Demian Fröhlich\nS|99|Raphael Goldmann\nS|99|Lisa Greiner\nT|99|Max Greiner\nS|99|Daniel Hagemann\nS|99|Leo Hammer\nS|99|Jonas Hammerl\nS|99|Luis Hauser\nS|99|Collin Hoffleisch\nS|99|Alex Horvath\nS|99|Korbinian Huber\nS|99|Benedikt Killi\nS|99|Anton Kirner\nS|99|Korbinian Korti\nS|99|Lukas Look\nS|99|Louis Melchert\nS|99|Maximilian Mill\nS|99|Pavel Podgurschii\nS|99|Frido Schneider\nS|99|Nick Schuhbeck\nS|98|Leon Seiwert\nS|99|Leo Sinz\nS|99|Anian Sippel\nS|99|Elisabeth Spengler\nS|99|Xaver Stammler\nS|99|Eliano Sydow\nS|99|Maximilian Thalhammer\nS|99|Philip von Toll\nS|99|Korbinian Veitenhansl\nS|99|Xaver Weißhaupt",
+  "hero_asset_key": "",
+  "last_reviewed_at": "2026-08-26T00:00:00Z",
+  "page_key": "u9",
+  "page_type": "team",
+  "public_path": "/u9/",
+  "record_id": "orp:git-seed:esc:pages:u9",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:git-seed:esc:pages:u9",
+  "source_reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+  "source_status": "founder-provided",
+  "source_updated_at": "2026-08-26T00:00:00Z",
+  "status": "draft",
+  "summary": "Kader und Kontakte · Saison 2025/2026",
+  "team_key": "u9",
+  "title": "U9"
+}

@@ -1,16 +1,42 @@
 (() => {
+  const GERETSRIED_TIME_ZONE = 'Europe/Berlin';
+
+  const geretsriedDayIndex = (date = new Date()) => {
+    const parts = Object.fromEntries(
+      new Intl.DateTimeFormat('en-US', {
+        timeZone: GERETSRIED_TIME_ZONE,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+      }).formatToParts(date).filter((part) => part.type !== 'literal').map((part) => [part.type, part.value])
+    );
+    return Math.floor(Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day)) / 86400000);
+  };
+
+  const dailyImageFor = (dailyImages, date = new Date()) => (
+    dailyImages.length ? dailyImages[geretsriedDayIndex(date) % dailyImages.length] : null
+  );
+
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { GERETSRIED_TIME_ZONE, geretsriedDayIndex, dailyImageFor };
+  }
+  if (typeof document === 'undefined') return;
+
   const root = document.querySelector('.hero-background');
   if (!root) return;
 
-  const sources = Array.from(root.querySelectorAll('[data-hero-source]')).map((node) => ({
-    src: node.dataset.src,
-    area: node.dataset.area || '',
-    headline: node.dataset.headline || '',
-    ctaLabel: node.dataset.ctaLabel || '',
-    ctaPath: node.dataset.ctaPath || '#',
-    focusDesktop: node.dataset.focusDesktop || '50% 50%',
-    focusMobile: node.dataset.focusMobile || node.dataset.focusDesktop || '50% 50%'
-  })).filter((item) => item.src);
+  const sources = Array.from(root.querySelectorAll('[data-hero-source]')).map((node) => {
+    const dailyImages = (node.dataset.dailyImages || '').split('|').map((value) => value.trim()).filter(Boolean);
+    return {
+      src: dailyImageFor(dailyImages) || node.dataset.src,
+      area: node.dataset.area || '',
+      headline: node.dataset.headline || '',
+      ctaLabel: node.dataset.ctaLabel || '',
+      ctaPath: node.dataset.ctaPath || '#',
+      focusDesktop: node.dataset.focusDesktop || '50% 50%',
+      focusMobile: node.dataset.focusMobile || node.dataset.focusDesktop || '50% 50%'
+    };
+  }).filter((item) => item.src);
 
   const layers = Array.from(root.querySelectorAll('.hero-background__layer'));
   if (!sources.length || layers.length !== 2) return;

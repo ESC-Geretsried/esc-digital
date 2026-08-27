@@ -30,6 +30,15 @@
       "id": "nachwuchs",
       "area": "Nachwuchs",
       "image": "images/teams/u13-team.jpg",
+      "daily_images": [
+        "images/teams/u7-team.jpg",
+        "images/teams/u9-team.jpg",
+        "images/teams/u11-team.jpg",
+        "images/teams/u13-team.jpg",
+        "images/teams/u15-team.jpg",
+        "images/teams/u17-team.jpg",
+        "images/teams/u20-team.jpg"
+      ],
       "headline": "Die Zukunft der River Rats.",
       "cta_label": "Nachwuchs",
       "cta_path": "/nachwuchs/",

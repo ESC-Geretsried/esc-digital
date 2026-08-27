@@ -26,6 +26,71 @@
   <link rel="stylesheet" href="https://api.hockeydata.net/css/?los_gameslider&los_schedule&los_standings">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://api.hockeydata.net/js/?los_icehockey"></script>
+{{ else if and (eq .Type "team") .Params.team_key }}
+  {{ $team := index site.Data.teams .Params.team_key }}
+  {{ $tableEligible := not (in (slice "u11" "u9" "u7") .Params.team_key) }}
+  <header class="founder-team-hero">
+    <div class="shell founder-team-hero__grid">
+      <div class="founder-team-hero__copy">
+        <p class="eyebrow">Mannschaft · Saison {{ $team.season }}</p>
+        <h1>{{ $team.title }}</h1>
+        <p>Mannschaft, Kader und Kontakte für die Saison {{ $team.season }}.</p>
+        <div class="team-next-game" aria-label="Nächstes Spiel">
+          <strong>Nächstes Spiel</strong>
+          {{ with $team.next_game }}<span>{{ . }}</span>{{ else }}<span>Aktuell ist kein bestätigter nächster Spieltermin veröffentlicht.</span>{{ end }}
+        </div>
+      </div>
+      <figure class="founder-team-hero__photo"><img src="{{ $team.team_photo | relURL }}" alt="{{ $team.team_photo_alt }}"></figure>
+    </div>
+  </header>
+  <nav class="team-local-nav" aria-label="Bereiche {{ $team.title }}"><div class="shell team-local-nav__inner">
+    <a href="#uebersicht">Übersicht</a><a href="#teamfoto">Teamfoto</a><a href="#kader">Kader</a><a href="#news">News</a><a href="#spielplan">Spielplan</a>{{ if $tableEligible }}<a href="#tabelle">Tabelle</a>{{ end }}<a href="#ergebnisse">Ergebnisse</a><a href="#kontakte">Kontakte</a>
+  </div></nav>
+  <section class="team-section" id="uebersicht"><div class="shell founder-team-overview">
+    <p class="eyebrow eyebrow--gold">Übersicht</p><h2>{{ $team.title }}</h2>
+    <p>Saison {{ $team.season }} · {{ len $team.roster }} Kaderpositionen</p>
+  </div></section>
+  <section class="team-section team-section--soft" id="teamfoto"><div class="shell">
+    <p class="eyebrow eyebrow--gold">Teamfoto</p><h2>{{ $team.title }} {{ $team.season }}</h2>
+    <figure class="team-photo"><img src="{{ $team.team_photo | relURL }}" alt="{{ $team.team_photo_alt }}" loading="lazy"></figure>
+  </div></section>
+  <section class="team-section" id="kader"><div class="shell">
+    <p class="eyebrow eyebrow--gold">Kader</p><h2>{{ $team.title }} {{ $team.season }}</h2>
+    <div class="founder-roster" role="region" aria-label="Kader {{ $team.title }}" tabindex="0">
+      <table><thead><tr><th scope="col">Pos.</th><th scope="col">Nr.</th><th scope="col">Name</th></tr></thead><tbody>
+      {{ range $team.roster }}<tr><td data-label="Position">{{ .position_code }}</td><td data-label="Nummer">{{ .number }}</td><td data-label="Name">{{ .name }}</td></tr>{{ end }}
+      </tbody></table>
+    </div>
+  </div></section>
+  <section class="team-section team-section--soft" id="news"><div class="shell">
+    <p class="eyebrow eyebrow--gold">News</p><h2>Aktuelles von {{ $team.title }}</h2>
+    {{ with $team.news }}<div class="news-grid">{{ range . }}<article class="team-news-card"><h3>{{ .title }}</h3>{{ with .path }}<a href="{{ . | relURL }}">Weiterlesen →</a>{{ end }}</article>{{ end }}</div>{{ else }}<p>Aktuell sind keine teambezogenen Meldungen veröffentlicht.</p>{{ end }}
+  </div></section>
+  <section class="team-section" id="spielplan"><div class="shell">
+    <p class="eyebrow eyebrow--gold">Spielplan</p><h2>Spiele und Termine</h2>
+    {{ with $team.official_schedule_url }}<p><a class="button" href="{{ . }}" rel="noopener noreferrer">Offiziellen Spielplan öffnen</a></p>{{ else }}<p>Aktuell ist kein bestätigter Spielplan veröffentlicht. Redaktionelle Spiele und Turniere können ergänzt werden, sobald sie feststehen.</p>{{ end }}
+  </div></section>
+  {{ if $tableEligible }}
+  <section class="team-section team-section--soft" id="tabelle"><div class="shell">
+    <p class="eyebrow eyebrow--gold">Tabelle</p><h2>Aktueller Tabellenstand</h2>
+    {{ with $team.official_table_url }}<p><a class="button" href="{{ . }}" rel="noopener noreferrer">Offizielle Tabelle öffnen</a></p>{{ else }}<p>Aktuell ist keine bestätigte Tabelle veröffentlicht.</p>{{ end }}
+  </div></section>
+  {{ end }}
+  <section class="team-section" id="ergebnisse"><div class="shell">
+    <p class="eyebrow eyebrow--gold">Ergebnisse</p><h2>Letzte Ergebnisse</h2>
+    {{ with $team.official_results_url }}<p><a class="button" href="{{ . }}" rel="noopener noreferrer">Offizielle Ergebnisse öffnen</a></p>{{ else }}<p>Aktuell sind keine bestätigten Ergebnisse veröffentlicht.</p>{{ end }}
+  </div></section>
+  <section class="team-section team-section--soft" id="kontakte"><div class="shell">
+    <p class="eyebrow eyebrow--gold">Kontakte</p><h2>Ansprechpartner {{ $team.title }}</h2>
+    <div class="founder-contact-grid">
+      {{ range $team.contacts }}
+        <article class="founder-contact-card"><strong>{{ .role }}</strong>
+        {{ if eq .role "Email" }}<a href="mailto:{{ .value }}">{{ .value }}</a>
+        {{ else if eq .role "Telefon" }}<a href="tel:{{ replaceRE "[^0-9+]" "" .value }}">{{ .value }}</a>
+        {{ else }}<span>{{ .value }}</span>{{ end }}</article>
+      {{ end }}
+    </div>
+  </div></section>
 {{ else if eq .Section "sponsoren" }}
   {{ $sponsorData := site.Data.sponsors }}
   {{ $page := site.Data.sponsor_page }}

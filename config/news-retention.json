@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "public_window_months": 12,
+  "expiry_boundary": "hide-on-or-after-calendar-anniversary",
+  "policy_timezone": "Europe/Berlin",
+  "source_retention": "retain-canonical-and-import-source-in-git",
+  "public_projection": "remove-expired-home-links-and-generated-article-output"
+}

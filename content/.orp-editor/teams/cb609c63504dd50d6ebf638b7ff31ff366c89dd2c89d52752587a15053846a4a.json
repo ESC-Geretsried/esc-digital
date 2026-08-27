@@ -1,7 +1,7 @@
 {
   "approval_owner": "ESC Redaktion",
   "hero_asset_key": "",
-  "last_reviewed_at": "2026-08-25T17:26:10Z",
+  "last_reviewed_at": "2026-08-26T14:37:31Z",
   "league_schedule_embed_url": "",
   "league_schedule_url": "",
   "league_table_embed_url": "",
@@ -14,11 +14,12 @@
   "source_owner": "ESC Redaktion",
   "source_provider": "orp-editor",
   "source_record_id": "orp:esc-main:teams:river-rats",
-  "source_updated_at": "2026-08-23T20:34:29Z",
+  "source_updated_at": "2026-08-26T14:37:31Z",
   "sports_provider": "hockeydata",
   "status": "draft",
   "subtitle": "Zusammen. Leidenschaft. Erfolg.",
   "team_key": "river-rats",
   "title": "River Rats",
-  "type": "team"
+  "type": "team",
+  "team_photo_asset_key": ""
 }

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from pathlib import Path
 from urllib.parse import urlparse
+from html import unescape
 import re
 import sys
 
@@ -31,8 +32,16 @@ open_marker = '<main id="main-content">'
 excluded_top_level = {
     'sponsoren',
     'river-rats',
+    'river-rats-herren',
     'river-rats-damen',
     'nachwuchs',
+    'u20',
+    'u17',
+    'u15',
+    'u13',
+    'u11',
+    'u9',
+    'u7',
     'eislaufschule',
     'eiskunstlauf',
     'inklusion',
@@ -40,6 +49,13 @@ excluded_top_level = {
     'mitgliedschaft',
 }
 count = 0
+
+internal_copy = re.compile(
+    r"(?i)(?<![\w])(?:INT|migration\w*|migrier\w*|preview\w*|transitional\w*|"
+    r"legacy(?:-pfad)?|ORP\s+Editor|M2(?:-[\w-]+)?|kanonisch\w*|canonical|"
+    r"MVP(?:-[\w-]+)?|projektverlauf|produktivstart|in\s+dieser\s+Stufe|"
+    r"falls\s+solche\s+Funktionen)(?![\w])"
+)
 
 
 def rewrite_root_urls(html: str) -> str:
@@ -51,12 +67,33 @@ def rewrite_root_urls(html: str) -> str:
         html = html.replace(f"{attr}='/", f"{attr}='{prefix}")
     return html
 
+
+def remove_internal_public_sentences(html: str) -> str:
+    """Remove release/provenance sentences only from the generated projection."""
+    paragraph_re = re.compile(r"<p(?P<attrs>[^>]*)>(?P<body>.*?)</p>", flags=re.S | re.I)
+
+    def clean_paragraph(match: re.Match[str]) -> str:
+        body = match.group("body")
+        sentences = re.split(r"(?<=[.!?])\s+", body)
+        kept = []
+        for sentence in sentences:
+            visible = unescape(re.sub(r"<[^>]+>", " ", sentence))
+            if internal_copy.search(visible):
+                continue
+            if visible.strip():
+                kept.append(sentence.strip())
+        if not kept:
+            return ""
+        return f'<p{match.group("attrs")}>{" ".join(kept)}</p>'
+
+    return paragraph_re.sub(clean_paragraph, html)
+
 for src in sorted(imports.rglob('index.html')):
     rel = src.relative_to(imports)
     parts = rel.parts[:-1]
     if not parts:
         continue
-    if parts[0] in excluded_top_level:
+    if parts[0] in excluded_top_level and tuple(parts) != ('verein', 'geschaeftsstelle'):
         continue
 
     raw = src.read_text(encoding='utf-8')
@@ -66,7 +103,7 @@ for src in sorted(imports.rglob('index.html')):
     if not match:
         raise SystemExit(f'ERROR: main content not found in {src}')
 
-    imported_main = rewrite_root_urls(match.group(1))
+    imported_main = remove_internal_public_sentences(rewrite_root_urls(match.group(1)))
     page = pre + open_marker + imported_main + '</main>' + post
 
     title = re.search(r'<title>(.*?)</title>', raw, flags=re.S)

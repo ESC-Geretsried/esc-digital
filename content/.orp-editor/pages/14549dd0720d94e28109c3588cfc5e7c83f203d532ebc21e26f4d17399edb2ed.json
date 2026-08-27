@@ -1,0 +1,21 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "u20",
+  "body": "Saison 2025/2026\n\nKontakt: Trainer Markus Hätinen; Betreuer Jan Marko; Teamleiter Thomas Riedl; Email team.u20@esc-geretsried.de; Telefon 08171 - 6399030.\n\nKader (Pos | Nr | Name):\nT|30|Marko Jan Philipp (OA)\nT|35|Ringler Tim\nT|91|Freudenstein Tamara\nT|92|Hildebrand Xaver\nT|96|Gania Lilli\nV|5|Eberhardt Franz\nV|6|Schauer Janik\nV|7|Bigalk Korbinian\nV|8|Seitz Bastian\nV|10|Fritsch Justus\nS|69|Lieb Lucas (OA)\nV|93|Burkhardt Leon\nV|95|Fichtner Johann\nV|97|Britton Elias\nS|3|Schiek Amon\nS|9|Boico Artiom\nS|11|Santullo Gianluca\nS|12|Totzauer Tim\nS|13|Bader Vitus\nS|16|Jäger Niklas\nS|17|Hildebrandt Eva\nS|19|Sanner Leonhard\nS|24|Stoljarov Dennis (OA)\nS|27|Urban Nikolaus\nS|29|Erisik Emre\nS|34|Hopf Niklas\nS|72|Wohlfarter Fabian (OA)\nS|75|Riedl Kornel\nS|87|Kern Sebastian (OA)",
+  "hero_asset_key": "",
+  "last_reviewed_at": "2026-08-26T00:00:00Z",
+  "page_key": "u20",
+  "page_type": "team",
+  "public_path": "/u20/",
+  "record_id": "orp:founder:esc:pages:u20",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:founder:esc:pages:u20",
+  "source_reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+  "source_status": "founder-provided",
+  "source_updated_at": "2026-08-26T00:00:00Z",
+  "status": "draft",
+  "summary": "Kader und Kontakte · Saison 2025/2026",
+  "team_key": "u20",
+  "title": "U20"
+}
