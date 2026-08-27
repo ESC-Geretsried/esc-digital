@@ -3,21 +3,23 @@
   "tenant": "esc",
   "patterns": [
     {
-      "id":"homepage","title":"Homepage","description":"Accepted rolling homepage hero; never imports the team next-game hero.",
-      "invariants":["global-chrome","homepage-hero-no-next-game","approved-media-only","single-h1"],
+      "id":"homepage","title":"Homepage","description":"Founder-approved 2026-08-27 Homepage target; never imports the team next-game hero.",
+      "invariants":["founder-homepage-order-2026-08-27","global-chrome","homepage-hero-no-next-game","approved-media-only","single-h1","reduced-motion-static-announcement"],
       "nodes":[
+        {"id":"announcements","type":"announcement-ticker","slot":"announcements","required":true,"binding":"home.announcements","fallback":"stable-empty","editor_mutable":true},
         {"id":"header","type":"site-header","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false},
-        {"id":"hero","type":"hero","slot":"hero","required":true,"binding":"home.heroes","fallback":"stable-empty","editor_mutable":true},
+        {"id":"hero-rotation","type":"hero-rotation","slot":"hero","required":true,"binding":"home.heroes","fallback":"stable-empty","editor_mutable":true},
+        {"id":"primary-entrances","type":"primary-entrances","slot":"primary-entrances","required":true,"binding":"home.primary_entrances","fallback":"none","editor_mutable":false},
         {"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"aktuelles","binding":"home.news_groups","fallback":"stable-empty","editor_mutable":true},
-        {"id":"events","type":"event-list","slot":"events","required":true,"anchor":"termine","binding":"home.events","fallback":"stable-empty","editor_mutable":true},
-        {"id":"areas","type":"area-cards","slot":"areas","required":true,"anchor":"angebote","binding":"home.community","fallback":"stable-empty","editor_mutable":true},
-        {"id":"sponsors","type":"sponsor-grid","slot":"sponsors","required":true,"anchor":"partner","binding":"sponsors","fallback":"stable-empty","editor_mutable":true},
+        {"id":"sport-areas","type":"sport-areas","slot":"sport-areas","required":true,"binding":"home.sport_areas","fallback":"stable-empty","editor_mutable":true},
+        {"id":"club-areas","type":"club-areas","slot":"club-areas","required":true,"binding":"home.club_areas","fallback":"stable-empty","editor_mutable":true},
+        {"id":"sponsor-ticker","type":"sponsor-ticker","slot":"sponsors","required":true,"anchor":"partner","binding":"sponsors","fallback":"stable-empty","editor_mutable":true},
         {"id":"footer","type":"site-footer","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false}
       ]
     },
     {
-      "id":"team-page","title":"Team Page","description":"Uniform ESC team target; standings is disabled only for U7/U9/U11.",
-      "invariants":["inv-001","inv-002","inv-003","global-chrome","next-game-no-invention","team-primary-order"],
+      "id":"team-page","title":"U7-U11 Team Page","description":"Separate current youth pattern; standings is disabled for U7/U9/U11.",
+      "invariants":["inv-002-reconciled-2026-08-27","inv-003-reconciled-2026-08-27","global-chrome","next-game-no-invention","age-appropriate-youth-sports"],
       "nodes":[
         {"id":"header","type":"site-header","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false},
         {"id":"hero","type":"hero","slot":"hero","required":true,"binding":"team.next_game","fallback":"stable-empty","editor_mutable":true},
@@ -29,6 +31,41 @@
         {"id":"schedule","type":"schedule","slot":"schedule","required":true,"anchor":"spielplan","binding":"team.schedule","fallback":"stable-empty","editor_mutable":true},
         {"id":"standings","type":"standings","slot":"standings","required":true,"anchor":"tabelle","binding":"team.standings","condition":"age>=U13","fallback":"not-applicable","editor_mutable":false},
         {"id":"results","type":"results","slot":"results","required":true,"anchor":"ergebnisse","binding":"team.results","fallback":"stable-empty","editor_mutable":true},
+        {"id":"contacts","type":"contacts","slot":"contacts","required":false,"anchor":"kontakte","binding":"team.contacts","fallback":"omit","editor_mutable":true},
+        {"id":"footer","type":"site-footer","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false}
+      ]
+    },
+    {
+      "id":"team-page-river-rats","title":"River Rats Team Page","description":"Protected HockeyData pattern with no graphical next-game widget in the Hero.",
+      "invariants":["inv-001","inv-002-reconciled-2026-08-27","global-chrome","next-home-game-verified-text-only","hockeydata-logos-small-consistent"],
+      "nodes":[
+        {"id":"header","type":"site-header","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false},
+        {"id":"hero","type":"hero","slot":"hero","required":true,"binding":"team.team_photo","fallback":"stable-empty","editor_mutable":true},
+        {"id":"next-home-game","type":"next-game-summary","slot":"next-home-game","required":false,"binding":"hockeydata.next_home_game","condition":"verified-next-home-game-exists","fallback":"omit","editor_mutable":false},
+        {"id":"team-navigation","type":"local-navigation","slot":"navigation","required":true,"binding":"pattern.anchors","fallback":"none","editor_mutable":false},
+        {"id":"overview","type":"content","slot":"overview","required":true,"anchor":"uebersicht","binding":"team.summary","fallback":"stable-empty","editor_mutable":true},
+        {"id":"team-photo","type":"team-photo","slot":"team-photo","required":true,"anchor":"teamfoto","binding":"team.team_photo","fallback":"stable-empty","editor_mutable":true},
+        {"id":"roster","type":"roster","slot":"roster","required":true,"anchor":"kader","binding":"team.roster","fallback":"stable-empty","editor_mutable":true},
+        {"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"team.news","fallback":"stable-empty","editor_mutable":true},
+        {"id":"schedule","type":"schedule","slot":"schedule","required":true,"anchor":"spielplan","binding":"hockeydata.schedule","fallback":"stable-empty","editor_mutable":false},
+        {"id":"standings","type":"standings","slot":"standings","required":true,"anchor":"tabelle","binding":"hockeydata.standings","fallback":"stable-empty","editor_mutable":false},
+        {"id":"results","type":"results","slot":"results","required":true,"anchor":"ergebnisse","binding":"hockeydata.results","fallback":"stable-empty","editor_mutable":false},
+        {"id":"contacts","type":"contacts","slot":"contacts","required":false,"anchor":"kontakte","binding":"team.contacts","fallback":"omit","editor_mutable":true},
+        {"id":"footer","type":"site-footer","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false}
+      ]
+    },
+    {
+      "id":"team-page-external-competition","title":"Damen / U13-U20 Team Page","description":"No internal sports presentation; one optional external DEB.ONLINE action.",
+      "invariants":["inv-002-reconciled-2026-08-27","inv-003-reconciled-2026-08-27","global-chrome","deb-online-only","external-new-tab","empty-url-hides-action"],
+      "nodes":[
+        {"id":"header","type":"site-header","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false},
+        {"id":"hero","type":"hero","slot":"hero","required":true,"binding":"team.team_photo","fallback":"stable-empty","editor_mutable":true},
+        {"id":"team-navigation","type":"local-navigation","slot":"navigation","required":true,"binding":"pattern.anchors","fallback":"none","editor_mutable":false},
+        {"id":"overview","type":"content","slot":"overview","required":true,"anchor":"uebersicht","binding":"team.summary","fallback":"stable-empty","editor_mutable":true},
+        {"id":"team-photo","type":"team-photo","slot":"team-photo","required":true,"anchor":"teamfoto","binding":"team.team_photo","fallback":"stable-empty","editor_mutable":true},
+        {"id":"roster","type":"roster","slot":"roster","required":true,"anchor":"kader","binding":"team.roster","fallback":"stable-empty","editor_mutable":true},
+        {"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"team.news","fallback":"stable-empty","editor_mutable":true},
+        {"id":"competition-link","type":"external-action","slot":"sports-action","required":false,"binding":"team.official_competition_url","condition":"verified-deb-online-url-exists","fallback":"omit","editor_mutable":true},
         {"id":"contacts","type":"contacts","slot":"contacts","required":false,"anchor":"kontakte","binding":"team.contacts","fallback":"omit","editor_mutable":true},
         {"id":"footer","type":"site-footer","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false}
       ]

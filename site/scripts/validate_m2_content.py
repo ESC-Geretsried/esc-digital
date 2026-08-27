@@ -2,6 +2,7 @@
 from pathlib import Path
 from datetime import date, datetime
 from hashlib import sha256
+from html import unescape
 import json
 import os
 import re
@@ -83,13 +84,60 @@ for slide in active:
         if not slide.get(key):
             raise SystemExit(f"ERROR: hero {slide.get('id', '<unknown>')} missing {key}")
 
+expected_heroes = {
+    "river-rats-action": ("Eishockey. Gemeinschaft. Geretsried.", "/river-rats/", "images/hero/hero-01-bewegung.jpeg"),
+    "damen": ("Gemeinsam auf dem Eis.", "/river-rats-damen/", "images/teams/damen-team.jpg"),
+    "nachwuchs": ("Die Zukunft der River Rats.", "/nachwuchs/", "images/teams/u13-team.jpg"),
+    "eislaufschule": ("Die ersten Schritte auf dem Eis.", "/eislaufschule/", "images/teams/eislaufschule-2025-2026.png"),
+    "eiskunstlauf": ("Bewegung. Präzision. Ausdruck.", "/eiskunstlauf/", "images/teams/eiskunstlauf.jpeg"),
+    "inklusion": ("Gemeinsam Sport erleben.", "/inklusion/", "images/teams/inklusion.jpg"),
+}
+actual_heroes = {slide["id"]: (slide["headline"], slide["cta_path"], slide["image"]) for slide in active}
+if actual_heroes != expected_heroes:
+    raise SystemExit("ERROR: Founder-confirmed six-slide Homepage mapping drift")
+youth = next(slide for slide in active if slide["id"] == "nachwuchs")
+if youth.get("daily_images") != [f"images/teams/{team}-team.jpg" for team in ("u7", "u9", "u11", "u13", "u15", "u17", "u20")]:
+    raise SystemExit("ERROR: Monday-Sunday youth hero image mapping drift")
+if youth.get("daily_paths") != [f"/{team}/" for team in ("u7", "u9", "u11", "u13", "u15", "u17", "u20")]:
+    raise SystemExit("ERROR: Monday-Sunday youth hero target mapping drift")
+
+announcements = json.loads((root / "content" / "home" / "announcements.json").read_text(encoding="utf-8"))
+active_announcements = sorted((item for item in announcements.get("messages", []) if item.get("active")), key=lambda item: item.get("order", 0))
+if not active_announcements:
+    raise SystemExit("ERROR: AnnouncementTicker has no active message")
+first_announcement = active_announcements[0]
+if first_announcement != {
+    "id": "season-ticket-2026-2027",
+    "text": "DAUERKARTE   Dauerkarten Saison 2026/2027 – jetzt hier verbindlich bestellen",
+    "url": "https://esc-geretsried.github.io/bestellung/",
+    "new_tab": True,
+    "active": True,
+    "order": 10,
+}:
+    raise SystemExit("ERROR: Founder-confirmed first AnnouncementTicker message drift")
+
 home = json.loads((root / "content" / "home" / "home.json").read_text(encoding="utf-8"))
+expected_home_areas = {
+    "primary_entrances": [("River Rats", "/river-rats/"), ("Nachwuchs", "/nachwuchs/"), ("Mitglied werden", "/mitgliedschaft/")],
+    "sport_areas": [("Damen", "/river-rats-damen/"), ("Eislaufschule", "/eislaufschule/"), ("Eiskunstlauf", "/eiskunstlauf/"), ("Inklusionssport", "/inklusion/")],
+    "club_areas": [("Verein", "/verein/"), ("Förderverein", "/foerderverein/")],
+}
+for field, expected in expected_home_areas.items():
+    actual = [(item.get("title"), item.get("path")) for item in home.get(field, [])]
+    if actual != expected:
+        raise SystemExit(f"ERROR: Homepage {field} mapping drift: {actual}")
 policy = json.loads((root / "config" / "news-retention.json").read_text(encoding="utf-8"))
 if policy.get("public_window_months") != 12:
     raise SystemExit("ERROR: public news retention must be exactly 12 months")
 explicit_as_of = os.environ.get("NEWS_RETENTION_AS_OF", "").strip()
 today = datetime.strptime(explicit_as_of, "%Y-%m-%d").date() if explicit_as_of else datetime.now(ZoneInfo(policy["policy_timezone"])).date()
 homepage_html = (public / "index.html").read_text(encoding="utf-8")
+announcement_text = "DAUERKARTE   Dauerkarten Saison 2026/2027 – jetzt hier verbindlich bestellen"
+if announcement_text not in unescape(homepage_html).replace("\xa0", " "):
+    raise SystemExit("ERROR: exact first AnnouncementTicker text missing from Homepage")
+announcement_link = r'href=(?:"|)https://esc-geretsried\.github\.io/bestellung/(?:"|) target=(?:"|)_blank(?:"|) rel="noopener noreferrer"'
+if not re.search(announcement_link, homepage_html):
+    raise SystemExit("ERROR: AnnouncementTicker target/new-tab boundary missing from Homepage")
 for group in home.get("news_groups", []):
     for item in group.get("items", []):
         match = re.search(r"/(\d{4})-(\d{2})-(\d{2})-", item.get("path", ""))
@@ -105,6 +153,12 @@ for group in home.get("news_groups", []):
             raise SystemExit(f"ERROR: retained news missing from public projection: {item.get('path')}")
 
 navigation = json.loads((root / "content" / "navigation.json").read_text(encoding="utf-8"))
+expected_header = ["River Rats", "Nachwuchs", "Damen", "Eiskunstlauf", "Inklusionssport", "Verein", "Förderverein"]
+actual_header = [item["label"] for item in sorted(navigation.get("main", []), key=lambda item: item.get("order", 0)) if item.get("visible")]
+if actual_header != expected_header:
+    raise SystemExit(f"ERROR: global header mapping drift: {actual_header}")
+if [item["label"] for item in navigation.get("actions", []) if item.get("visible")] != ["Mitglied werden"]:
+    raise SystemExit("ERROR: global header action mapping drift")
 visible_paths = []
 for item in navigation.get("main", []) + navigation.get("actions", []):
     if item.get("visible"):

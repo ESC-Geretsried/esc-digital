@@ -21,6 +21,7 @@ cp "$ROOT/content/sponsors/sponsors.json" "$SITE/data/sponsors.json"
 cp "$ROOT/content/sponsors/page.json" "$SITE/data/sponsor_page.json"
 cp "$ROOT/content/home/home.json" "$SITE/data/home.json"
 cp "$ROOT/content/home/heroes.json" "$SITE/data/home_heroes.json"
+cp "$ROOT/content/home/announcements.json" "$SITE/data/home_announcements.json"
 cp "$ROOT/content/navigation.json" "$SITE/data/navigation.json"
 cp "$ROOT/content/river-rats/hockeydata.json" "$SITE/data/hockeydata.json"
 cp "$ROOT/content/river-rats/team.json" "$SITE/data/river_rats_team.json"
@@ -32,7 +33,7 @@ done
 # remain untouched so publication history and provenance are never lost.
 python3 "$SITE/scripts/enforce_news_retention.py" --filter-staged-home "$SITE/data/home.json"
 cleanup() {
-  rm -f "$SITE/data/sponsors.json" "$SITE/data/sponsor_page.json" "$SITE/data/home.json" "$SITE/data/home_heroes.json" "$SITE/data/navigation.json" "$SITE/data/hockeydata.json" "$SITE/data/river_rats_team.json"
+  rm -f "$SITE/data/sponsors.json" "$SITE/data/sponsor_page.json" "$SITE/data/home.json" "$SITE/data/home_heroes.json" "$SITE/data/home_announcements.json" "$SITE/data/navigation.json" "$SITE/data/hockeydata.json" "$SITE/data/river_rats_team.json"
   rm -rf "$SITE/data/teams"
   rmdir "$SITE/data" 2>/dev/null || true
 }

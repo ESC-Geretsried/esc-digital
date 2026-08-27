@@ -13,12 +13,27 @@
     return Math.floor(Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day)) / 86400000);
   };
 
+  const geretsriedWeekdayIndex = (date = new Date()) => {
+    const weekday = new Intl.DateTimeFormat('en-US', {
+      timeZone: GERETSRIED_TIME_ZONE,
+      weekday: 'short'
+    }).format(date);
+    return ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].indexOf(weekday);
+  };
+
   const dailyImageFor = (dailyImages, date = new Date()) => (
-    dailyImages.length ? dailyImages[geretsriedDayIndex(date) % dailyImages.length] : null
+    dailyImages.length ? dailyImages[geretsriedWeekdayIndex(date) % dailyImages.length] : null
+  );
+
+  const dailyPathFor = (dailyPaths, date = new Date()) => (
+    dailyPaths.length ? dailyPaths[geretsriedWeekdayIndex(date) % dailyPaths.length] : null
   );
 
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { GERETSRIED_TIME_ZONE, geretsriedDayIndex, dailyImageFor };
+    module.exports = {
+      GERETSRIED_TIME_ZONE, geretsriedDayIndex, geretsriedWeekdayIndex,
+      dailyImageFor, dailyPathFor
+    };
   }
   if (typeof document === 'undefined') return;
 
@@ -27,12 +42,13 @@
 
   const sources = Array.from(root.querySelectorAll('[data-hero-source]')).map((node) => {
     const dailyImages = (node.dataset.dailyImages || '').split('|').map((value) => value.trim()).filter(Boolean);
+    const dailyPaths = (node.dataset.dailyPaths || '').split('|').map((value) => value.trim()).filter(Boolean);
     return {
       src: dailyImageFor(dailyImages) || node.dataset.src,
       area: node.dataset.area || '',
       headline: node.dataset.headline || '',
       ctaLabel: node.dataset.ctaLabel || '',
-      ctaPath: node.dataset.ctaPath || '#',
+      ctaPath: dailyPathFor(dailyPaths) || node.dataset.ctaPath || '#',
       focusDesktop: node.dataset.focusDesktop || '50% 50%',
       focusMobile: node.dataset.focusMobile || node.dataset.focusDesktop || '50% 50%'
     };

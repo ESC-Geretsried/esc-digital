@@ -6,7 +6,8 @@
     {"label": "Damen", "path": "/river-rats-damen/", "order": 30, "visible": true},
     {"label": "Eiskunstlauf", "path": "/eiskunstlauf/", "order": 40, "visible": true},
     {"label": "Inklusionssport", "path": "/inklusion/", "order": 50, "visible": true},
-    {"label": "Verein", "path": "/verein/", "order": 60, "visible": true}
+    {"label": "Verein", "path": "/verein/", "order": 60, "visible": true},
+    {"label": "Förderverein", "path": "/foerderverein/", "order": 70, "visible": true}
   ],
   "actions": [
     {"label": "Tickets", "path": "/tickets/", "order": 10, "visible": false},

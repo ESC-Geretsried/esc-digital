@@ -68,9 +68,9 @@ Assigned pages: 0
 
 ## Homepage (`homepage`)
 
-Accepted rolling homepage hero; never imports the team next-game hero.
+Founder-approved 2026-08-27 Homepage target; never imports the team next-game hero.
 
-Nodes: header → hero → news → events → areas → sponsors → footer
+Nodes: announcements → header → hero-rotation → primary-entrances → news → sport-areas → club-areas → sponsor-ticker → footer
 
 Assigned pages: 1
 
@@ -130,13 +130,29 @@ Nodes: header → hero → content → sponsors → contacts → footer
 
 Assigned pages: 1
 
-## Team Page (`team-page`)
+## U7-U11 Team Page (`team-page`)
 
-Uniform ESC team target; standings is disabled only for U7/U9/U11.
+Separate current youth pattern; standings is disabled for U7/U9/U11.
 
 Nodes: header → hero → team-navigation → overview → team-photo → roster → news → schedule → standings → results → contacts → footer
 
-Assigned pages: 10
+Assigned pages: 3
+
+## Damen / U13-U20 Team Page (`team-page-external-competition`)
+
+No internal sports presentation; one optional external DEB.ONLINE action.
+
+Nodes: header → hero → team-navigation → overview → team-photo → roster → news → competition-link → contacts → footer
+
+Assigned pages: 5
+
+## River Rats Team Page (`team-page-river-rats`)
+
+Protected HockeyData pattern with no graphical next-game widget in the Hero.
+
+Nodes: header → hero → next-home-game → team-navigation → overview → team-photo → roster → news → schedule → standings → results → contacts → footer
+
+Assigned pages: 2
 
 ## Nachwuchs (`youth-index`)
 

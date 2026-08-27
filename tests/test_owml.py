@@ -20,11 +20,23 @@ class OWMLTests(unittest.TestCase):
         used = {node["type"] for page in pages.values() for node in OWML.expanded_nodes(patterns, page)}
         self.assertTrue(used <= covered)
 
-    def test_team_age_condition_is_fail_closed(self):
+    def test_team_sports_variants_are_fail_closed(self):
         _, patterns, pages, _ = OWML.validate()
         for route in OWML.NO_STANDINGS:
             self.assertNotIn("standings", [node["id"] for node in OWML.expanded_nodes(patterns, pages[route])])
-        self.assertIn("standings", [node["id"] for node in OWML.expanded_nodes(patterns, pages["/u15/"])])
+        u15_nodes = [node["id"] for node in OWML.expanded_nodes(patterns, pages["/u15/"])]
+        self.assertIn("competition-link", u15_nodes)
+        self.assertTrue({"schedule", "standings", "results"}.isdisjoint(u15_nodes))
+        river_rats_nodes = [node["id"] for node in OWML.expanded_nodes(patterns, pages["/river-rats/"])]
+        self.assertTrue({"next-home-game", "schedule", "standings", "results"} <= set(river_rats_nodes))
+
+    def test_founder_homepage_order_is_exact(self):
+        _, patterns, pages, _ = OWML.validate()
+        self.assertEqual(
+            [node["id"] for node in OWML.expanded_nodes(patterns, pages["/"])],
+            ["announcements", "header", "hero-rotation", "primary-entrances", "news",
+             "sport-areas", "club-areas", "sponsor-ticker", "footer"],
+        )
 
     def test_generated_artifacts_match(self):
         OWML.generate(check=True)

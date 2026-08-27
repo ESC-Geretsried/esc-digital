@@ -15,12 +15,12 @@
       "order": 10
     },
     {
-      "id": "river-rats-team",
-      "area": "River Rats",
-      "image": "images/hero/hero-02-team.jpeg",
+      "id": "damen",
+      "area": "Damen",
+      "image": "images/teams/damen-team.jpg",
       "headline": "Gemeinsam auf dem Eis.",
-      "cta_label": "Zur Mannschaft",
-      "cta_path": "/river-rats/",
+      "cta_label": "Damen",
+      "cta_path": "/river-rats-damen/",
       "focus_desktop": "50% 50%",
       "focus_mobile": "50% 50%",
       "active": true,
@@ -38,6 +38,15 @@
         "images/teams/u15-team.jpg",
         "images/teams/u17-team.jpg",
         "images/teams/u20-team.jpg"
+      ],
+      "daily_paths": [
+        "/u7/",
+        "/u9/",
+        "/u11/",
+        "/u13/",
+        "/u15/",
+        "/u17/",
+        "/u20/"
       ],
       "headline": "Die Zukunft der River Rats.",
       "cta_label": "Nachwuchs",

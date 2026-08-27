@@ -61,6 +61,7 @@ test "$(find "$OUT/images/people/vereinsfuehrung" -maxdepth 1 -type f | wc -l)" 
   cd "$ROOT"
   sha256sum -c docs/operations/vereinsfuehrung-portraits.sha256
 )
+python3 "$ROOT/site/scripts/validate_vereinsfuehrung_portraits.py"
 
 python3 - "$SPONSOR_DATA" "$HOME_DATA" "$PAGE_MANIFEST" "$INDEX" "$OUT/sponsors/assets" <<'PY'
 import json

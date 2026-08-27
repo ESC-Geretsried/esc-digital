@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://esc-geretsried.de/schemas/owml/v1/player.schema.json",
+  "title": "ESC common OWML Player model",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["position_code", "number", "name"],
+  "properties": {
+    "position_code": {"enum": ["T", "V", "S"]},
+    "number": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "photo": {"type": ["string", "null"], "default": null},
+    "shoots": {"type": ["string", "null"], "default": null},
+    "rodi_profile_url": {"type": ["string", "null"], "format": "uri", "default": null},
+    "info": {"type": ["string", "null"], "default": null}
+  },
+  "x-photo-presentation": "always render assigned photo or canonical hockey-player placeholder; source remains null when unassigned",
+  "x-placeholder-asset-status": "OPEN: Founder binary/path not yet present in Git",
+  "x-rodi-applicability": ["river-rats", "damen", "u13", "u15", "u17", "u20"],
+  "x-info-automation": false
+}

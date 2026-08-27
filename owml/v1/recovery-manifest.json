@@ -4,11 +4,15 @@
   "system_of_record": "git",
   "required_inputs": [
     "owml/v1/schema/owml-site.schema.json",
+    "owml/v1/schema/player.schema.json",
     "owml/v1/node-catalog.json",
     "owml/v1/patterns.json",
     "owml/v1/pages.json",
     "owml/v1/editor-policy.json",
     "owml/v1/pilots/u15.observed.json",
+    "content/home/announcements.json",
+    "content/verein/vereinsfuehrung/portrait-map.json",
+    "site/scripts/validate_vereinsfuehrung_portraits.py",
     "scripts/owml.py",
     "site/scripts/build.sh",
     "site/scripts/validate.sh"

@@ -6,6 +6,21 @@
     "snapshot_url": "https://orp-esc-int.netlify.app/",
     "imported": "2026-08-22"
   },
+  "primary_entrances": [
+    {"title": "River Rats", "path": "/river-rats/"},
+    {"title": "Nachwuchs", "path": "/nachwuchs/"},
+    {"title": "Mitglied werden", "path": "/mitgliedschaft/"}
+  ],
+  "sport_areas": [
+    {"title": "Damen", "path": "/river-rats-damen/"},
+    {"title": "Eislaufschule", "path": "/eislaufschule/"},
+    {"title": "Eiskunstlauf", "path": "/eiskunstlauf/"},
+    {"title": "Inklusionssport", "path": "/inklusion/"}
+  ],
+  "club_areas": [
+    {"title": "Verein", "path": "/verein/"},
+    {"title": "Förderverein", "path": "/foerderverein/"}
+  ],
   "news_groups": [
     {
       "id": "verein",

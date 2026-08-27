@@ -248,24 +248,23 @@
     },
     {
       "id": "esc.river-rats-damen",
-      "pattern": "team-page",
+      "pattern": "team-page-external-competition",
       "publication": "active",
       "route": "/river-rats-damen/",
       "source": "content/river-rats-damen/_index.md",
-      "variant": "official-link-or-manual-sports-data"
+      "variant": "external-deb-online-action-only"
     },
     {
       "id": "esc.river-rats-herren",
-      "pattern": "team-page",
+      "pattern": "team-page-river-rats",
       "publication": "redirect",
       "redirect_to": "/river-rats/",
       "route": "/river-rats-herren/",
-      "source": "imports/esc-int-pages/river-rats-herren/index.html",
-      "variant": "official-link-or-manual-sports-data"
+      "source": "imports/esc-int-pages/river-rats-herren/index.html"
     },
     {
       "id": "esc.river-rats",
-      "pattern": "team-page",
+      "pattern": "team-page-river-rats",
       "publication": "active",
       "route": "/river-rats/",
       "source": "content/river-rats/_index.md",
@@ -291,38 +290,38 @@
     },
     {
       "id": "esc.u13",
-      "pattern": "team-page",
+      "pattern": "team-page-external-competition",
       "publication": "active",
       "route": "/u13/",
       "source": "content/u13/_index.md",
-      "variant": "official-link-or-manual-sports-data"
+      "variant": "external-deb-online-action-only"
     },
     {
       "id": "esc.u15",
       "notes": [
-        "Target follows INV-002; missing sports facts use stable empty states."
+        "Founder target uses one optional external DEB.ONLINE action; empty omits it."
       ],
-      "pattern": "team-page",
+      "pattern": "team-page-external-competition",
       "publication": "active",
       "route": "/u15/",
       "source": "content/u15/_index.md",
-      "variant": "official-link-or-manual-sports-data"
+      "variant": "external-deb-online-action-only"
     },
     {
       "id": "esc.u17",
-      "pattern": "team-page",
+      "pattern": "team-page-external-competition",
       "publication": "active",
       "route": "/u17/",
       "source": "content/u17/_index.md",
-      "variant": "official-link-or-manual-sports-data"
+      "variant": "external-deb-online-action-only"
     },
     {
       "id": "esc.u20",
-      "pattern": "team-page",
+      "pattern": "team-page-external-competition",
       "publication": "active",
       "route": "/u20/",
       "source": "content/u20/_index.md",
-      "variant": "official-link-or-manual-sports-data"
+      "variant": "external-deb-online-action-only"
     },
     {
       "disabled_nodes": [
