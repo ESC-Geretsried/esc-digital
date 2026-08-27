@@ -3,7 +3,9 @@
   "policy": "normal editors may edit content only; structural changes require architecture review",
   "normal_editor_mutable_slots": [
     "title", "summary", "body", "hero-media", "team-photo", "roster", "news",
-    "schedule-editorial", "contacts", "events", "people", "sponsor-records", "downloads"
+    "schedule-editorial", "official-competition-url", "contacts", "events",
+    "people", "announcements", "sponsor-records", "downloads",
+    "player-photo-reference", "player-shoots", "player-rodi-url", "player-info"
   ],
   "architecture_only_fields": [
     "owml", "owml_version", "pattern", "pattern_id", "nodes", "sections",
@@ -11,5 +13,5 @@
     "component", "layout", "data_binding"
   ],
   "structure_lock": true,
-  "change_workflow": "Founder/architecture decision -> OWML Git change -> validation -> implementation -> tests -> review"
+  "change_workflow": "natural-language input -> HQ OWML translation -> Page Wireframe -> Founder approval -> Codex implementation -> Git -> CI -> Preview; purely visual styling creates no editor field"
 }

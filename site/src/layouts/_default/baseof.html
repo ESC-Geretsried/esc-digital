@@ -13,6 +13,7 @@
   {{ $membership := resources.Get "css/membership.css" | minify | fingerprint }}
   {{ $team := resources.Get "css/team-page.css" | minify | fingerprint }}
   {{ $leadership := resources.Get "css/leadership.css" | minify | fingerprint }}
+  {{ $announcement := resources.Get "css/announcement.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   <link rel="stylesheet" href="{{ $hero.RelPermalink }}" integrity="{{ $hero.Data.Integrity }}">
   <link rel="stylesheet" href="{{ $imported.RelPermalink }}" integrity="{{ $imported.Data.Integrity }}">
@@ -20,9 +21,23 @@
   <link rel="stylesheet" href="{{ $membership.RelPermalink }}" integrity="{{ $membership.Data.Integrity }}">
   <link rel="stylesheet" href="{{ $team.RelPermalink }}" integrity="{{ $team.Data.Integrity }}">
   <link rel="stylesheet" href="{{ $leadership.RelPermalink }}" integrity="{{ $leadership.Data.Integrity }}">
+  <link rel="stylesheet" href="{{ $announcement.RelPermalink }}" integrity="{{ $announcement.Data.Integrity }}">
 </head>
 <body>
-  <div class="flashbar"><div class="shell flashbar__inner"><span class="flashbar__label">Dauerkarte</span><span class="flashbar__text">Dauerkarten Saison 2026/2027 – jetzt hier verbindlich</span></div></div>
+  {{ $announcements := where site.Data.home_announcements.messages "active" true }}
+  {{ if $announcements }}
+  <aside class="announcement-ticker" aria-label="Vereinsmeldungen">
+    <div class="announcement-ticker__track{{ if gt (len $announcements) 1 }} is-rotating{{ end }}">
+      {{ range (sort $announcements "order") }}
+      <span class="announcement-ticker__item">
+        {{ if .url }}<a href="{{ .url }}" aria-label="{{ .text }}"{{ if .new_tab }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ else }}<span aria-label="{{ .text }}">{{ end }}
+          <strong>{{ .label }}</strong><span class="announcement-ticker__gap" aria-hidden="true"></span><span>{{ .message }}</span>
+        {{ if .url }}</a>{{ else }}</span>{{ end }}
+      </span>
+      {{ end }}
+    </div>
+  </aside>
+  {{ end }}
   {{ $nav := site.Data.navigation }}
   <header class="site-header">
     <div class="shell header-row">

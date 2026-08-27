@@ -23,6 +23,9 @@ TEAM_ROUTES = {
     "/river-rats/", "/river-rats-herren/", "/river-rats-damen/",
     "/u20/", "/u17/", "/u15/", "/u13/", "/u11/", "/u9/", "/u7/",
 }
+EXTERNAL_COMPETITION_ROUTES = {
+    "/river-rats-damen/", "/u20/", "/u17/", "/u15/", "/u13/",
+}
 NO_STANDINGS = {"/u11/", "/u9/", "/u7/"}
 ARCHITECTURE_FIELDS = {
     "owml", "owml_version", "pattern", "pattern_id", "nodes", "sections",
@@ -84,6 +87,8 @@ def pattern_for(route: str) -> str:
     if route == "/": return "homepage"
     if route == "/aktuelles/": return "news-index"
     if route.startswith("/aktuelles/"): return "article"
+    if route in {"/river-rats/", "/river-rats-herren/"}: return "team-page-river-rats"
+    if route in EXTERNAL_COMPETITION_ROUTES: return "team-page-external-competition"
     if route in TEAM_ROUTES: return "team-page"
     fixed = {
         "/sponsoren/": "sponsor",
@@ -122,10 +127,10 @@ def bootstrap_pages() -> dict:
             page["variant"] = "manual-youth-without-standings"
         elif route == "/river-rats/":
             page["variant"] = "protected-hockeydata-plus-editorial-supplements"
-        elif route in TEAM_ROUTES:
-            page["variant"] = "official-link-or-manual-sports-data"
+        elif route in EXTERNAL_COMPETITION_ROUTES:
+            page["variant"] = "external-deb-online-action-only"
         if route == "/u15/":
-            page["notes"] = ["Target follows INV-002; missing sports facts use stable empty states."]
+            page["notes"] = ["Founder target uses one optional external DEB.ONLINE action; empty omits it."]
         if route == "/verein/foerderverein/":
             page["notes"] = ["Legacy route remains covered; canonical independent target is /foerderverein/."]
         pages.append(page)
@@ -152,8 +157,17 @@ def exact_object(value, *, required: set[str], allowed: set[str], context: str) 
 def validate() -> tuple[dict, dict, dict, dict]:
     catalog, patterns_doc, pages_doc, policy = load_models()
     schema = read_json(OWML / "schema" / "owml-site.schema.json")
+    player_schema = read_json(OWML / "schema" / "player.schema.json")
     if schema.get("$schema") != "https://json-schema.org/draft/2020-12/schema" or schema.get("properties", {}).get("owml_version", {}).get("const") != VERSION:
         raise OWMLFailure("OWML JSON Schema identity/version is invalid")
+    if set(player_schema.get("required", [])) != {"position_code", "number", "name"}:
+        raise OWMLFailure("common Player schema required fields drift")
+    if player_schema.get("properties", {}).get("position_code", {}).get("enum") != ["T", "V", "S"]:
+        raise OWMLFailure("common Player position enum drift")
+    if player_schema.get("x-info-automation") is not False:
+        raise OWMLFailure("common Player info must not be automatically calculated")
+    if player_schema.get("x-placeholder-asset-status") != "OPEN: Founder binary/path not yet present in Git":
+        raise OWMLFailure("Player placeholder OPEN boundary drift")
     exact_object(patterns_doc, required={"owml_version", "tenant", "patterns"}, allowed={"owml_version", "tenant", "patterns"}, context="patterns document")
     exact_object(pages_doc, required={"owml_version", "tenant", "pages"}, allowed={"owml_version", "tenant", "pages"}, context="pages document")
     if patterns_doc.get("tenant") != "esc" or pages_doc.get("tenant") != "esc":
@@ -190,11 +204,13 @@ def validate() -> tuple[dict, dict, dict, dict]:
             ids.append(node.get("id"))
         if len(ids) != len(set(ids)) or any(not item for item in ids):
             raise OWMLFailure(f"duplicate or empty node id in {pattern_id}")
-        if ids[0] != "header" or ids[-1] != "footer":
-            raise OWMLFailure(f"pattern {pattern_id} must be bounded by header/footer")
+        expected_prefix = ["announcements", "header"] if pattern_id == "homepage" else ["header"]
+        if ids[:len(expected_prefix)] != expected_prefix or ids[-1] != "footer":
+            raise OWMLFailure(f"pattern {pattern_id} has invalid chrome boundary/order")
         patterns[pattern_id] = pattern
     required_patterns = {
-        "homepage", "team-page", "news-index", "article", "event", "sponsor",
+        "homepage", "team-page", "team-page-river-rats",
+        "team-page-external-competition", "news-index", "article", "event", "sponsor",
         "contact-office", "membership", "donation-supporters", "board",
         "skating-school", "figure-skating", "inclusion",
     }
@@ -291,7 +307,7 @@ def generated_documents(patterns: dict, pages: dict) -> dict[Path, str]:
     pilot_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="250" viewBox="0 0 1200 250">
 <rect width="100%" height="100%" fill="#f5f7fa"/><text x="30" y="35" font-family="system-ui" font-size="24" font-weight="700">U15 observed vs binding OWML target</text>
 <rect x="30" y="60" width="1140" height="62" rx="8" fill="#fff" stroke="#7a8795"/><text x="48" y="84" font-family="system-ui" font-size="14" font-weight="700">OBSERVED 2026-08-27</text><text x="48" y="108" font-family="system-ui" font-size="13">{escape(' → '.join(observed_nodes))}</text>
-<rect x="30" y="145" width="1140" height="72" rx="8" fill="#fff8e1" stroke="#9a6b00"/><text x="48" y="169" font-family="system-ui" font-size="14" font-weight="700">BINDING TARGET</text><text x="48" y="193" font-family="system-ui" font-size="13">{escape(' → '.join(target_nodes))}</text><text x="48" y="211" font-family="system-ui" font-size="12" fill="#8a2d21">Missing in observed: {escape(', '.join(missing))}; hero next-game slot has stable empty fallback.</text>
+<rect x="30" y="145" width="1140" height="72" rx="8" fill="#fff8e1" stroke="#9a6b00"/><text x="48" y="169" font-family="system-ui" font-size="14" font-weight="700">BINDING TARGET</text><text x="48" y="193" font-family="system-ui" font-size="13">{escape(' → '.join(target_nodes))}</text><text x="48" y="211" font-family="system-ui" font-size="12" fill="#8a2d21">Missing in observed: {escape(', '.join(missing))}; external DEB.ONLINE action is omitted while URL is empty.</text>
 </svg>
 '''
     test_manifest = {

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "mapping_authority": "Founder-confirmed identity mapping; never positional or face-derived",
+  "people": [
+    {"person_id":"esc.person.thomas-gania","name":"Thomas Gania","role":"Präsident","portrait_asset":"images/people/vereinsfuehrung/thomas-gania.png","sha256":"d5c9d40e819a71593b737ed8791c2b79875b9377adae7ed5424b1cadf4f8a1f6"},
+    {"person_id":"esc.person.markus-janka","name":"Markus Janka","role":"Erster Vorstand","portrait_asset":"images/people/vereinsfuehrung/markus-janka.png","sha256":"a2cda5d839c922fbd0e379f90042a6d80199dff67ab8e7e1cadf4d4f6e4bc739"},
+    {"person_id":"esc.person.jens-neuhaus","name":"Jens Neuhaus","role":"Zweiter Vorstand","portrait_asset":"images/people/vereinsfuehrung/jens-neuhaus.png","sha256":"e9d851b648e5883411797d849eabac671d38f79b299942c6a91831769d595818"},
+    {"person_id":"esc.person.stefan-heindl","name":"Stefan Heindl","role":"Vorstand Finanzen","portrait_asset":"images/people/vereinsfuehrung/stefan-heindl.png","sha256":"7b7ef21dee574dc54e684b0a7ab0286f2c6b4a1bab33723fb7d370e9bab30f4a"},
+    {"person_id":"esc.person.sabrina-kruck","name":"Sabrina Kruck","role":"Geschäftsstellenleiterin","portrait_asset":"images/people/vereinsfuehrung/sabrina-kruck.png","sha256":"e6181223443098ce2533373465c6da9b438b3396cbd8947b93bdcd5a4d598e7a"},
+    {"person_id":"esc.person.ulla-koehler","name":"Ulla Köhler","role":"Schriftführerin","portrait_asset":"images/people/vereinsfuehrung/ulla-koehler.png","sha256":"96923d92a805e03391942c17d40d2285952d2206491177e1dcb7bd825d583b90"},
+    {"person_id":"esc.person.melanie-vollbrecht","name":"Melanie Vollbrecht","role":"Inklusionssport","portrait_asset":"images/people/vereinsfuehrung/melanie-vollbrecht.png","sha256":"543e0e218b1f81fb83b33c11a4009c9206111a02559159c1454f3f22c6756f2d"},
+    {"person_id":"esc.person.romy-schiek","name":"Romy Schiek","role":"Eiskunstlauf","portrait_asset":"images/people/vereinsfuehrung/romy-schiek.png","sha256":"ca3bd21d79905f80a3ba1155d6ac4e6c928153b0e72458ae6c5d2bf456d2fa91"}
+  ]
+}

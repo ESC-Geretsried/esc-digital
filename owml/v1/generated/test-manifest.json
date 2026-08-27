@@ -5,18 +5,18 @@
     {
       "anchors": [
         "aktuelles",
-        "termine",
-        "angebote",
         "partner"
       ],
       "instance": "esc.home",
       "nodes": [
+        "announcements",
         "header",
-        "hero",
+        "hero-rotation",
+        "primary-entrances",
         "news",
-        "events",
-        "areas",
-        "sponsors",
+        "sport-areas",
+        "club-areas",
+        "sponsor-ticker",
         "footer"
       ],
       "pattern": "homepage",
@@ -482,9 +482,6 @@
         "teamfoto",
         "kader",
         "news",
-        "spielplan",
-        "tabelle",
-        "ergebnisse",
         "kontakte"
       ],
       "instance": "esc.river-rats-damen",
@@ -496,13 +493,11 @@
         "team-photo",
         "roster",
         "news",
-        "schedule",
-        "standings",
-        "results",
+        "competition-link",
         "contacts",
         "footer"
       ],
-      "pattern": "team-page",
+      "pattern": "team-page-external-competition",
       "publication": "active",
       "route": "/river-rats-damen/"
     },
@@ -521,6 +516,7 @@
       "nodes": [
         "header",
         "hero",
+        "next-home-game",
         "team-navigation",
         "overview",
         "team-photo",
@@ -532,7 +528,7 @@
         "contacts",
         "footer"
       ],
-      "pattern": "team-page",
+      "pattern": "team-page-river-rats",
       "publication": "redirect",
       "route": "/river-rats-herren/"
     },
@@ -551,6 +547,7 @@
       "nodes": [
         "header",
         "hero",
+        "next-home-game",
         "team-navigation",
         "overview",
         "team-photo",
@@ -562,7 +559,7 @@
         "contacts",
         "footer"
       ],
-      "pattern": "team-page",
+      "pattern": "team-page-river-rats",
       "publication": "active",
       "route": "/river-rats/"
     },
@@ -615,9 +612,6 @@
         "teamfoto",
         "kader",
         "news",
-        "spielplan",
-        "tabelle",
-        "ergebnisse",
         "kontakte"
       ],
       "instance": "esc.u13",
@@ -629,13 +623,11 @@
         "team-photo",
         "roster",
         "news",
-        "schedule",
-        "standings",
-        "results",
+        "competition-link",
         "contacts",
         "footer"
       ],
-      "pattern": "team-page",
+      "pattern": "team-page-external-competition",
       "publication": "active",
       "route": "/u13/"
     },
@@ -645,9 +637,6 @@
         "teamfoto",
         "kader",
         "news",
-        "spielplan",
-        "tabelle",
-        "ergebnisse",
         "kontakte"
       ],
       "instance": "esc.u15",
@@ -659,13 +648,11 @@
         "team-photo",
         "roster",
         "news",
-        "schedule",
-        "standings",
-        "results",
+        "competition-link",
         "contacts",
         "footer"
       ],
-      "pattern": "team-page",
+      "pattern": "team-page-external-competition",
       "publication": "active",
       "route": "/u15/"
     },
@@ -675,9 +662,6 @@
         "teamfoto",
         "kader",
         "news",
-        "spielplan",
-        "tabelle",
-        "ergebnisse",
         "kontakte"
       ],
       "instance": "esc.u17",
@@ -689,13 +673,11 @@
         "team-photo",
         "roster",
         "news",
-        "schedule",
-        "standings",
-        "results",
+        "competition-link",
         "contacts",
         "footer"
       ],
-      "pattern": "team-page",
+      "pattern": "team-page-external-competition",
       "publication": "active",
       "route": "/u17/"
     },
@@ -705,9 +687,6 @@
         "teamfoto",
         "kader",
         "news",
-        "spielplan",
-        "tabelle",
-        "ergebnisse",
         "kontakte"
       ],
       "instance": "esc.u20",
@@ -719,13 +698,11 @@
         "team-photo",
         "roster",
         "news",
-        "schedule",
-        "standings",
-        "results",
+        "competition-link",
         "contacts",
         "footer"
       ],
-      "pattern": "team-page",
+      "pattern": "team-page-external-competition",
       "publication": "active",
       "route": "/u20/"
     },

@@ -13,6 +13,8 @@ Canonical inputs:
 - `v1/editor-policy.json` — content-slot and structure-lock boundary;
 - `v1/pilots/u15.observed.json` — non-authoritative observed pilot evidence;
 - `v1/schema/owml-site.schema.json` — JSON Schema contract;
+- `v1/schema/player.schema.json` — common Player/Roster field and fallback
+  contract;
 - `v1/recovery-manifest.json` — rebuild inputs and no-deployment boundary.
 
 `v1/generated/` contains deterministic D2, SVG, Markdown, runtime-route and test
@@ -24,5 +26,9 @@ drift`. Unknown node types, missing renderers, uncovered emitted routes, missing
 anchors and basic structural accessibility errors fail closed. SVG is the
 canonical visual output; PNG is optional and intentionally not a build or
 recovery dependency.
+
+Founder-facing review always adds a Page Wireframe by default. The wireframe is
+a derived review view; OWML JSON remains canonical and D2 is optional. The
+2026-08-27 Founder Homepage and team variants are persisted in `patterns.json`.
 
 No command in this profile deploys PROD.

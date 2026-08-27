@@ -6,10 +6,10 @@
   "source": {
     "type": "founder-provided conversation uploads",
     "conversation_id": "6a8f1f82-1084-83eb-9941-15bcdcbfb661",
-    "mapping_authority": "Founder-confirmed ordinal mapping",
+    "mapping_authority": "Founder-confirmed identity mapping",
     "mapping_document": "docs/content-migration/founder-vereinsfuehrung-2026-08-27.md",
     "mapping_source_commit": "ac59873c1cd049ddcd00a0aab02412442a99917a",
-    "identification_method": "Exact supplied order only; no facial identification or inferred remapping was performed."
+    "identification_method": "Exact Founder-confirmed person-to-asset mapping; no facial identification or inferred remapping was performed. Ordinals are ingestion provenance only."
   },
   "deduplication": {
     "algorithm": "sha256",
@@ -23,6 +23,7 @@
   "assets": [
     {
       "ordinal": 1,
+      "person_id": "esc.person.thomas-gania",
       "person": "Thomas Gania",
       "role": "Präsident",
       "path": "images/people/vereinsfuehrung/thomas-gania.png",
@@ -34,6 +35,7 @@
     },
     {
       "ordinal": 2,
+      "person_id": "esc.person.markus-janka",
       "person": "Markus Janka",
       "role": "Erster Vorstand",
       "path": "images/people/vereinsfuehrung/markus-janka.png",
@@ -45,6 +47,7 @@
     },
     {
       "ordinal": 3,
+      "person_id": "esc.person.jens-neuhaus",
       "person": "Jens Neuhaus",
       "role": "Zweiter Vorstand",
       "path": "images/people/vereinsfuehrung/jens-neuhaus.png",
@@ -56,6 +59,7 @@
     },
     {
       "ordinal": 4,
+      "person_id": "esc.person.stefan-heindl",
       "person": "Stefan Heindl",
       "role": "Vorstand Finanzen",
       "path": "images/people/vereinsfuehrung/stefan-heindl.png",
@@ -67,6 +71,7 @@
     },
     {
       "ordinal": 5,
+      "person_id": "esc.person.sabrina-kruck",
       "person": "Sabrina Kruck",
       "role": "Geschäftsstellenleiterin",
       "path": "images/people/vereinsfuehrung/sabrina-kruck.png",
@@ -78,6 +83,7 @@
     },
     {
       "ordinal": 6,
+      "person_id": "esc.person.ulla-koehler",
       "person": "Ulla Köhler",
       "role": "Schriftführerin",
       "path": "images/people/vereinsfuehrung/ulla-koehler.png",
@@ -89,6 +95,7 @@
     },
     {
       "ordinal": 7,
+      "person_id": "esc.person.melanie-vollbrecht",
       "person": "Melanie Vollbrecht",
       "role": "Inklusionssport",
       "path": "images/people/vereinsfuehrung/melanie-vollbrecht.png",
@@ -100,6 +107,7 @@
     },
     {
       "ordinal": 8,
+      "person_id": "esc.person.romy-schiek",
       "person": "Romy Schiek",
       "role": "Eiskunstlauf",
       "path": "images/people/vereinsfuehrung/romy-schiek.png",
