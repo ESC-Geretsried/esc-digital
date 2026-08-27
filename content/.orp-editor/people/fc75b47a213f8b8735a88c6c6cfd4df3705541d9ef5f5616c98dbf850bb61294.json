@@ -1,0 +1,22 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "",
+  "area_keys": "",
+  "display_name": "Alwin Albert",
+  "identity_namespace": "tenant:esc",
+  "last_reviewed_at": "2026-08-27T10:56:37Z",
+  "person_key": "AA",
+  "public_email": "",
+  "public_phone": "",
+  "record_id": "orp:people:85cb0a60-ba5c-5671-ae5e-d8bd477bd330",
+  "roles": "Manager",
+  "sort_order": 0,
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:people:85cb0a60-ba5c-5671-ae5e-d8bd477bd330",
+  "source_updated_at": "2026-08-27T10:56:37Z",
+  "source_updated_by": "entra-sha256:7f94bdefa3376e7199aed8df300c4e779231f42a6955385671772b3caa5fd0d4",
+  "status": "draft",
+  "team_key": "river-rats",
+  "team_keys": ""
+}
