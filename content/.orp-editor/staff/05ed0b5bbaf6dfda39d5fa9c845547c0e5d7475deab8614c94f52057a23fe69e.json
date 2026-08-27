@@ -1,0 +1,19 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "comment": "",
+  "display_name": "Alwin Albert",
+  "email": "alwin.albert@esc-geretsried.de",
+  "last_reviewed_at": "2026-08-27T10:48:27Z",
+  "phone": "",
+  "photo_asset_key": "",
+  "record_id": "orp:staff:59f9711a-7742-47b7-9235-6186d6b28697",
+  "role": "Manager",
+  "sort_order": "",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:staff:59f9711a-7742-47b7-9235-6186d6b28697",
+  "source_updated_at": "2026-08-27T10:48:27Z",
+  "source_updated_by": "entra-sha256:7f94bdefa3376e7199aed8df300c4e779231f42a6955385671772b3caa5fd0d4",
+  "status": "draft",
+  "team_key": "river-rats"
+}
