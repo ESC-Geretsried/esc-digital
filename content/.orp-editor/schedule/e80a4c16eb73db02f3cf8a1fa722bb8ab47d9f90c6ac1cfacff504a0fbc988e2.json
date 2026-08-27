@@ -1,0 +1,22 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "away_team": "River Rats",
+  "competition": "",
+  "fan_vote_eligible": false,
+  "game_date": "2026-08-30",
+  "game_state": "scheduled",
+  "game_time": "09:00",
+  "home_away": "away",
+  "home_team": "Blues 1",
+  "last_reviewed_at": "2026-08-27T10:47:46Z",
+  "record_id": "orp:schedule:e4164baa-4cbb-4b0a-a08b-34857e45eaa2",
+  "result": "",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:schedule:e4164baa-4cbb-4b0a-a08b-34857e45eaa2",
+  "source_updated_at": "2026-08-27T10:47:46Z",
+  "source_updated_by": "entra-sha256:7f94bdefa3376e7199aed8df300c4e779231f42a6955385671772b3caa5fd0d4",
+  "status": "draft",
+  "team_key": "river-rats",
+  "venue": ""
+}
