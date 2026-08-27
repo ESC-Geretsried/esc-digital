@@ -1,0 +1,21 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "u13",
+  "body": "Saison 2025/2026\n\nKontakt: Trainer Max Meisinger, Oliver Ott; Teamleiter Quentin Degroote, Christian Meyndt; Email team.u13@esc-geretsried.de; Telefon 08171 6399019.\n\nKader (Pos | Nr | Name):\nT|31|Janka, Kilian\nT|29|Wirag, Johannes\nT|30|Wirag, Maximilian\nS|2|Balazi, Jakub\nS|21|Bittner, Leopold\nS|36|Born, Constantin\nS|37|Born, Alexander\nS|13|Cernomorec, Dennis\nS|35|Cheeseman, Luke\nS|3|Degroote, Titouan\nS|14|Dreimann, Louis\nS|34|Fellner, Hugo\nS|8|Geiger, Paul\nS|33|Gögler, Samuel\nS|25|Günter Perez, Emilia\nS|12|Hauptkorn, Emil\nS|23|Haußmann, Laurin\nS|9|Hegner, Leo\nS|17|Heidt, Miroslav\nS|25|Henning, Theo\nS|38|Jäger, Florian\nS|5|Kanzler, Vitus\nS|19|Kanzler, Josef\nS|22|Köberle, Paul\nS|26|Korti, Kilian\nS|7|Kruck, Anton\nS|40|Kuhn, Bastian\nS|28|Kunz, Paul\nS|24|Meisinger, Valentin\nS|10|Melchert, Niklas\nS|20|Meyndt, Alexander\nS|16|Neuhaus, Tizian\nS|1|Oponczewski, Maria\nS|4|Schneider, Johanna\nS|18|Schötz, Franz\nS|27|Spengler, Daniel\nS|32|Steinmüller, Ronja",
+  "hero_asset_key": "",
+  "last_reviewed_at": "2026-08-26T00:00:00Z",
+  "page_key": "u13",
+  "page_type": "team",
+  "public_path": "/u13/",
+  "record_id": "orp:founder:esc:pages:u13",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:founder:esc:pages:u13",
+  "source_reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+  "source_status": "founder-provided",
+  "source_updated_at": "2026-08-26T00:00:00Z",
+  "status": "draft",
+  "summary": "Kader und Kontakte · Saison 2025/2026",
+  "team_key": "u13",
+  "title": "U13"
+}

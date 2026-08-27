@@ -1,18 +1,11 @@
 ---
 title: "U7"
-description: "U7"
+description: "Mannschaft, Kader und Kontakte U7 · Saison 2025/2026"
 type: "team"
 layout: "list"
-content_status: "draft"
-source_status: "verified-intake"
+team_key: "u7"
+content_status: "preview"
+source_status: "founder-provided"
 ---
 
-Übersicht
-
-## Mannschaft / Kader
-
-## News
-
-## Spielplan
-
-## Ergebnisse
+Hier finden Sie Mannschaft, Kader und Kontakte der U7 für die Saison 2025/2026.

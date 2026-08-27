@@ -15,6 +15,11 @@ require_file(){ test -f "$1" || { echo "ERROR: missing generated file $1" >&2; e
 require_text(){ grep -q "$2" "$1" || { echo "ERROR: expected text '$2' missing from $1" >&2; exit 2; }; }
 
 require_file "$INDEX"
+python3 "$ROOT/scripts/owml.py" validate
+python3 "$ROOT/scripts/owml.py" generate --check
+python3 "$ROOT/scripts/owml.py" drift --public "$OUT"
+python3 "$ROOT/scripts/sync_founder_team_rosters.py"
+python3 "$ROOT/site/scripts/test_news_retention.py"
 grep -qi '<!doctype html>' "$INDEX"
 require_text "$INDEX" 'Eishockey\. Gemeinschaft\. Geretsried\.'
 require_text "$INDEX" 'data-hero-source'
@@ -24,11 +29,11 @@ require_text "$INDEX" 'noindex,nofollow,noarchive'
 require_text "$INDEX" 'Unsere Partner'
 require_text "$INDEX" 'Aktuelles'
 require_text "$INDEX" 'Doppelpack für die Defensive'
-require_text "$INDEX" 'Goldener Puck für Alexandra Boico'
 require_text "$INDEX" 'U20 gegen SG Bad Aibling/Inzell'
 require_text "$INDEX" 'Nächste Termine'
 require_text "$INDEX" 'Werde Teil der River Rats'
 require_text "$INDEX" 'Mitmachen im Ehrenamt'
+require_text "$INDEX" 'team-page\.min\.'
 
 (
   cd "$SPONSOR_ASSETS"
@@ -40,9 +45,22 @@ require_text "$INDEX" 'Mitmachen im Ehrenamt'
 )
 
 test "$(find "$OUT/images/teams" -maxdepth 1 -type f | wc -l)" -eq 11 || { echo 'ERROR: expected 11 published team assets' >&2; exit 2; }
-for path in sponsoren river-rats river-rats-damen nachwuchs eislaufschule eiskunstlauf inklusion verein verein/foerderverein impressum datenschutz; do require_file "$OUT/$path/index.html"; done
+test "$(find "$OUT/images/people/river-rats/players" -maxdepth 1 -type f | wc -l)" -eq 11 || { echo 'ERROR: expected 11 published player photos' >&2; exit 2; }
+test "$(find "$OUT/images/people/river-rats/staff" -maxdepth 1 -type f | wc -l)" -eq 9 || { echo 'ERROR: expected 9 published River Rats staff photos' >&2; exit 2; }
+for path in sponsoren river-rats river-rats-damen nachwuchs eislaufschule eiskunstlauf inklusion verein verein/vereinsfuehrung foerderverein verein/foerderverein impressum datenschutz; do require_file "$OUT/$path/index.html"; done
 require_text "$OUT/aktuelles/2026-08-04-river-rats-defensive-verlaengerungen/index.html" 'Doppelpack für die Defensive'
 require_text "$OUT/sponsoren/index.html" 'Ansprechpartner Sponsoring'
+require_text "$OUT/verein/vereinsfuehrung/index.html" 'Thomas Gania'
+require_text "$OUT/verein/vereinsfuehrung/index.html" 'Romy Schiek'
+if grep -q 'Markus Hätinen' "$OUT/verein/vereinsfuehrung/index.html"; then
+  echo 'ERROR: excluded former Vereinsführung record is publicly rendered' >&2
+  exit 2
+fi
+test "$(find "$OUT/images/people/vereinsfuehrung" -maxdepth 1 -type f | wc -l)" -eq 8 || { echo 'ERROR: expected 8 published Vereinsführung portraits' >&2; exit 2; }
+(
+  cd "$ROOT"
+  sha256sum -c docs/operations/vereinsfuehrung-portraits.sha256
+)
 
 python3 - "$SPONSOR_DATA" "$HOME_DATA" "$PAGE_MANIFEST" "$INDEX" "$OUT/sponsors/assets" <<'PY'
 import json
@@ -119,5 +137,7 @@ if grep -RIl 'orp-esc-int.netlify.app' "$OUT"; then
   echo "ERROR: Netlify runtime dependency leaked into generated output" >&2
   exit 4
 fi
+
+python3 "$ROOT/site/scripts/validate_public_copy.py" "$OUT"
 
 echo "Static smoke validation passed with structured navigation, curated photo-first heroes, canonical routes, internal sponsors page and transitional esc-int content"

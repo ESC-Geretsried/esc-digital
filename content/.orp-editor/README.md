@@ -1,15 +1,30 @@
 # ORP Editor pilot records
 
 This directory contains structured editor records consumed by the ORP
-`GitContentProvider`. It is not a second editorial source: these River Rats
-pilot records project the actual editorial starting state on PR #33, based on
-ESC `main` at `942426e1a6a3a8bf6e35cd99ecf06feab668b420`.
+`GitContentProvider`. It is not a second System of Record: the JSON records,
+their source evidence and the canonical website content are versioned together
+in this repository.
 
-Included records are one Area, one overview Block, one Page, one Team, 16
-Players, nine Staff records and four News records for scope `river-rats`.
-HockeyData/GamePitch league facts, provider/API/league bindings, standings and
-results are deliberately not copied into editor-owned records. Supplemental
-fixtures remain separate ORP Editor records when an editor creates them.
+The original River Rats pilot projection remains present. The 2026-08-26
+Git-only completion additionally projects the Founder-provided Damen, U20, U17,
+U15, U13, U11, U9 and U7 data from
+`docs/content-migration/founder-team-rosters-2025-2026.md`. The deterministic
+projection contains eight Area/Team/Page sets, 268 exact Player rows and the
+explicitly stated contact groups as Staff records. It preserves source spelling,
+position codes, order and duplicate numbers; it does not expand ambiguous
+`und` contact wording into invented people. All new records remain `draft`.
+
+The ESC content/media runtime profile is Git-only. Entra authentication and
+server-side role/scope enforcement remain unchanged; SharePoint is not required
+for website/editor content or media. Verified binary assets stay as versioned
+Git files with local paths and checksums instead of invented Binary Assets V1
+keys.
+
+The River Rats slice includes one Area, one overview Block, one Page, one Team,
+16 Players, nine Staff records and four News records. HockeyData/GamePitch
+league facts, provider/API/league bindings, standings and results are
+deliberately not copied into editor-owned records. Supplemental fixtures remain
+separate ORP Editor records when an editor creates them.
 
 The existing historical Git images and verified public player-image references
 remain the current page sources. No Binary Assets V1 record or asset key is

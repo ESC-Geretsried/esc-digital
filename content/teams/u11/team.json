@@ -1,0 +1,268 @@
+{
+  "contact_source_text": "Kontakt: Trainer Daniel Kunz, Andreas Dornbach, Sascha Bergelt; Betreuer ein großes Team engagierter Eltern; Teamleiter Ramona Geiger, Tanja Serr; Email team.u11@esc-geretsried.de; Telefon 08171 6399018.",
+  "contacts": [
+    {
+      "role": "Trainer",
+      "value": "Daniel Kunz, Andreas Dornbach, Sascha Bergelt"
+    },
+    {
+      "role": "Betreuer",
+      "value": "ein großes Team engagierter Eltern"
+    },
+    {
+      "role": "Teamleiter",
+      "value": "Ramona Geiger, Tanja Serr"
+    },
+    {
+      "role": "Email",
+      "value": "team.u11@esc-geretsried.de"
+    },
+    {
+      "role": "Telefon",
+      "value": "08171 6399018"
+    }
+  ],
+  "public_path": "/u11/",
+  "roster": [
+    {
+      "name": "Altenberger, Louis",
+      "number": "10",
+      "position_code": "S",
+      "source_line": "S|10|Altenberger, Louis"
+    },
+    {
+      "name": "Becker, Levin",
+      "number": "8",
+      "position_code": "S",
+      "source_line": "S|8|Becker, Levin"
+    },
+    {
+      "name": "Bergelt, Elias",
+      "number": "7",
+      "position_code": "T",
+      "source_line": "T|7|Bergelt, Elias"
+    },
+    {
+      "name": "Dichtl, Christoph",
+      "number": "19",
+      "position_code": "S",
+      "source_line": "S|19|Dichtl, Christoph"
+    },
+    {
+      "name": "Dornbach, Fabian",
+      "number": "40",
+      "position_code": "S",
+      "source_line": "S|40|Dornbach, Fabian"
+    },
+    {
+      "name": "Feßlmeier, Lukas",
+      "number": "11",
+      "position_code": "S",
+      "source_line": "S|11|Feßlmeier, Lukas"
+    },
+    {
+      "name": "Fellner, Ruben",
+      "number": "31",
+      "position_code": "S",
+      "source_line": "S|31|Fellner, Ruben"
+    },
+    {
+      "name": "Fischer, Theodora",
+      "number": "28",
+      "position_code": "S",
+      "source_line": "S|28|Fischer, Theodora"
+    },
+    {
+      "name": "Geiger, Sarah",
+      "number": "9",
+      "position_code": "S",
+      "source_line": "S|9|Geiger, Sarah"
+    },
+    {
+      "name": "Giebmanns, Sven",
+      "number": "22",
+      "position_code": "T",
+      "source_line": "T|22|Giebmanns, Sven"
+    },
+    {
+      "name": "Gündera Perez, Eliah",
+      "number": "12",
+      "position_code": "S",
+      "source_line": "S|12|Gündera Perez, Eliah"
+    },
+    {
+      "name": "Hagemann, Adam",
+      "number": "25",
+      "position_code": "T",
+      "source_line": "T|25|Hagemann, Adam"
+    },
+    {
+      "name": "Harrison, Karl-Otto",
+      "number": "30",
+      "position_code": "S",
+      "source_line": "S|30|Harrison, Karl-Otto"
+    },
+    {
+      "name": "Hoffleisch, Jayden",
+      "number": "3",
+      "position_code": "S",
+      "source_line": "S|3|Hoffleisch, Jayden"
+    },
+    {
+      "name": "Kunz, Emil",
+      "number": "27",
+      "position_code": "T",
+      "source_line": "T|27|Kunz, Emil"
+    },
+    {
+      "name": "Kunz, Jonah",
+      "number": "4",
+      "position_code": "S",
+      "source_line": "S|4|Kunz, Jonah"
+    },
+    {
+      "name": "Lanzinger, Julius",
+      "number": "24",
+      "position_code": "S",
+      "source_line": "S|24|Lanzinger, Julius"
+    },
+    {
+      "name": "Lorbacher, Linus",
+      "number": "15",
+      "position_code": "S",
+      "source_line": "S|15|Lorbacher, Linus"
+    },
+    {
+      "name": "Meisinger, Titus",
+      "number": "23",
+      "position_code": "S",
+      "source_line": "S|23|Meisinger, Titus"
+    },
+    {
+      "name": "Ott, Elias",
+      "number": "39",
+      "position_code": "S",
+      "source_line": "S|39|Ott, Elias"
+    },
+    {
+      "name": "Schäffler, Benedikt",
+      "number": "21",
+      "position_code": "S",
+      "source_line": "S|21|Schäffler, Benedikt"
+    },
+    {
+      "name": "Schmid, Anton",
+      "number": "36",
+      "position_code": "S",
+      "source_line": "S|36|Schmid, Anton"
+    },
+    {
+      "name": "Schmid, Emil",
+      "number": "18",
+      "position_code": "S",
+      "source_line": "S|18|Schmid, Emil"
+    },
+    {
+      "name": "Schmidt, Damian",
+      "number": "29",
+      "position_code": "S",
+      "source_line": "S|29|Schmidt, Damian"
+    },
+    {
+      "name": "Schmidts, Tobias",
+      "number": "13",
+      "position_code": "S",
+      "source_line": "S|13|Schmidts, Tobias"
+    },
+    {
+      "name": "Schneider, Emil",
+      "number": "20",
+      "position_code": "S",
+      "source_line": "S|20|Schneider, Emil"
+    },
+    {
+      "name": "Schöbel, Jenifer",
+      "number": "5",
+      "position_code": "S",
+      "source_line": "S|5|Schöbel, Jenifer"
+    },
+    {
+      "name": "Serr, Rafael",
+      "number": "14",
+      "position_code": "S",
+      "source_line": "S|14|Serr, Rafael"
+    },
+    {
+      "name": "Sippel, Johanna",
+      "number": "32",
+      "position_code": "S",
+      "source_line": "S|32|Sippel, Johanna"
+    },
+    {
+      "name": "Steinbacher, Leonhard",
+      "number": "6",
+      "position_code": "S",
+      "source_line": "S|6|Steinbacher, Leonhard"
+    },
+    {
+      "name": "Steinmüller, Hugo",
+      "number": "16",
+      "position_code": "S",
+      "source_line": "S|16|Steinmüller, Hugo"
+    },
+    {
+      "name": "Stary, Xaver",
+      "number": "34",
+      "position_code": "S",
+      "source_line": "S|34|Stary, Xaver"
+    },
+    {
+      "name": "Stadler, Ludwig",
+      "number": "33",
+      "position_code": "S",
+      "source_line": "S|33|Stadler, Ludwig"
+    },
+    {
+      "name": "Striegl, Anton",
+      "number": "35",
+      "position_code": "T",
+      "source_line": "T|35|Striegl, Anton"
+    },
+    {
+      "name": "Spengler, Jonathan",
+      "number": "17",
+      "position_code": "S",
+      "source_line": "S|17|Spengler, Jonathan"
+    },
+    {
+      "name": "Tengg, Emil",
+      "number": "26",
+      "position_code": "T",
+      "source_line": "T|26|Tengg, Emil"
+    },
+    {
+      "name": "Vanik, Vivien",
+      "number": "38",
+      "position_code": "S",
+      "source_line": "S|38|Vanik, Vivien"
+    },
+    {
+      "name": "Wirag, Katerina",
+      "number": "37",
+      "position_code": "S",
+      "source_line": "S|37|Wirag, Katerina"
+    }
+  ],
+  "schema_version": 1,
+  "season": "2025/2026",
+  "source": {
+    "provided_at": "2026-08-26",
+    "reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+    "rule": "Exact projection; no silent normalization, correction or inference.",
+    "status": "founder-provided"
+  },
+  "team_key": "u11",
+  "team_photo": "images/teams/u11-team.jpg",
+  "team_photo_alt": "Teamfoto U11 Saison 2025/2026",
+  "title": "U11"
+}

@@ -1,3 +1,11 @@
+---
+headless: true
+build:
+  render: never
+  list: never
+  publishResources: false
+---
+
 # Sponsor content model
 
 This directory is the canonical ESC Digital sponsor content source.

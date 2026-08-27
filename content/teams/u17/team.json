@@ -1,0 +1,162 @@
+{
+  "contact_source_text": "Kontakt: Trainer Sabrina Kruck, Markus Hätinen; Teamleiter Maren Senger; Email team.u17@esc-geretsried.de; Telefon 08171 6399021.",
+  "contacts": [
+    {
+      "role": "Trainer",
+      "value": "Sabrina Kruck, Markus Hätinen"
+    },
+    {
+      "role": "Teamleiter",
+      "value": "Maren Senger"
+    },
+    {
+      "role": "Email",
+      "value": "team.u17@esc-geretsried.de"
+    },
+    {
+      "role": "Telefon",
+      "value": "08171 6399021"
+    }
+  ],
+  "public_path": "/u17/",
+  "roster": [
+    {
+      "name": "Klemt, Jonas",
+      "number": "2",
+      "position_code": "S",
+      "source_line": "S|2|Klemt, Jonas"
+    },
+    {
+      "name": "Roppel, Ruben",
+      "number": "3",
+      "position_code": "S",
+      "source_line": "S|3|Roppel, Ruben"
+    },
+    {
+      "name": "Bickert, Lukas",
+      "number": "5",
+      "position_code": "S",
+      "source_line": "S|5|Bickert, Lukas"
+    },
+    {
+      "name": "Senger, Georg",
+      "number": "7",
+      "position_code": "S",
+      "source_line": "S|7|Senger, Georg"
+    },
+    {
+      "name": "Fritsch, Justus",
+      "number": "8",
+      "position_code": "S",
+      "source_line": "S|8|Fritsch, Justus"
+    },
+    {
+      "name": "Schauer, Janik",
+      "number": "24",
+      "position_code": "S",
+      "source_line": "S|24|Schauer, Janik"
+    },
+    {
+      "name": "Gmeiner, Victoria",
+      "number": "10",
+      "position_code": "S",
+      "source_line": "S|10|Gmeiner, Victoria"
+    },
+    {
+      "name": "Balbiani-Anthony, Leonardo",
+      "number": "11",
+      "position_code": "S",
+      "source_line": "S|11|Balbiani-Anthony, Leonardo"
+    },
+    {
+      "name": "Exner, Nicklas",
+      "number": "12",
+      "position_code": "S",
+      "source_line": "S|12|Exner, Nicklas"
+    },
+    {
+      "name": "Finn, Herrman",
+      "number": "14",
+      "position_code": "S",
+      "source_line": "S|14|Finn, Herrman"
+    },
+    {
+      "name": "Deisling, Max Leon",
+      "number": "15",
+      "position_code": "S",
+      "source_line": "S|15|Deisling, Max Leon"
+    },
+    {
+      "name": "Czapla, Dominik",
+      "number": "16",
+      "position_code": "S",
+      "source_line": "S|16|Czapla, Dominik"
+    },
+    {
+      "name": "Wirag, Valentin",
+      "number": "18",
+      "position_code": "S",
+      "source_line": "S|18|Wirag, Valentin"
+    },
+    {
+      "name": "Bunnemanbn, Adrian",
+      "number": "19",
+      "position_code": "S",
+      "source_line": "S|19|Bunnemanbn, Adrian"
+    },
+    {
+      "name": "Gmeiner, Valentin",
+      "number": "20",
+      "position_code": "S",
+      "source_line": "S|20|Gmeiner, Valentin"
+    },
+    {
+      "name": "Maul, Nelson",
+      "number": "21",
+      "position_code": "S",
+      "source_line": "S|21|Maul, Nelson"
+    },
+    {
+      "name": "Kruck, Maximilian",
+      "number": "23",
+      "position_code": "S",
+      "source_line": "S|23|Kruck, Maximilian"
+    },
+    {
+      "name": "Kain, Florian",
+      "number": "24",
+      "position_code": "S",
+      "source_line": "S|24|Kain, Florian"
+    },
+    {
+      "name": "Wolf, Arne",
+      "number": "30",
+      "position_code": "T",
+      "source_line": "T|30|Wolf, Arne"
+    },
+    {
+      "name": "Gania, Lilli",
+      "number": "22",
+      "position_code": "T",
+      "source_line": "T|22|Gania, Lilli"
+    },
+    {
+      "name": "Freudenstein, Tamara",
+      "number": "51",
+      "position_code": "T",
+      "source_line": "T|51|Freudenstein, Tamara"
+    }
+  ],
+  "schema_version": 1,
+  "season": "2025/2026",
+  "source": {
+    "provided_at": "2026-08-26",
+    "reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+    "rule": "Exact projection; no silent normalization, correction or inference.",
+    "status": "founder-provided"
+  },
+  "team_key": "u17",
+  "team_photo": "images/teams/u17-team.jpg",
+  "team_photo_alt": "Teamfoto U17 Saison 2025/2026",
+  "title": "U17"
+}

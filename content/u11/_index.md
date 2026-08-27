@@ -1,20 +1,11 @@
 ---
 title: "U11"
-description: "U11"
+description: "Mannschaft, Kader und Kontakte U11 · Saison 2025/2026"
 type: "team"
 layout: "list"
-content_status: "draft"
-source_status: "verified-intake"
-team_photo: "images/teams/u11-team.jpg"
-team_photo_alt: "Teamfoto der U11"
+team_key: "u11"
+content_status: "preview"
+source_status: "founder-provided"
 ---
 
-Übersicht
-
-## Mannschaft / Kader
-
-## News
-
-## Spielplan
-
-## Ergebnisse
+Hier finden Sie Mannschaft, Kader und Kontakte der U11 für die Saison 2025/2026.

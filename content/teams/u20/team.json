@@ -1,0 +1,214 @@
+{
+  "contact_source_text": "Kontakt: Trainer Markus Hätinen; Betreuer Jan Marko; Teamleiter Thomas Riedl; Email team.u20@esc-geretsried.de; Telefon 08171 - 6399030.",
+  "contacts": [
+    {
+      "role": "Trainer",
+      "value": "Markus Hätinen"
+    },
+    {
+      "role": "Betreuer",
+      "value": "Jan Marko"
+    },
+    {
+      "role": "Teamleiter",
+      "value": "Thomas Riedl"
+    },
+    {
+      "role": "Email",
+      "value": "team.u20@esc-geretsried.de"
+    },
+    {
+      "role": "Telefon",
+      "value": "08171 - 6399030"
+    }
+  ],
+  "public_path": "/u20/",
+  "roster": [
+    {
+      "name": "Marko Jan Philipp (OA)",
+      "number": "30",
+      "position_code": "T",
+      "source_line": "T|30|Marko Jan Philipp (OA)"
+    },
+    {
+      "name": "Ringler Tim",
+      "number": "35",
+      "position_code": "T",
+      "source_line": "T|35|Ringler Tim"
+    },
+    {
+      "name": "Freudenstein Tamara",
+      "number": "91",
+      "position_code": "T",
+      "source_line": "T|91|Freudenstein Tamara"
+    },
+    {
+      "name": "Hildebrand Xaver",
+      "number": "92",
+      "position_code": "T",
+      "source_line": "T|92|Hildebrand Xaver"
+    },
+    {
+      "name": "Gania Lilli",
+      "number": "96",
+      "position_code": "T",
+      "source_line": "T|96|Gania Lilli"
+    },
+    {
+      "name": "Eberhardt Franz",
+      "number": "5",
+      "position_code": "V",
+      "source_line": "V|5|Eberhardt Franz"
+    },
+    {
+      "name": "Schauer Janik",
+      "number": "6",
+      "position_code": "V",
+      "source_line": "V|6|Schauer Janik"
+    },
+    {
+      "name": "Bigalk Korbinian",
+      "number": "7",
+      "position_code": "V",
+      "source_line": "V|7|Bigalk Korbinian"
+    },
+    {
+      "name": "Seitz Bastian",
+      "number": "8",
+      "position_code": "V",
+      "source_line": "V|8|Seitz Bastian"
+    },
+    {
+      "name": "Fritsch Justus",
+      "number": "10",
+      "position_code": "V",
+      "source_line": "V|10|Fritsch Justus"
+    },
+    {
+      "name": "Lieb Lucas (OA)",
+      "number": "69",
+      "position_code": "S",
+      "source_line": "S|69|Lieb Lucas (OA)"
+    },
+    {
+      "name": "Burkhardt Leon",
+      "number": "93",
+      "position_code": "V",
+      "source_line": "V|93|Burkhardt Leon"
+    },
+    {
+      "name": "Fichtner Johann",
+      "number": "95",
+      "position_code": "V",
+      "source_line": "V|95|Fichtner Johann"
+    },
+    {
+      "name": "Britton Elias",
+      "number": "97",
+      "position_code": "V",
+      "source_line": "V|97|Britton Elias"
+    },
+    {
+      "name": "Schiek Amon",
+      "number": "3",
+      "position_code": "S",
+      "source_line": "S|3|Schiek Amon"
+    },
+    {
+      "name": "Boico Artiom",
+      "number": "9",
+      "position_code": "S",
+      "source_line": "S|9|Boico Artiom"
+    },
+    {
+      "name": "Santullo Gianluca",
+      "number": "11",
+      "position_code": "S",
+      "source_line": "S|11|Santullo Gianluca"
+    },
+    {
+      "name": "Totzauer Tim",
+      "number": "12",
+      "position_code": "S",
+      "source_line": "S|12|Totzauer Tim"
+    },
+    {
+      "name": "Bader Vitus",
+      "number": "13",
+      "position_code": "S",
+      "source_line": "S|13|Bader Vitus"
+    },
+    {
+      "name": "Jäger Niklas",
+      "number": "16",
+      "position_code": "S",
+      "source_line": "S|16|Jäger Niklas"
+    },
+    {
+      "name": "Hildebrandt Eva",
+      "number": "17",
+      "position_code": "S",
+      "source_line": "S|17|Hildebrandt Eva"
+    },
+    {
+      "name": "Sanner Leonhard",
+      "number": "19",
+      "position_code": "S",
+      "source_line": "S|19|Sanner Leonhard"
+    },
+    {
+      "name": "Stoljarov Dennis (OA)",
+      "number": "24",
+      "position_code": "S",
+      "source_line": "S|24|Stoljarov Dennis (OA)"
+    },
+    {
+      "name": "Urban Nikolaus",
+      "number": "27",
+      "position_code": "S",
+      "source_line": "S|27|Urban Nikolaus"
+    },
+    {
+      "name": "Erisik Emre",
+      "number": "29",
+      "position_code": "S",
+      "source_line": "S|29|Erisik Emre"
+    },
+    {
+      "name": "Hopf Niklas",
+      "number": "34",
+      "position_code": "S",
+      "source_line": "S|34|Hopf Niklas"
+    },
+    {
+      "name": "Wohlfarter Fabian (OA)",
+      "number": "72",
+      "position_code": "S",
+      "source_line": "S|72|Wohlfarter Fabian (OA)"
+    },
+    {
+      "name": "Riedl Kornel",
+      "number": "75",
+      "position_code": "S",
+      "source_line": "S|75|Riedl Kornel"
+    },
+    {
+      "name": "Kern Sebastian (OA)",
+      "number": "87",
+      "position_code": "S",
+      "source_line": "S|87|Kern Sebastian (OA)"
+    }
+  ],
+  "schema_version": 1,
+  "season": "2025/2026",
+  "source": {
+    "provided_at": "2026-08-26",
+    "reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+    "rule": "Exact projection; no silent normalization, correction or inference.",
+    "status": "founder-provided"
+  },
+  "team_key": "u20",
+  "team_photo": "images/teams/u20-team.jpg",
+  "team_photo_alt": "Teamfoto U20 Saison 2025/2026",
+  "title": "U20"
+}

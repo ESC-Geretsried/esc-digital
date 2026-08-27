@@ -2,6 +2,14 @@
 
 Status: M2 skeleton / transition baseline
 
+## Canonical website model
+
+OWML `1.0.0` under `owml/` is the canonical semantic website architecture for
+every ESC route. Hugo, Python renderers, editor configuration, navigation and
+generated diagrams are subordinate adapters. Unknown nodes/routes and final
+runtime drift fail closed. This is the ESC reference profile of the ORP Website
+Module contract and does not make ESC-specific patterns ORP Core.
+
 ## Repository role
 
 `esc-digital` is the ESC-owned tenant/product repository. It is intentionally broader than the website, but it is not ORP Core.

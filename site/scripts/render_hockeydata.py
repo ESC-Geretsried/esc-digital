@@ -43,7 +43,7 @@ def public_url(path):
 
 def player_card(row):
     image = str(row.get("image", "")).strip()
-    media = f'<img src="{escape(image, quote=True)}" alt="{escape(row["name"], quote=True)}" loading="lazy">' if image else '<span class="player-card__placeholder" aria-label="Kein verifiziertes Spielerfoto vorhanden">Kein Foto</span>'
+    media = f'<img src="{escape(public_url(image), quote=True)}" alt="{escape(row["name"], quote=True)}" loading="lazy">' if image else '<span class="player-card__placeholder" aria-label="Kein verifiziertes Spielerfoto vorhanden">Kein Foto</span>'
     return (
         '<article class="player-card"><div class="player-card__image">' + media + '</div>'
         '<div class="player-card__body"><span class="player-card__number">#' + escape(str(row.get("number", ""))) + '</span>'
@@ -59,10 +59,21 @@ for group in ("Tor", "Verteidigung", "Sturm"):
     cards = "".join(player_card(row) for row in team["roster"] if row.get("group") == group)
     roster_html.append(f'<div class="roster-group"><h3>{escape(group)}</h3><div class="roster-grid">{cards}</div></div>')
 
-staff_html = "".join(
-    f'<article class="staff-card"><strong>{escape(row["name"])}</strong><span>{escape(row["role"])}</span></article>'
-    for row in team["staff"]
-)
+def staff_card(row):
+    image = str(row.get("image", "")).strip()
+    media = (
+        f'<div class="staff-card__image"><img src="{escape(public_url(image), quote=True)}" '
+        f'alt="{escape(row["name"], quote=True)}" loading="lazy"></div>'
+        if image
+        else '<div class="staff-card__image"><span aria-label="Kein verifiziertes Staff-Foto vorhanden">Kein Foto</span></div>'
+    )
+    return (
+        '<article class="staff-card">' + media + '<div class="staff-card__body">'
+        f'<strong>{escape(row["name"])}</strong><span>{escape(row["role"])}</span></div></article>'
+    )
+
+
+staff_html = "".join(staff_card(row) for row in team["staff"])
 news_html = "".join(
     f'<article class="team-news-card"><time datetime="{escape(row["date"], quote=True)}">{escape(row["date"])}</time>'
     f'<h3><a href="{escape(public_url(row["path"]), quote=True)}">{escape(row["title"])}</a></h3>'
@@ -79,12 +90,12 @@ main = f'''<main id="main-content">
     <div class="team-hero__next"><strong>Nächstes Spiel</strong><div data-hd-widget="hockeydata.los.GameSlider" data-hd-widget-options='{{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{permalink}","sport":"{sport}","teamId":{team_id},"gamesPerGroup":1,"showDivisionName":false}}'></div></div>
   </div>
 </section>
-<nav class="team-local-nav" aria-label="Bereiche River Rats"><div class="shell team-local-nav__inner"><a href="#uebersicht">Übersicht</a><a href="#teamfoto">Teamfoto</a><a href="#mannschaft">Mannschaft</a><a href="#news">News</a><a href="#spielplan">Spielplan</a><a href="#tabelle">Tabelle</a><a href="#ergebnisse">Ergebnisse</a></div></nav>
+<nav class="team-local-nav" aria-label="Bereiche River Rats"><div class="shell team-local-nav__inner"><a href="#uebersicht">Übersicht</a><a href="#teamfoto">Teamfoto</a><a href="#kader">Mannschaft</a><a href="#news">News</a><a href="#spielplan">Spielplan</a><a href="#tabelle">Tabelle</a><a href="#ergebnisse">Ergebnisse</a></div></nav>
 <section class="team-section" id="uebersicht"><div class="shell"><p class="eyebrow">Übersicht</p><h2>River Rats</h2><p class="team-overview">{escape(team['overview'])}</p><p>Alle wichtigen Inhalte zur Mannschaft bleiben auf dieser Seite: Teamfoto, Kader, Betreuung, aktuelle Meldungen und der Spielbetrieb.</p></div></section>
 <section class="team-section team-section--soft" id="teamfoto"><div class="shell"><p class="eyebrow">Teamfoto</p><h2>River Rats 2026/27</h2><figure class="team-photo"><img src="{escape(public_url(team['team_photo']), quote=True)}" alt="Teamfoto River Rats" loading="lazy"></figure></div></section>
-<section class="team-section" id="mannschaft"><div class="shell"><p class="eyebrow">Mannschaft</p><h2>Aktueller Kader</h2>{''.join(roster_html)}<div class="roster-group"><h3>Trainer & Team hinter dem Team</h3><div class="staff-grid">{staff_html}</div></div><p class="team-source-note">Namen und Kaderstand nach der in Git gesicherten ESC-Referenz. Spielerfotos werden nur verwendet, soweit eine veröffentlichte Quelle vorhanden ist.</p></div></section>
+<section class="team-section" id="kader"><div class="shell"><p class="eyebrow">Mannschaft</p><h2>Aktueller Kader</h2>{''.join(roster_html)}<div class="roster-group"><h3>Trainer & Team hinter dem Team</h3><div class="staff-grid">{staff_html}</div></div><p class="team-source-note">Kader und Betreuung der River Rats. Spielerfotos werden angezeigt, wenn ein passendes Bild vorliegt.</p></div></section>
 <section class="team-section team-section--soft" id="news"><div class="shell"><p class="eyebrow">News</p><h2>Aktuelles von den River Rats</h2><div class="news-grid">{news_html}</div><p><a class="button" href="{escape(public_url('/aktuelles/'), quote=True)}">Alle News</a></p></div></section>
-<section class="team-section" id="spielplan"><div class="shell"><p class="eyebrow">Spielplan</p><h2>River Rats 2026/27</h2><div class="team-hd-card team-hd-card--wide"><div data-hd-widget="hockeydata.los.Schedule" data-hd-widget-options='{{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{permalink}","sport":"{sport}","teamId":{team_id}}}'></div></div><p class="team-source-note">Ligaspiele kommen aus HockeyData/GamePitch. Vorbereitung, Freundschaftsspiele, Turniere und weitere Zusatztermine können ergänzend über den ORP Editor gepflegt werden.</p></div></section>
+<section class="team-section" id="spielplan"><div class="shell"><p class="eyebrow">Spielplan</p><h2>River Rats 2026/27</h2><div class="team-hd-card team-hd-card--wide"><div data-hd-widget="hockeydata.los.Schedule" data-hd-widget-options='{{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{permalink}","sport":"{sport}","teamId":{team_id}}}'></div></div><p class="team-source-note">Ligaspiele kommen aus HockeyData/GamePitch. Vorbereitung, Freundschaftsspiele, Turniere und weitere Zusatztermine werden ergänzt, sobald sie feststehen.</p></div></section>
 <section class="team-section team-section--soft" id="tabelle"><div class="shell"><p class="eyebrow">{escape(label)}</p><h2>Tabelle</h2><div class="team-hd-card team-hd-card--wide"><div data-hd-widget="hockeydata.los.Standings" data-hd-widget-options='{{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{permalink}","sport":"{sport}","columnSet":"default"}}'></div></div></div></section>
 <section class="team-section" id="ergebnisse"><div class="shell"><p class="eyebrow">Ergebnisse</p><h2>Spiele & Resultate</h2><div class="team-hd-card team-hd-card--wide"><div data-hd-widget="hockeydata.los.Schedule" data-hd-widget-options='{{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{permalink}","sport":"{sport}","teamId":{team_id}}}'></div></div><p class="team-source-note">Abgeschlossene Begegnungen und Resultate werden aus derselben geschützten HockeyData-Anbindung geladen.</p></div></section>
 <link rel="stylesheet" href="https://api.hockeydata.net/css/?los_gameslider&los_schedule&los_standings"><script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><script src="https://api.hockeydata.net/js/?los_icehockey"></script>

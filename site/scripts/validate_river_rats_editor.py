@@ -7,6 +7,7 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[2]
 editor = root / "content" / ".orp-editor"
 team_source = json.loads((root / "content" / "river-rats" / "team.json").read_text(encoding="utf-8"))
+staff_photo_manifest = json.loads((root / "content" / "river-rats" / "staff-photos.json").read_text(encoding="utf-8"))
 renderer = (root / "site" / "scripts" / "render_hockeydata.py").read_text(encoding="utf-8")
 
 
@@ -34,6 +35,21 @@ if {row["display_name"] for row in staff} != {row["name"] for row in team_source
     raise SystemExit("ERROR: editor staff names differ from canonical River Rats team source")
 if {row["title"] for row in news} != {row["title"] for row in team_source["news"]}:
     raise SystemExit("ERROR: editor news titles differ from canonical River Rats team source")
+
+staff_photos = staff_photo_manifest.get("photos", [])
+if len(staff_photos) != 9 or {row["name"] for row in staff_photos} != {row["name"] for row in team_source["staff"]}:
+    raise SystemExit("ERROR: staff photo manifest does not cover the 9 canonical River Rats staff records")
+photos_by_name = {row["name"]: row for row in staff_photos}
+for row in team_source["staff"]:
+    photo = photos_by_name[row["name"]]
+    if row.get("image") != photo.get("public_path"):
+        raise SystemExit(f"ERROR: staff image differs from verified manifest: {row['name']}")
+    asset = root / photo["asset"]
+    if not asset.is_file() or sha256(asset.read_bytes()).hexdigest() != photo.get("sha256"):
+        raise SystemExit(f"ERROR: verified staff asset missing or changed: {row['name']}")
+for row in staff:
+    if row.get("photo_asset_key"):
+        raise SystemExit(f"ERROR: Git staff photo path must not be invented as an ORP Editor media key: {row['display_name']}")
 
 # Product rule: generic schema fields may remain, but team frontend must not render height or weight.
 if 'height_cm' in renderer or 'weight_kg' in renderer:
@@ -88,4 +104,4 @@ for key in ("hero_image", "team_photo"):
     if not path.is_file():
         raise SystemExit(f"ERROR: existing Git image reference is missing: {team_source[key]}")
 
-print("River Rats editor initial state validated: 16 players, 9 staff, 4 news; HockeyData protected; height/weight frontend display disabled")
+print("River Rats editor initial state validated: 16 players, 9 staff with verified Git photos, 4 news; HockeyData protected; height/weight frontend display disabled")

@@ -1,0 +1,20 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "comment": "Exact Founder contact group: Teamleiter Anna und Ronny Wolf, Sven Leinen",
+  "display_name": "Anna und Ronny Wolf",
+  "email": "",
+  "last_reviewed_at": "2026-08-26T00:00:00Z",
+  "phone": "",
+  "photo_asset_key": "",
+  "record_id": "orp:founder:esc:staff:u15:teamleiter:anna-und-ronny-wolf",
+  "role": "Teamleiter",
+  "sort_order": 30,
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:founder:esc:staff:u15:teamleiter:anna-und-ronny-wolf",
+  "source_reference": "docs/content-migration/founder-team-rosters-2025-2026.md",
+  "source_status": "founder-provided",
+  "source_updated_at": "2026-08-26T00:00:00Z",
+  "status": "draft",
+  "team_key": "u15"
+}

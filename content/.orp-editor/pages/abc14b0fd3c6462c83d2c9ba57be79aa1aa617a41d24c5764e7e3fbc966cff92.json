@@ -1,0 +1,21 @@
+{
+  "approval_owner": "ESC Redaktion",
+  "area_key": "verein",
+  "body": "Die verantwortlichen Personen des Vereins und der Organisation im Überblick.",
+  "hero_asset_key": "",
+  "last_reviewed_at": "2026-08-27T00:00:00Z",
+  "page_key": "vereinsfuehrung",
+  "page_type": "verein",
+  "public_path": "/verein/vereinsfuehrung/",
+  "record_id": "orp:esc-main:pages:vereinsfuehrung",
+  "source_owner": "ESC Redaktion",
+  "source_provider": "orp-editor",
+  "source_record_id": "orp:esc-main:pages:vereinsfuehrung",
+  "source_reference": "docs/content-migration/founder-vereinsfuehrung-2026-08-27.md",
+  "source_status": "founder-provided",
+  "source_updated_at": "2026-08-27T00:00:00Z",
+  "status": "draft",
+  "summary": "Vereinsführung und Organisation des ESC River Rats Geretsried e.V.",
+  "team_key": "",
+  "title": "Vereinsführung"
+}
