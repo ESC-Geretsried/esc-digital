@@ -6,6 +6,8 @@
     {
       "id": "season-ticket-2026-2027",
       "text": "DAUERKARTE   Dauerkarten Saison 2026/2027 – jetzt hier verbindlich bestellen",
+      "label": "DAUERKARTE",
+      "message": "Dauerkarten Saison 2026/2027 – jetzt hier verbindlich bestellen",
       "url": "https://esc-geretsried.github.io/bestellung/",
       "new_tab": true,
       "active": true,

@@ -109,6 +109,8 @@ first_announcement = active_announcements[0]
 if first_announcement != {
     "id": "season-ticket-2026-2027",
     "text": "DAUERKARTE   Dauerkarten Saison 2026/2027 – jetzt hier verbindlich bestellen",
+    "label": "DAUERKARTE",
+    "message": "Dauerkarten Saison 2026/2027 – jetzt hier verbindlich bestellen",
     "url": "https://esc-geretsried.github.io/bestellung/",
     "new_tab": True,
     "active": True,
@@ -135,7 +137,7 @@ homepage_html = (public / "index.html").read_text(encoding="utf-8")
 decoded_homepage_html = unescape(unescape(homepage_html)).replace("\xa0", " ")
 if "DAUERKARTE" not in decoded_homepage_html or "Dauerkarten Saison 2026/2027 – jetzt hier verbindlich bestellen" not in decoded_homepage_html:
     raise SystemExit("ERROR: first AnnouncementTicker message missing from Homepage")
-announcement_link = r'href=(?:"|)https://esc-geretsried\.github\.io/bestellung/(?:"|) target=(?:"|)_blank(?:"|) rel="noopener noreferrer"'
+announcement_link = r'<a[^>]*href=(?:"|)https://esc-geretsried\.github\.io/bestellung/(?:"|)[^>]*target=(?:"|)_blank(?:"|)[^>]*rel="noopener noreferrer"'
 if not re.search(announcement_link, homepage_html):
     raise SystemExit("ERROR: AnnouncementTicker target/new-tab boundary missing from Homepage")
 for group in home.get("news_groups", []):

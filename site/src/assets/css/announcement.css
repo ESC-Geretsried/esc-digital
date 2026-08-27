@@ -28,6 +28,11 @@
   color: inherit;
 }
 
+.announcement-ticker__gap {
+  display: inline-block;
+  width: 1.5em;
+}
+
 @keyframes announcement-sequence {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
