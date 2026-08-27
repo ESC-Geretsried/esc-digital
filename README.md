@@ -35,6 +35,7 @@ The legacy generated files still present at repository root are transition mater
 ## Intended top-level layout
 
 - `site/` — website source and build inputs
+- `owml/` — canonical OWML semantic website architecture and generated views
 - `content/` — canonical publishable/editorial content where applicable
 - `modules/` — ESC-specific functional modules
 - `integrations/` — ESC-specific provider/system adapters
@@ -44,3 +45,7 @@ The legacy generated files still present at repository root are transition mater
 - `docs/` — repository-local architecture and contributor documentation
 
 No secret, token, private key, recovery code or production credential belongs in this repository.
+
+All existing and new website pages require OWML coverage. Normal editorial
+work changes content and approved slots only; structure changes follow the
+versioned architecture workflow. See `owml/README.md`.

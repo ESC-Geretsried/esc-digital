@@ -1,0 +1,101 @@
+{
+  "owml_version": "1.0.0",
+  "tenant": "esc",
+  "patterns": [
+    {
+      "id":"homepage","title":"Homepage","description":"Accepted rolling homepage hero; never imports the team next-game hero.",
+      "invariants":["global-chrome","homepage-hero-no-next-game","approved-media-only","single-h1"],
+      "nodes":[
+        {"id":"header","type":"site-header","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false},
+        {"id":"hero","type":"hero","slot":"hero","required":true,"binding":"home.heroes","fallback":"stable-empty","editor_mutable":true},
+        {"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"aktuelles","binding":"home.news_groups","fallback":"stable-empty","editor_mutable":true},
+        {"id":"events","type":"event-list","slot":"events","required":true,"anchor":"termine","binding":"home.events","fallback":"stable-empty","editor_mutable":true},
+        {"id":"areas","type":"area-cards","slot":"areas","required":true,"anchor":"angebote","binding":"home.community","fallback":"stable-empty","editor_mutable":true},
+        {"id":"sponsors","type":"sponsor-grid","slot":"sponsors","required":true,"anchor":"partner","binding":"sponsors","fallback":"stable-empty","editor_mutable":true},
+        {"id":"footer","type":"site-footer","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false}
+      ]
+    },
+    {
+      "id":"team-page","title":"Team Page","description":"Uniform ESC team target; standings is disabled only for U7/U9/U11.",
+      "invariants":["inv-001","inv-002","inv-003","global-chrome","next-game-no-invention","team-primary-order"],
+      "nodes":[
+        {"id":"header","type":"site-header","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false},
+        {"id":"hero","type":"hero","slot":"hero","required":true,"binding":"team.next_game","fallback":"stable-empty","editor_mutable":true},
+        {"id":"team-navigation","type":"local-navigation","slot":"navigation","required":true,"binding":"pattern.anchors","fallback":"none","editor_mutable":false},
+        {"id":"overview","type":"content","slot":"overview","required":true,"anchor":"uebersicht","binding":"team.summary","fallback":"stable-empty","editor_mutable":true},
+        {"id":"team-photo","type":"team-photo","slot":"team-photo","required":true,"anchor":"teamfoto","binding":"team.team_photo","fallback":"stable-empty","editor_mutable":true},
+        {"id":"roster","type":"roster","slot":"roster","required":true,"anchor":"kader","binding":"team.roster","fallback":"stable-empty","editor_mutable":true},
+        {"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"team.news","fallback":"stable-empty","editor_mutable":true},
+        {"id":"schedule","type":"schedule","slot":"schedule","required":true,"anchor":"spielplan","binding":"team.schedule","fallback":"stable-empty","editor_mutable":true},
+        {"id":"standings","type":"standings","slot":"standings","required":true,"anchor":"tabelle","binding":"team.standings","condition":"age>=U13","fallback":"not-applicable","editor_mutable":false},
+        {"id":"results","type":"results","slot":"results","required":true,"anchor":"ergebnisse","binding":"team.results","fallback":"stable-empty","editor_mutable":true},
+        {"id":"contacts","type":"contacts","slot":"contacts","required":false,"anchor":"kontakte","binding":"team.contacts","fallback":"omit","editor_mutable":true},
+        {"id":"footer","type":"site-footer","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false}
+      ]
+    },
+    {
+      "id":"news-index","title":"News Index","invariants":["global-chrome","single-h1","public-retention-policy"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"news","type":"news-feed","slot":"news","required":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    },
+    {
+      "id":"article","title":"News / Article","invariants":["global-chrome","single-h1","article-provenance-not-public-copy"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"article-header","type":"article-header","slot":"hero","required":true},{"id":"article-body","type":"article-body","slot":"body","required":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    },
+    {
+      "id":"event","title":"Event","invariants":["global-chrome","single-h1","date-machine-readable"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"event","type":"event-list","slot":"event","required":true},{"id":"contacts","type":"contacts","slot":"contacts","required":false},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    },
+    {
+      "id":"sponsor","title":"Sponsor","invariants":["global-chrome","single-h1","verified-links-only"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"sponsors","type":"sponsor-grid","slot":"sponsors","required":true},{"id":"contacts","type":"contacts","slot":"contacts","required":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    },
+    {
+      "id":"contact-office","title":"Contact / Geschäftsstelle","invariants":["global-chrome","single-h1","verified-contact-data-only"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"contacts","type":"contacts","slot":"contacts","required":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    },
+    {
+      "id":"membership","title":"Membership","invariants":["global-chrome","single-h1","form-without-ai-dependency"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"membership","type":"membership-form","slot":"form","required":true},{"id":"downloads","type":"downloads","slot":"downloads","required":false},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    },
+    {
+      "id":"donation-supporters","title":"Donation / Förderverein","invariants":["global-chrome","single-h1","verified-payment-and-contact-data-only"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"donation-info","slot":"content","required":true},{"id":"contacts","type":"contacts","slot":"contacts","required":false},{"id":"downloads","type":"downloads","slot":"downloads","required":false},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    },
+    {
+      "id":"board","title":"Board / Vereinsführung","invariants":["global-chrome","single-h1","verified-person-data-only"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"board","type":"board-grid","slot":"people","required":true,"anchor":"people"},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    },
+    {
+      "id":"skating-school","title":"Eislaufschule","invariants":["global-chrome","single-h1"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"events","type":"event-list","slot":"events","required":false},{"id":"contacts","type":"contacts","slot":"contacts","required":false},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    },
+    {
+      "id":"figure-skating","title":"Eiskunstlauf","invariants":["global-chrome","single-h1"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"events","type":"event-list","slot":"events","required":false},{"id":"contacts","type":"contacts","slot":"contacts","required":false},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    },
+    {
+      "id":"inclusion","title":"Inclusion","invariants":["global-chrome","single-h1","accessible-language-and-structure"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"contacts","type":"contacts","slot":"contacts","required":true},{"id":"sponsors","type":"sponsor-grid","slot":"supporters","required":false},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    },
+    {
+      "id":"club","title":"Verein","invariants":["global-chrome","single-h1"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"areas","type":"area-cards","slot":"areas","required":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    },
+    {
+      "id":"youth-index","title":"Nachwuchs","invariants":["global-chrome","single-h1","team-links-covered-by-owml"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"areas","type":"area-cards","slot":"teams","required":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    },
+    {
+      "id":"legal","title":"Legal","invariants":["global-chrome","single-h1","legal-copy-requires-owner-review"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"legal","type":"legal-content","slot":"content","required":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    },
+    {
+      "id":"service","title":"Service","invariants":["global-chrome","single-h1"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"downloads","type":"downloads","slot":"downloads","required":false},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    },
+    {
+      "id":"generic-section","title":"Generic Section","invariants":["global-chrome","single-h1","explicit-pattern-before-structural-change"],
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+    }
+  ]
+}

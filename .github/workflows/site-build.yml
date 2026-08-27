@@ -10,10 +10,13 @@ on:
       - 'docs/operations/**'
       - 'config/editor-runtime.json'
       - 'config/news-retention.json'
+      - 'owml/**'
+      - 'scripts/owml.py'
       - 'scripts/sync_founder_team_rosters.py'
       - 'scripts/validate_esc_git_only_completion.py'
       - 'scripts/validate_esc_content_migration_intake.py'
       - 'scripts/validate_esc_initial_content_seed.py'
+      - 'tests/**'
       - '.github/workflows/site-build.yml'
       - '.github/workflows/preview-publish.yml'
 
@@ -29,6 +32,9 @@ jobs:
 
       - name: Validate migration intake and initial seed
         run: |
+          python3 scripts/owml.py validate
+          python3 scripts/owml.py generate --check
+          python3 -m unittest discover -s tests -p 'test_owml.py' -v
           python3 scripts/validate_esc_content_migration_intake.py
           python3 scripts/validate_esc_initial_content_seed.py
           python3 scripts/sync_founder_team_rosters.py

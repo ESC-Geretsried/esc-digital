@@ -32,6 +32,7 @@ open_marker = '<main id="main-content">'
 excluded_top_level = {
     'sponsoren',
     'river-rats',
+    'river-rats-herren',
     'river-rats-damen',
     'nachwuchs',
     'u20',
@@ -92,7 +93,7 @@ for src in sorted(imports.rglob('index.html')):
     parts = rel.parts[:-1]
     if not parts:
         continue
-    if parts[0] in excluded_top_level:
+    if parts[0] in excluded_top_level and tuple(parts) != ('verein', 'geschaeftsstelle'):
         continue
 
     raw = src.read_text(encoding='utf-8')

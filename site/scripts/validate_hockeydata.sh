@@ -20,7 +20,7 @@ require_fixed "$PAGE" 'hockeydata.los.Standings'
 require_fixed "$PAGE" 'bevbyl_sen_vr'
 require_fixed "$PAGE" 'href="#uebersicht"'
 require_fixed "$PAGE" 'href="#teamfoto"'
-require_fixed "$PAGE" 'href="#mannschaft"'
+require_fixed "$PAGE" 'href="#kader"'
 require_fixed "$PAGE" 'href="#news"'
 require_fixed "$PAGE" 'href="#spielplan"'
 require_fixed "$PAGE" 'href="#tabelle"'
@@ -46,7 +46,7 @@ html = page_path.read_text(encoding='utf-8')
 team = json.loads(team_path.read_text(encoding='utf-8'))
 manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
 section_ids = re.findall(r'<section[^>]+id="([^"]+)"', html)
-expected = ['uebersicht', 'teamfoto', 'mannschaft', 'news', 'spielplan', 'tabelle', 'ergebnisse']
+expected = ['uebersicht', 'teamfoto', 'kader', 'news', 'spielplan', 'tabelle', 'ergebnisse']
 if section_ids != expected:
     raise SystemExit(f'ERROR: River Rats section order is {section_ids!r}, expected {expected!r}')
 nav_ids = re.findall(r'<a href="#([^"]+)">', html)

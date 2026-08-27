@@ -15,6 +15,9 @@ require_file(){ test -f "$1" || { echo "ERROR: missing generated file $1" >&2; e
 require_text(){ grep -q "$2" "$1" || { echo "ERROR: expected text '$2' missing from $1" >&2; exit 2; }; }
 
 require_file "$INDEX"
+python3 "$ROOT/scripts/owml.py" validate
+python3 "$ROOT/scripts/owml.py" generate --check
+python3 "$ROOT/scripts/owml.py" drift --public "$OUT"
 python3 "$ROOT/scripts/sync_founder_team_rosters.py"
 python3 "$ROOT/site/scripts/test_news_retention.py"
 grep -qi '<!doctype html>' "$INDEX"
@@ -44,7 +47,7 @@ require_text "$INDEX" 'team-page\.min\.'
 test "$(find "$OUT/images/teams" -maxdepth 1 -type f | wc -l)" -eq 11 || { echo 'ERROR: expected 11 published team assets' >&2; exit 2; }
 test "$(find "$OUT/images/people/river-rats/players" -maxdepth 1 -type f | wc -l)" -eq 11 || { echo 'ERROR: expected 11 published player photos' >&2; exit 2; }
 test "$(find "$OUT/images/people/river-rats/staff" -maxdepth 1 -type f | wc -l)" -eq 9 || { echo 'ERROR: expected 9 published River Rats staff photos' >&2; exit 2; }
-for path in sponsoren river-rats river-rats-damen nachwuchs eislaufschule eiskunstlauf inklusion verein verein/vereinsfuehrung verein/foerderverein impressum datenschutz; do require_file "$OUT/$path/index.html"; done
+for path in sponsoren river-rats river-rats-damen nachwuchs eislaufschule eiskunstlauf inklusion verein verein/vereinsfuehrung foerderverein verein/foerderverein impressum datenschutz; do require_file "$OUT/$path/index.html"; done
 require_text "$OUT/aktuelles/2026-08-04-river-rats-defensive-verlaengerungen/index.html" 'Doppelpack für die Defensive'
 require_text "$OUT/sponsoren/index.html" 'Ansprechpartner Sponsoring'
 require_text "$OUT/verein/vereinsfuehrung/index.html" 'Thomas Gania'

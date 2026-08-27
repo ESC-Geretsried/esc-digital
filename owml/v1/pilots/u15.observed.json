@@ -1,0 +1,20 @@
+{
+  "owml_version": "1.0.0",
+  "page_id": "esc.u15",
+  "route": "/u15/",
+  "observation_date": "2026-08-27",
+  "source": "https://preview.esc-geretsried.de/u15/",
+  "status": "observed-not-authoritative",
+  "nodes": [
+    {"id":"header","type":"site-header"},
+    {"id":"hero","type":"hero","observation":"team photo; no verified next game"},
+    {"id":"team-navigation","type":"local-navigation","anchors":["uebersicht","teamfoto","kader","kontakte"]},
+    {"id":"overview","type":"content","anchor":"uebersicht"},
+    {"id":"team-photo","type":"team-photo","anchor":"teamfoto"},
+    {"id":"roster","type":"roster","anchor":"kader"},
+    {"id":"contacts","type":"contacts","anchor":"kontakte"},
+    {"id":"footer","type":"site-footer"}
+  ],
+  "missing_against_binding_target": ["news","schedule","standings","results"],
+  "hero_drift": "next-game semantic slot missing; no date may be invented"
+}

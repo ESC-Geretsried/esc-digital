@@ -5,6 +5,8 @@ type: "river-rats"
 layout: "list"
 content_status: "draft"
 source_status: "migrated"
+aliases:
+  - "/river-rats-herren/"
 ---
 
 Die River Rats sind die erste Mannschaft des ESC River Rats Geretsried und der zentrale Seniorenbereich des Vereins. Auf der Mannschaftsseite werden Übersicht, Teamfoto, Mannschaft/Kader, News sowie Spielplan, Tabelle und Ergebnisse gebündelt.
