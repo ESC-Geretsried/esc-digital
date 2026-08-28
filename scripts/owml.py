@@ -154,6 +154,43 @@ def exact_object(value, *, required: set[str], allowed: set[str], context: str) 
         raise OWMLFailure(f"schema {context} keys invalid; missing={sorted(missing)}, unknown={sorted(unknown)}")
 
 
+def validate_homepage_content_contract(patterns: dict) -> None:
+    homepage_invariants = set(patterns["homepage"]["invariants"])
+    required_invariants = {
+        "youth-hero-daily-image-static-nachwuchs-link",
+        "announcement-sequential-slow",
+        "reduced-motion-static-announcement",
+    }
+    if not required_invariants <= homepage_invariants:
+        raise OWMLFailure(f"homepage behavior invariants missing: {sorted(required_invariants - homepage_invariants)}")
+
+    heroes = read_json(ROOT / "content" / "home" / "heroes.json")
+    youth = next((slide for slide in heroes.get("slides", []) if slide.get("id") == "nachwuchs"), None)
+    expected_images = [f"images/teams/{team}-team.jpg" for team in ("u7", "u9", "u11", "u13", "u15", "u17", "u20")]
+    if not youth or youth.get("daily_images") != expected_images:
+        raise OWMLFailure("homepage youth hero Monday-Sunday image contract drift")
+    if youth.get("cta_path") != "/nachwuchs/" or "daily_paths" in youth:
+        raise OWMLFailure("homepage youth hero may rotate only its image; link must stay /nachwuchs/")
+
+    announcements = read_json(ROOT / "content" / "home" / "announcements.json")
+    if announcements.get("rotation") != "sequential-slow":
+        raise OWMLFailure("homepage announcement rotation must be sequential-slow")
+    if announcements.get("reduced_motion") != "first-message-static":
+        raise OWMLFailure("homepage announcement reduced-motion fallback must be first-message-static")
+    messages = announcements.get("messages", [])
+    if not isinstance(messages, list) or not messages:
+        raise OWMLFailure("homepage announcement messages must be a non-empty ordered list")
+    ids = [message.get("id") for message in messages]
+    orders = [message.get("order") for message in messages]
+    if any(not item for item in ids) or len(ids) != len(set(ids)) or len(orders) != len(set(orders)):
+        raise OWMLFailure("homepage announcement ids and order values must be unique")
+    for message in messages:
+        if not message.get("url") and message.get("new_tab"):
+            raise OWMLFailure(f"linkless announcement cannot request a new tab: {message.get('id')}")
+        if str(message.get("url", "")).startswith(("http://", "https://")) and message.get("new_tab") is not True:
+            raise OWMLFailure(f"external announcement must open in a new tab: {message.get('id')}")
+
+
 def validate() -> tuple[dict, dict, dict, dict]:
     catalog, patterns_doc, pages_doc, policy = load_models()
     schema = read_json(OWML / "schema" / "owml-site.schema.json")
@@ -217,6 +254,7 @@ def validate() -> tuple[dict, dict, dict, dict]:
     missing_patterns = required_patterns - patterns.keys()
     if missing_patterns:
         raise OWMLFailure(f"required patterns missing: {sorted(missing_patterns)}")
+    validate_homepage_content_contract(patterns)
     pages = {}
     ids = set()
     for page in pages_doc.get("pages", []):

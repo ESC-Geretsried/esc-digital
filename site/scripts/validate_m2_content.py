@@ -98,13 +98,15 @@ if actual_heroes != expected_heroes:
 youth = next(slide for slide in active if slide["id"] == "nachwuchs")
 if youth.get("daily_images") != [f"images/teams/{team}-team.jpg" for team in ("u7", "u9", "u11", "u13", "u15", "u17", "u20")]:
     raise SystemExit("ERROR: Monday-Sunday youth hero image mapping drift")
-if youth.get("daily_paths") != [f"/{team}/" for team in ("u7", "u9", "u11", "u13", "u15", "u17", "u20")]:
-    raise SystemExit("ERROR: Monday-Sunday youth hero target mapping drift")
+if "daily_paths" in youth or youth.get("cta_path") != "/nachwuchs/":
+    raise SystemExit("ERROR: youth hero may rotate only its image; its target must stay /nachwuchs/")
 
 announcements = json.loads((root / "content" / "home" / "announcements.json").read_text(encoding="utf-8"))
 active_announcements = sorted((item for item in announcements.get("messages", []) if item.get("active")), key=lambda item: item.get("order", 0))
 if not active_announcements:
     raise SystemExit("ERROR: AnnouncementTicker has no active message")
+if announcements.get("rotation") != "sequential-slow" or announcements.get("reduced_motion") != "first-message-static":
+    raise SystemExit("ERROR: AnnouncementTicker motion contract drift")
 first_announcement = active_announcements[0]
 if first_announcement != {
     "id": "season-ticket-2026-2027",
@@ -140,6 +142,10 @@ if "DAUERKARTE" not in decoded_homepage_html or "Dauerkarten Saison 2026/2027 â€
 announcement_link = r'<a[^>]*href=(?:"|)https://esc-geretsried\.github\.io/bestellung/(?:"|)[^>]*target=(?:"|)_blank(?:"|)[^>]*rel="noopener noreferrer"'
 if not re.search(announcement_link, homepage_html):
     raise SystemExit("ERROR: AnnouncementTicker target/new-tab boundary missing from Homepage")
+if ('announcement-ticker__track is-rotating' not in homepage_html
+        or '--announcement-duration:56s' not in homepage_html
+        or homepage_html.count('announcement-ticker__sequence') != 2):
+    raise SystemExit("ERROR: AnnouncementTicker slow-loop structure missing from Homepage")
 for group in home.get("news_groups", []):
     for item in group.get("items", []):
         match = re.search(r"/(\d{4})-(\d{2})-(\d{2})-", item.get("path", ""))

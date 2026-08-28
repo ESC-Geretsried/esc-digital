@@ -39,6 +39,7 @@ jobs:
           python3 scripts/validate_esc_initial_content_seed.py
           python3 scripts/sync_founder_team_rosters.py
           python3 site/scripts/test_news_retention.py
+          python3 site/scripts/test_announcement_ticker.py
 
       - name: Install Hugo
         run: |
