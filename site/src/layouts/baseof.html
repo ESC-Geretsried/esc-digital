@@ -80,6 +80,17 @@
           {{ end }}
         {{ end }}
       </div>
+      <nav class="footer-social" aria-label="Social & Media">
+        <strong>Social &amp; Media</strong>
+        <div class="footer-social__links">
+          {{ range site.Data.home.social_media }}
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+              <img src="{{ .icon | relURL }}" alt="" aria-hidden="true">
+              <span><b>{{ .title }}</b><small>{{ .label }}</small></span>
+            </a>
+          {{ end }}
+        </div>
+      </nav>
     </div>
   </footer>
   <script src="{{ "js/navigation.js" | relURL }}" defer></script>

@@ -123,7 +123,7 @@ def bootstrap_pages() -> dict:
             page["publication"] = "redirect"
             page["redirect_to"] = "/river-rats/" if route == "/river-rats-herren/" else "/foerderverein/"
         if route in NO_STANDINGS:
-            page["disabled_nodes"] = ["standings"]
+            page["disabled_nodes"] = ["schedule", "results", "standings"]
             page["variant"] = "manual-youth-without-standings"
         elif route == "/river-rats/":
             page["variant"] = "protected-hockeydata-plus-editorial-supplements"

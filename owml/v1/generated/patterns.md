@@ -22,7 +22,7 @@ Assigned pages: 1
 
 
 
-Nodes: header → hero → content → areas → footer
+Nodes: header → hero → content → areas → news → footer
 
 Assigned pages: 1
 
@@ -54,7 +54,7 @@ Assigned pages: 0
 
 
 
-Nodes: header → hero → content → events → contacts → footer
+Nodes: header → hero → content → events → contacts → news → footer
 
 Assigned pages: 1
 
@@ -64,7 +64,7 @@ Assigned pages: 1
 
 Nodes: header → hero → content → footer
 
-Assigned pages: 0
+Assigned pages: 1
 
 ## Homepage (`homepage`)
 
@@ -78,7 +78,7 @@ Assigned pages: 1
 
 
 
-Nodes: header → hero → content → contacts → sponsors → footer
+Nodes: header → hero → content → contacts → sponsors → news → footer
 
 Assigned pages: 1
 
@@ -118,7 +118,7 @@ Assigned pages: 1
 
 
 
-Nodes: header → hero → content → events → contacts → footer
+Nodes: header → hero → content → events → contacts → news → footer
 
 Assigned pages: 1
 
@@ -158,6 +158,6 @@ Assigned pages: 2
 
 
 
-Nodes: header → hero → content → areas → footer
+Nodes: header → hero → content → areas → news → footer
 
 Assigned pages: 1

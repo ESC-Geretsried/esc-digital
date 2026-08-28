@@ -66,14 +66,12 @@
         <article class="news-group">
           <h3>{{ .title }}</h3>
           {{ if .items }}
-            <ul>{{ range .items }}<li><a href="{{ .path | relURL }}">{{ .title }}</a></li>{{ end }}</ul>
+            {{ $homepageItems := .homepage_items | default .items }}
+            <ul>{{ range first 2 $homepageItems }}<li><a href="{{ .path | relURL }}">{{ .title }}</a></li>{{ end }}</ul>
           {{ else }}
             <p>{{ .empty_text }}</p>
           {{ end }}
-          <div class="area-links">
-            <a href="{{ .area_path | relURL }}">Bereich öffnen</a>
-            {{ with .secondary_area_path }}<a href="{{ . | relURL }}">Inklusion</a>{{ end }}
-          </div>
+          <div class="area-links"><a href="{{ printf "%s#news" .area_path | relURL }}">Alle News</a></div>
         </article>
       {{ end }}
     </div>

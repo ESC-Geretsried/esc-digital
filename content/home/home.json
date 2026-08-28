@@ -59,7 +59,7 @@
       "id": "nachwuchs",
       "title": "Nachwuchs",
       "area_path": "/nachwuchs/",
-      "items": [
+      "homepage_items": [
         {
           "title": "U20 gegen SG Bad Aibling/Inzell",
           "path": "/aktuelles/2026-02-09-u20-bad-aibling-inzell/"
@@ -68,13 +68,93 @@
           "title": "Wir suchen Dich!",
           "path": "/aktuelles/2025-09-11-wir-suchen-dich/"
         }
+      ],
+      "items": [
+        {
+          "title": "U9 beim BEV-LK-A-Turnier in Peiting",
+          "path": "/aktuelles/2026-03-17-u9-peiting/"
+        },
+        {
+          "title": "U9 beim Turnier in Dornbirn",
+          "path": "/aktuelles/2026-03-17-u9-dornbirn/"
+        },
+        {
+          "title": "U20 gegen Stuttgarter EC",
+          "path": "/aktuelles/2026-03-17-u20-stuttgarter-ec/"
+        },
+        {
+          "title": "U9 beim Kobi Cup in Füssen",
+          "path": "/aktuelles/2026-02-25-u9-kobi-cup/"
+        },
+        {
+          "title": "U11 gegen HC Landsberg Riverkings",
+          "path": "/aktuelles/2026-02-25-u11-landsberg/"
+        },
+        {
+          "title": "U11 gegen ESV Kaufbeuren",
+          "path": "/aktuelles/2026-02-19-u11-kaufbeuren/"
+        },
+        {
+          "title": "U20 gegen EV Königsbrunn",
+          "path": "/aktuelles/2026-02-09-u20-koenigsbrunn/"
+        },
+        {
+          "title": "U20 gegen SG Bad Aibling/Inzell",
+          "path": "/aktuelles/2026-02-09-u20-bad-aibling-inzell/"
+        },
+        {
+          "title": "U9 Ratso Cup",
+          "path": "/aktuelles/2026-02-02-u9-ratso-cup/"
+        },
+        {
+          "title": "U11 gegen EC Peiting",
+          "path": "/aktuelles/2026-01-28-u11-peiting/"
+        },
+        {
+          "title": "U11 gegen Spielgemeinschaft Lechbruck/Peiting",
+          "path": "/aktuelles/2026-01-28-u11-lechbruck-peiting/"
+        },
+        {
+          "title": "U20 gegen ECDC Memmingen",
+          "path": "/aktuelles/2025-12-12-u20-memmingen/"
+        },
+        {
+          "title": "U13 startet in Landshut in die Meisterliga",
+          "path": "/aktuelles/2025-12-05-u13-landshut/"
+        },
+        {
+          "title": "U13 erreicht die Finalrunde",
+          "path": "/aktuelles/2025-11-25-u13-finalrunde/"
+        },
+        {
+          "title": "U17 gegen EHC Bad Aibling",
+          "path": "/aktuelles/2025-10-03-u17-bad-aibling/"
+        },
+        {
+          "title": "U13 gegen SC Riessersee",
+          "path": "/aktuelles/2025-09-23-u13-riessersee/"
+        },
+        {
+          "title": "Spielberichte U13",
+          "path": "/aktuelles/2025-09-15-u13-spielberichte/"
+        },
+        {
+          "title": "Wir suchen Dich!",
+          "path": "/aktuelles/2025-09-11-wir-suchen-dich/"
+        }
       ]
     },
     {
-      "id": "eiskunstlauf-inklusion",
-      "title": "Eiskunstlauf & Inklusion",
+      "id": "eiskunstlauf",
+      "title": "Eiskunstlauf",
       "area_path": "/eiskunstlauf/",
-      "secondary_area_path": "/inklusion/",
+      "items": [],
+      "empty_text": "Noch keine freigegebenen Meldungen."
+    },
+    {
+      "id": "inklusion",
+      "title": "Inklusionssport",
+      "area_path": "/inklusion/",
       "items": [],
       "empty_text": "Noch keine freigegebenen Meldungen."
     }
@@ -86,10 +166,16 @@
   ],
   "events_note": "Termine werden von der Redaktion ergänzt.",
   "community": [
-    {"title": "Mitglied werden", "text": "Den ESC und das Vereinsleben aktiv mittragen.", "path": "/verein/"},
-    {"title": "Mitmachen im Ehrenamt", "text": "Deine Erfahrung und Zeit für den Verein einbringen.", "path": "/verein/"},
+    {"title": "Mitglied werden", "text": "Den ESC und das Vereinsleben aktiv mittragen.", "path": "/mitgliedschaft/"},
+    {"title": "Mithelfen", "text": "Deine Erfahrung und Zeit für den Verein einbringen.", "path": "/mithelfen/"},
     {"title": "Förderverein", "text": "Nachwuchs und Eishockey gezielt unterstützen.", "path": "/verein/foerderverein/"},
     {"title": "Partner werden", "text": "Als Unternehmen sichtbar an der Seite des ESC stehen.", "path": "/sponsoren/"}
+  ],
+  "social_media": [
+    {"title": "River Rats", "label": "SpradeTV", "url": "https://www.sprade.tv/de/teams/382/esc-riverrats-geretsried", "icon": "images/social/spradetv.svg"},
+    {"title": "Nachwuchs", "label": "Instagram", "url": "https://www.instagram.com/riverrats_nachwuchs/", "icon": "images/social/instagram.svg"},
+    {"title": "Damen", "label": "Instagram", "url": "https://www.instagram.com/esc_riverrats_damen/", "icon": "images/social/instagram.svg"},
+    {"title": "Eiskunstlauf", "label": "Instagram", "url": "https://www.instagram.com/esc_riverrats_eiskunstlauf/", "icon": "images/social/instagram.svg"}
   ],
   "footer_links": [
     {"title": "Datenschutz", "path": "/datenschutz/"},
