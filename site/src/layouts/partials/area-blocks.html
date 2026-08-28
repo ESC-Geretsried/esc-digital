@@ -1,69 +1,53 @@
-<section class="home-section" id="uebersicht" aria-labelledby="area-overview-title">
+<section class="team-section" id="uebersicht" aria-labelledby="area-overview-title">
   <div class="shell">
-    <p class="eyebrow eyebrow--gold">Bereich</p>
-    <div class="section-heading"><h2 id="area-overview-title">{{ .Title }} im Überblick</h2></div>
+    <p class="eyebrow eyebrow--gold">Übersicht</p>
+    <h2 id="area-overview-title">{{ .Title }}</h2>
     {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
     {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
   </div>
 </section>
 
-{{ with .Params.team_photo }}
-<section class="home-section home-section--soft" id="teamfoto" aria-labelledby="area-teamfoto-title">
+{{ $leadership := site.GetPage "/verein/vereinsfuehrung" }}
+{{ $people := default (where $leadership.Params.people "role" .Title) .Params.people }}
+<section class="team-section team-section--soft" id="unser-team" aria-labelledby="area-team-title">
+  <span id="people"></span>
   <div class="shell">
-    <p class="eyebrow eyebrow--gold">Teamfoto</p>
-    <div class="section-heading"><h2 id="area-teamfoto-title">{{ $.Title }}</h2></div>
-    <figure class="team-photo">
-      <img src="{{ . | relURL }}" alt="{{ $.Params.team_photo_alt | default (printf "Teamfoto %s" $.Title) }}" loading="lazy">
-    </figure>
+    <p class="eyebrow eyebrow--gold">Unser Team</p>
+    <h2 id="area-team-title">Unser Team</h2>
+    <div class="staff-grid">
+      {{ range $people }}
+        <article class="staff-card">
+          {{ with .image }}<div class="staff-card__image"><img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy"></div>{{ end }}
+          <div class="staff-card__body"><strong>{{ .name }}</strong><span>{{ .role }}</span></div>
+        </article>
+      {{ end }}
+    </div>
   </div>
 </section>
-{{ end }}
 
-{{ with .Params.people }}
-  {{ if gt (len .) 0 }}
-  <section class="home-section" id="people" aria-labelledby="area-people-title">
-    <div class="shell">
-      <p class="eyebrow eyebrow--gold">Vereinsführung</p>
-      <div class="section-heading"><h2 id="area-people-title">Verantwortliche Personen</h2></div>
-      <div class="leadership-grid">
-        {{ range . }}
-        {{ $person := . }}
-        <article class="leadership-card">
-          {{ with $person.image }}<div class="leadership-card__image"><img src="{{ . | relURL }}" alt="Porträt von {{ $person.name }}" loading="lazy"></div>{{ end }}
-          <div class="leadership-card__body">
-            <p class="eyebrow eyebrow--gold">{{ .role }}</p>
-            <h3>{{ .name }}</h3>
-            {{ with .description }}<p>{{ . }}</p>{{ end }}
-            {{ with .email }}<p><a href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
-            {{ with .phone }}<p><a href="tel:{{ replaceRE "[^0-9+]" "" . }}">{{ . }}</a></p>{{ end }}
-          </div>
-        </article>
-        {{ end }}
-      </div>
-    </div>
-  </section>
-  {{ end }}
-{{ end }}
+<section class="team-section" id="downloads" aria-labelledby="area-downloads-title">
+  <div class="shell">
+    <p class="eyebrow eyebrow--gold">Downloads</p>
+    <h2 id="area-downloads-title">Downloads</h2>
+  </div>
+</section>
 
-{{ with .Params.events }}
-  {{ if gt (len .) 0 }}
-  <section class="home-section events" id="events" aria-labelledby="area-events-title">
-    <div class="shell">
-      <p class="eyebrow eyebrow--gold">Termine</p>
-      <div class="section-heading"><h2 id="area-events-title">Aktuelle Termine</h2></div>
-      <div class="event-list">
-        {{ range . }}
-        <article class="event-card">
-          {{ with .date }}<time datetime="{{ . }}">{{ . }}</time>{{ end }}
-          <h3>{{ .title }}</h3>
-          {{ with .time }}<p><strong>Zeit:</strong> {{ . }}</p>{{ end }}
-          {{ with .location }}<p><strong>Ort:</strong> {{ . }}</p>{{ end }}
-          {{ with .description }}<p>{{ . }}</p>{{ end }}
-          {{ with .url }}<p><a href="{{ . | relURL }}">Details →</a></p>{{ end }}
-        </article>
-        {{ end }}
-      </div>
+<section class="team-section team-section--soft" id="kontakt" aria-labelledby="area-contact-title">
+  <div class="shell">
+    <p class="eyebrow eyebrow--gold">Kontakt</p>
+    <h2 id="area-contact-title">Kontakt</h2>
+    <div class="founder-contact-grid">
+      {{ range $people }}
+          {{ with .email }}<article class="founder-contact-card"><strong>E-Mail</strong><a href="mailto:{{ . }}">{{ . }}</a></article>{{ end }}
+          {{ with .phone }}<article class="founder-contact-card"><strong>Telefon</strong><a href="tel:{{ replaceRE "[^0-9+]" "" . }}">{{ . }}</a></article>{{ end }}
+      {{ end }}
     </div>
-  </section>
-  {{ end }}
-{{ end }}
+  </div>
+</section>
+
+<section class="team-section" id="aktuelles" aria-labelledby="area-news-title">
+  <div class="shell">
+    <p class="eyebrow eyebrow--gold">Aktuelles</p>
+    <h2 id="area-news-title">Aktuelles</h2>
+  </div>
+</section>

@@ -29,49 +29,58 @@
 {{ else if and (eq .Type "team") .Params.team_key }}
   {{ $team := index site.Data.teams .Params.team_key }}
   {{ $externalEligible := in (slice "damen" "u13" "u15" "u17" "u20") .Params.team_key }}
-  <header class="founder-team-hero">
-    <div class="shell founder-team-hero__grid">
-      <div class="founder-team-hero__copy">
-        <p class="eyebrow">Mannschaft · Saison {{ $team.season }}</p>
-        <h1>{{ $team.title }}</h1>
-        <p>Mannschaft, Kader und Kontakte für die Saison {{ $team.season }}.</p>
-      </div>
-      <figure class="founder-team-hero__photo"><img src="{{ $team.team_photo | relURL }}" alt="{{ $team.team_photo_alt }}"></figure>
-    </div>
+  <header class="team-hero" id="teamfoto" style="background-image:url('{{ $team.team_photo | relURL }}')" aria-labelledby="team-title">
+    <div class="shell team-hero__content"><p class="eyebrow">Mannschaft · Saison {{ $team.season }}</p><h1 id="team-title">{{ $team.title }}</h1><p class="team-hero__tagline">Mannschaft, Kader und Kontakte für die Saison {{ $team.season }}.</p></div>
   </header>
   <nav class="team-local-nav" aria-label="Bereiche {{ $team.title }}"><div class="shell team-local-nav__inner">
-    <a href="#uebersicht">Übersicht</a><a href="#teamfoto">Teamfoto</a><a href="#kader">Kader</a><a href="#news">News</a><a href="#kontakte">Kontakte</a>
+    <a href="#uebersicht">Übersicht</a><a href="#kader">Kader</a><a href="#trainer-betreuer">Trainer &amp; Betreuer</a><a href="#kontakt">Kontakt</a>
   </div></nav>
+  {{ $sponsorData := site.Data.sponsors }}
+  <section class="partners" aria-labelledby="team-partners-title"><div class="shell partners-heading"><h2 id="team-partners-title">Unsere Partner</h2><a class="partners-all" href="{{ "/sponsoren/" | relURL }}">Alle Sponsoren <span aria-hidden="true">→</span></a></div><div class="partner-band" aria-label="Partner des ESC River Rats Geretsried"><div class="partner-band__track"><div class="partner-band__items">{{ range (sort $sponsorData.sponsors "order") }}{{ if .visible }}{{ $logoURL := (printf "sponsors/assets/%s" (path.Base .logo)) | relURL }}{{ if .url }}<a class="partner-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }} – Partnerwebsite in neuem Tab öffnen"><img src="{{ $logoURL }}" alt="{{ .name }}" loading="lazy"><span>{{ .name }}</span></a>{{ else }}<div class="partner-card partner-card--static" aria-label="{{ .name }}"><img src="{{ $logoURL }}" alt="{{ .name }}" loading="lazy"><span>{{ .name }}</span></div>{{ end }}{{ end }}{{ end }}</div><div class="partner-band__items" aria-hidden="true">{{ range (sort $sponsorData.sponsors "order") }}{{ if .visible }}{{ $logoURL := (printf "sponsors/assets/%s" (path.Base .logo)) | relURL }}<div class="partner-card partner-card--static"><img src="{{ $logoURL }}" alt="" loading="lazy"><span>{{ .name }}</span></div>{{ end }}{{ end }}</div></div></div></section>
   <section class="team-section" id="uebersicht"><div class="shell founder-team-overview">
     <p class="eyebrow eyebrow--gold">Übersicht</p><h2>{{ $team.title }}</h2>
     <p>Saison {{ $team.season }} · {{ len $team.roster }} Kaderpositionen</p>
   </div></section>
-  <section class="team-section team-section--soft" id="teamfoto"><div class="shell">
-    <p class="eyebrow eyebrow--gold">Teamfoto</p><h2>{{ $team.title }} {{ $team.season }}</h2>
-    <figure class="team-photo"><img src="{{ $team.team_photo | relURL }}" alt="{{ $team.team_photo_alt }}" loading="lazy"></figure>
-  </div></section>
-  <section class="team-section" id="kader"><div class="shell">
+  <section class="team-section team-section--soft" id="kader"><div class="shell">
     <p class="eyebrow eyebrow--gold">Kader</p><h2>{{ $team.title }} {{ $team.season }}</h2>
     <div class="roster-grid founder-player-grid">
       {{ range $team.roster }}{{ $player := . }}<article class="player-card"><div class="player-card__image">{{ with .image }}<img src="{{ . | relURL }}" alt="{{ $player.name }}" loading="lazy">{{ else }}<span class="player-card__placeholder" aria-label="Spielerfoto nicht vorhanden">Foto offen</span>{{ end }}</div><div class="player-card__body"><span class="player-card__number">#{{ .number }} · {{ .position_code }}</span><h3>{{ .name }}</h3><div class="player-meta">{{ with .shoots }}<span>Schusshand: {{ . }}</span>{{ end }}{{ if $externalEligible }}{{ with .rodi_url }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">RODI</a>{{ end }}{{ end }}{{ with .info }}<span>{{ . }}</span>{{ end }}</div></div></article>{{ end }}
     </div>
     {{ if $externalEligible }}{{ with $team.official_schedule_url }}<p class="team-competition-link"><a class="button button--gold" href="{{ . }}" target="_blank" rel="noopener noreferrer">SPIELPLAN &amp; TABELLE</a></p>{{ end }}{{ end }}
   </div></section>
-  <section class="team-section team-section--soft" id="news"><div class="shell">
-    <p class="eyebrow eyebrow--gold">News</p><h2>Aktuelles von {{ $team.title }}</h2>
-    {{ with $team.news }}<div class="news-grid">{{ range . }}<article class="team-news-card"><h3>{{ .title }}</h3>{{ with .path }}<a href="{{ . | relURL }}">Weiterlesen →</a>{{ end }}</article>{{ end }}</div>{{ else }}<p>Aktuell sind keine teambezogenen Meldungen veröffentlicht.</p>{{ end }}
-  </div></section>
-  <section class="team-section team-section--soft" id="kontakte"><div class="shell">
-    <p class="eyebrow eyebrow--gold">Kontakte</p><h2>Ansprechpartner {{ $team.title }}</h2>
+  <section class="team-section" id="trainer-betreuer"><div class="shell">
+    <p class="eyebrow eyebrow--gold">Trainer &amp; Betreuer</p><h2>Trainer &amp; Betreuer {{ $team.title }}</h2>
     <div class="founder-contact-grid">
       {{ range $team.contacts }}
-        <article class="founder-contact-card"><strong>{{ .role }}</strong>
-        {{ if eq .role "Email" }}<a href="mailto:{{ .value }}">{{ .value }}</a>
-        {{ else if eq .role "Telefon" }}<a href="tel:{{ replaceRE "[^0-9+]" "" .value }}">{{ .value }}</a>
-        {{ else }}<span>{{ .value }}</span>{{ end }}</article>
+        {{ if and (ne .role "Email") (ne .role "Telefon") }}<article class="founder-contact-card"><strong>{{ .role }}</strong><span>{{ .value }}</span></article>{{ end }}
       {{ end }}
     </div>
   </div></section>
+  <section class="team-section team-section--soft" id="kontakt"><div class="shell">
+    <p class="eyebrow eyebrow--gold">Kontakt</p><h2>Kontakt {{ $team.title }}</h2><div class="founder-contact-grid">{{ range $team.contacts }}{{ if eq .role "Email" }}<article class="founder-contact-card"><strong>{{ .role }}</strong><a href="mailto:{{ .value }}">{{ .value }}</a></article>{{ else if eq .role "Telefon" }}<article class="founder-contact-card"><strong>{{ .role }}</strong><a href="tel:{{ replaceRE "[^0-9+]" "" .value }}">{{ .value }}</a></article>{{ end }}{{ end }}</div>
+  </div></section>
+  <section class="team-section" id="aktuelles"><span id="news"></span><div class="shell">
+    <p class="eyebrow eyebrow--gold">Aktuelles</p><h2>Aktuelles von {{ $team.title }}</h2>
+    {{ with $team.news }}<div class="news-grid">{{ range . }}<article class="team-news-card"><h3>{{ .title }}</h3>{{ with .path }}<a href="{{ . | relURL }}">Weiterlesen →</a>{{ end }}</article>{{ end }}</div>{{ else }}<p>Aktuell sind keine teambezogenen Meldungen veröffentlicht.</p>{{ end }}
+  </div></section>
+{{ else if in (slice "eiskunstlauf" "eislaufschule" "inklusion") .Section }}
+  {{ $heroImages := dict "eiskunstlauf" "images/teams/eiskunstlauf.jpeg" "eislaufschule" "images/teams/eislaufschule-2025-2026.png" "inklusion" "images/teams/inklusion.jpg" }}
+  {{ $heroImage := index $heroImages .Section }}
+  <header class="team-hero" style="background-image:url('{{ $heroImage | relURL }}')" aria-labelledby="area-title"><div class="shell team-hero__content"><p class="eyebrow">ESC River Rats Geretsried</p><h1 id="area-title">{{ .Title }}</h1>{{ with .Params.description }}<p class="team-hero__tagline">{{ . }}</p>{{ end }}</div></header>
+  <nav class="team-local-nav" aria-label="Bereiche {{ .Title }}"><div class="shell team-local-nav__inner"><a href="#uebersicht">Übersicht</a><a href="#unser-team">Unser Team</a><a href="#downloads">Downloads</a><a href="#kontakt">Kontakt</a></div></nav>
+  {{ $sponsorData := site.Data.sponsors }}
+  <section class="partners" aria-labelledby="area-partners-title"><div class="shell partners-heading"><h2 id="area-partners-title">Unsere Partner</h2><a class="partners-all" href="{{ "/sponsoren/" | relURL }}">Alle Sponsoren <span aria-hidden="true">→</span></a></div><div class="partner-band" aria-label="Partner des ESC River Rats Geretsried"><div class="partner-band__track"><div class="partner-band__items">{{ range (sort $sponsorData.sponsors "order") }}{{ if .visible }}{{ $logoURL := (printf "sponsors/assets/%s" (path.Base .logo)) | relURL }}{{ if .url }}<a class="partner-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }} – Partnerwebsite in neuem Tab öffnen"><img src="{{ $logoURL }}" alt="{{ .name }}" loading="lazy"><span>{{ .name }}</span></a>{{ else }}<div class="partner-card partner-card--static" aria-label="{{ .name }}"><img src="{{ $logoURL }}" alt="{{ .name }}" loading="lazy"><span>{{ .name }}</span></div>{{ end }}{{ end }}{{ end }}</div><div class="partner-band__items" aria-hidden="true">{{ range (sort $sponsorData.sponsors "order") }}{{ if .visible }}{{ $logoURL := (printf "sponsors/assets/%s" (path.Base .logo)) | relURL }}<div class="partner-card partner-card--static"><img src="{{ $logoURL }}" alt="" loading="lazy"><span>{{ .name }}</span></div>{{ end }}{{ end }}</div></div></div></section>
+  {{ partial "area-blocks.html" . }}
+{{ else if eq .Section "nachwuchs" }}
+  <header class="page-head"><div class="shell"><p class="eyebrow">ESC River Rats Geretsried</p><h1>{{ .Title }}</h1>{{ with .Params.description }}<p>{{ . }}</p>{{ end }}</div></header>
+  <nav class="team-local-nav" aria-label="Bereiche Nachwuchs"><div class="shell team-local-nav__inner"><a href="#uebersicht">Übersicht</a><a href="{{ "/u20/" | relURL }}">U20</a><a href="{{ "/u17/" | relURL }}">U17</a><a href="{{ "/u15/" | relURL }}">U15</a><a href="{{ "/u13/" | relURL }}">U13</a><a href="{{ "/u11/" | relURL }}">U11</a><a href="{{ "/u9/" | relURL }}">U9</a><a href="{{ "/u7/" | relURL }}">U7</a><a href="#kontakt">Kontakt</a></div></nav>
+  {{ $sponsorData := site.Data.sponsors }}
+  <section class="partners" aria-labelledby="youth-partners-title"><div class="shell partners-heading"><h2 id="youth-partners-title">Unsere Partner</h2><a class="partners-all" href="{{ "/sponsoren/" | relURL }}">Alle Sponsoren <span aria-hidden="true">→</span></a></div><div class="partner-band" aria-label="Partner des ESC River Rats Geretsried"><div class="partner-band__track"><div class="partner-band__items">{{ range (sort $sponsorData.sponsors "order") }}{{ if .visible }}{{ $logoURL := (printf "sponsors/assets/%s" (path.Base .logo)) | relURL }}{{ if .url }}<a class="partner-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }} – Partnerwebsite in neuem Tab öffnen"><img src="{{ $logoURL }}" alt="{{ .name }}" loading="lazy"><span>{{ .name }}</span></a>{{ else }}<div class="partner-card partner-card--static" aria-label="{{ .name }}"><img src="{{ $logoURL }}" alt="{{ .name }}" loading="lazy"><span>{{ .name }}</span></div>{{ end }}{{ end }}{{ end }}</div><div class="partner-band__items" aria-hidden="true">{{ range (sort $sponsorData.sponsors "order") }}{{ if .visible }}{{ $logoURL := (printf "sponsors/assets/%s" (path.Base .logo)) | relURL }}<div class="partner-card partner-card--static"><img src="{{ $logoURL }}" alt="" loading="lazy"><span>{{ .name }}</span></div>{{ end }}{{ end }}</div></div></div></section>
+  <section class="team-section" id="uebersicht"><div class="shell"><p class="eyebrow eyebrow--gold">Übersicht</p><h2>{{ .Title }}</h2><div class="prose">{{ .Content }}</div></div></section>
+  <section class="team-section team-section--soft" id="unterbereiche"><div class="shell"><p class="eyebrow eyebrow--gold">Unterbereiche</p><h2>Mannschaften</h2><div class="founder-contact-grid">{{ range slice "U20" "U17" "U15" "U13" "U11" "U9" "U7" }}<a class="founder-contact-card" href="{{ (printf "/%s/" (. | lower)) | relURL }}"><strong>{{ . }}</strong></a>{{ end }}</div></div></section>
+  {{ $officePage := site.GetPage "/verein/vereinsfuehrung" }}
+  <section class="team-section" id="kontakt"><div class="shell"><p class="eyebrow eyebrow--gold">Kontakt</p><h2>Kontakt</h2><div class="founder-contact-grid">{{ range $officePage.Params.people }}{{ if eq .role "Geschäftsstellenleiterin" }}{{ with .email }}<article class="founder-contact-card"><strong>E-Mail</strong><a href="mailto:{{ . }}">{{ . }}</a></article>{{ end }}{{ with .phone }}<article class="founder-contact-card"><strong>Telefon</strong><a href="tel:{{ replaceRE "[^0-9+]" "" . }}">{{ . }}</a></article>{{ end }}{{ end }}{{ end }}</div></div></section>
+  <section class="team-section team-section--soft" id="aktuelles"><div class="shell"><p class="eyebrow eyebrow--gold">Aktuelles</p><h2>Aktuelles</h2></div></section>
 {{ else if eq .Section "sponsoren" }}
   {{ $sponsorData := site.Data.sponsors }}
   {{ $page := site.Data.sponsor_page }}

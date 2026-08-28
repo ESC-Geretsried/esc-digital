@@ -12,6 +12,8 @@ page_path = public / "river-rats" / "index.html"
 home_path = public / "index.html"
 config_path = root / "content" / "river-rats" / "hockeydata.json"
 team_path = root / "content" / "river-rats" / "team.json"
+sponsors_path = root / "content" / "sponsors" / "sponsors.json"
+leadership_path = root / "content" / "verein" / "vereinsfuehrung" / "_index.md"
 
 if not home_path.exists():
     raise SystemExit(f"ERROR: homepage shell missing: {home_path}")
@@ -28,6 +30,8 @@ _, post = rest.split("</main>", 1)
 
 cfg = json.loads(config_path.read_text(encoding="utf-8"))
 team = json.loads(team_path.read_text(encoding="utf-8"))
+sponsors = json.loads(sponsors_path.read_text(encoding="utf-8"))["sponsors"]
+leadership = leadership_path.read_text(encoding="utf-8")
 team_id = cfg["team_id"]
 sport = cfg["sport"]
 phase = cfg["active_phase"]
@@ -39,6 +43,36 @@ base_path = urlsplit(os.environ.get("HUGO_BASEURL", "/")).path.rstrip("/")
 
 def public_url(path):
     return f"{base_path}/{str(path).lstrip('/')}"
+
+
+def partner_card(row, interactive=True):
+    logo = public_url("sponsors/assets/" + Path(row["logo"]).name)
+    name = escape(row["name"])
+    image = f'<img src="{escape(logo, quote=True)}" alt="{name if interactive else ""}" loading="lazy"><span>{name}</span>'
+    if interactive and row.get("url"):
+        return f'<a class="partner-card" href="{escape(row["url"], quote=True)}" target="_blank" rel="noopener noreferrer" aria-label="{name} – Partnerwebsite in neuem Tab öffnen">{image}</a>'
+    label = f' aria-label="{name}"' if interactive else ""
+    return f'<div class="partner-card partner-card--static"{label}>{image}</div>'
+
+
+visible_sponsors = sorted((row for row in sponsors if row.get("visible")), key=lambda row: row["order"])
+partner_items = "".join(partner_card(row) for row in visible_sponsors)
+partner_copy = "".join(partner_card(row, interactive=False) for row in visible_sponsors)
+partner_html = (
+    '<section class="partners" aria-labelledby="river-rats-partners-title"><div class="shell partners-heading">'
+    '<h2 id="river-rats-partners-title">Unsere Partner</h2><a class="partners-all" href="'
+    + escape(public_url("/sponsoren/"), quote=True)
+    + '">Alle Sponsoren <span aria-hidden="true">→</span></a></div><div class="partner-band" '
+    'aria-label="Partner des ESC River Rats Geretsried"><div class="partner-band__track"><div class="partner-band__items">'
+    + partner_items + '</div><div class="partner-band__items" aria-hidden="true">' + partner_copy + '</div></div></div></section>'
+)
+
+office_block = re.search(r'role: "Geschäftsstellenleiterin"(?P<body>.*?)(?=\n  - person_id:|\n---)', leadership, flags=re.S)
+if not office_block:
+    raise SystemExit("ERROR: verified office contact missing")
+office_email = re.search(r'email: "([^"]+)"', office_block.group("body")).group(1)
+office_phone = re.search(r'phone: "([^"]+)"', office_block.group("body")).group(1)
+office_tel = re.sub(r"[^0-9+]", "", office_phone)
 
 
 def player_card(row):
@@ -91,7 +125,7 @@ if next_home.get("verified") is True and all(str(next_home.get(key, "")).strip()
     )
 
 main = f'''<main id="main-content">
-<section class="team-hero" style="background-image:url('{escape(public_url(team['hero_image']), quote=True)}')" aria-labelledby="team-title">
+<section class="team-hero" id="teamfoto" style="background-image:url('{escape(public_url(team['team_photo']), quote=True)}')" aria-labelledby="team-title">
   <div class="shell team-hero__content">
     <p class="eyebrow">{escape(team['eyebrow'])}</p>
     <h1 id="team-title">{escape(team['title'])}</h1>
@@ -99,14 +133,14 @@ main = f'''<main id="main-content">
   </div>
 </section>
 {next_home_html}
-<nav class="team-local-nav" aria-label="Bereiche River Rats"><div class="shell team-local-nav__inner"><a href="#uebersicht">Übersicht</a><a href="#teamfoto">Teamfoto</a><a href="#kader">Mannschaft</a><a href="#news">News</a><a href="#spielplan">Spielplan</a><a href="#tabelle">Tabelle</a><a href="#ergebnisse">Ergebnisse</a></div></nav>
-<section class="team-section" id="uebersicht"><div class="shell"><p class="eyebrow">Übersicht</p><h2>River Rats</h2><p class="team-overview">{escape(team['overview'])}</p><p>Alle wichtigen Inhalte zur Mannschaft bleiben auf dieser Seite: Teamfoto, Kader, Betreuung, aktuelle Meldungen und der Spielbetrieb.</p></div></section>
-<section class="team-section team-section--soft" id="teamfoto"><div class="shell"><p class="eyebrow">Teamfoto</p><h2>River Rats 2026/27</h2><figure class="team-photo"><img src="{escape(public_url(team['team_photo']), quote=True)}" alt="Teamfoto River Rats" loading="lazy"></figure></div></section>
-<section class="team-section" id="kader"><div class="shell"><p class="eyebrow">Mannschaft</p><h2>Aktueller Kader</h2>{''.join(roster_html)}<div class="roster-group"><h3>Trainer & Team hinter dem Team</h3><div class="staff-grid">{staff_html}</div></div><p class="team-source-note">Kader und Betreuung der River Rats. Spielerfotos werden angezeigt, wenn ein passendes Bild vorliegt.</p></div></section>
-<section class="team-section team-section--soft" id="news"><div class="shell"><p class="eyebrow">News</p><h2>Aktuelles von den River Rats</h2><div class="news-grid">{news_html}</div><p><a class="button" href="{escape(public_url('/aktuelles/'), quote=True)}">Alle News</a></p></div></section>
-<section class="team-section" id="spielplan"><div class="shell"><p class="eyebrow">Spielplan</p><h2>River Rats 2026/27</h2><div class="team-hd-card team-hd-card--wide"><div data-hd-widget="hockeydata.los.Schedule" data-hd-widget-options='{{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{permalink}","sport":"{sport}","teamId":{team_id}}}'></div></div><p class="team-source-note">Ligaspiele kommen aus HockeyData/GamePitch. Vorbereitung, Freundschaftsspiele, Turniere und weitere Zusatztermine werden ergänzt, sobald sie feststehen.</p></div></section>
-<section class="team-section team-section--soft" id="tabelle"><div class="shell"><p class="eyebrow">{escape(label)}</p><h2>Tabelle</h2><div class="team-hd-card team-hd-card--wide"><div data-hd-widget="hockeydata.los.Standings" data-hd-widget-options='{{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{permalink}","sport":"{sport}","columnSet":"default"}}'></div></div></div></section>
-<section class="team-section" id="ergebnisse"><div class="shell"><p class="eyebrow">Ergebnisse</p><h2>Spiele & Resultate</h2><div class="team-hd-card team-hd-card--wide"><div data-hd-widget="hockeydata.los.Schedule" data-hd-widget-options='{{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{permalink}","sport":"{sport}","teamId":{team_id}}}'></div></div><p class="team-source-note">Abgeschlossene Begegnungen und Resultate werden aus derselben geschützten HockeyData-Anbindung geladen.</p></div></section>
+<nav class="team-local-nav" aria-label="Bereiche River Rats"><div class="shell team-local-nav__inner"><a href="#uebersicht">Übersicht</a><a href="#kader">Kader</a><a href="#trainer-betreuer">Trainer &amp; Betreuer</a><a href="#kontakt">Kontakt</a></div></nav>
+{partner_html}
+<span id="spielplan"></span><span id="tabelle"></span><span id="ergebnisse"></span>
+<section class="team-section" id="uebersicht"><div class="shell"><p class="eyebrow">Übersicht</p><h2>River Rats</h2><p class="team-overview">{escape(team['overview'])}</p><p>Alle wichtigen Inhalte zur Mannschaft bleiben auf dieser Seite: Teamfoto, Kader, Betreuung, aktuelle Meldungen und der Spielbetrieb.</p><div class="team-hd-grid"><div class="team-hd-card team-hd-card--wide"><div data-hd-widget="hockeydata.los.Schedule" data-hd-widget-options='{{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{permalink}","sport":"{sport}","teamId":{team_id}}}'></div></div><div class="team-hd-card"><div data-hd-widget="hockeydata.los.Standings" data-hd-widget-options='{{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{permalink}","sport":"{sport}","columnSet":"default"}}'></div></div><div class="team-hd-card"><div data-hd-widget="hockeydata.los.Schedule" data-hd-widget-options='{{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{permalink}","sport":"{sport}","teamId":{team_id}}}'></div></div></div><p class="team-source-note">Ligaspiele kommen aus HockeyData/GamePitch. Vorbereitung, Freundschaftsspiele, Turniere und weitere Zusatztermine werden ergänzt, sobald sie feststehen.</p><p class="team-source-note">Abgeschlossene Begegnungen und Resultate werden aus derselben geschützten HockeyData-Anbindung geladen.</p></div></section>
+<section class="team-section team-section--soft" id="kader"><div class="shell"><p class="eyebrow">Kader</p><h2>Aktueller Kader</h2>{''.join(roster_html)}<p class="team-source-note">Kader und Betreuung der River Rats. Spielerfotos werden angezeigt, wenn ein passendes Bild vorliegt.</p></div></section>
+<section class="team-section" id="trainer-betreuer"><div class="shell"><p class="eyebrow">Trainer &amp; Betreuer</p><h2>Team hinter dem Team</h2><div class="staff-grid">{staff_html}</div></div></section>
+<section class="team-section team-section--soft" id="kontakt"><div class="shell"><p class="eyebrow">Kontakt</p><h2>Kontakt</h2><div class="founder-contact-grid"><article class="founder-contact-card"><strong>E-Mail</strong><a href="mailto:{escape(office_email, quote=True)}">{escape(office_email)}</a></article><article class="founder-contact-card"><strong>Telefon</strong><a href="tel:{escape(office_tel, quote=True)}">{escape(office_phone)}</a></article></div></div></section>
+<section class="team-section" id="aktuelles"><span id="news"></span><div class="shell"><p class="eyebrow">Aktuelles</p><h2>Aktuelles von den River Rats</h2><div class="news-grid">{news_html}</div><p><a class="button" href="{escape(public_url('/aktuelles/'), quote=True)}">Alle News</a></p></div></section>
 <link rel="stylesheet" href="https://api.hockeydata.net/css/?los_schedule&los_standings"><script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><script src="https://api.hockeydata.net/js/?los_icehockey"></script>
 </main>'''
 

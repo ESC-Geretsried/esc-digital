@@ -18,16 +18,13 @@ require_fixed "$PAGE" 'hockeydata.los.Schedule'
 require_fixed "$PAGE" 'hockeydata.los.Standings'
 require_fixed "$PAGE" 'bevbyl_sen_vr'
 require_fixed "$PAGE" 'href="#uebersicht"'
-require_fixed "$PAGE" 'href="#teamfoto"'
 require_fixed "$PAGE" 'href="#kader"'
-require_fixed "$PAGE" 'href="#news"'
-require_fixed "$PAGE" 'href="#spielplan"'
-require_fixed "$PAGE" 'href="#tabelle"'
-require_fixed "$PAGE" 'href="#ergebnisse"'
+require_fixed "$PAGE" 'href="#trainer-betreuer"'
+require_fixed "$PAGE" 'href="#kontakt"'
 require_fixed "$PAGE" 'id="teamfoto"'
 require_fixed "$PAGE" 'id="ergebnisse"'
 BASE_PATH="$(python3 -c 'import sys; from urllib.parse import urlsplit; print(urlsplit(sys.argv[1]).path.rstrip("/"))' "${HUGO_BASEURL:-/}")"
-require_fixed "$PAGE" "src=\"$BASE_PATH/images/hero/hero-02-team.jpeg\""
+require_fixed "$PAGE" "background-image:url('$BASE_PATH/images/hero/hero-02-team.jpeg')"
 require_fixed "$PAGE" "src=\"$BASE_PATH/images/people/river-rats/players/korbinian-sertl.jpg\""
 require_fixed "$PAGE" "href=\"$BASE_PATH/aktuelles/\""
 require_fixed "$TEAM" '"team_photo": "images/hero/hero-02-team.jpeg"'
@@ -44,12 +41,13 @@ html = page_path.read_text(encoding='utf-8')
 team = json.loads(team_path.read_text(encoding='utf-8'))
 manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
 section_ids = re.findall(r'<section[^>]+id="([^"]+)"', html)
-expected = ['uebersicht', 'teamfoto', 'kader', 'news', 'spielplan', 'tabelle', 'ergebnisse']
-if section_ids != expected:
-    raise SystemExit(f'ERROR: River Rats section order is {section_ids!r}, expected {expected!r}')
+expected_sections = ['teamfoto', 'uebersicht', 'kader', 'trainer-betreuer', 'kontakt', 'aktuelles']
+if section_ids != expected_sections:
+    raise SystemExit(f'ERROR: River Rats section order is {section_ids!r}, expected {expected_sections!r}')
 nav_ids = re.findall(r'<a href="#([^"]+)">', html)
-if nav_ids != expected:
-    raise SystemExit(f'ERROR: River Rats navigation order is {nav_ids!r}, expected {expected!r}')
+expected_nav = ['uebersicht', 'kader', 'trainer-betreuer', 'kontakt']
+if nav_ids != expected_nav:
+    raise SystemExit(f'ERROR: River Rats navigation order is {nav_ids!r}, expected {expected_nav!r}')
 if html.count('hockeydata.los.GameSlider') != 0 or html.count('hockeydata.los.Standings') != 1 or html.count('hockeydata.los.Schedule') != 2:
     raise SystemExit('ERROR: HockeyData widget structure changed unexpectedly')
 photos = manifest.get('photos', [])
