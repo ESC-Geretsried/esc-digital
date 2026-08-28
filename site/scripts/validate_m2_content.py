@@ -179,4 +179,56 @@ for path in sorted(set(visible_paths)):
     if not target.is_file():
         raise SystemExit(f"ERROR: visible navigation route missing from build: {path}")
 
+primary_paths = ["/river-rats/", "/nachwuchs/", "/mitgliedschaft/"]
+primary_match = re.search(r'<nav class=(?:"[^"]*\bprimary-entrances\b[^"]*"|primary-entrances)\b', homepage_html)
+primary_start = primary_match.start() if primary_match else -1
+primary_end = homepage_html.find("</nav>", primary_start)
+primary_html = homepage_html[primary_start:primary_end]
+primary_positions = []
+for path in primary_paths:
+    match = re.search(rf'href=(?:"|){re.escape(path)}(?:"|)', primary_html)
+    primary_positions.append(match.start() if match else -1)
+if any(position < 0 for position in primary_positions) or primary_positions != sorted(primary_positions):
+    raise SystemExit("ERROR: PrimaryEntrances missing or out of order")
+partners_match = re.search(r'<section class=(?:"[^"]*\bpartners\b[^"]*"|partners)\b', homepage_html)
+if not partners_match or primary_end > partners_match.start():
+    raise SystemExit("ERROR: PrimaryEntrances must be directly before SponsorTicker")
+
+position_codes = {"T", "V", "S"}
+external_teams = {"damen", "u13", "u15", "u17", "u20"}
+young_teams = {"u7", "u9", "u11"}
+for team_key in sorted(external_teams | young_teams):
+    team_data = json.loads((root / "content" / "teams" / team_key / "team.json").read_text(encoding="utf-8"))
+    for player in team_data.get("roster", []):
+        if not str(player.get("name", "")).strip() or not str(player.get("number", "")).strip():
+            raise SystemExit(f"ERROR: {team_key} player requires name and number")
+        if player.get("position_code") not in position_codes:
+            raise SystemExit(f"ERROR: {team_key} player position must be T/V/S")
+        if team_key in young_teams and player.get("rodi_url"):
+            raise SystemExit(f"ERROR: {team_key} must not expose RODI")
+    for forbidden in ("official_table_url", "official_results_url"):
+        if team_data.get(forbidden):
+            raise SystemExit(f"ERROR: {team_key} must not maintain internal {forbidden}")
+    if team_key in young_teams and team_data.get("official_schedule_url"):
+        raise SystemExit(f"ERROR: {team_key} must not expose DEB/RODI competition links")
+    page_html = (public / team_data["public_path"].strip("/") / "index.html").read_text(encoding="utf-8")
+    if any(f'id="{section}"' in page_html for section in ("spielplan", "tabelle", "ergebnisse")):
+        raise SystemExit(f"ERROR: {team_key} contains forbidden internal competition section")
+    external_buttons = page_html.count("SPIELPLAN &amp; TABELLE")
+    expected_buttons = 1 if team_key in external_teams and team_data.get("official_schedule_url") else 0
+    if external_buttons != expected_buttons:
+        raise SystemExit(f"ERROR: {team_key} external competition button count is {external_buttons}, expected {expected_buttons}")
+
+river_html = (public / "river-rats" / "index.html").read_text(encoding="utf-8")
+hero_end = river_html.find("</section>", river_html.find('class="team-hero"'))
+if "GameSlider" in river_html[river_html.find('class="team-hero"'):hero_end]:
+    raise SystemExit("ERROR: River Rats hero must not contain graphical game widget")
+next_home = team.get("next_home_game") or {}
+if "next-home-game" in river_html and not (next_home.get("verified") is True and all(next_home.get(key) for key in ("date", "time", "opponent"))):
+    raise SystemExit("ERROR: unverified or incomplete next home game was rendered")
+
+placeholder_status = (root / "docs" / "operations" / "player-placeholder-status.md").read_text(encoding="utf-8")
+if "Status: **OPEN**" not in placeholder_status:
+    raise SystemExit("ERROR: unavailable canonical player placeholder must remain explicitly OPEN")
+
 print(f"M2 content policy PASS: {len(active)} active heroes, 11 verified local River Rats player and 9 staff photos, exact 12-month news policy as of {today.isoformat()}, {len(set(visible_paths))} visible internal routes")

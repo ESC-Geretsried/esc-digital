@@ -544,8 +544,6 @@
         "teamfoto",
         "kader",
         "news",
-        "spielplan",
-        "ergebnisse",
         "kontakte"
       ],
       "instance": "esc.u11",
@@ -557,8 +555,6 @@
         "team-photo",
         "roster",
         "news",
-        "schedule",
-        "results",
         "contacts",
         "footer"
       ],
@@ -667,8 +663,6 @@
         "teamfoto",
         "kader",
         "news",
-        "spielplan",
-        "ergebnisse",
         "kontakte"
       ],
       "instance": "esc.u7",
@@ -680,8 +674,6 @@
         "team-photo",
         "roster",
         "news",
-        "schedule",
-        "results",
         "contacts",
         "footer"
       ],
@@ -694,8 +686,6 @@
         "teamfoto",
         "kader",
         "news",
-        "spielplan",
-        "ergebnisse",
         "kontakte"
       ],
       "instance": "esc.u9",
@@ -707,8 +697,6 @@
         "team-photo",
         "roster",
         "news",
-        "schedule",
-        "results",
         "contacts",
         "footer"
       ],
