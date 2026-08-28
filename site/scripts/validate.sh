@@ -32,7 +32,7 @@ require_text "$INDEX" 'Doppelpack für die Defensive'
 require_text "$INDEX" 'U20 gegen SG Bad Aibling/Inzell'
 require_text "$INDEX" 'Nächste Termine'
 require_text "$INDEX" 'Werde Teil der River Rats'
-require_text "$INDEX" 'Mitmachen im Ehrenamt'
+require_text "$INDEX" 'Mithelfen'
 require_text "$INDEX" 'team-page\.min\.'
 
 (
@@ -47,7 +47,7 @@ require_text "$INDEX" 'team-page\.min\.'
 test "$(find "$OUT/images/teams" -maxdepth 1 -type f | wc -l)" -eq 11 || { echo 'ERROR: expected 11 published team assets' >&2; exit 2; }
 test "$(find "$OUT/images/people/river-rats/players" -maxdepth 1 -type f | wc -l)" -eq 11 || { echo 'ERROR: expected 11 published player photos' >&2; exit 2; }
 test "$(find "$OUT/images/people/river-rats/staff" -maxdepth 1 -type f | wc -l)" -eq 9 || { echo 'ERROR: expected 9 published River Rats staff photos' >&2; exit 2; }
-for path in sponsoren river-rats river-rats-damen nachwuchs eislaufschule eiskunstlauf inklusion verein verein/vereinsfuehrung foerderverein verein/foerderverein impressum datenschutz; do require_file "$OUT/$path/index.html"; done
+for path in sponsoren river-rats river-rats-damen nachwuchs eislaufschule eiskunstlauf inklusion verein verein/vereinsfuehrung foerderverein verein/foerderverein mithelfen impressum datenschutz; do require_file "$OUT/$path/index.html"; done
 require_text "$OUT/aktuelles/2026-08-04-river-rats-defensive-verlaengerungen/index.html" 'Doppelpack für die Defensive'
 require_text "$OUT/sponsoren/index.html" 'Ansprechpartner Sponsoring'
 require_text "$OUT/verein/vereinsfuehrung/index.html" 'Thomas Gania'
@@ -88,8 +88,8 @@ for sponsor in sponsors:
     if not (public_assets / Path(logo).name).is_file():
         raise SystemExit(f"ERROR: published logo missing: {sponsor['id']}")
 
-if len(home.get('news_groups', [])) != 5:
-    raise SystemExit('ERROR: expected five esc-int homepage news groups')
+if len(home.get('news_groups', [])) != 6:
+    raise SystemExit('ERROR: expected six Founder-approved homepage news groups')
 if len(home.get('events', [])) != 3:
     raise SystemExit('ERROR: expected three esc-int event placeholders')
 if len(home.get('community', [])) != 4:

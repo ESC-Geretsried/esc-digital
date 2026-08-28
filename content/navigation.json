@@ -19,26 +19,15 @@
       "order": 10,
       "links": [
         {"label": "Mitglied werden", "path": "/mitgliedschaft/", "visible": true},
-        {"label": "Geschäftsstelle", "path": "/verein/", "visible": true},
-        {"label": "Förderverein", "path": "/verein/foerderverein/", "visible": true},
+        {"label": "Geschäftsstelle", "path": "/verein/geschaeftsstelle/", "visible": true},
+        {"label": "Förderverein", "path": "/foerderverein/", "visible": true},
         {"label": "Sponsoring", "path": "/sponsoren/", "visible": true},
-        {"label": "Mitmachen", "path": "/mitmachen/", "visible": false}
-      ]
-    },
-    {
-      "label": "Service",
-      "order": 20,
-      "links": [
-        {"label": "Tickets", "path": "/tickets/", "visible": false},
-        {"label": "Saisonkarten", "path": "/saisonkarten/", "visible": false},
-        {"label": "Eintrittspreise", "path": "/eintrittspreise/", "visible": false},
-        {"label": "Stadion", "path": "/stadion/", "visible": false},
-        {"label": "Dokumente", "path": "/downloads/", "visible": false}
+        {"label": "Mithelfen", "path": "/mithelfen/", "visible": true}
       ]
     },
     {
       "label": "Sport",
-      "order": 30,
+      "order": 20,
       "links": [
         {"label": "River Rats", "path": "/river-rats/", "visible": true},
         {"label": "Nachwuchs", "path": "/nachwuchs/", "visible": true},
@@ -50,11 +39,18 @@
     },
     {
       "label": "Rechtliches",
-      "order": 40,
+      "order": 30,
       "links": [
         {"label": "Impressum", "path": "/impressum/", "visible": true},
         {"label": "Datenschutz", "path": "/datenschutz/", "visible": true}
       ]
     }
+  ],
+  "social_media": [
+    {"area": "River Rats", "label": "SpradeTV", "url": "https://www.sprade.tv/de/teams/382/esc-riverrats-geretsried", "icon": "/icons/spradetv.svg", "order": 10},
+    {"area": "River Rats", "label": "Instagram", "url": "https://www.instagram.com/riverrats_geretsried/", "icon": "/icons/instagram.svg", "order": 20},
+    {"area": "Nachwuchs", "label": "Instagram", "url": "https://www.instagram.com/riverrats_nachwuchs/", "icon": "/icons/instagram.svg", "order": 30},
+    {"area": "Damen", "label": "Instagram", "url": "https://www.instagram.com/esc_riverrats_damen/", "icon": "/icons/instagram.svg", "order": 40},
+    {"area": "Eiskunstlauf", "label": "Instagram", "url": "https://www.instagram.com/esc_riverrats_eiskunstlauf/", "icon": "/icons/instagram.svg", "order": 50}
   ]
 }

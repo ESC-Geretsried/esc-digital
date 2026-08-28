@@ -15,6 +15,7 @@
   {{ $team := resources.Get "css/team-page.css" | minify | fingerprint }}
   {{ $leadership := resources.Get "css/leadership.css" | minify | fingerprint }}
   {{ $announcement := resources.Get "css/announcement.css" | minify | fingerprint }}
+  {{ $homepageV1 := resources.Get "css/homepage-v1.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   <link rel="stylesheet" href="{{ $hero.RelPermalink }}" integrity="{{ $hero.Data.Integrity }}">
   <link rel="stylesheet" href="{{ $imported.RelPermalink }}" integrity="{{ $imported.Data.Integrity }}">
@@ -23,6 +24,7 @@
   <link rel="stylesheet" href="{{ $team.RelPermalink }}" integrity="{{ $team.Data.Integrity }}">
   <link rel="stylesheet" href="{{ $leadership.RelPermalink }}" integrity="{{ $leadership.Data.Integrity }}">
   <link rel="stylesheet" href="{{ $announcement.RelPermalink }}" integrity="{{ $announcement.Data.Integrity }}">
+  <link rel="stylesheet" href="{{ $homepageV1.RelPermalink }}" integrity="{{ $homepageV1.Data.Integrity }}">
 </head>
 <body>
   {{ $announcements := where site.Data.home_announcements.messages "active" true }}
@@ -71,7 +73,7 @@
   <main id="main-content">{{ block "main" . }}{{ end }}</main>
   <footer class="site-footer">
     <div class="shell footer-inner">
-      <div class="footer-brand"><strong>Eishockey. Gemeinschaft. Geretsried.</strong><p>ESC River Rats Geretsried e.V.</p></div>
+      <div class="footer-brand"><strong>ESC River Rats Geretsried e.V.</strong></div>
       <div class="footer-groups">
         {{ range (sort $nav.footer_groups "order") }}
           {{ $visible := where .links "visible" true }}
@@ -80,6 +82,15 @@
           {{ end }}
         {{ end }}
       </div>
+      <div class="footer-social" aria-labelledby="footer-social-title">
+        <strong id="footer-social-title">Social &amp; Media</strong>
+        <div class="footer-social__links">
+          {{ range (sort $nav.social_media "order") }}
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><img src="{{ .icon | relURL }}" alt="" aria-hidden="true"><span><b>{{ .area }}</b>{{ .label }}</span></a>
+          {{ end }}
+        </div>
+      </div>
+      <p class="footer-copyright">© 2026 ESC River Rats Geretsried e.V.</p>
     </div>
   </footer>
   <script src="{{ "js/navigation.js" | relURL }}" defer></script>

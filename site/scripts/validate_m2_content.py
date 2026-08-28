@@ -130,6 +130,28 @@ for field, expected in expected_home_areas.items():
     actual = [(item.get("title"), item.get("path")) for item in home.get(field, [])]
     if actual != expected:
         raise SystemExit(f"ERROR: Homepage {field} mapping drift: {actual}")
+expected_news_paths = {
+    "verein": "/verein/#news",
+    "river-rats": "/river-rats/#news",
+    "damen": "/river-rats-damen/#news",
+    "nachwuchs": "/nachwuchs/#news",
+    "eiskunstlauf": "/eiskunstlauf/#news",
+    "inklusion": "/inklusion/#news",
+}
+actual_news_paths = {item.get("id"): item.get("news_path") for item in home.get("news_groups", [])}
+if actual_news_paths != expected_news_paths:
+    raise SystemExit(f"ERROR: Homepage news destinations drift: {actual_news_paths}")
+youth_group = next(item for item in home["news_groups"] if item["id"] == "nachwuchs")
+if youth_group.get("team_keys") != ["u7", "u9", "u11", "u13", "u15", "u17", "u20"]:
+    raise SystemExit("ERROR: Nachwuchs news must aggregate all youth teams U7-U20")
+expected_community = {
+    "Mitglied werden": "/mitgliedschaft/",
+    "Mithelfen": "/mithelfen/",
+    "Förderverein": "/foerderverein/",
+    "Partner werden": "/sponsoren/",
+}
+if {item.get("title"): item.get("path") for item in home.get("community", [])} != expected_community:
+    raise SystemExit("ERROR: Founder-approved community destinations drift")
 policy = json.loads((root / "config" / "news-retention.json").read_text(encoding="utf-8"))
 if policy.get("public_window_months") != 12:
     raise SystemExit("ERROR: public news retention must be exactly 12 months")
@@ -167,6 +189,20 @@ if actual_header != expected_header:
     raise SystemExit(f"ERROR: global header mapping drift: {actual_header}")
 if [item["label"] for item in navigation.get("actions", []) if item.get("visible")] != ["Mitglied werden"]:
     raise SystemExit("ERROR: global header action mapping drift")
+expected_footer_groups = ["Verein", "Sport", "Rechtliches"]
+actual_footer_groups = [group["label"] for group in sorted(navigation.get("footer_groups", []), key=lambda group: group.get("order", 0)) if any(link.get("visible") for link in group.get("links", []))]
+if actual_footer_groups != expected_footer_groups:
+    raise SystemExit(f"ERROR: final footer group order drift: {actual_footer_groups}")
+expected_social = [
+    ("River Rats", "SpradeTV", "https://www.sprade.tv/de/teams/382/esc-riverrats-geretsried", "/icons/spradetv.svg"),
+    ("River Rats", "Instagram", "https://www.instagram.com/riverrats_geretsried/", "/icons/instagram.svg"),
+    ("Nachwuchs", "Instagram", "https://www.instagram.com/riverrats_nachwuchs/", "/icons/instagram.svg"),
+    ("Damen", "Instagram", "https://www.instagram.com/esc_riverrats_damen/", "/icons/instagram.svg"),
+    ("Eiskunstlauf", "Instagram", "https://www.instagram.com/esc_riverrats_eiskunstlauf/", "/icons/instagram.svg"),
+]
+actual_social = [(item.get("area"), item.get("label"), item.get("url"), item.get("icon")) for item in sorted(navigation.get("social_media", []), key=lambda item: item.get("order", 0))]
+if actual_social != expected_social:
+    raise SystemExit("ERROR: Founder-approved Social & Media footer links drift")
 visible_paths = []
 for item in navigation.get("main", []) + navigation.get("actions", []):
     if item.get("visible"):
@@ -199,6 +235,14 @@ if any(position < 0 for position in primary_positions) or primary_positions != s
 partners_match = re.search(r'<section class=(?:"[^"]*\bpartners\b[^"]*"|partners)\b', homepage_html)
 if not partners_match or primary_end > partners_match.start():
     raise SystemExit("ERROR: PrimaryEntrances must be directly before SponsorTicker")
+if homepage_html.count(">Alle News</a>") != 6 or "Bereich öffnen" in homepage_html:
+    raise SystemExit("ERROR: all six Homepage news cards must link as Alle News")
+for path in expected_news_paths.values():
+    if f'href="{path}"' not in homepage_html and f"href={path}" not in homepage_html:
+        raise SystemExit(f"ERROR: Homepage news destination missing: {path}")
+for icon in (public / "icons" / "instagram.svg", public / "icons" / "spradetv.svg"):
+    if not icon.is_file():
+        raise SystemExit(f"ERROR: local footer icon missing: {icon.name}")
 
 position_codes = {"T", "V", "S"}
 external_teams = {"damen", "u13", "u15", "u17", "u20"}

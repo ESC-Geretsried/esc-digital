@@ -1,6 +1,9 @@
 import importlib.util
+from datetime import datetime
+import os
 from pathlib import Path
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "owml.py"
@@ -47,6 +50,18 @@ class OWMLTests(unittest.TestCase):
 
     def test_generated_artifacts_match(self):
         OWML.generate(check=True)
+
+    def test_news_retention_uses_binding_policy_timezone(self):
+        class FrozenDateTime:
+            @classmethod
+            def now(cls, timezone):
+                self.assertEqual(timezone.key, "Europe/Berlin")
+                return datetime(2026, 8, 29, 1, 30, tzinfo=timezone)
+
+        with patch.object(OWML, "datetime", FrozenDateTime), patch.dict(
+            os.environ, {"OWML_AS_OF_DATE": "", "NEWS_RETENTION_AS_OF": ""}
+        ):
+            self.assertFalse(OWML.article_retained("/aktuelles/2025-08-29-test/"))
 
 
 if __name__ == "__main__":

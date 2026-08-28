@@ -15,7 +15,7 @@
     {"type":"content","bindings":["page.body","page.description","team.summary"],"landmark":"section","renderer":"site/src/layouts/partials/area-blocks.html"},
     {"type":"team-photo","bindings":["team.team_photo","team.team_photo_alt"],"landmark":"section","renderer":"site/src/layouts/_default/list.html"},
     {"type":"roster","bindings":["team.roster"],"landmark":"section","renderer":"site/src/layouts/_default/list.html"},
-    {"type":"news-feed","bindings":["news","home.news_groups","team.news"],"landmark":"section","renderer":"site/src/layouts/_default/list.html"},
+    {"type":"news-feed","bindings":["news","home.news_groups","team.news","page.news","teams.news"],"landmark":"section","renderer":"site/src/layouts/_default/list.html"},
     {"type":"schedule","bindings":["team.schedule","team.official_schedule_url","hockeydata.schedule"],"landmark":"section","renderer":"site/src/layouts/_default/list.html"},
     {"type":"standings","bindings":["team.standings","team.official_table_url","hockeydata.standings"],"landmark":"section","renderer":"site/src/layouts/_default/list.html"},
     {"type":"results","bindings":["team.results","team.official_results_url","hockeydata.results"],"landmark":"section","renderer":"site/src/layouts/_default/list.html"},

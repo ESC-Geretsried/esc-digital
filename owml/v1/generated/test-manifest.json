@@ -376,7 +376,9 @@
       "route": "/dauerkarten/"
     },
     {
-      "anchors": [],
+      "anchors": [
+        "news"
+      ],
       "instance": "esc.eiskunstlauf",
       "nodes": [
         "header",
@@ -384,6 +386,7 @@
         "content",
         "events",
         "contacts",
+        "news",
         "footer"
       ],
       "pattern": "figure-skating",
@@ -391,7 +394,9 @@
       "route": "/eiskunstlauf/"
     },
     {
-      "anchors": [],
+      "anchors": [
+        "news"
+      ],
       "instance": "esc.eislaufschule",
       "nodes": [
         "header",
@@ -399,6 +404,7 @@
         "content",
         "events",
         "contacts",
+        "news",
         "footer"
       ],
       "pattern": "skating-school",
@@ -434,7 +440,9 @@
       "route": "/impressum/"
     },
     {
-      "anchors": [],
+      "anchors": [
+        "news"
+      ],
       "instance": "esc.inklusion",
       "nodes": [
         "header",
@@ -442,6 +450,7 @@
         "content",
         "contacts",
         "sponsors",
+        "news",
         "footer"
       ],
       "pattern": "inclusion",
@@ -463,13 +472,32 @@
       "route": "/mitgliedschaft/"
     },
     {
-      "anchors": [],
+      "anchors": [
+        "news"
+      ],
+      "instance": "esc.mithelfen",
+      "nodes": [
+        "header",
+        "hero",
+        "content",
+        "news",
+        "footer"
+      ],
+      "pattern": "generic-section",
+      "publication": "active",
+      "route": "/mithelfen/"
+    },
+    {
+      "anchors": [
+        "news"
+      ],
       "instance": "esc.nachwuchs",
       "nodes": [
         "header",
         "hero",
         "content",
         "areas",
+        "news",
         "footer"
       ],
       "pattern": "youth-index",
@@ -751,13 +779,16 @@
       "route": "/u9/"
     },
     {
-      "anchors": [],
+      "anchors": [
+        "news"
+      ],
       "instance": "esc.verein",
       "nodes": [
         "header",
         "hero",
         "content",
         "areas",
+        "news",
         "footer"
       ],
       "pattern": "club",

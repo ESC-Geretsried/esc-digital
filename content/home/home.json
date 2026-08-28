@@ -25,7 +25,7 @@
     {
       "id": "verein",
       "title": "Verein",
-      "area_path": "/verein/",
+      "news_path": "/verein/#news",
       "items": [
         {
           "title": "Nicht in erster Reihe, aber umso wichtiger – das Team hinter dem Team",
@@ -36,7 +36,7 @@
     {
       "id": "river-rats",
       "title": "River Rats",
-      "area_path": "/river-rats/",
+      "news_path": "/river-rats/#news",
       "items": [
         {
           "title": "Doppelpack für die Defensive – Englbrecht und Sanner verlängern",
@@ -47,7 +47,7 @@
     {
       "id": "damen",
       "title": "Damen",
-      "area_path": "/river-rats-damen/",
+      "news_path": "/river-rats-damen/#news",
       "items": [
         {
           "title": "Goldener Puck für Alexandra Boico",
@@ -58,7 +58,8 @@
     {
       "id": "nachwuchs",
       "title": "Nachwuchs",
-      "area_path": "/nachwuchs/",
+      "news_path": "/nachwuchs/#news",
+      "team_keys": ["u7", "u9", "u11", "u13", "u15", "u17", "u20"],
       "items": [
         {
           "title": "U20 gegen SG Bad Aibling/Inzell",
@@ -71,10 +72,16 @@
       ]
     },
     {
-      "id": "eiskunstlauf-inklusion",
-      "title": "Eiskunstlauf & Inklusion",
-      "area_path": "/eiskunstlauf/",
-      "secondary_area_path": "/inklusion/",
+      "id": "eiskunstlauf",
+      "title": "Eiskunstlauf",
+      "news_path": "/eiskunstlauf/#news",
+      "items": [],
+      "empty_text": "Noch keine freigegebenen Meldungen."
+    },
+    {
+      "id": "inklusion",
+      "title": "Inklusionssport",
+      "news_path": "/inklusion/#news",
       "items": [],
       "empty_text": "Noch keine freigegebenen Meldungen."
     }
@@ -86,9 +93,9 @@
   ],
   "events_note": "Termine werden von der Redaktion ergänzt.",
   "community": [
-    {"title": "Mitglied werden", "text": "Den ESC und das Vereinsleben aktiv mittragen.", "path": "/verein/"},
-    {"title": "Mitmachen im Ehrenamt", "text": "Deine Erfahrung und Zeit für den Verein einbringen.", "path": "/verein/"},
-    {"title": "Förderverein", "text": "Nachwuchs und Eishockey gezielt unterstützen.", "path": "/verein/foerderverein/"},
+    {"title": "Mitglied werden", "text": "Den ESC und das Vereinsleben aktiv mittragen.", "path": "/mitgliedschaft/"},
+    {"title": "Mithelfen", "text": "Deine Erfahrung und Zeit für den Verein einbringen.", "path": "/mithelfen/"},
+    {"title": "Förderverein", "text": "Nachwuchs und Eishockey gezielt unterstützen.", "path": "/foerderverein/"},
     {"title": "Partner werden", "text": "Als Unternehmen sichtbar an der Seite des ESC stehen.", "path": "/sponsoren/"}
   ],
   "footer_links": [
