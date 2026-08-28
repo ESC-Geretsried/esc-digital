@@ -30,9 +30,10 @@ require_text "$INDEX" 'Unsere Partner'
 require_text "$INDEX" 'Aktuelles'
 require_text "$INDEX" 'Doppelpack für die Defensive'
 require_text "$INDEX" 'U20 gegen SG Bad Aibling/Inzell'
-require_text "$INDEX" 'Nächste Termine'
 require_text "$INDEX" 'Werde Teil der River Rats'
-require_text "$INDEX" 'Mitmachen im Ehrenamt'
+require_text "$INDEX" '>Ehrenamt<'
+require_text "$INDEX" 'Geschäftsstelle'
+require_text "$INDEX" 'Social Media'
 require_text "$INDEX" 'team-page\.min\.'
 
 (
@@ -88,10 +89,14 @@ for sponsor in sponsors:
     if not (public_assets / Path(logo).name).is_file():
         raise SystemExit(f"ERROR: published logo missing: {sponsor['id']}")
 
-if len(home.get('news_groups', [])) != 5:
-    raise SystemExit('ERROR: expected five esc-int homepage news groups')
-if len(home.get('events', [])) != 3:
-    raise SystemExit('ERROR: expected three esc-int event placeholders')
+expected_news_groups = ['Verein', 'River Rats', 'Nachwuchs', 'Damen', 'Eiskunstlauf', 'Inklusionssport']
+actual_news_groups = [group.get('title') for group in home.get('news_groups', [])]
+if actual_news_groups != expected_news_groups:
+    raise SystemExit(f'ERROR: Homepage news groups differ from Blueprint: {actual_news_groups}')
+if any(len(group.get('items', [])) != 1 for group in home.get('news_groups', [])):
+    raise SystemExit('ERROR: every Homepage news group must contain exactly one top item')
+if 'events' in home or 'events_note' in home:
+    raise SystemExit('ERROR: superseded Homepage events block remains in canonical data')
 if len(home.get('community', [])) != 4:
     raise SystemExit('ERROR: expected four esc-int community actions')
 if home.get('source', {}).get('repository') != 'open-reference-platform/esc-int':

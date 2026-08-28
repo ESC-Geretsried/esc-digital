@@ -147,10 +147,15 @@ if ('announcement-ticker__track is-rotating' not in homepage_html
         or homepage_html.count('announcement-ticker__sequence') != 2):
     raise SystemExit("ERROR: AnnouncementTicker slow-loop structure missing from Homepage")
 for group in home.get("news_groups", []):
+    if len(group.get("items", [])) != 1:
+        raise SystemExit(f"ERROR: Homepage news group must contain exactly one top item: {group.get('id')}")
     for item in group.get("items", []):
         match = re.search(r"/(\d{4})-(\d{2})-(\d{2})-", item.get("path", ""))
         if not match:
-            raise SystemExit(f"ERROR: homepage news path lacks publication date: {item.get('path')}")
+            target = public / item["path"].strip("/") / "index.html"
+            if not target.is_file() or item["path"].strip("/") not in homepage_html:
+                raise SystemExit(f"ERROR: Homepage top item target missing: {item.get('path')}")
+            continue
         published = date(*(int(v) for v in match.groups()))
         target = public / item["path"].strip("/") / "index.html"
         expired = today >= expiry_for(published, int(policy["public_window_months"]))
@@ -161,7 +166,7 @@ for group in home.get("news_groups", []):
             raise SystemExit(f"ERROR: retained news missing from public projection: {item.get('path')}")
 
 navigation = json.loads((root / "content" / "navigation.json").read_text(encoding="utf-8"))
-expected_header = ["River Rats", "Nachwuchs", "Damen", "Eiskunstlauf", "Inklusionssport", "Verein", "Förderverein"]
+expected_header = ["River Rats", "Nachwuchs", "Damen", "Eiskunstlauf", "Inklusionssport", "Eislaufschule", "Verein", "Förderverein"]
 actual_header = [item["label"] for item in sorted(navigation.get("main", []), key=lambda item: item.get("order", 0)) if item.get("visible")]
 if actual_header != expected_header:
     raise SystemExit(f"ERROR: global header mapping drift: {actual_header}")

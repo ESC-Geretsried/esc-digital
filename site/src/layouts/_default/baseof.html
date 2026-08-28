@@ -73,13 +73,14 @@
     <div class="shell footer-inner">
       <div class="footer-brand"><strong>Eishockey. Gemeinschaft. Geretsried.</strong><p>ESC River Rats Geretsried e.V.</p></div>
       <div class="footer-groups">
-        {{ range (sort $nav.footer_groups "order") }}
-          {{ $visible := where .links "visible" true }}
-          {{ if $visible }}
-            <nav class="footer-group" aria-label="{{ .label }}"><strong>{{ .label }}</strong>{{ range $visible }}<a href="{{ .path | relURL }}">{{ .label }}</a>{{ end }}</nav>
-          {{ end }}
-        {{ end }}
+        <nav class="footer-group" aria-label="Footer-Navigation">
+          <a href="{{ "/verein/geschaeftsstelle/" | relURL }}">Geschäftsstelle</a>
+          <a href="{{ "/impressum/" | relURL }}">Impressum</a>
+          <a href="{{ "/datenschutz/" | relURL }}">Datenschutz</a>
+        </nav>
+        <div class="footer-group"><strong>Social Media</strong></div>
       </div>
+      <p class="footer-copyright">© {{ now.Year }} ESC River Rats Geretsried e.V.</p>
     </div>
   </footer>
   <script src="{{ "js/navigation.js" | relURL }}" defer></script>
