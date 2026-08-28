@@ -161,7 +161,7 @@ for group in home.get("news_groups", []):
             raise SystemExit(f"ERROR: retained news missing from public projection: {item.get('path')}")
 
 navigation = json.loads((root / "content" / "navigation.json").read_text(encoding="utf-8"))
-expected_header = ["River Rats", "Nachwuchs", "Damen", "Eiskunstlauf", "Inklusionssport", "Verein", "Förderverein"]
+expected_header = ["River Rats", "Nachwuchs", "Damen", "Eiskunstlauf", "Inklusionssport", "Eislaufschule", "Verein", "Förderverein"]
 actual_header = [item["label"] for item in sorted(navigation.get("main", []), key=lambda item: item.get("order", 0)) if item.get("visible")]
 if actual_header != expected_header:
     raise SystemExit(f"ERROR: global header mapping drift: {actual_header}")
