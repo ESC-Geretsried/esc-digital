@@ -2,8 +2,9 @@
 {{ $team := site.Data.river_rats_team }}
 {{ $hd := site.Data.hockeydata }}
 <section class="team-hero" style="background-image:url('{{ $team.hero_image | relURL }}')" aria-labelledby="team-title">
-  <div class="shell team-hero__content"><p class="eyebrow">{{ $team.eyebrow }}</p><h1 id="team-title">{{ $team.title }}</h1><p class="team-hero__tagline">{{ $team.tagline }}</p><div class="team-next-game"><strong>Nächstes Spiel</strong><div data-hd-widget="hockeydata.los.GameSlider" data-hd-widget-options='{"apiKey":"__HOCKEYDATA_API_KEY__","divisionId":"{{ $hd.active_phase.division_permalink }}","sport":"{{ $hd.sport }}","teamId":{{ $hd.team_id }},"gamesPerGroup":1,"showDivisionName":false}'></div></div></div>
+  <div class="shell team-hero__content"><p class="eyebrow">{{ $team.eyebrow }}</p><h1 id="team-title">{{ $team.title }}</h1><p class="team-hero__tagline">{{ $team.tagline }}</p></div>
 </section>
+{{ with $team.next_home_game }}{{ if and .verified .date .time .opponent }}<section class="next-home-game" aria-label="Nächstes bestätigtes Heimspiel"><div class="shell"><strong>Nächstes Heimspiel</strong><span>{{ .date }} · {{ .time }} · {{ .opponent }}</span></div></section>{{ end }}{{ end }}
 <nav class="team-local-nav" aria-label="Bereiche River Rats"><div class="shell team-local-nav__inner"><a href="#uebersicht">Übersicht</a><a href="#teamfoto">Teamfoto</a><a href="#kader">Mannschaft</a><a href="#news">News</a><a href="#spielplan">Spielplan</a><a href="#tabelle">Tabelle</a><a href="#ergebnisse">Ergebnisse</a></div></nav>
 <section class="team-section" id="uebersicht"><div class="shell"><p class="eyebrow">Übersicht</p><h2>Mannschaft</h2><p class="team-overview">{{ $team.overview }}</p><p>Alle wichtigen Inhalte zur Mannschaft bleiben auf dieser Seite: Kader, aktuelle Meldungen und Spielbetrieb.</p></div></section>
 <section class="team-section team-section--soft" id="teamfoto"><div class="shell"><p class="eyebrow">Teamfoto</p><h2>River Rats</h2><figure class="team-photo"><img src="{{ $team.team_photo | relURL }}" alt="Teamfoto River Rats" loading="lazy"></figure></div></section>
