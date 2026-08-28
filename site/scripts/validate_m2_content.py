@@ -147,6 +147,10 @@ if ('announcement-ticker__track is-rotating' not in homepage_html
         or homepage_html.count('announcement-ticker__sequence') != 2):
     raise SystemExit("ERROR: AnnouncementTicker slow-loop structure missing from Homepage")
 for group in home.get("news_groups", []):
+    area_path = group.get("area_path", "")
+    area_target = public / area_path.strip("/") / "index.html"
+    area_html = area_target.read_text(encoding="utf-8") if area_target.is_file() else ""
+    homepage_paths = {item.get("path") for item in group.get("homepage_items", group.get("items", [])[:2])}
     for item in group.get("items", []):
         match = re.search(r"/(\d{4})-(\d{2})-(\d{2})-", item.get("path", ""))
         if not match:
@@ -154,11 +158,14 @@ for group in home.get("news_groups", []):
         published = date(*(int(v) for v in match.groups()))
         target = public / item["path"].strip("/") / "index.html"
         expired = today >= expiry_for(published, int(policy["public_window_months"]))
-        public_href = item["path"].strip("/") in homepage_html
-        if expired and (target.is_file() or public_href):
+        homepage_href = item["path"].strip("/") in homepage_html
+        area_href = item["path"].strip("/") in area_html
+        if expired and (target.is_file() or homepage_href or area_href):
             raise SystemExit(f"ERROR: expired news remains in public projection: {item.get('path')}")
-        if not expired and (not target.is_file() or not public_href):
+        if not expired and (not target.is_file() or (item.get("path") in homepage_paths and not homepage_href)):
             raise SystemExit(f"ERROR: retained news missing from public projection: {item.get('path')}")
+        if not expired and group.get("id") == "nachwuchs" and not area_href:
+            raise SystemExit(f"ERROR: retained youth news missing from Nachwuchs aggregation: {item.get('path')}")
 
 navigation = json.loads((root / "content" / "navigation.json").read_text(encoding="utf-8"))
 expected_header = ["River Rats", "Nachwuchs", "Damen", "Eiskunstlauf", "Inklusionssport", "Verein", "Förderverein"]
