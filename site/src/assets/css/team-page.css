@@ -143,3 +143,5 @@
 .founder-team-overview>p.source-badge{max-width:100%}
 .founder-player-grid{margin-top:1.25rem}.founder-player-grid .player-card h3{margin:.2rem 0 .5rem;font-size:1.05rem}.player-card__placeholder{text-align:center;padding:1rem}.team-competition-link{margin:1.5rem 0 0}.team-competition-link .button{width:max-content;max-width:100%}.next-home-game{background:#f3f5f7;border-bottom:1px solid #d8e0e7}.next-home-game .shell{display:flex;gap:.75rem 1.5rem;align-items:center;padding:1rem 0}.next-home-game strong{color:#8b5c0c;text-transform:uppercase}.team-hd-card img{max-width:64px!important;max-height:64px!important;object-fit:contain}
 .team-hero h1{font-size:clamp(2.6rem,9vw,7.4rem)}
+.team-hero{min-height:min(68vh,620px);max-height:620px}
+@media(max-width:700px){.team-hero{min-height:min(64vh,500px);max-height:500px}}
