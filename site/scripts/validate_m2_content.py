@@ -147,10 +147,15 @@ if ('announcement-ticker__track is-rotating' not in homepage_html
         or homepage_html.count('announcement-ticker__sequence') != 2):
     raise SystemExit("ERROR: AnnouncementTicker slow-loop structure missing from Homepage")
 for group in home.get("news_groups", []):
+    if len(group.get("items", [])) != 1:
+        raise SystemExit(f"ERROR: Homepage news group must contain exactly one top item: {group.get('id')}")
     for item in group.get("items", []):
         match = re.search(r"/(\d{4})-(\d{2})-(\d{2})-", item.get("path", ""))
         if not match:
-            raise SystemExit(f"ERROR: homepage news path lacks publication date: {item.get('path')}")
+            target = public / item["path"].strip("/") / "index.html"
+            if not target.is_file() or item["path"].strip("/") not in homepage_html:
+                raise SystemExit(f"ERROR: Homepage top item target missing: {item.get('path')}")
+            continue
         published = date(*(int(v) for v in match.groups()))
         target = public / item["path"].strip("/") / "index.html"
         expired = today >= expiry_for(published, int(policy["public_window_months"]))

@@ -56,7 +56,8 @@ def filter_home(path: Path, today: date, months: int) -> int:
         for item in group.get("items", []):
             published = publication_from_path(item.get("path", ""))
             if published is None:
-                raise SystemExit(f"ERROR: homepage news path lacks publication date: {item.get('path')}")
+                kept.append(item)
+                continue
             if today >= expiry_for(published, months):
                 removed += 1
             else:

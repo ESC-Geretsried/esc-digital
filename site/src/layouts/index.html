@@ -65,29 +65,11 @@
       {{ range $home.news_groups }}
         <article class="news-group">
           <h3>{{ .title }}</h3>
-          {{ if .items }}
-            <ul>{{ range .items }}<li><a href="{{ .path | relURL }}">{{ .title }}</a></li>{{ end }}</ul>
-          {{ else }}
-            <p>{{ .empty_text }}</p>
-          {{ end }}
-          <div class="area-links">
-            <a href="{{ .area_path | relURL }}">Bereich öffnen</a>
-            {{ with .secondary_area_path }}<a href="{{ . | relURL }}">Inklusion</a>{{ end }}
-          </div>
+          {{ range .items }}<a class="news-group__headline" href="{{ .path | relURL }}">{{ .title }}</a>{{ end }}
+          <a class="news-group__area" href="{{ .area_path | relURL }}">Bereich öffnen</a>
         </article>
       {{ end }}
     </div>
-  </div>
-</section>
-
-<section class="home-section events" id="termine" aria-labelledby="events-title">
-  <div class="shell">
-    <p class="eyebrow eyebrow--gold">Vereinsleben</p>
-    <header class="section-heading"><h2 id="events-title">Nächste Termine</h2></header>
-    <div class="event-list">
-      {{ range $home.events }}<article class="event-card"><strong>{{ .title }}</strong><p>{{ .text }}</p></article>{{ end }}
-    </div>
-    <p class="section-note">{{ $home.events_note }}</p>
   </div>
 </section>
 
