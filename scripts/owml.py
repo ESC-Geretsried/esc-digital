@@ -12,8 +12,9 @@ import os
 from pathlib import Path
 import re
 import sys
-from datetime import date
+from datetime import date, datetime
 from urllib.parse import urlsplit
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 OWML = ROOT / "owml" / "v1"
@@ -386,7 +387,9 @@ def article_retained(route: str) -> bool:
     if not match:
         return True
     published = date(*(int(part) for part in match.groups()))
-    as_of = date.fromisoformat(os.environ.get("OWML_AS_OF_DATE", date.today().isoformat()))
+    policy = read_json(ROOT / "config" / "news-retention.json")
+    explicit = os.environ.get("NEWS_RETENTION_AS_OF", "").strip()
+    as_of = date.fromisoformat(explicit) if explicit else datetime.now(ZoneInfo(policy["policy_timezone"])).date()
     try:
         boundary = published.replace(year=published.year + 1)
     except ValueError:
