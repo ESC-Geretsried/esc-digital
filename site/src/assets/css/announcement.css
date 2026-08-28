@@ -12,7 +12,14 @@
 }
 
 .announcement-ticker__track.is-rotating {
-  animation: announcement-sequence 42s linear infinite;
+  animation: announcement-sequence var(--announcement-duration, 56s) linear infinite;
+  will-change: transform;
+}
+
+.announcement-ticker__sequence {
+  display: flex;
+  flex: none;
+  min-width: 100vw;
 }
 
 .announcement-ticker__item {
@@ -26,6 +33,7 @@
 
 .announcement-ticker a {
   color: inherit;
+  display: block;
 }
 
 .announcement-ticker__gap {
@@ -35,10 +43,16 @@
 
 @keyframes announcement-sequence {
   from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+  to { transform: translateX(-50%); }
+}
+
+.announcement-ticker:hover .announcement-ticker__track,
+.announcement-ticker:focus-within .announcement-ticker__track {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .announcement-ticker__track { animation: none; }
-  .announcement-ticker__item:not(:first-child) { display: none; }
+  .announcement-ticker__sequence[aria-hidden="true"],
+  .announcement-ticker__sequence:first-child .announcement-ticker__item:not(:first-child) { display: none; }
 }

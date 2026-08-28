@@ -6,6 +6,7 @@
   <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
   <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
   <meta name="robots" content="noindex,nofollow,noarchive">
+  <link rel="icon" type="image/png" href="{{ "images/river-rats-logo.png" | relURL }}">
   {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
   {{ $hero := resources.Get "css/hero-v2.css" | minify | fingerprint }}
   {{ $imported := resources.Get "css/imported.css" | minify | fingerprint }}
@@ -27,14 +28,25 @@
   {{ $announcements := where site.Data.home_announcements.messages "active" true }}
   {{ if $announcements }}
   <aside class="announcement-ticker" aria-label="Vereinsmeldungen">
-    <div class="announcement-ticker__track{{ if gt (len $announcements) 1 }} is-rotating{{ end }}">
-      {{ range (sort $announcements "order") }}
-      <span class="announcement-ticker__item">
-        {{ if .url }}<a href="{{ .url }}" aria-label="{{ .text }}"{{ if .new_tab }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ else }}<span aria-label="{{ .text }}">{{ end }}
-          <strong>{{ .label }}</strong><span class="announcement-ticker__gap" aria-hidden="true"></span><span>{{ .message }}</span>
-        {{ if .url }}</a>{{ else }}</span>{{ end }}
-      </span>
-      {{ end }}
+    <div class="announcement-ticker__track is-rotating" style="--announcement-duration: {{ mul (len $announcements) 56 }}s">
+      <div class="announcement-ticker__sequence">
+        {{ range (sort $announcements "order") }}
+        <span class="announcement-ticker__item">
+          {{ if .url }}<a href="{{ .url }}" aria-label="{{ .text }}"{{ if .new_tab }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ else }}<span aria-label="{{ .text }}">{{ end }}
+            <strong>{{ .label }}</strong><span class="announcement-ticker__gap" aria-hidden="true"></span><span>{{ .message }}</span>
+          {{ if .url }}</a>{{ else }}</span>{{ end }}
+        </span>
+        {{ end }}
+      </div>
+      <div class="announcement-ticker__sequence" aria-hidden="true">
+        {{ range (sort $announcements "order") }}
+        <span class="announcement-ticker__item">
+          {{ if .url }}<a href="{{ .url }}" tabindex="-1"{{ if .new_tab }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ else }}<span>{{ end }}
+            <strong>{{ .label }}</strong><span class="announcement-ticker__gap"></span><span>{{ .message }}</span>
+          {{ if .url }}</a>{{ else }}</span>{{ end }}
+        </span>
+        {{ end }}
+      </div>
     </div>
   </aside>
   {{ end }}

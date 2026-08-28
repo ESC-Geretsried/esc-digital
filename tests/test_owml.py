@@ -38,6 +38,13 @@ class OWMLTests(unittest.TestCase):
              "sport-areas", "club-areas", "sponsor-ticker", "footer"],
         )
 
+    def test_founder_homepage_behavior_invariants_are_canonical(self):
+        _, patterns, _, _ = OWML.validate()
+        invariants = set(patterns["homepage"]["invariants"])
+        self.assertIn("youth-hero-daily-image-static-nachwuchs-link", invariants)
+        self.assertIn("announcement-sequential-slow", invariants)
+        self.assertIn("reduced-motion-static-announcement", invariants)
+
     def test_generated_artifacts_match(self):
         OWML.generate(check=True)
 

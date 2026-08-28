@@ -4,7 +4,7 @@
   "patterns": [
     {
       "id":"homepage","title":"Homepage","description":"Founder-approved 2026-08-27 Homepage target; never imports the team next-game hero.",
-      "invariants":["founder-homepage-order-2026-08-27","global-chrome","homepage-hero-no-next-game","approved-media-only","single-h1","reduced-motion-static-announcement"],
+      "invariants":["founder-homepage-order-2026-08-27","global-chrome","homepage-hero-no-next-game","youth-hero-daily-image-static-nachwuchs-link","approved-media-only","single-h1","announcement-sequential-slow","reduced-motion-static-announcement"],
       "nodes":[
         {"id":"announcements","type":"announcement-ticker","slot":"announcements","required":true,"binding":"home.announcements","fallback":"stable-empty","editor_mutable":true},
         {"id":"header","type":"site-header","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false},

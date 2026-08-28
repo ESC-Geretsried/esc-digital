@@ -39,15 +39,6 @@
         "images/teams/u17-team.jpg",
         "images/teams/u20-team.jpg"
       ],
-      "daily_paths": [
-        "/u7/",
-        "/u9/",
-        "/u11/",
-        "/u13/",
-        "/u15/",
-        "/u17/",
-        "/u20/"
-      ],
       "headline": "Die Zukunft der River Rats.",
       "cta_label": "Nachwuchs",
       "cta_path": "/nachwuchs/",

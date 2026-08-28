@@ -6,7 +6,7 @@
   <div class="hero-background" aria-hidden="true">
     <div class="hero-background__layer hero-background__layer--active" style="background-image:url('{{ $firstHero.image | relURL }}');background-position:{{ $firstHero.focus_desktop }}"></div>
     <div class="hero-background__layer"></div>
-    {{ range $heroSlides }}<i data-hero-source data-src="{{ .image | relURL }}" data-area="{{ .area }}" data-headline="{{ .headline }}" data-cta-label="{{ .cta_label }}" data-cta-path="{{ .cta_path | relURL }}" data-focus-desktop="{{ .focus_desktop }}" data-focus-mobile="{{ .focus_mobile }}"{{ with .daily_images }} data-daily-images="{{ delimit . "|" }}"{{ end }}{{ with .daily_paths }} data-daily-paths="{{ delimit . "|" }}"{{ end }}></i>{{ end }}
+    {{ range $heroSlides }}<i data-hero-source data-src="{{ .image | relURL }}" data-area="{{ .area }}" data-headline="{{ .headline }}" data-cta-label="{{ .cta_label }}" data-cta-path="{{ .cta_path | relURL }}" data-focus-desktop="{{ .focus_desktop }}" data-focus-mobile="{{ .focus_mobile }}"{{ with .daily_images }} data-daily-images="{{ delimit . "|" }}"{{ end }}></i>{{ end }}
   </div>
   <div class="shell hero-inner">
     <div class="hero-editorial">
