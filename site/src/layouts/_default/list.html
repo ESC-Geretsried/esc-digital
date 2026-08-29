@@ -31,6 +31,7 @@
   {{ $externalEligible := in (slice "damen" "u13" "u15" "u17" "u20") .Params.team_key }}
   {{ $teamStaff := where $team.contacts "role" "in" (slice "Trainer" "Betreuer" "Teamleiter") }}
   {{ $contactDetails := where $team.contacts "role" "in" (slice "Email" "Telefon") }}
+  {{ $heroImage := $team.hero_image | default $team.team_photo }}
   <header class="founder-team-hero">
     <div class="shell founder-team-hero__grid">
       <div class="founder-team-hero__copy">
@@ -38,11 +39,11 @@
         <h1>{{ $team.title }}</h1>
         <p>Mannschaft, Kader und Kontakte für die Saison {{ $team.season }}.</p>
       </div>
-      <figure class="founder-team-hero__photo"><img src="{{ ($team.hero_image | default $team.team_photo) | relURL }}" alt="{{ $team.team_photo_alt }}"></figure>
+      <figure class="founder-team-hero__photo"><a class="founder-team-hero__image-link" href="{{ $heroImage | relURL }}" target="_blank" rel="noopener noreferrer" aria-label="Originalbild {{ $team.title }} öffnen"><img src="{{ $heroImage | relURL }}" alt="{{ $team.team_photo_alt }}"></a></figure>
     </div>
   </header>
   <nav class="team-local-nav" aria-label="Bereiche {{ $team.title }}"><div class="shell team-local-nav__inner">
-    <a href="#uebersicht">Übersicht</a><a href="{{ $team.team_photo | relURL }}">Teamfoto</a><a href="#kader">Kader</a><a href="#news">News</a><a href="#kontakte">Kontakte</a>
+    <a href="#uebersicht">Übersicht</a><a href="{{ $team.team_photo | relURL }}">Teamfoto</a><a href="#kader">Kader</a><a href="#news">News</a>{{ with $team.official_schedule_url }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">Spieltermine</a>{{ end }}{{ if $externalEligible }}{{ with $team.official_schedule_url }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">DEB Online</a>{{ end }}{{ end }}<a href="#kontakte">Kontakte</a>
   </div></nav>
   {{ $sponsorData := site.Data.sponsors }}
   <section class="partners" id="partner" aria-labelledby="partners-title">

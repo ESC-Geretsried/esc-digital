@@ -25,6 +25,8 @@ class OWMLTests(unittest.TestCase):
 
     def test_team_sports_variants_are_fail_closed(self):
         _, patterns, pages, _ = OWML.validate()
+        self.assertIn("hero-original-image-link-hover", patterns["team-page"]["invariants"])
+        self.assertIn("verified-schedule-and-deb-navigation", patterns["team-page-external-competition"]["invariants"])
         for route in OWML.NO_STANDINGS:
             self.assertNotIn("standings", [node["id"] for node in OWML.expanded_nodes(patterns, pages[route])])
         u15_nodes = [node["id"] for node in OWML.expanded_nodes(patterns, pages["/u15/"])]

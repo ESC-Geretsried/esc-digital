@@ -19,7 +19,7 @@
     },
     {
       "id":"team-page","title":"U7-U11 Team Page","description":"Separate current youth pattern; standings is disabled for U7/U9/U11.",
-      "invariants":["inv-002-reconciled-2026-08-27","inv-003-reconciled-2026-08-27","global-chrome","next-game-no-invention","age-appropriate-youth-sports"],
+      "invariants":["inv-002-reconciled-2026-08-27","inv-003-reconciled-2026-08-27","global-chrome","next-game-no-invention","age-appropriate-youth-sports","hero-original-image-link-hover"],
       "nodes":[
         {"id":"header","type":"site-header","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false},
         {"id":"hero","type":"hero","slot":"hero","required":true,"binding":"team.next_game","fallback":"stable-empty","editor_mutable":true},
@@ -57,7 +57,7 @@
     },
     {
       "id":"team-page-external-competition","title":"Damen / U13-U20 Team Page","description":"No internal sports presentation; one optional external DEB.ONLINE action.",
-      "invariants":["inv-002-reconciled-2026-08-27","inv-003-reconciled-2026-08-27","global-chrome","deb-online-only","external-new-tab","empty-url-hides-action"],
+      "invariants":["inv-002-reconciled-2026-08-27","inv-003-reconciled-2026-08-27","global-chrome","deb-online-only","external-new-tab","empty-url-hides-action","verified-schedule-and-deb-navigation","hero-original-image-link-hover"],
       "nodes":[
         {"id":"header","type":"site-header","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false},
         {"id":"hero","type":"hero","slot":"hero","required":true,"binding":"team.team_photo","fallback":"stable-empty","editor_mutable":true},

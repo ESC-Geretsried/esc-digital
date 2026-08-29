@@ -264,7 +264,7 @@ for team_key in sorted(external_teams | young_teams):
     page_html = (public / team_data["public_path"].strip("/") / "index.html").read_text(encoding="utf-8")
     if any(f'id="{section}"' in page_html for section in ("spielplan", "tabelle", "ergebnisse")):
         raise SystemExit(f"ERROR: {team_key} contains forbidden internal competition section")
-    external_buttons = page_html.count("SPIELPLAN &amp; TABELLE")
+    external_buttons = page_html.count("SPIELPLAN & TABELLE")
     expected_buttons = 1 if team_key in external_teams and team_data.get("official_schedule_url") else 0
     if external_buttons != expected_buttons:
         raise SystemExit(f"ERROR: {team_key} external competition button count is {external_buttons}, expected {expected_buttons}")

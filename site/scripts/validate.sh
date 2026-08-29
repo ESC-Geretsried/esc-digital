@@ -53,6 +53,18 @@ require_file "$OUT/images/placeholders/player.png"
 require_text "$OUT/river-rats/index.html" 'images/placeholders/player\.png'
 for path in u20 u17 u15 u13 u11 u9 u7; do require_text "$OUT/$path/index.html" "images/hero/$path-2025-2026\\.jpg"; done
 require_text "$OUT/river-rats-damen/index.html" 'images/teams/damen-team\.jpg'
+for path in u20 u17 u15 u13 u11 u9 u7 river-rats-damen; do require_text "$OUT/$path/index.html" 'founder-team-hero__image-link'; done
+for path in u20 u17 u15 u13 river-rats-damen; do
+  require_text "$OUT/$path/index.html" '>Spieltermine<'
+  require_text "$OUT/$path/index.html" '>DEB Online<'
+done
+for path in u11 u9 u7; do
+  if grep -q '>DEB Online<' "$OUT/$path/index.html"; then
+    echo "ERROR: $path must not expose DEB Online" >&2
+    exit 2
+  fi
+done
+require_text "$ROOT/site/src/assets/css/team-page.css" 'translateY(-4px)'
 if grep -q 'images/hero/damen-' "$OUT/river-rats-damen/index.html"; then
   echo 'ERROR: Damen hero source must remain unchanged' >&2
   exit 2
@@ -60,9 +72,27 @@ fi
 for path in sponsoren river-rats river-rats-damen nachwuchs eislaufschule eiskunstlauf inklusion verein verein/vereinsfuehrung foerderverein verein/foerderverein mithelfen impressum datenschutz; do require_file "$OUT/$path/index.html"; done
 python3 - "$OUT/u15/index.html" <<'PY'
 import sys
+from html.parser import HTMLParser
 from pathlib import Path
 
 html = Path(sys.argv[1]).read_text(encoding="utf-8")
+
+class Links(HTMLParser):
+    def __init__(self):
+        super().__init__(); self.current = None; self.links = []
+    def handle_starttag(self, tag, attrs):
+        if tag == "a":
+            values = dict(attrs)
+            self.current = {"href": values.get("href"), "target": values.get("target"), "class": values.get("class", ""), "text": ""}
+    def handle_data(self, data):
+        if self.current is not None:
+            self.current["text"] += data
+    def handle_endtag(self, tag):
+        if tag == "a" and self.current is not None:
+            self.current["text"] = " ".join(self.current["text"].split())
+            self.links.append(self.current); self.current = None
+
+links = Links(); links.feed(html)
 markers = (
     "team-local-nav", 'id=partner', 'id=uebersicht', 'id=kader',
     'id=trainer-betreuer', 'id=news', 'id=kontakte', "site-footer",
@@ -74,6 +104,14 @@ if 'id=teamfoto' in html:
     raise SystemExit("ERROR: U15 standalone team-photo section remains")
 if '/images/teams/u15-team.jpg>Teamfoto</a>' not in html:
     raise SystemExit("ERROR: U15 Teamfoto navigation does not open the original image")
+expected_deb = "https://deb-online.live/liga/lev/bev/u15/"
+for label in ("Spieltermine", "DEB Online"):
+    matches = [link for link in links.links if link["text"] == label]
+    if len(matches) != 1 or matches[0]["href"] != expected_deb or matches[0]["target"] != "_blank":
+        raise SystemExit(f"ERROR: U15 {label} navigation drift: {matches}")
+hero_links = [link for link in links.links if "founder-team-hero__image-link" in link["class"].split()]
+if len(hero_links) != 1 or not hero_links[0]["href"].endswith("/images/hero/u15-2025-2026.jpg") or hero_links[0]["target"] != "_blank":
+    raise SystemExit(f"ERROR: U15 Hero original-image link drift: {hero_links}")
 staff = html[html.index('id=trainer-betreuer'):html.index('id=news')]
 if not all(value in staff for value in ("Trainer", "Michael Goldschmidt, Andreas Herrmann", "Teamleiter", "Anna und Ronny Wolf, Sven Leinen")):
     raise SystemExit("ERROR: U15 Trainer & Betreuer projection differs from existing contact data")
