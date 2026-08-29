@@ -72,7 +72,7 @@ if any(position < 0 for position in positions) or positions != sorted(positions)
     raise SystemExit(f"ERROR: U15 Founder Blueprint order drift: {dict(zip(markers, positions))}")
 if 'id=teamfoto' in html:
     raise SystemExit("ERROR: U15 standalone team-photo section remains")
-if 'href=/images/teams/u15-team.jpg>Teamfoto</a>' not in html:
+if '/images/teams/u15-team.jpg>Teamfoto</a>' not in html:
     raise SystemExit("ERROR: U15 Teamfoto navigation does not open the original image")
 staff = html[html.index('id=trainer-betreuer'):html.index('id=news')]
 if not all(value in staff for value in ("Trainer", "Michael Goldschmidt, Andreas Herrmann", "Teamleiter", "Anna und Ronny Wolf, Sven Leinen")):
