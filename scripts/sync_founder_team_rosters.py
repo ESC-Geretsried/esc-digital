@@ -8,6 +8,7 @@ It never corrects names, numbers, position codes, contact text or duplicates.
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
 from pathlib import Path
@@ -17,6 +18,7 @@ import unicodedata
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "docs/content-migration/founder-team-rosters-2025-2026.md"
+SPORT_SOURCE = ROOT / "docs/content-migration/initial-intake/sport-data.csv"
 EDITOR = ROOT / "content/.orp-editor"
 TEAM_KEYS = {
     "Damen": ("damen", "river-rats-damen", "/river-rats-damen/", "images/teams/damen-team.jpg"),
@@ -28,10 +30,15 @@ TEAM_KEYS = {
     "U9": ("u9", "u9", "/u9/", "images/teams/u9-team.jpg"),
     "U7": ("u7", "u7", "/u7/", "images/teams/u7-team.jpg"),
 }
+TEAM_HERO_IMAGES = {
+    team_key: f"images/hero/{team_key}-2025-2026.jpg"
+    for team_key in ("u20", "u17", "u15", "u13", "u11", "u9", "u7")
+}
 SOURCE_REFERENCE = "docs/content-migration/founder-team-rosters-2025-2026.md"
 SOURCE_DATE = "2026-08-26"
 SOURCE_TIMESTAMP = "2026-08-26T00:00:00Z"
 MANAGED_PREFIX = "orp:founder:esc:"
+EXTERNAL_COMPETITION_TEAMS = {"damen", "u13", "u15", "u17", "u20"}
 
 
 def fail(message: str) -> None:
@@ -49,6 +56,19 @@ def bound_path(kind: str, record_id: str) -> Path:
     return EDITOR / kind / (hashlib.sha256(record_id.encode("utf-8")).hexdigest() + ".json")
 
 
+def verified_schedule_urls() -> dict[str, str]:
+    with SPORT_SOURCE.open(encoding="utf-8", newline="") as handle:
+        rows = {row["team_key"]: row for row in csv.DictReader(handle)}
+    urls = {}
+    for team_key in EXTERNAL_COMPETITION_TEAMS:
+        row = rows.get(team_key, {})
+        url = row.get("schedule_source", "")
+        if row.get("status") != "VERIFIZIERT" or not url.startswith("https://deb-online.live/"):
+            fail(f"{team_key}: verified DEB schedule source missing")
+        urls[team_key] = url
+    return urls
+
+
 def parse_source() -> list[dict]:
     text = SOURCE.read_text(encoding="utf-8")
     heading_re = re.compile(r"^## (Damen|U20|U17|U15|U13|U11|U9|U7)$", re.M)
@@ -57,6 +77,7 @@ def parse_source() -> list[dict]:
         fail("founder roster headings changed or are out of order")
 
     teams = []
+    schedule_urls = verified_schedule_urls()
     for index, match in enumerate(matches):
         title = match.group(1)
         body = text[match.end(): matches[index + 1].start() if index + 1 < len(matches) else len(text)].strip()
@@ -96,6 +117,8 @@ def parse_source() -> list[dict]:
             "title": title,
             "season": "2025/2026",
             "public_path": public_path,
+            **({"hero_image": TEAM_HERO_IMAGES[team_key]} if team_key in TEAM_HERO_IMAGES else {}),
+            **({"official_schedule_url": schedule_urls[team_key]} if team_key in schedule_urls else {}),
             "team_photo": photo,
             "team_photo_alt": f"Teamfoto {title} Saison 2025/2026",
             "contact_source_text": lines[0],

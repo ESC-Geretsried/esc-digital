@@ -19,14 +19,15 @@
     },
     {
       "id":"team-page","title":"U7-U11 Team Page","description":"Separate current youth pattern; standings is disabled for U7/U9/U11.",
-      "invariants":["inv-002-reconciled-2026-08-27","inv-003-reconciled-2026-08-27","global-chrome","next-game-no-invention","age-appropriate-youth-sports"],
+      "invariants":["inv-002-reconciled-2026-08-27","inv-003-reconciled-2026-08-27","global-chrome","next-game-no-invention","age-appropriate-youth-sports","hero-original-image-link-hover"],
       "nodes":[
         {"id":"header","type":"site-header","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false},
         {"id":"hero","type":"hero","slot":"hero","required":true,"binding":"team.next_game","fallback":"stable-empty","editor_mutable":true},
         {"id":"team-navigation","type":"local-navigation","slot":"navigation","required":true,"binding":"pattern.anchors","fallback":"none","editor_mutable":false},
+        {"id":"sponsor-ticker","type":"sponsor-ticker","slot":"sponsors","required":true,"anchor":"partner","binding":"sponsors","fallback":"stable-empty","editor_mutable":true},
         {"id":"overview","type":"content","slot":"overview","required":true,"anchor":"uebersicht","binding":"team.summary","fallback":"stable-empty","editor_mutable":true},
-        {"id":"team-photo","type":"team-photo","slot":"team-photo","required":true,"anchor":"teamfoto","binding":"team.team_photo","fallback":"stable-empty","editor_mutable":true},
         {"id":"roster","type":"roster","slot":"roster","required":true,"anchor":"kader","binding":"team.roster","fallback":"stable-empty","editor_mutable":true},
+        {"id":"team-staff","type":"team-staff","slot":"team-staff","required":true,"anchor":"trainer-betreuer","binding":"team.contacts","fallback":"stable-empty","editor_mutable":true},
         {"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"team.news","fallback":"stable-empty","editor_mutable":true},
         {"id":"schedule","type":"schedule","slot":"schedule","required":true,"anchor":"spielplan","binding":"team.schedule","fallback":"stable-empty","editor_mutable":true},
         {"id":"standings","type":"standings","slot":"standings","required":true,"anchor":"tabelle","binding":"team.standings","condition":"age>=U13","fallback":"not-applicable","editor_mutable":false},
@@ -56,14 +57,15 @@
     },
     {
       "id":"team-page-external-competition","title":"Damen / U13-U20 Team Page","description":"No internal sports presentation; one optional external DEB.ONLINE action.",
-      "invariants":["inv-002-reconciled-2026-08-27","inv-003-reconciled-2026-08-27","global-chrome","deb-online-only","external-new-tab","empty-url-hides-action"],
+      "invariants":["inv-002-reconciled-2026-08-27","inv-003-reconciled-2026-08-27","global-chrome","deb-online-only","external-new-tab","empty-url-hides-action","verified-schedule-and-deb-navigation","hero-original-image-link-hover"],
       "nodes":[
         {"id":"header","type":"site-header","slot":"chrome","required":true,"binding":"navigation","fallback":"none","editor_mutable":false},
         {"id":"hero","type":"hero","slot":"hero","required":true,"binding":"team.team_photo","fallback":"stable-empty","editor_mutable":true},
         {"id":"team-navigation","type":"local-navigation","slot":"navigation","required":true,"binding":"pattern.anchors","fallback":"none","editor_mutable":false},
+        {"id":"sponsor-ticker","type":"sponsor-ticker","slot":"sponsors","required":true,"anchor":"partner","binding":"sponsors","fallback":"stable-empty","editor_mutable":true},
         {"id":"overview","type":"content","slot":"overview","required":true,"anchor":"uebersicht","binding":"team.summary","fallback":"stable-empty","editor_mutable":true},
-        {"id":"team-photo","type":"team-photo","slot":"team-photo","required":true,"anchor":"teamfoto","binding":"team.team_photo","fallback":"stable-empty","editor_mutable":true},
         {"id":"roster","type":"roster","slot":"roster","required":true,"anchor":"kader","binding":"team.roster","fallback":"stable-empty","editor_mutable":true},
+        {"id":"team-staff","type":"team-staff","slot":"team-staff","required":true,"anchor":"trainer-betreuer","binding":"team.contacts","fallback":"stable-empty","editor_mutable":true},
         {"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"team.news","fallback":"stable-empty","editor_mutable":true},
         {"id":"competition-link","type":"external-action","slot":"sports-action","required":false,"binding":"team.official_competition_url","condition":"verified-deb-online-url-exists","fallback":"omit","editor_mutable":true},
         {"id":"contacts","type":"contacts","slot":"contacts","required":false,"anchor":"kontakte","binding":"team.contacts","fallback":"omit","editor_mutable":true},
@@ -104,23 +106,23 @@
     },
     {
       "id":"skating-school","title":"Eislaufschule","invariants":["global-chrome","single-h1"],
-      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"events","type":"event-list","slot":"events","required":false},{"id":"contacts","type":"contacts","slot":"contacts","required":false},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"events","type":"event-list","slot":"events","required":false},{"id":"contacts","type":"contacts","slot":"contacts","required":false},{"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"page.news","fallback":"stable-empty","editor_mutable":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
     },
     {
       "id":"figure-skating","title":"Eiskunstlauf","invariants":["global-chrome","single-h1"],
-      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"events","type":"event-list","slot":"events","required":false},{"id":"contacts","type":"contacts","slot":"contacts","required":false},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"events","type":"event-list","slot":"events","required":false},{"id":"contacts","type":"contacts","slot":"contacts","required":false},{"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"page.news","fallback":"stable-empty","editor_mutable":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
     },
     {
       "id":"inclusion","title":"Inclusion","invariants":["global-chrome","single-h1","accessible-language-and-structure"],
-      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"contacts","type":"contacts","slot":"contacts","required":true},{"id":"sponsors","type":"sponsor-grid","slot":"supporters","required":false},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"contacts","type":"contacts","slot":"contacts","required":true},{"id":"sponsors","type":"sponsor-grid","slot":"supporters","required":false},{"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"page.news","fallback":"stable-empty","editor_mutable":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
     },
     {
       "id":"club","title":"Verein","invariants":["global-chrome","single-h1"],
-      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"areas","type":"area-cards","slot":"areas","required":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"areas","type":"area-cards","slot":"areas","required":true},{"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"page.news","fallback":"stable-empty","editor_mutable":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
     },
     {
       "id":"youth-index","title":"Nachwuchs","invariants":["global-chrome","single-h1","team-links-covered-by-owml"],
-      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"areas","type":"area-cards","slot":"teams","required":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"areas","type":"area-cards","slot":"teams","required":true},{"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"teams.news","fallback":"stable-empty","editor_mutable":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
     },
     {
       "id":"legal","title":"Legal","invariants":["global-chrome","single-h1","legal-copy-requires-owner-review"],
@@ -132,7 +134,7 @@
     },
     {
       "id":"generic-section","title":"Generic Section","invariants":["global-chrome","single-h1","explicit-pattern-before-structural-change"],
-      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"page.news","fallback":"stable-empty","editor_mutable":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
     }
   ]
 }

@@ -15,7 +15,8 @@
     "info": {"type": ["string", "null"], "default": null}
   },
   "x-photo-presentation": "always render assigned photo or canonical hockey-player placeholder; source remains null when unassigned",
-  "x-placeholder-asset-status": "OPEN: Founder binary/path not yet present in Git",
+  "x-placeholder-asset": "site/src/static/images/placeholders/player.png",
+  "x-placeholder-asset-status": "AVAILABLE",
   "x-rodi-applicability": ["river-rats", "damen", "u13", "u15", "u17", "u20"],
   "x-info-automation": false
 }

@@ -5,7 +5,7 @@
     {
       "id": "river-rats-action",
       "area": "River Rats",
-      "image": "images/hero/hero-01-bewegung.jpeg",
+      "image": "images/hero/river-rats-2025-2026.jpg",
       "headline": "Eishockey. Gemeinschaft. Geretsried.",
       "cta_label": "River Rats",
       "cta_path": "/river-rats/",
@@ -29,15 +29,15 @@
     {
       "id": "nachwuchs",
       "area": "Nachwuchs",
-      "image": "images/teams/u13-team.jpg",
+      "image": "images/hero/u13-2025-2026.jpg",
       "daily_images": [
-        "images/teams/u7-team.jpg",
-        "images/teams/u9-team.jpg",
-        "images/teams/u11-team.jpg",
-        "images/teams/u13-team.jpg",
-        "images/teams/u15-team.jpg",
-        "images/teams/u17-team.jpg",
-        "images/teams/u20-team.jpg"
+        "images/hero/u7-2025-2026.jpg",
+        "images/hero/u9-2025-2026.jpg",
+        "images/hero/u11-2025-2026.jpg",
+        "images/hero/u13-2025-2026.jpg",
+        "images/hero/u15-2025-2026.jpg",
+        "images/hero/u17-2025-2026.jpg",
+        "images/hero/u20-2025-2026.jpg"
       ],
       "headline": "Die Zukunft der River Rats.",
       "cta_label": "Nachwuchs",
@@ -62,7 +62,7 @@
     {
       "id": "eiskunstlauf",
       "area": "Eiskunstlauf",
-      "image": "images/teams/eiskunstlauf.jpeg",
+      "image": "images/hero/eiskunstlauf-2025-2026.jpg",
       "headline": "Bewegung. Präzision. Ausdruck.",
       "cta_label": "Eiskunstlauf",
       "cta_path": "/eiskunstlauf/",

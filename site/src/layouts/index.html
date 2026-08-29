@@ -71,8 +71,7 @@
             <p>{{ .empty_text }}</p>
           {{ end }}
           <div class="area-links">
-            <a href="{{ .area_path | relURL }}">Bereich öffnen</a>
-            {{ with .secondary_area_path }}<a href="{{ . | relURL }}">Inklusion</a>{{ end }}
+            <a href="{{ .news_path | relURL }}">Alle News</a>
           </div>
         </article>
       {{ end }}

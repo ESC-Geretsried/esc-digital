@@ -20,13 +20,13 @@ assert.equal(geretsriedWeekdayIndex(new Date('2026-08-24T12:00:00Z')), 0);
 assert.equal(geretsriedWeekdayIndex(new Date('2026-08-30T12:00:00Z')), 6);
 
 assert.deepEqual(youth.daily_images, [
-  'images/teams/u7-team.jpg',
-  'images/teams/u9-team.jpg',
-  'images/teams/u11-team.jpg',
-  'images/teams/u13-team.jpg',
-  'images/teams/u15-team.jpg',
-  'images/teams/u17-team.jpg',
-  'images/teams/u20-team.jpg'
+  'images/hero/u7-2025-2026.jpg',
+  'images/hero/u9-2025-2026.jpg',
+  'images/hero/u11-2025-2026.jpg',
+  'images/hero/u13-2025-2026.jpg',
+  'images/hero/u15-2025-2026.jpg',
+  'images/hero/u17-2025-2026.jpg',
+  'images/hero/u20-2025-2026.jpg'
 ]);
 for (const image of youth.daily_images) assert.ok(fs.existsSync(path.join(root, image)), `missing approved youth image: ${image}`);
 assert.equal(youth.cta_path, '/nachwuchs/');

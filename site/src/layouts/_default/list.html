@@ -29,6 +29,9 @@
 {{ else if and (eq .Type "team") .Params.team_key }}
   {{ $team := index site.Data.teams .Params.team_key }}
   {{ $externalEligible := in (slice "damen" "u13" "u15" "u17" "u20") .Params.team_key }}
+  {{ $teamStaff := where $team.contacts "role" "in" (slice "Trainer" "Betreuer" "Teamleiter") }}
+  {{ $contactDetails := where $team.contacts "role" "in" (slice "Email" "Telefon") }}
+  {{ $heroImage := $team.hero_image | default $team.team_photo }}
   <header class="founder-team-hero">
     <div class="shell founder-team-hero__grid">
       <div class="founder-team-hero__copy">
@@ -36,26 +39,55 @@
         <h1>{{ $team.title }}</h1>
         <p>Mannschaft, Kader und Kontakte für die Saison {{ $team.season }}.</p>
       </div>
-      <figure class="founder-team-hero__photo"><img src="{{ $team.team_photo | relURL }}" alt="{{ $team.team_photo_alt }}"></figure>
+      <figure class="founder-team-hero__photo"><a class="founder-team-hero__image-link" href="{{ $heroImage | relURL }}" target="_blank" rel="noopener noreferrer" aria-label="Originalbild {{ $team.title }} öffnen"><img src="{{ $heroImage | relURL }}" alt="{{ $team.team_photo_alt }}"></a></figure>
     </div>
   </header>
   <nav class="team-local-nav" aria-label="Bereiche {{ $team.title }}"><div class="shell team-local-nav__inner">
-    <a href="#uebersicht">Übersicht</a><a href="#teamfoto">Teamfoto</a><a href="#kader">Kader</a><a href="#news">News</a><a href="#kontakte">Kontakte</a>
+    <a href="#uebersicht">Übersicht</a><a href="{{ $team.team_photo | relURL }}">Teamfoto</a><a href="#kader">Kader</a><a href="#news">News</a>{{ with $team.official_schedule_url }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">Spieltermine</a>{{ end }}{{ if $externalEligible }}{{ with $team.official_schedule_url }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">DEB Online</a>{{ end }}{{ end }}<a href="#kontakte">Kontakte</a>
   </div></nav>
+  {{ $sponsorData := site.Data.sponsors }}
+  <section class="partners" id="partner" aria-labelledby="partners-title">
+    <div class="shell partners-heading">
+      <h2 id="partners-title">Unsere Partner</h2>
+      <a class="partners-all" href="{{ "/sponsoren/" | relURL }}">Alle Sponsoren <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="partner-band" aria-label="Partner des ESC River Rats Geretsried">
+      <div class="partner-band__track">
+        <div class="partner-band__items">
+          {{ range (sort $sponsorData.sponsors "order") }}{{ if .visible }}
+            {{ $logoURL := (printf "sponsors/assets/%s" (path.Base .logo)) | relURL }}
+            {{ if .url }}
+              <a class="partner-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }} – Partnerwebsite in neuem Tab öffnen"><img src="{{ $logoURL }}" alt="{{ .name }}" loading="lazy"><span>{{ .name }}</span></a>
+            {{ else }}
+              <div class="partner-card partner-card--static" aria-label="{{ .name }}"><img src="{{ $logoURL }}" alt="{{ .name }}" loading="lazy"><span>{{ .name }}</span></div>
+            {{ end }}
+          {{ end }}{{ end }}
+        </div>
+        <div class="partner-band__items" aria-hidden="true">
+          {{ range (sort $sponsorData.sponsors "order") }}{{ if .visible }}
+            {{ $logoURL := (printf "sponsors/assets/%s" (path.Base .logo)) | relURL }}
+            <div class="partner-card partner-card--static"><img src="{{ $logoURL }}" alt="" loading="lazy"><span>{{ .name }}</span></div>
+          {{ end }}{{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="team-section" id="uebersicht"><div class="shell founder-team-overview">
     <p class="eyebrow eyebrow--gold">Übersicht</p><h2>{{ $team.title }}</h2>
     <p>Saison {{ $team.season }} · {{ len $team.roster }} Kaderpositionen</p>
   </div></section>
-  <section class="team-section team-section--soft" id="teamfoto"><div class="shell">
-    <p class="eyebrow eyebrow--gold">Teamfoto</p><h2>{{ $team.title }} {{ $team.season }}</h2>
-    <figure class="team-photo"><img src="{{ $team.team_photo | relURL }}" alt="{{ $team.team_photo_alt }}" loading="lazy"></figure>
-  </div></section>
   <section class="team-section" id="kader"><div class="shell">
     <p class="eyebrow eyebrow--gold">Kader</p><h2>{{ $team.title }} {{ $team.season }}</h2>
     <div class="roster-grid founder-player-grid">
-      {{ range $team.roster }}{{ $player := . }}<article class="player-card"><div class="player-card__image">{{ with .image }}<img src="{{ . | relURL }}" alt="{{ $player.name }}" loading="lazy">{{ else }}<span class="player-card__placeholder" aria-label="Spielerfoto nicht vorhanden">Foto offen</span>{{ end }}</div><div class="player-card__body"><span class="player-card__number">#{{ .number }} · {{ .position_code }}</span><h3>{{ .name }}</h3><div class="player-meta">{{ with .shoots }}<span>Schusshand: {{ . }}</span>{{ end }}{{ if $externalEligible }}{{ with .rodi_url }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">RODI</a>{{ end }}{{ end }}{{ with .info }}<span>{{ . }}</span>{{ end }}</div></div></article>{{ end }}
+      {{ range $team.roster }}{{ $player := . }}{{ $playerImage := partial "player-image.html" . }}<article class="player-card"><div class="player-card__image"><img src="{{ $playerImage }}" alt="{{ $player.name }}" loading="lazy"></div><div class="player-card__body"><span class="player-card__number">#{{ .number }} · {{ .position_code }}</span><h3>{{ .name }}</h3><div class="player-meta">{{ with .shoots }}<span>Schusshand: {{ . }}</span>{{ end }}{{ if $externalEligible }}{{ with .rodi_url }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">RODI</a>{{ end }}{{ end }}{{ with .info }}<span>{{ . }}</span>{{ end }}</div></div></article>{{ end }}
     </div>
     {{ if $externalEligible }}{{ with $team.official_schedule_url }}<p class="team-competition-link"><a class="button button--gold" href="{{ . }}" target="_blank" rel="noopener noreferrer">SPIELPLAN &amp; TABELLE</a></p>{{ end }}{{ end }}
+  </div></section>
+  <section class="team-section team-section--soft" id="trainer-betreuer"><div class="shell">
+    <p class="eyebrow eyebrow--gold">Team</p><h2>Trainer &amp; Betreuer</h2>
+    <div class="founder-contact-grid">
+      {{ range $teamStaff }}<article class="founder-contact-card"><strong>{{ .role }}</strong><span>{{ .value }}</span></article>{{ end }}
+    </div>
   </div></section>
   <section class="team-section team-section--soft" id="news"><div class="shell">
     <p class="eyebrow eyebrow--gold">News</p><h2>Aktuelles von {{ $team.title }}</h2>
@@ -64,7 +96,7 @@
   <section class="team-section team-section--soft" id="kontakte"><div class="shell">
     <p class="eyebrow eyebrow--gold">Kontakte</p><h2>Ansprechpartner {{ $team.title }}</h2>
     <div class="founder-contact-grid">
-      {{ range $team.contacts }}
+      {{ range $contactDetails }}
         <article class="founder-contact-card"><strong>{{ .role }}</strong>
         {{ if eq .role "Email" }}<a href="mailto:{{ .value }}">{{ .value }}</a>
         {{ else if eq .role "Telefon" }}<a href="tel:{{ replaceRE "[^0-9+]" "" .value }}">{{ .value }}</a>

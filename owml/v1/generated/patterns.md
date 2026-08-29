@@ -22,7 +22,7 @@ Assigned pages: 1
 
 
 
-Nodes: header → hero → content → areas → footer
+Nodes: header → hero → content → areas → news → footer
 
 Assigned pages: 1
 
@@ -54,7 +54,7 @@ Assigned pages: 0
 
 
 
-Nodes: header → hero → content → events → contacts → footer
+Nodes: header → hero → content → events → contacts → news → footer
 
 Assigned pages: 1
 
@@ -62,9 +62,9 @@ Assigned pages: 1
 
 
 
-Nodes: header → hero → content → footer
+Nodes: header → hero → content → news → footer
 
-Assigned pages: 0
+Assigned pages: 1
 
 ## Homepage (`homepage`)
 
@@ -78,7 +78,7 @@ Assigned pages: 1
 
 
 
-Nodes: header → hero → content → contacts → sponsors → footer
+Nodes: header → hero → content → contacts → sponsors → news → footer
 
 Assigned pages: 1
 
@@ -118,7 +118,7 @@ Assigned pages: 1
 
 
 
-Nodes: header → hero → content → events → contacts → footer
+Nodes: header → hero → content → events → contacts → news → footer
 
 Assigned pages: 1
 
@@ -134,7 +134,7 @@ Assigned pages: 1
 
 Separate current youth pattern; standings is disabled for U7/U9/U11.
 
-Nodes: header → hero → team-navigation → overview → team-photo → roster → news → schedule → standings → results → contacts → footer
+Nodes: header → hero → team-navigation → sponsor-ticker → overview → roster → team-staff → news → schedule → standings → results → contacts → footer
 
 Assigned pages: 3
 
@@ -142,7 +142,7 @@ Assigned pages: 3
 
 No internal sports presentation; one optional external DEB.ONLINE action.
 
-Nodes: header → hero → team-navigation → overview → team-photo → roster → news → competition-link → contacts → footer
+Nodes: header → hero → team-navigation → sponsor-ticker → overview → roster → team-staff → news → competition-link → contacts → footer
 
 Assigned pages: 5
 
@@ -158,6 +158,6 @@ Assigned pages: 2
 
 
 
-Nodes: header → hero → content → areas → footer
+Nodes: header → hero → content → areas → news → footer
 
 Assigned pages: 1

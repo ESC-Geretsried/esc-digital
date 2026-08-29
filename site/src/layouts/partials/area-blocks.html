@@ -67,3 +67,33 @@
   </section>
   {{ end }}
 {{ end }}
+
+{{ $areaID := .Section }}
+{{ if eq $areaID "river-rats-damen" }}{{ $areaID = "damen" }}{{ end }}
+{{ $homeNews := where site.Data.home.news_groups "id" $areaID }}
+{{ $newsItems := slice }}
+{{ $emptyText := "Noch keine freigegebenen Meldungen." }}
+{{ range first 1 $homeNews }}
+  {{ $newsItems = .items | default slice }}
+  {{ $emptyText = .empty_text | default $emptyText }}
+  {{ range .team_keys }}
+    {{ with index site.Data.teams . }}
+      {{ range .news }}{{ $newsItems = $newsItems | append . }}{{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+<section class="home-section home-section--soft" id="news" aria-labelledby="area-news-title">
+  <div class="shell">
+    <p class="eyebrow eyebrow--gold">News</p>
+    <div class="section-heading"><h2 id="area-news-title">Aktuelles von {{ $.Title }}</h2></div>
+    {{ if $newsItems }}
+      <div class="news-grid">
+        {{ range $newsItems }}
+        <article class="team-news-card"><h3>{{ .title }}</h3>{{ with .path }}<a href="{{ . | relURL }}">Weiterlesen →</a>{{ end }}</article>
+        {{ end }}
+      </div>
+    {{ else }}
+      <p>{{ $emptyText }}</p>
+    {{ end }}
+  </div>
+</section>

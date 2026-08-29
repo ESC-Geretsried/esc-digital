@@ -1,6 +1,9 @@
 import importlib.util
+from datetime import datetime
+import os
 from pathlib import Path
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "owml.py"
@@ -22,9 +25,16 @@ class OWMLTests(unittest.TestCase):
 
     def test_team_sports_variants_are_fail_closed(self):
         _, patterns, pages, _ = OWML.validate()
+        self.assertIn("hero-original-image-link-hover", patterns["team-page"]["invariants"])
+        self.assertIn("verified-schedule-and-deb-navigation", patterns["team-page-external-competition"]["invariants"])
         for route in OWML.NO_STANDINGS:
             self.assertNotIn("standings", [node["id"] for node in OWML.expanded_nodes(patterns, pages[route])])
         u15_nodes = [node["id"] for node in OWML.expanded_nodes(patterns, pages["/u15/"])]
+        self.assertEqual(
+            u15_nodes,
+            ["header", "hero", "team-navigation", "sponsor-ticker", "overview", "roster",
+             "team-staff", "news", "competition-link", "contacts", "footer"],
+        )
         self.assertIn("competition-link", u15_nodes)
         self.assertTrue({"schedule", "standings", "results"}.isdisjoint(u15_nodes))
         river_rats_nodes = [node["id"] for node in OWML.expanded_nodes(patterns, pages["/river-rats/"])]
@@ -47,6 +57,24 @@ class OWMLTests(unittest.TestCase):
 
     def test_generated_artifacts_match(self):
         OWML.generate(check=True)
+
+    def test_canonical_player_placeholder_is_available(self):
+        placeholder = ROOT / "site/src/static/images/placeholders/player.png"
+        resolver = (ROOT / "site/src/layouts/partials/player-image.html").read_text(encoding="utf-8")
+        self.assertTrue(placeholder.is_file())
+        self.assertIn("images/placeholders/player.png", resolver)
+
+    def test_news_retention_uses_binding_policy_timezone(self):
+        class FrozenDateTime:
+            @classmethod
+            def now(cls, timezone):
+                self.assertEqual(timezone.key, "Europe/Berlin")
+                return datetime(2026, 8, 29, 1, 30, tzinfo=timezone)
+
+        with patch.object(OWML, "datetime", FrozenDateTime), patch.dict(
+            os.environ, {"OWML_AS_OF_DATE": "", "NEWS_RETENTION_AS_OF": ""}
+        ):
+            self.assertFalse(OWML.article_retained("/aktuelles/2025-08-29-test/"))
 
 
 if __name__ == "__main__":
