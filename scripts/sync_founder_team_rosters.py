@@ -28,6 +28,10 @@ TEAM_KEYS = {
     "U9": ("u9", "u9", "/u9/", "images/teams/u9-team.jpg"),
     "U7": ("u7", "u7", "/u7/", "images/teams/u7-team.jpg"),
 }
+TEAM_HERO_IMAGES = {
+    team_key: f"images/hero/{team_key}-2025-2026.jpg"
+    for team_key in ("u20", "u17", "u15", "u13", "u11", "u9", "u7")
+}
 SOURCE_REFERENCE = "docs/content-migration/founder-team-rosters-2025-2026.md"
 SOURCE_DATE = "2026-08-26"
 SOURCE_TIMESTAMP = "2026-08-26T00:00:00Z"
@@ -96,6 +100,7 @@ def parse_source() -> list[dict]:
             "title": title,
             "season": "2025/2026",
             "public_path": public_path,
+            **({"hero_image": TEAM_HERO_IMAGES[team_key]} if team_key in TEAM_HERO_IMAGES else {}),
             "team_photo": photo,
             "team_photo_alt": f"Teamfoto {title} Saison 2025/2026",
             "contact_source_text": lines[0],

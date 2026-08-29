@@ -85,18 +85,18 @@ for slide in active:
             raise SystemExit(f"ERROR: hero {slide.get('id', '<unknown>')} missing {key}")
 
 expected_heroes = {
-    "river-rats-action": ("Eishockey. Gemeinschaft. Geretsried.", "/river-rats/", "images/hero/hero-01-bewegung.jpeg"),
+    "river-rats-action": ("Eishockey. Gemeinschaft. Geretsried.", "/river-rats/", "images/hero/river-rats-2025-2026.jpg"),
     "damen": ("Gemeinsam auf dem Eis.", "/river-rats-damen/", "images/teams/damen-team.jpg"),
-    "nachwuchs": ("Die Zukunft der River Rats.", "/nachwuchs/", "images/teams/u13-team.jpg"),
+    "nachwuchs": ("Die Zukunft der River Rats.", "/nachwuchs/", "images/hero/u13-2025-2026.jpg"),
     "eislaufschule": ("Die ersten Schritte auf dem Eis.", "/eislaufschule/", "images/teams/eislaufschule-2025-2026.png"),
-    "eiskunstlauf": ("Bewegung. Präzision. Ausdruck.", "/eiskunstlauf/", "images/teams/eiskunstlauf.jpeg"),
+    "eiskunstlauf": ("Bewegung. Präzision. Ausdruck.", "/eiskunstlauf/", "images/hero/eiskunstlauf-2025-2026.jpg"),
     "inklusion": ("Gemeinsam Sport erleben.", "/inklusion/", "images/teams/inklusion.jpg"),
 }
 actual_heroes = {slide["id"]: (slide["headline"], slide["cta_path"], slide["image"]) for slide in active}
 if actual_heroes != expected_heroes:
     raise SystemExit("ERROR: Founder-confirmed six-slide Homepage mapping drift")
 youth = next(slide for slide in active if slide["id"] == "nachwuchs")
-if youth.get("daily_images") != [f"images/teams/{team}-team.jpg" for team in ("u7", "u9", "u11", "u13", "u15", "u17", "u20")]:
+if youth.get("daily_images") != [f"images/hero/{team}-2025-2026.jpg" for team in ("u7", "u9", "u11", "u13", "u15", "u17", "u20")]:
     raise SystemExit("ERROR: Monday-Sunday youth hero image mapping drift")
 if "daily_paths" in youth or youth.get("cta_path") != "/nachwuchs/":
     raise SystemExit("ERROR: youth hero may rotate only its image; its target must stay /nachwuchs/")

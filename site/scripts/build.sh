@@ -60,7 +60,7 @@ rm -f "$SITE/public/river-rats/hockeydata.json" "$SITE/public/river-rats/team.js
 # esc-int or Netlify remains after the one-time import.
 mkdir -p "$SITE/public/images/hero" "$SITE/public/images/teams" "$SITE/public/images/inklusion" "$SITE/public/images/people/river-rats/staff" "$SITE/public/images/people/river-rats/players" "$SITE/public/images/people/vereinsfuehrung"
 cp "$ROOT/images/river-rats-logo.png" "$SITE/public/images/river-rats-logo.png"
-cp "$ROOT"/images/hero/*.jpeg "$SITE/public/images/hero/"
+cp "$ROOT"/images/hero/* "$SITE/public/images/hero/"
 cp "$ROOT"/images/teams/* "$SITE/public/images/teams/"
 cp "$ROOT"/images/inklusion/*.png "$SITE/public/images/inklusion/"
 cp "$ROOT"/content/river-rats/assets/staff/*.jpg "$SITE/public/images/people/river-rats/staff/"
@@ -106,6 +106,9 @@ for path in river-rats-damen u20 u17 u15 u13 u11 u9 u7; do test -f "$SITE/public
 test -f "$SITE/public/verein/vereinsfuehrung/index.html"
 test -f "$SITE/public/images/river-rats-logo.png"
 test -f "$SITE/public/images/hero/hero-01-bewegung.jpeg"
+test -f "$SITE/public/images/hero/river-rats-2025-2026.jpg"
+test -f "$SITE/public/images/hero/eiskunstlauf-2025-2026.jpg"
+test -f "$SITE/public/images/placeholders/player.png"
 test -f "$SITE/public/images/people/river-rats/staff/thomas-gams.jpg"
 test -f "$SITE/public/images/people/river-rats/players/korbinian-sertl.jpg"
 test -f "$SITE/public/images/inklusion/d-wagner-immobilien.png"

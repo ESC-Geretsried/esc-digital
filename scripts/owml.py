@@ -167,7 +167,7 @@ def validate_homepage_content_contract(patterns: dict) -> None:
 
     heroes = read_json(ROOT / "content" / "home" / "heroes.json")
     youth = next((slide for slide in heroes.get("slides", []) if slide.get("id") == "nachwuchs"), None)
-    expected_images = [f"images/teams/{team}-team.jpg" for team in ("u7", "u9", "u11", "u13", "u15", "u17", "u20")]
+    expected_images = [f"images/hero/{team}-2025-2026.jpg" for team in ("u7", "u9", "u11", "u13", "u15", "u17", "u20")]
     if not youth or youth.get("daily_images") != expected_images:
         raise OWMLFailure("homepage youth hero Monday-Sunday image contract drift")
     if youth.get("cta_path") != "/nachwuchs/" or "daily_paths" in youth:
@@ -204,8 +204,11 @@ def validate() -> tuple[dict, dict, dict, dict]:
         raise OWMLFailure("common Player position enum drift")
     if player_schema.get("x-info-automation") is not False:
         raise OWMLFailure("common Player info must not be automatically calculated")
-    if player_schema.get("x-placeholder-asset-status") != "OPEN: Founder binary/path not yet present in Git":
-        raise OWMLFailure("Player placeholder OPEN boundary drift")
+    placeholder_path = player_schema.get("x-placeholder-asset")
+    if player_schema.get("x-placeholder-asset-status") != "AVAILABLE":
+        raise OWMLFailure("Player placeholder availability boundary drift")
+    if placeholder_path != "site/src/static/images/placeholders/player.png" or not (ROOT / placeholder_path).is_file():
+        raise OWMLFailure("canonical Player placeholder asset missing or drifted")
     exact_object(patterns_doc, required={"owml_version", "tenant", "patterns"}, allowed={"owml_version", "tenant", "patterns"}, context="patterns document")
     exact_object(pages_doc, required={"owml_version", "tenant", "pages"}, allowed={"owml_version", "tenant", "pages"}, context="pages document")
     if patterns_doc.get("tenant") != "esc" or pages_doc.get("tenant") != "esc":

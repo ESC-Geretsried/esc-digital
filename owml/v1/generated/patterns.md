@@ -134,7 +134,7 @@ Assigned pages: 1
 
 Separate current youth pattern; standings is disabled for U7/U9/U11.
 
-Nodes: header → hero → team-navigation → overview → team-photo → roster → news → schedule → standings → results → contacts → footer
+Nodes: header → hero → team-navigation → sponsor-ticker → overview → roster → team-staff → news → schedule → standings → results → contacts → footer
 
 Assigned pages: 3
 
@@ -142,7 +142,7 @@ Assigned pages: 3
 
 No internal sports presentation; one optional external DEB.ONLINE action.
 
-Nodes: header → hero → team-navigation → overview → team-photo → roster → news → competition-link → contacts → footer
+Nodes: header → hero → team-navigation → sponsor-ticker → overview → roster → team-staff → news → competition-link → contacts → footer
 
 Assigned pages: 5
 

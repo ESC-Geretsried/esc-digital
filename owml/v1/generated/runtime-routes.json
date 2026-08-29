@@ -469,9 +469,10 @@
     },
     "/river-rats-damen/": {
       "anchors": [
+        "partner",
         "uebersicht",
-        "teamfoto",
         "kader",
+        "trainer-betreuer",
         "news",
         "kontakte"
       ],
@@ -480,9 +481,10 @@
         "header",
         "hero",
         "team-navigation",
+        "sponsor-ticker",
         "overview",
-        "team-photo",
         "roster",
+        "team-staff",
         "news",
         "competition-link",
         "contacts",
@@ -567,9 +569,10 @@
     },
     "/u11/": {
       "anchors": [
+        "partner",
         "uebersicht",
-        "teamfoto",
         "kader",
+        "trainer-betreuer",
         "news",
         "kontakte"
       ],
@@ -578,9 +581,10 @@
         "header",
         "hero",
         "team-navigation",
+        "sponsor-ticker",
         "overview",
-        "team-photo",
         "roster",
+        "team-staff",
         "news",
         "contacts",
         "footer"
@@ -590,9 +594,10 @@
     },
     "/u13/": {
       "anchors": [
+        "partner",
         "uebersicht",
-        "teamfoto",
         "kader",
+        "trainer-betreuer",
         "news",
         "kontakte"
       ],
@@ -601,9 +606,10 @@
         "header",
         "hero",
         "team-navigation",
+        "sponsor-ticker",
         "overview",
-        "team-photo",
         "roster",
+        "team-staff",
         "news",
         "competition-link",
         "contacts",
@@ -614,9 +620,10 @@
     },
     "/u15/": {
       "anchors": [
+        "partner",
         "uebersicht",
-        "teamfoto",
         "kader",
+        "trainer-betreuer",
         "news",
         "kontakte"
       ],
@@ -625,9 +632,10 @@
         "header",
         "hero",
         "team-navigation",
+        "sponsor-ticker",
         "overview",
-        "team-photo",
         "roster",
+        "team-staff",
         "news",
         "competition-link",
         "contacts",
@@ -638,9 +646,10 @@
     },
     "/u17/": {
       "anchors": [
+        "partner",
         "uebersicht",
-        "teamfoto",
         "kader",
+        "trainer-betreuer",
         "news",
         "kontakte"
       ],
@@ -649,9 +658,10 @@
         "header",
         "hero",
         "team-navigation",
+        "sponsor-ticker",
         "overview",
-        "team-photo",
         "roster",
+        "team-staff",
         "news",
         "competition-link",
         "contacts",
@@ -662,9 +672,10 @@
     },
     "/u20/": {
       "anchors": [
+        "partner",
         "uebersicht",
-        "teamfoto",
         "kader",
+        "trainer-betreuer",
         "news",
         "kontakte"
       ],
@@ -673,9 +684,10 @@
         "header",
         "hero",
         "team-navigation",
+        "sponsor-ticker",
         "overview",
-        "team-photo",
         "roster",
+        "team-staff",
         "news",
         "competition-link",
         "contacts",
@@ -686,9 +698,10 @@
     },
     "/u7/": {
       "anchors": [
+        "partner",
         "uebersicht",
-        "teamfoto",
         "kader",
+        "trainer-betreuer",
         "news",
         "kontakte"
       ],
@@ -697,9 +710,10 @@
         "header",
         "hero",
         "team-navigation",
+        "sponsor-ticker",
         "overview",
-        "team-photo",
         "roster",
+        "team-staff",
         "news",
         "contacts",
         "footer"
@@ -709,9 +723,10 @@
     },
     "/u9/": {
       "anchors": [
+        "partner",
         "uebersicht",
-        "teamfoto",
         "kader",
+        "trainer-betreuer",
         "news",
         "kontakte"
       ],
@@ -720,9 +735,10 @@
         "header",
         "hero",
         "team-navigation",
+        "sponsor-ticker",
         "overview",
-        "team-photo",
         "roster",
+        "team-staff",
         "news",
         "contacts",
         "footer"

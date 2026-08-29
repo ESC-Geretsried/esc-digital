@@ -23,6 +23,8 @@ python3 "$ROOT/site/scripts/test_news_retention.py"
 grep -qi '<!doctype html>' "$INDEX"
 require_text "$INDEX" 'Eishockey\. Gemeinschaft\. Geretsried\.'
 require_text "$INDEX" 'data-hero-source'
+require_text "$INDEX" 'images/hero/river-rats-2025-2026\.jpg'
+require_text "$INDEX" 'images/hero/eiskunstlauf-2025-2026\.jpg'
 require_text "$INDEX" 'images/teams/eislaufschule-2025-2026.png'
 require_text "$INDEX" 'images/teams/inklusion.jpg'
 require_text "$INDEX" 'noindex,nofollow,noarchive'
@@ -47,7 +49,40 @@ require_text "$INDEX" 'team-page\.min\.'
 test "$(find "$OUT/images/teams" -maxdepth 1 -type f | wc -l)" -eq 11 || { echo 'ERROR: expected 11 published team assets' >&2; exit 2; }
 test "$(find "$OUT/images/people/river-rats/players" -maxdepth 1 -type f | wc -l)" -eq 11 || { echo 'ERROR: expected 11 published player photos' >&2; exit 2; }
 test "$(find "$OUT/images/people/river-rats/staff" -maxdepth 1 -type f | wc -l)" -eq 9 || { echo 'ERROR: expected 9 published River Rats staff photos' >&2; exit 2; }
+require_file "$OUT/images/placeholders/player.png"
+require_text "$OUT/river-rats/index.html" 'images/placeholders/player\.png'
+for path in u20 u17 u15 u13 u11 u9 u7; do require_text "$OUT/$path/index.html" "images/hero/$path-2025-2026\\.jpg"; done
+require_text "$OUT/river-rats-damen/index.html" 'images/teams/damen-team\.jpg'
+if grep -q 'images/hero/damen-' "$OUT/river-rats-damen/index.html"; then
+  echo 'ERROR: Damen hero source must remain unchanged' >&2
+  exit 2
+fi
 for path in sponsoren river-rats river-rats-damen nachwuchs eislaufschule eiskunstlauf inklusion verein verein/vereinsfuehrung foerderverein verein/foerderverein mithelfen impressum datenschutz; do require_file "$OUT/$path/index.html"; done
+python3 - "$OUT/u15/index.html" <<'PY'
+import sys
+from pathlib import Path
+
+html = Path(sys.argv[1]).read_text(encoding="utf-8")
+markers = (
+    "team-local-nav", 'id=partner', 'id=uebersicht', 'id=kader',
+    'id=trainer-betreuer', 'id=news', 'id=kontakte', "site-footer",
+)
+positions = [html.find(marker) for marker in markers]
+if any(position < 0 for position in positions) or positions != sorted(positions):
+    raise SystemExit(f"ERROR: U15 Founder Blueprint order drift: {dict(zip(markers, positions))}")
+if 'id=teamfoto' in html:
+    raise SystemExit("ERROR: U15 standalone team-photo section remains")
+if 'href=/images/teams/u15-team.jpg>Teamfoto</a>' not in html:
+    raise SystemExit("ERROR: U15 Teamfoto navigation does not open the original image")
+staff = html[html.index('id=trainer-betreuer'):html.index('id=news')]
+if not all(value in staff for value in ("Trainer", "Michael Goldschmidt, Andreas Herrmann", "Teamleiter", "Anna und Ronny Wolf, Sven Leinen")):
+    raise SystemExit("ERROR: U15 Trainer & Betreuer projection differs from existing contact data")
+contact = html[html.index('id=kontakte'):html.index("site-footer")]
+if "mailto:team.u15@esc-geretsried.de" not in contact or "tel:081716399020" not in contact:
+    raise SystemExit("ERROR: U15 contact projection drift")
+if "Michael Goldschmidt" in contact or "Anna und Ronny Wolf" in contact:
+    raise SystemExit("ERROR: U15 team staff remains duplicated in Contact")
+PY
 require_text "$OUT/aktuelles/2026-08-04-river-rats-defensive-verlaengerungen/index.html" 'Doppelpack für die Defensive'
 require_text "$OUT/sponsoren/index.html" 'Ansprechpartner Sponsoring'
 require_text "$OUT/verein/vereinsfuehrung/index.html" 'Thomas Gania'

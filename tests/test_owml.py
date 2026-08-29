@@ -28,6 +28,11 @@ class OWMLTests(unittest.TestCase):
         for route in OWML.NO_STANDINGS:
             self.assertNotIn("standings", [node["id"] for node in OWML.expanded_nodes(patterns, pages[route])])
         u15_nodes = [node["id"] for node in OWML.expanded_nodes(patterns, pages["/u15/"])]
+        self.assertEqual(
+            u15_nodes,
+            ["header", "hero", "team-navigation", "sponsor-ticker", "overview", "roster",
+             "team-staff", "news", "competition-link", "contacts", "footer"],
+        )
         self.assertIn("competition-link", u15_nodes)
         self.assertTrue({"schedule", "standings", "results"}.isdisjoint(u15_nodes))
         river_rats_nodes = [node["id"] for node in OWML.expanded_nodes(patterns, pages["/river-rats/"])]
@@ -50,6 +55,12 @@ class OWMLTests(unittest.TestCase):
 
     def test_generated_artifacts_match(self):
         OWML.generate(check=True)
+
+    def test_canonical_player_placeholder_is_available(self):
+        placeholder = ROOT / "site/src/static/images/placeholders/player.png"
+        resolver = (ROOT / "site/src/layouts/partials/player-image.html").read_text(encoding="utf-8")
+        self.assertTrue(placeholder.is_file())
+        self.assertIn("images/placeholders/player.png", resolver)
 
     def test_news_retention_uses_binding_policy_timezone(self):
         class FrozenDateTime:
