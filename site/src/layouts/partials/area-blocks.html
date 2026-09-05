@@ -67,3 +67,27 @@
   </section>
   {{ end }}
 {{ end }}
+
+{{ if .Params.show_news }}
+{{ $newsItems := slice }}
+{{ $emptyText := "Noch keine freigegebenen Meldungen." }}
+{{ range first 1 (where site.Data.home.news_groups "id" .Params.news_group) }}
+  {{ $newsItems = .items }}
+  {{ with .empty_text }}{{ $emptyText = . }}{{ end }}
+{{ end }}
+<section class="home-section home-section--soft" id="news" aria-labelledby="area-news-title">
+  <div class="shell">
+    <p class="eyebrow eyebrow--gold">News</p>
+    <div class="section-heading"><h2 id="area-news-title">Aktuelle Meldungen</h2></div>
+    {{ if $newsItems }}
+      <div class="news-grid">
+        {{ range $newsItems }}
+          <article class="team-news-card"><h3>{{ .title }}</h3><a href="{{ .path | relURL }}">Weiterlesen →</a></article>
+        {{ end }}
+      </div>
+    {{ else }}
+      <p>{{ $emptyText }}</p>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

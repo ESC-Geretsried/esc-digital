@@ -104,23 +104,23 @@
     },
     {
       "id":"skating-school","title":"Eislaufschule","invariants":["global-chrome","single-h1"],
-      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"events","type":"event-list","slot":"events","required":false},{"id":"contacts","type":"contacts","slot":"contacts","required":false},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"events","type":"event-list","slot":"events","required":false},{"id":"contacts","type":"contacts","slot":"contacts","required":false},{"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"home.news_groups","fallback":"stable-empty","editor_mutable":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
     },
     {
       "id":"figure-skating","title":"Eiskunstlauf","invariants":["global-chrome","single-h1"],
-      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"events","type":"event-list","slot":"events","required":false},{"id":"contacts","type":"contacts","slot":"contacts","required":false},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"events","type":"event-list","slot":"events","required":false},{"id":"contacts","type":"contacts","slot":"contacts","required":false},{"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"home.news_groups","fallback":"stable-empty","editor_mutable":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
     },
     {
       "id":"inclusion","title":"Inclusion","invariants":["global-chrome","single-h1","accessible-language-and-structure"],
-      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"contacts","type":"contacts","slot":"contacts","required":true},{"id":"sponsors","type":"sponsor-grid","slot":"supporters","required":false},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"contacts","type":"contacts","slot":"contacts","required":true},{"id":"sponsors","type":"sponsor-grid","slot":"supporters","required":false},{"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"home.news_groups","fallback":"stable-empty","editor_mutable":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
     },
     {
       "id":"club","title":"Verein","invariants":["global-chrome","single-h1"],
-      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"areas","type":"area-cards","slot":"areas","required":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"areas","type":"area-cards","slot":"areas","required":true},{"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"home.news_groups","fallback":"stable-empty","editor_mutable":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
     },
     {
       "id":"youth-index","title":"Nachwuchs","invariants":["global-chrome","single-h1","team-links-covered-by-owml"],
-      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"areas","type":"area-cards","slot":"teams","required":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
+      "nodes":[{"id":"header","type":"site-header","slot":"chrome","required":true},{"id":"hero","type":"hero","slot":"hero","required":true},{"id":"content","type":"content","slot":"content","required":true},{"id":"areas","type":"area-cards","slot":"teams","required":true},{"id":"news","type":"news-feed","slot":"news","required":true,"anchor":"news","binding":"home.news_groups","fallback":"stable-empty","editor_mutable":true},{"id":"footer","type":"site-footer","slot":"chrome","required":true}]
     },
     {
       "id":"legal","title":"Legal","invariants":["global-chrome","single-h1","legal-copy-requires-owner-review"],

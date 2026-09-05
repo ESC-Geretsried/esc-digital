@@ -52,17 +52,20 @@ def filter_home(path: Path, today: date, months: int) -> int:
     data = json.loads(path.read_text(encoding="utf-8"))
     removed = 0
     for group in data.get("news_groups", []):
-        kept = []
-        for item in group.get("items", []):
-            published = publication_from_path(item.get("path", ""))
-            if published is None:
-                raise SystemExit(f"ERROR: homepage news path lacks publication date: {item.get('path')}")
-            if today >= expiry_for(published, months):
-                removed += 1
-            else:
-                kept.append(item)
-        group["items"] = kept
-        if not kept and not group.get("empty_text"):
+        for field in ("items", "homepage_items"):
+            if field not in group:
+                continue
+            kept = []
+            for item in group[field]:
+                published = publication_from_path(item.get("path", ""))
+                if published is None:
+                    raise SystemExit(f"ERROR: homepage news path lacks publication date: {item.get('path')}")
+                if today >= expiry_for(published, months):
+                    removed += 1
+                else:
+                    kept.append(item)
+            group[field] = kept
+        if not group.get("items") and not group.get("empty_text"):
             group["empty_text"] = "Noch keine Meldungen innerhalb der öffentlichen 12-Monats-Ausgabe."
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return removed

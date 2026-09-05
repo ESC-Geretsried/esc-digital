@@ -3,6 +3,8 @@ title: "Inklusionssport"
 description: "Inklusionsangebote des ESC River Rats Geretsried."
 content_status: "draft"
 source_status: "to_migrate"
+show_news: true
+news_group: "inklusion"
 ---
 
 ## Kontakt

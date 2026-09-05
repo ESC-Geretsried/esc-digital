@@ -32,7 +32,7 @@ require_text "$INDEX" 'Doppelpack für die Defensive'
 require_text "$INDEX" 'U20 gegen SG Bad Aibling/Inzell'
 require_text "$INDEX" 'Nächste Termine'
 require_text "$INDEX" 'Werde Teil der River Rats'
-require_text "$INDEX" 'Mitmachen im Ehrenamt'
+require_text "$INDEX" 'Mithelfen'
 require_text "$INDEX" 'team-page\.min\.'
 
 (
@@ -88,12 +88,16 @@ for sponsor in sponsors:
     if not (public_assets / Path(logo).name).is_file():
         raise SystemExit(f"ERROR: published logo missing: {sponsor['id']}")
 
-if len(home.get('news_groups', [])) != 5:
-    raise SystemExit('ERROR: expected five esc-int homepage news groups')
+if len(home.get('news_groups', [])) != 6:
+    raise SystemExit('ERROR: expected six Founder-confirmed homepage news groups')
 if len(home.get('events', [])) != 3:
     raise SystemExit('ERROR: expected three esc-int event placeholders')
 if len(home.get('community', [])) != 4:
     raise SystemExit('ERROR: expected four esc-int community actions')
+if [(item.get('title'), item.get('path')) for item in home.get('community', [])[:2]] != [('Mitglied werden', '/mitgliedschaft/'), ('Mithelfen', '/mithelfen/')]:
+    raise SystemExit('ERROR: Founder-confirmed community routes drift')
+if len(home.get('social_media', [])) != 4:
+    raise SystemExit('ERROR: expected four Social & Media footer links')
 if home.get('source', {}).get('repository') != 'open-reference-platform/esc-int':
     raise SystemExit('ERROR: homepage provenance missing esc-int source')
 if len(page_manifest.get('pages', [])) < 20:

@@ -3,6 +3,8 @@ title: "Nachwuchs"
 description: "Nachwuchsbereich des ESC River Rats Geretsried."
 content_status: "draft"
 source_status: "verified_seed"
+show_news: true
+news_group: "nachwuchs"
 ---
 
 Der Nachwuchsbereich bündelt die Mannschaften U20 bis U7.

@@ -240,6 +240,13 @@
       "source": "content/mitgliedschaft/_index.md"
     },
     {
+      "id": "esc.mithelfen",
+      "pattern": "generic-section",
+      "publication": "active",
+      "route": "/mithelfen/",
+      "source": "content/mithelfen/_index.md"
+    },
+    {
       "id": "esc.nachwuchs",
       "pattern": "youth-index",
       "publication": "active",
