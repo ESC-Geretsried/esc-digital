@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "team_id": "river-rats",
+  "verified_at": "2026-08-26",
+  "source_page": "https://www.esc-geretsried.de/river-rats/mannschaft/",
+  "photos": [
+    {"name":"Korbinian Sertl","asset":"content/river-rats/assets/players/korbinian-sertl.jpg","public_path":"images/people/river-rats/players/korbinian-sertl.jpg","sha256":"c71793ab2cd45458938d78c88f5bc6e97032a89207c55bfa12c63c8835b5fbaa","source_image":"https://www.esc-geretsried.de/static/641714204ffa478f05d023a4078dbf4c/f836f/1938-1.jpg"},
+    {"name":"Maximilian Freytag","asset":"content/river-rats/assets/players/maximilian-freytag.jpg","public_path":"images/people/river-rats/players/maximilian-freytag.jpg","sha256":"848d5ac3277aa8f010c3dfb4bd0f8deed0c0b8a769839b5650fe5f3937101260","source_image":"https://www.esc-geretsried.de/static/122b21b8813dbce6c5b2a15a8d65dd14/f836f/1950-1.jpg"},
+    {"name":"Kilian Mühlpointner","asset":"content/river-rats/assets/players/kilian-muehlpointner.jpg","public_path":"images/people/river-rats/players/kilian-muehlpointner.jpg","sha256":"fec6fc75c3d15db988b651848af42b1721b8566ed731959436261167c7f482b7","source_image":"https://www.esc-geretsried.de/static/69c2a61d99473ebdf00e2083e606c038/f836f/1953-Muehlpointner.jpg"},
+    {"name":"Martin Sanner","asset":"content/river-rats/assets/players/martin-sanner.jpg","public_path":"images/people/river-rats/players/martin-sanner.jpg","sha256":"6a739d907fac83555bd0e04080c72ee3d881ff4ee35bb880034514f779bab95c","source_image":"https://www.esc-geretsried.de/static/2d1b7f76f903fb93c58c3e49ea6c6976/f836f/2007.jpg"},
+    {"name":"Stephan Englbrecht","asset":"content/river-rats/assets/players/stephan-englbrecht.jpg","public_path":"images/people/river-rats/players/stephan-englbrecht.jpg","sha256":"d48c86d84fba725b0c88c797568f30c669c3a7a7a4bd1d6e3c063d66ae399137","source_image":"https://www.esc-geretsried.de/static/c30a3f3bb326241c2f5a521f8ba8e977/f836f/1918-1.jpg"},
+    {"name":"Moritz Schug","asset":"content/river-rats/assets/players/moritz-schug.jpg","public_path":"images/people/river-rats/players/moritz-schug.jpg","sha256":"9aa4fe2e0aad0485c3ff896dcb6eb6c4474505b6ddce5656ab78c4a1c5a8e340","source_image":"https://www.esc-geretsried.de/static/150c7b8588ee203f757ecf8510f305d0/f836f/1954.jpg"},
+    {"name":"Dominik Soukup","asset":"content/river-rats/assets/players/dominik-soukup.jpg","public_path":"images/people/river-rats/players/dominik-soukup.jpg","sha256":"78bb2e29e0825e4c83345fd98722c9e4884b7e843a2d69df16d5989a04e487c6","source_image":"https://www.esc-geretsried.de/static/9aaf4899d5621682fdf73783d86ccfc0/f836f/1946-1.jpg"},
+    {"name":"Max Hüsken","asset":"content/river-rats/assets/players/max-huesken.jpg","public_path":"images/people/river-rats/players/max-huesken.jpg","sha256":"3945d763f18c9facef1c909802424f39f779512d1e4b691008d3f116c8e54c86","source_image":"https://www.esc-geretsried.de/static/1fc6fd2238d812c70c402ec9371d7d25/f836f/1930.jpg"},
+    {"name":"Ondřej Horváth","asset":"content/river-rats/assets/players/ondrej-horvath.jpg","public_path":"images/people/river-rats/players/ondrej-horvath.jpg","sha256":"c97b2667b1b97425ed39409a0b9cd3ca15a950dce289e0116d3acaf00fc42c43","source_image":"https://www.esc-geretsried.de/static/08799f67a6ef4186323d255d62d73c31/f836f/1962.jpg"},
+    {"name":"Luis Huber","asset":"content/river-rats/assets/players/luis-huber.jpg","public_path":"images/people/river-rats/players/luis-huber.jpg","sha256":"f536fad6c7b8038be39e000b4e006e3a2418d7e7a3bfdced6f1492de8c151e61","source_image":"https://www.esc-geretsried.de/static/2695e8b9269f59ab6702f86b55c88cac/f836f/1987.jpg"},
+    {"name":"Oliver Ott","asset":"content/river-rats/assets/players/oliver-ott.jpg","public_path":"images/people/river-rats/players/oliver-ott.jpg","sha256":"6ae62eea3ca67c9ff2982ebd11045e95736d27146545b865d5f78e9959747457","source_image":"https://www.esc-geretsried.de/static/3b05b79fac41dea9fb781e8519d1d810/f836f/1914-1.jpg"}
+  ]
+}
