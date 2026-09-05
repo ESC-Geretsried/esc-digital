@@ -47,7 +47,9 @@ jobs:
       - name: Build static ESC site
         if: steps.window.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
         env:
-          HUGO_BASEURL: https://orp-esc-int.netlify.app/
+          # Netlify serves the artifact at the demo domain; relative URLs keep
+          # the same artifact portable and satisfy the public-copy leak gate.
+          HUGO_BASEURL: /
           HOCKEYDATA_API_KEY: ${{ secrets.HOCKEYDATA_API_KEY }}
         run: |
           bash site/scripts/build.sh
