@@ -1,0 +1,63 @@
+name: Build and publish ESC demo
+
+on:
+  workflow_dispatch:
+  schedule:
+    # GitHub cron is UTC. The gate below keeps the requested times in
+    # Europe/Berlin correct across daylight-saving changes.
+    - cron: '*/15 * * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: esc-demo-publish
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ESC source
+        uses: actions/checkout@v4
+
+      - name: Check requested Europe/Berlin build time
+        id: window
+        run: |
+          current=$(TZ=Europe/Berlin date +%H:%M)
+          case "$current" in
+            06:00|12:00|16:00|19:00|21:30|22:00|22:45) echo "run=true" >> "$GITHUB_OUTPUT" ;;
+            *) echo "run=false" >> "$GITHUB_OUTPUT" ;;
+          esac
+      - name: Stop outside requested build times
+        if: steps.window.outputs.run != 'true' && github.event_name != 'workflow_dispatch'
+        run: echo "No build scheduled for this Europe/Berlin quarter-hour."
+
+      - name: Install build tools
+        if: steps.window.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
+        run: sudo apt-get update && sudo apt-get install -y hugo
+
+      - name: Validate source
+        if: steps.window.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
+        run: |
+          python3 scripts/owml.py validate
+          python3 scripts/owml.py generate --check
+          python3 site/scripts/validate_river_rats_editor.py
+
+      - name: Build static ESC site
+        if: steps.window.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
+        env:
+          HUGO_BASEURL: https://orp-esc-int.netlify.app/
+          HOCKEYDATA_API_KEY: ${{ secrets.HOCKEYDATA_API_KEY }}
+        run: |
+          bash site/scripts/build.sh
+          python3 site/scripts/import_wordpress_news.py --api "${WP_API_BASE:-https://2026.esc-geretsried.de/wp-json/wp/v2}"
+          bash site/scripts/validate.sh
+
+      - name: Publish demo to Netlify
+        if: steps.window.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
+        uses: netlify/actions/cli@master
+        with:
+          args: deploy --dir=site/public --prod --site=${{ secrets.NETLIFY_SITE_ID }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
