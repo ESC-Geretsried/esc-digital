@@ -144,7 +144,9 @@ def rewrite_and_links(page: str, source_url: str, host: str, output: Path, queue
         if parts.netloc != host:
             return match.group(0)
         target = local_path(absolute, output)
-        queue.append(absolute)
+        path = parts.path.lower()
+        if not parts.query and not path.startswith(("/wp-", "/feed", "/comments")):
+            queue.append(absolute)
         target.parent.mkdir(parents=True, exist_ok=True)
         rel = Path("/") / target.relative_to(output)
         return f'{match.group("prefix")}{html.escape(str(rel), quote=True)}{match.group("quote")}'
@@ -177,7 +179,7 @@ def main() -> int:
         pass
     queue: deque[str] = deque(dict.fromkeys(seed))
     seen: set[str] = set()
-    while queue:
+    while queue and len(seen) < 300:
         url = queue.popleft()
         if url in seen or urlsplit(url).netloc != host:
             continue
@@ -201,6 +203,8 @@ def main() -> int:
             target.write_text(page, encoding="utf-8")
         else:
             target.write_bytes(raw)
+    if queue:
+        print("WARNING: static snapshot reached the 300-page safety limit", file=sys.stderr)
     if not (args.output / "index.html").exists():
         raise SystemExit("ERROR: static snapshot did not contain a homepage")
     print(f"STATIC_DEMO_SNAPSHOT: {len(seen)} public URLs captured")
