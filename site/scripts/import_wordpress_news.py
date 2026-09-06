@@ -15,6 +15,7 @@ import json
 from pathlib import Path
 import re
 import ssl
+from urllib.error import HTTPError
 from urllib.parse import urljoin, urlparse
 from urllib.request import Request, urlopen
 
@@ -127,6 +128,11 @@ def sanitize_content(raw: str, public_root: Path, media_root: Path, cache: dict[
 
 def is_flash(post: dict, categories: dict[int, str]) -> bool:
     names = {categories.get(int(item), "").strip().lower() for item in post.get("categories", [])}
+    embedded = post.get("_embedded", {})
+    for term_group in embedded.get("wp:term", []) if isinstance(embedded, dict) else []:
+        for term in term_group if isinstance(term_group, list) else []:
+            if isinstance(term, dict) and str(term.get("taxonomy", "")) == "category":
+                names.add(str(term.get("name", "")).strip().lower())
     title = clean_text(post.get("title", {}).get("rendered", "")).lower()
     return bool(names & FLASH_TERMS) or "flash-news" in title or title.startswith("flashnews")
 
@@ -164,7 +170,15 @@ def main() -> int:
     public = args.public.resolve()
     media_root = public / "images" / "news"
     media_root.mkdir(parents=True, exist_ok=True)
-    categories_raw, _ = request_json(args.api.rstrip("/") + "/categories?per_page=100")
+    try:
+        categories_raw, _ = request_json(args.api.rstrip("/") + "/categories?per_page=100")
+    except HTTPError as exc:
+        # Some WordPress installations expose posts but protect the category
+        # collection.  Embedded terms in the post response are sufficient for
+        # the Flash-News exclusion and keep the build fail-open only for this
+        # non-essential metadata endpoint.
+        print(f"WARNING: WordPress categories endpoint returned {exc.code}; using embedded post terms")
+        categories_raw = []
     categories = {int(item["id"]): str(item["name"]) for item in categories_raw if isinstance(item, dict)}
     posts, _ = request_json(args.api.rstrip("/") + f"/posts?status=publish&per_page={args.max_posts}&orderby=date&order=desc&_embed=1")
     if not isinstance(posts, list):
@@ -183,7 +197,9 @@ def main() -> int:
         if not title or not post.get("date"):
             continue
         date_iso, date_display = date_parts(post["date"])
-        category = next((categories.get(int(item), "") for item in post.get("categories", [])), "")
+        embedded_terms = post.get("_embedded", {}).get("wp:term", []) if isinstance(post.get("_embedded"), dict) else []
+        embedded_categories = [term.get("name", "") for group in embedded_terms if isinstance(group, list) for term in group if isinstance(term, dict) and term.get("taxonomy") == "category"]
+        category = next((categories.get(int(item), "") for item in post.get("categories", []) if categories.get(int(item), "")), "") or (embedded_categories[0] if embedded_categories else "")
         path = f"/aktuelles/{date_iso}-{slugify(title)}/"
         embedded = post.get("_embedded", {})
         media = embedded.get("wp:featuredmedia", []) if isinstance(embedded, dict) else []
