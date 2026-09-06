@@ -1,0 +1,10 @@
+{
+  "apiVersion": 3,
+  "name": "esc-river-rats/header-navigation",
+  "title": "ESC Header-Navigation",
+  "category": "theme",
+  "icon": "menu",
+  "description": "Gibt die im ESC Header Builder gepflegte WordPress-Navigation aus.",
+  "editorScript": "file:./index.js",
+  "supports": { "html": false }
+}

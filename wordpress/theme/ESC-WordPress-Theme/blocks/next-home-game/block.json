@@ -1,0 +1,10 @@
+{
+  "apiVersion": 3,
+  "name": "esc-river-rats/next-home-game",
+  "title": "Nächstes Heimspiel",
+  "category": "widgets",
+  "icon": "calendar-alt",
+  "description": "Zeigt automatisch das nächste Heimspiel der River Rats.",
+  "editorScript": "file:./index.js",
+  "supports": { "html": false }
+}

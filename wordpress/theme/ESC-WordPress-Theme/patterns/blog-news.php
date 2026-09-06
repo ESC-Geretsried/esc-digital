@@ -1,0 +1,8 @@
+<?php
+/**
+ * Title: Zentrale News-Blogseite
+ * Slug: esc-river-rats/blog-news
+ * Categories: esc-river-rats
+ */
+?>
+<!-- wp:group {"className":"section shell blog-news","layout":{"type":"constrained"}} --><main class="wp-block-group section shell blog-news"><div class="news-blog-heading"><p class="eyebrow">ESC RIVER RATS · REDAKTION</p><div class="news-blog-heading__title"><h1>NEWS</h1><!-- wp:site-logo {"width":108,"shouldSyncIcon":false} /--></div><p>Alle Meldungen des ESC River Rats Geretsried e.V. – übersichtlich nach Bereich und Jahr.</p></div><!-- wp:esc-river-rats/news-filters /--><!-- wp:query {"namespace":"esc-news-blog","query":{"inherit":false,"perPage":12,"postType":"post","order":"desc","orderBy":"date"}} --><div class="wp-block-query"><div class="news-blog-list"><!-- wp:post-template --><!-- wp:group {"className":"card news-archive-card"} --><article class="wp-block-group card news-archive-card"><!-- wp:post-featured-image {"isLink":true} /--><div class="news-archive-card__body"><!-- wp:post-date /--><!-- wp:post-terms {"term":"category"} /--><!-- wp:post-title {"isLink":true,"level":3} /--><!-- wp:post-excerpt {"moreText":"WEITERLESEN →"} /--></div></article><!-- /wp:group --><!-- /wp:post-template --><!-- wp:query-no-results --><p class="news-empty">Für diese Auswahl wurden keine Meldungen gefunden.</p><!-- /wp:query-no-results --></div><!-- wp:query-pagination --><div class="wp-block-query-pagination"><!-- wp:query-pagination-previous {"label":"← Neuer"} /--><!-- wp:query-pagination-numbers /--><!-- wp:query-pagination-next {"label":"Älter →"} /--></div><!-- /wp:query-pagination --></div><!-- /wp:query --></main><!-- /wp:group -->

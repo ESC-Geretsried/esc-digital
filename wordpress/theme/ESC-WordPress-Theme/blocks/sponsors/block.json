@@ -1,0 +1,10 @@
+{
+  "apiVersion": 3,
+  "name": "esc-river-rats/sponsors",
+  "title": "Sponsorenband",
+  "category": "widgets",
+  "icon": "groups",
+  "description": "Zeigt aktive Sponsoren aus der Theme-Verwaltung.",
+  "editorScript": "file:./index.js",
+  "supports": { "html": false }
+}

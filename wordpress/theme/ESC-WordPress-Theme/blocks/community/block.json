@@ -1,0 +1,10 @@
+{
+  "apiVersion": 3,
+  "name": "esc-river-rats/community",
+  "title": "Gemeinschaft",
+  "category": "widgets",
+  "icon": "groups",
+  "description": "Zeigt die vier zentral gepflegten Gemeinschafts-Kacheln.",
+  "editorScript": "file:./index.js",
+  "supports": { "html": false }
+}

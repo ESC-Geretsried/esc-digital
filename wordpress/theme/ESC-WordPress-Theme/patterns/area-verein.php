@@ -1,0 +1,4 @@
+<?php /** Title: News – Verein
+ * Slug: esc-river-rats/area-verein
+ */ ?>
+<!-- wp:group {"className":"section shell","layout":{"type":"constrained"}} --><section class="wp-block-group section shell"><!-- wp:post-title {"level":1} /--><!-- wp:query {"namespace":"esc-news-verein","query":{"perPage":12,"postType":"post","inherit":false}} --><div class="wp-block-query cards cards-3"><!-- wp:post-template --><!-- wp:group {"className":"card"} --><article class="wp-block-group card"><!-- wp:post-featured-image {"isLink":true} /--><!-- wp:post-title {"isLink":true,"level":3} /--><!-- wp:post-date /--><!-- wp:post-excerpt /--></article><!-- /wp:group --><!-- /wp:post-template --></div><!-- /wp:query --><p class="news-card__all"><a href="/category/verein/">ALLE NEWS</a></p></section><!-- /wp:group -->

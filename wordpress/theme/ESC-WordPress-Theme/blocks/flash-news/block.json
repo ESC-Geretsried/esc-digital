@@ -1,0 +1,10 @@
+{
+  "apiVersion": 3,
+  "name": "esc-river-rats/flash-news",
+  "title": "Flash-News",
+  "category": "widgets",
+  "icon": "megaphone",
+  "description": "Zeigt veröffentlichte Flash-News aus der Kategorie Flashnews.",
+  "editorScript": "file:./index.js",
+  "supports": { "html": false }
+}
