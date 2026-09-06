@@ -1,0 +1,26 @@
+direction: right
+
+form: "Membership form\nfields + SEPA + consents"
+satzung: "Current Satzung\nsubmission authority"
+order: "Current Geschäftsordnung\ncontributions + operating rules"
+assistant: "Mobile membership assistant"
+review: "Applicant reviews"
+sign: "Signed written application"
+email: "Email to Geschäftsstelle"
+letter: "Letter to Geschäftsstelle"
+processing: "ESC membership administration"
+
+form -> assistant: "field/schema source"
+satzung -> assistant: "current process rule"
+order -> assistant: "current operating rules"
+assistant -> review
+review -> sign
+sign -> email: "permitted"
+sign -> letter: "permitted"
+email -> processing
+letter -> processing
+
+oldnote: "2018 form note:\nemail not accepted" {
+  style.stroke-dash: 3
+}
+oldnote -> satzung: "SUPERSEDED where conflicting"

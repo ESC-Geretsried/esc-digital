@@ -1,0 +1,28 @@
+direction: down
+
+satzung: "Satzung\nGovernance authority"
+gesch: "Geschäftsordnung\nOperational governance"
+form: "Membership form\nOfficial template"
+leitbild: "Leitbild\nValues / guidance"
+process: "Derived process models\nMD / D2 / JSON"
+editor: "Future ORP Editor\nUpload / Draft / Review / Approve"
+git: "Approved Git record packages"
+ai: "AI / automation consumers"
+
+satzung -> gesch: "delegates / constrains"
+satzung -> form: "constrains process"
+gesch -> form: "operationalizes"
+leitbild -> process: "alignment context"
+satzung -> process
+gesch -> process
+form -> process: "field/schema source"
+editor -> git: "controlled PR/CI lifecycle"
+git -> process: "derive + verify"
+process -> ai: "latest effective APPROVED only"
+
+conflict: "Conflict gate" {
+  shape: diamond
+}
+form -> conflict: "old no-email note"
+satzung -> conflict: "current email-permitted rule"
+conflict -> process: "record supersession explicitly"
