@@ -54,6 +54,13 @@ def scalar(value: object) -> str:
         for key in ("value", "text", "html", "longname", "shortname", "name"):
             if value.get(key) is not None:
                 return scalar(value[key])
+        # Hockeydata has used both flat and nested team objects over time.
+        # Resolve the first meaningful display value without copying the raw
+        # provider payload into the public artifact.
+        for nested in value.values():
+            resolved = scalar(nested)
+            if resolved:
+                return resolved
         return ""
     return "" if value is None else str(value)
 
