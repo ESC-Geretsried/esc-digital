@@ -55,6 +55,11 @@ jobs:
           bash site/scripts/build.sh
           python3 site/scripts/import_wordpress_news.py --api "${WP_API_BASE:-https://2026.esc-geretsried.de/wp-json/wp/v2}"
           bash site/scripts/validate.sh
+          python3 site/scripts/build_static_demo_snapshot.py \
+            --source "${WP_PUBLIC_BASE:-https://2026.esc-geretsried.de/}" \
+            --output site/public \
+            --hockeydata-key "$HOCKEYDATA_API_KEY"
+          python3 site/scripts/validate_static_demo_snapshot.py site/public
 
       - name: Publish demo to Netlify
         if: steps.window.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
