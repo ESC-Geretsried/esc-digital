@@ -51,6 +51,7 @@ jobs:
           # the same artifact portable and satisfy the public-copy leak gate.
           HUGO_BASEURL: /
           HOCKEYDATA_API_KEY: ${{ secrets.HOCKEYDATA_API_KEY }}
+          ESC_STATIC_DEMO_DEBUG_FIELDS: '1'
         run: |
           bash site/scripts/build.sh
           python3 site/scripts/import_wordpress_news.py --api "${WP_API_BASE:-https://2026.esc-geretsried.de/wp-json/wp/v2}"
