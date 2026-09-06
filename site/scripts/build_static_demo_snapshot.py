@@ -11,7 +11,6 @@ from __future__ import annotations
 import argparse
 import html
 import json
-import os
 import re
 import shutil
 import sys
@@ -76,8 +75,6 @@ def first(row: dict, keys: tuple[str, ...]) -> str:
 
 def hockey_table(payload: dict, standings: bool = False) -> str:
     rows = ((payload.get("data") or {}).get("rows") or [])
-    if rows and os.environ.get("ESC_STATIC_DEMO_DEBUG_FIELDS") == "1":
-        print("HOCKEYDATA_FIELD_NAMES: " + ",".join(sorted(str(key) for key in rows[0].keys())))
     if not rows:
         return '<p class="snapshot-empty">Aktuell liegen keine Daten vor.</p>'
     if standings:
